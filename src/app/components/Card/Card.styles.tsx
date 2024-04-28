@@ -16,9 +16,15 @@ export const StyledAmount = styled.p`
 export const StyledAmountAndPerformanceWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: end;
   margin: 0;
 `
 
 export const StyledPaper = styled(Paper)`
   border-radius: 0.5rem;
+`
+
+export const StyledPerformanceOverview = styled.p`
+  color: #516778;
+
 `
