@@ -10,7 +10,7 @@ const meta = {
 export default meta
 
 const Template: StoryFn = (args) => (
-  <div style={{ backgroundColor: "red" }}>
+  <div className="bg-slate-500">
     <Border {...args} />
   </div>
 )
