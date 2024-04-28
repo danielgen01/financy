@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import { MenuItemProps } from "./MenuItem.types"
+import Image from "next/image"
 
-export const StyledLabelText = styled.span<MenuItemProps>`
+export const StyledLabelText = styled.a<MenuItemProps>`
   font-weight: 600;
   font-size: 16px;
   color: #516778;
@@ -17,4 +18,8 @@ export const StyledLabelText = styled.span<MenuItemProps>`
     background-color: #f2f6fd;
     cursor: pointer;
   }
+`
+
+export const StyledListItem = styled.li`
+  list-style-type: none;
 `

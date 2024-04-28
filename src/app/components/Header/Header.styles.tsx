@@ -1,6 +1,6 @@
 import { styled } from "styled-components"
 
-export const StyledHeaderWrapper = styled.div`
+export const StyledHeaderWrapper = styled.nav`
   background-color: #ffffff;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -16,7 +16,7 @@ export const StyledHeaderWrapper = styled.div`
   }
 `
 
-export const StyledMenuList = styled.div`
+export const StyledMenuList = styled.ul`
   display: flex;
   gap: 1rem;
 
