@@ -22,9 +22,16 @@ export const StyledAmountAndPerformanceWrapper = styled.div`
 
 export const StyledPaper = styled(Paper)`
   border-radius: 0.5rem;
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s;
+
+  &:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+  }
 `
 
 export const StyledPerformanceOverview = styled.p`
   color: #516778;
-
 `
