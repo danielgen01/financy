@@ -1,6 +1,5 @@
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { MenuItemProps } from "./MenuItem.types"
-import Image from "next/image"
 
 export const StyledLabelText = styled.a<MenuItemProps>`
   font-weight: 600;
@@ -11,7 +10,12 @@ export const StyledLabelText = styled.a<MenuItemProps>`
   border-radius: 0.25rem;
 
   ${({ isActive }) =>
-    isActive === true && `color:#5854c0 , background-color: #f2f6fd;`}
+    isActive === true
+      ? `
+      color: #5854c0;
+      background-color: #f2f6fd;
+    `
+      : ""}
 
   &:hover {
     color: #5854c0;
