@@ -1,6 +1,6 @@
-import React from "react"
 import styled from "@emotion/styled"
-import { Button, IconButton } from "@mui/material"
+import { Button } from "@mui/material"
+import { BigCardProps } from "./BigCard.types"
 
 export const StyledBigCardWrapper = styled.div`
   padding: 30px 20px;
@@ -11,30 +11,10 @@ export const StyledBigCardWrapper = styled.div`
   gap: 20px;
 `
 
-export const StyledAddButton = styled(Button)`
-  background-color: #4caf50;
-  color: white;
+export const StyledAddButton = styled(Button)<BigCardProps>`
+  color: ${({ color }) => (color === "red" ? "#ff0000" : "#0b9055")};
 
-  &:hover {
-    background-color: #388e3c;
-  }
-`
-export const StyledEdit = styled(IconButton)`
-  background-color: blue;
-  color: white;
-  border-radius: 10rem;
-
-  &:hover {
-    background-color: #388e3c;
-  }
-`
-
-export const StyledDeleteButton = styled(IconButton)`
-  background-color: purple;
-  color: white;
-  border-radius: 10rem;
-
-  &:hover {
-    background-color: #388e3c;
+  svg {
+    color: ${({ color }) => (color === "red" ? "#ff0000" : "#0b9055")};
   }
 `

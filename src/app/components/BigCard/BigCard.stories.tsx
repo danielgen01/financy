@@ -1,12 +1,14 @@
 import type { Meta, StoryFn } from "@storybook/react"
 import { BigCard } from "./BigCard"
-
+import { BigCardProps } from "./BigCard.types"
+import { headlineItemsMockCard } from "@/headlineItems.mock"
+import { listItemsMock } from "@/listItems.mock"
 export default {
   title: "Components/BigCard",
   component: BigCard,
 } as Meta
 
-const Template: StoryFn<any> = (args) => {
+const Template: StoryFn<BigCardProps> = (args) => {
   return (
     <div
       style={{
@@ -16,14 +18,18 @@ const Template: StoryFn<any> = (args) => {
         padding: "1rem",
       }}
     >
-      <BigCard {...args} />
+      <BigCard
+        {...args}
+        listItems={listItemsMock.listItems}
+        color="red"
+        headlineItems={headlineItemsMockCard}
+      />
     </div>
   )
 }
 
 export const Initial = Template.bind({})
 Initial.args = {
-  title: "Balance",
-  amount: 0,
-  performance: 20,
+  cardTitle: "Income",
+  buttonActionName: "Add Income",
 }

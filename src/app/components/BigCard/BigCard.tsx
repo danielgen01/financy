@@ -1,66 +1,57 @@
 import React from "react"
-import {
-  StyledAddButton,
-  StyledBigCardWrapper,
-  StyledDeleteButton,
-  StyledEdit,
-} from "./BigCard.styles"
-import { AddCircleOutline, DeleteForever } from "@mui/icons-material"
-import EditIcon from "@mui/icons-material/Edit"
+import { StyledBigCardWrapper, StyledAddButton } from "./BigCard.styles"
+import { AddCircleOutline } from "@mui/icons-material"
+import { ListItem } from "./ListItem"
+import { BigCardProps } from "./BigCard.types"
+import { ListItemProps } from "./ListItem.types"
 
-import { Button } from "@mui/material"
-
-export const BigCard = () => {
+export const BigCard: React.FC<BigCardProps> = ({
+  listItems,
+  cardTitle,
+  buttonActionName,
+  headlineItems,
+}) => {
+  const determineTotal = () => {
+    let total = 0
+    listItems?.forEach((listItem: ListItemProps) => {
+      total += listItem.cashflowAmount
+    })
+    return total
+  }
   return (
     <StyledBigCardWrapper>
       <div className="headline flex justify-between">
-        <h1 className="text-semibold text-2xl">Income</h1>
+        <h1 className="text-semibold text-2xl">{cardTitle}</h1>
         <StyledAddButton
           className="px-2 py-1 bg-green-500 text-green-200 rounded-md"
           endIcon={<AddCircleOutline />}
         >
-          Add income
+          {buttonActionName}
         </StyledAddButton>
       </div>
       <div className="styled-list-wrapper flex flex-col gap-2 mt-10 ">
         <div className="headlines bg-gray-200 w-full flex justify-between px-2 py-1 rounded-md">
-          <span>Description</span>
-          <span>Cash Flow</span>
-          <span>Actions</span>
+          {headlineItems?.map((headlineItem) => {
+            return <span key={headlineItem + 1}>{headlineItem.headline}</span>
+          })}
         </div>
-        <ListItem />
-        <ListItem />
-        <ListItem />
-        <ListItem />
+
+        {listItems?.map((listItem: ListItemProps) => {
+          return (
+            <ListItem
+              name={listItem.name}
+              key={listItem.name + 1}
+              cashflowAmount={listItem.cashflowAmount}
+            />
+          )
+        })}
       </div>
       <div className="total bg-gray-300 flex w-full justify-center rounded-md py-3">
-        <span className="styled-total-income">Total income: $12000</span>
+        <span className="styled-total-income">
+          Total :{" "}
+          <strong style={{ fontSize: "18px" }}>${determineTotal()}</strong>
+        </span>
       </div>
     </StyledBigCardWrapper>
-  )
-}
-
-export const ListItem = () => {
-  return (
-    <div className="Styled-ListItem-wrapper flex  justify-between px-2 py-1 w-full">
-      <div className="Styled-Name-Wrapper flex justify-start  w-full">
-        <span className="name">Salary</span>
-      </div>
-
-      <div className="Styled-Price-Wrapper flex justify-center   w-full ">
-        <span className="cash-flow flex justify-center ">$2600</span>
-      </div>
-
-      <div className="Styled-Actions-Wrapper flex justify-end  w-full">
-        <div className="actions flex gap-2">
-          <StyledEdit>
-            <EditIcon />
-          </StyledEdit>
-          <StyledDeleteButton>
-            <DeleteForever />
-          </StyledDeleteButton>
-        </div>{" "}
-      </div>
-    </div>
   )
 }
