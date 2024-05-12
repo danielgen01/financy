@@ -28,15 +28,13 @@ export const StyledBigCardHeadWrapper = styled.div`
 export const StyledHeadlineAndListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2;
-  margin-top: 10;
 `
 
 export const StyledHeadlineWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px 5px 10px;
+  padding: 5px 10px 10px 10px;
   background-color: #f1f1f1;
   border-radius: 5px;
 `
