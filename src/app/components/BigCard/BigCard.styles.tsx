@@ -11,10 +11,45 @@ export const StyledBigCardWrapper = styled.div`
   gap: 20px;
 `
 
+//TODO: conditional styling currently not workoing
 export const StyledAddButton = styled(Button)<BigCardProps>`
   color: ${({ color }) => (color === "red" ? "#ff0000" : "#0b9055")};
 
   svg {
     color: ${({ color }) => (color === "red" ? "#ff0000" : "#0b9055")};
   }
+`
+
+export const StyledBigCardHeadWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+export const StyledHeadlineAndListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2;
+  margin-top: 10;
+`
+
+export const StyledHeadlineWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 5px 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+`
+export const StyledTotalAmountWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15px 0px 15px 0px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+`
+
+export const StyledCardTitle = styled.h2`
+  font-weight: 400;
+  font-size: 1.5rem;
 `

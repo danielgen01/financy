@@ -1,5 +1,13 @@
 import React from "react"
-import { StyledBigCardWrapper, StyledAddButton } from "./BigCard.styles"
+import {
+  StyledBigCardWrapper,
+  StyledAddButton,
+  StyledBigCardHeadWrapper,
+  StyledHeadlineAndListWrapper,
+  StyledHeadlineWrapper,
+  StyledTotalAmountWrapper,
+  StyledCardTitle,
+} from "./BigCard.styles"
 import { AddCircleOutline } from "@mui/icons-material"
 import { ListItem } from "./ListItem"
 import { BigCardProps } from "./BigCard.types"
@@ -20,21 +28,22 @@ export const BigCard: React.FC<BigCardProps> = ({
   }
   return (
     <StyledBigCardWrapper>
-      <div className="headline flex justify-between">
-        <h1 className="text-semibold text-2xl">{cardTitle}</h1>
-        <StyledAddButton
-          className="px-2 py-1 bg-green-500 text-green-200 rounded-md"
-          endIcon={<AddCircleOutline />}
-        >
+      <StyledBigCardHeadWrapper>
+        <StyledCardTitle>{cardTitle}</StyledCardTitle>
+        <StyledAddButton endIcon={<AddCircleOutline />}>
           {buttonActionName}
         </StyledAddButton>
-      </div>
-      <div className="styled-list-wrapper flex flex-col gap-2 mt-10 ">
-        <div className="headlines bg-gray-200 w-full flex justify-between px-2 py-1 rounded-md">
+      </StyledBigCardHeadWrapper>
+      <StyledHeadlineAndListWrapper>
+        <StyledHeadlineWrapper>
           {headlineItems?.map((headlineItem) => {
-            return <span key={headlineItem + 1}>{headlineItem.headline}</span>
+            return (
+              <span key={headlineItem.headline + 1}>
+                {headlineItem.headline}
+              </span>
+            )
           })}
-        </div>
+        </StyledHeadlineWrapper>
 
         {listItems?.map((listItem: ListItemProps) => {
           return (
@@ -45,13 +54,13 @@ export const BigCard: React.FC<BigCardProps> = ({
             />
           )
         })}
-      </div>
-      <div className="total bg-gray-300 flex w-full justify-center rounded-md py-3">
-        <span className="styled-total-income">
+      </StyledHeadlineAndListWrapper>
+      <StyledTotalAmountWrapper>
+        <span>
           Total :{" "}
           <strong style={{ fontSize: "18px" }}>${determineTotal()}</strong>
         </span>
-      </div>
+      </StyledTotalAmountWrapper>
     </StyledBigCardWrapper>
   )
 }
