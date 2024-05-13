@@ -5,7 +5,7 @@ import Card from "./components/Card/Card"
 import { FilterMenu } from "./components/FilterMenu/FilterMenu"
 import { headlineItemsMockCard } from "@/headlineItems.mock"
 
-export default function HomePageAKADashboardPage() {
+export default  function HomePageAKADashboardPage() {
   return (
     <>
       <div className="grid grid-cols-1 gap-10 mt-10 px-4 xl:px-16 md:grid-cols-2 xl:grid-cols-3 ">
@@ -17,7 +17,7 @@ export default function HomePageAKADashboardPage() {
         <h1 className="text-4xl font-semibold">Income Statement</h1>
         <FilterMenu />
       </div>
-      <section className="big-cards-wrapper-section grid grid-cols-1 px-4 xl:px-16 gap-10 mt-10 md:grid-cols-2  ">
+      <section className="big-cards-wrapper-section grid grid-cols-1 px-4 xl:px-16 gap-10 mt-10 xl:grid-cols-2">
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"
