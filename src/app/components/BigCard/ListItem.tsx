@@ -11,9 +11,14 @@ import {
 import EditIcon from "@mui/icons-material/Edit"
 import { ListItemProps } from "./ListItem.types"
 
-export const ListItem: React.FC<ListItemProps> = ({ name, cashflowAmount }) => {
+export const ListItem: React.FC<ListItemProps> = ({
+  name,
+  cashflowAmount,
+  onRemove,
+  id,
+}) => {
   return (
-    <StyledListItemWrapper>
+    <StyledListItemWrapper id={id}>
       <StyledNameWrapper>
         <span>{name}</span>
       </StyledNameWrapper>
@@ -26,7 +31,7 @@ export const ListItem: React.FC<ListItemProps> = ({ name, cashflowAmount }) => {
         <StyledEditButtonWrapper onClick={() => console.log("Edit")}>
           <EditIcon />
         </StyledEditButtonWrapper>
-        <StyledDeleteButton onClick={() => console.log("delete")}>
+        <StyledDeleteButton onClick={() => onRemove && onRemove(id)}>
           <DeleteForever />
         </StyledDeleteButton>
       </StyledActionButtonsWrapper>

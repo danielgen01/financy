@@ -45,6 +45,7 @@ export const StyledTotalAmountWrapper = styled.div`
   padding: 15px 0px 15px 0px;
   background-color: #f1f1f1;
   border-radius: 5px;
+  margin-top: auto;
 `
 
 export const StyledCardTitle = styled.h2`
