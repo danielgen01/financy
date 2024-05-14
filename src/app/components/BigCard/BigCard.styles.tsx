@@ -18,6 +18,8 @@ export const StyledAddButton = styled(Button)<BigCardProps>`
   svg {
     color: ${({ color }) => (color === "red" ? "#ff0000" : "#0b9055")};
   }
+  font-size: 14px;
+  background-color: rgba(11, 144, 85, 0.25);
 `
 
 export const StyledBigCardHeadWrapper = styled.div`
