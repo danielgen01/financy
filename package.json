@@ -24,6 +24,7 @@
     "node": "^22.0.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-hook-form": "^7.51.4",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
