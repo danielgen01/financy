@@ -10,7 +10,6 @@ export const CardWrapper = styled.div`
 export const StyledAmount = styled.p`
   font-weight: 600;
   font-size: 36px;
-  color: #5854c0;
   margin: 0;
 `
 export const StyledAmountAndPerformanceWrapper = styled.div`
