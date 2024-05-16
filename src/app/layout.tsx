@@ -23,7 +23,9 @@ export default function RootLayout({
           <header>
             <Header />
           </header>
-          <main>{children}</main>
+          <main className="px-5 sm:px-10 md:px-16 lg:px-20 2xl:px-52">
+            {children}
+          </main>
           <footer className="mt-auto">Footer</footer>
         </EmotionProvider>
       </body>
