@@ -4,8 +4,31 @@ import { BigCard } from "./components/BigCard/BigCard"
 import Card from "./components/Card/Card"
 import { FilterMenu } from "./components/FilterMenu/FilterMenu"
 import { headlineItemsMockCard } from "@/headlineItems.mock"
+import { getFirebaseData } from "../app/utils/firebaseConfig"
+import React, { useState } from "react"
 
 export default function HomePageAKADashboardPage() {
+  const [incomeData, setIncomeData] = useState([])
+  const [expenseData, setExpenseData] = useState([])
+  const [assetData, setAssetData] = useState([])
+  const [liabilityData, setLiabilityData] = useState([])
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const incomeData = await getFirebaseData("incomeItems")
+      const expenseData = await getFirebaseData("expensesItems")
+      const assetData = await getFirebaseData("assets")
+      const liabilityData = await getFirebaseData("liabilities")
+
+      setIncomeData(incomeData)
+      setExpenseData(expenseData)
+      setAssetData(assetData)
+      setLiabilityData(liabilityData)
+    }
+
+    fetchData()
+  }, [])
+
   return (
     <>
       <div className="grid grid-cols-1 gap-10 mt-10 px-4 xl:px-16 md:grid-cols-2 xl:grid-cols-3 ">
@@ -23,28 +46,28 @@ export default function HomePageAKADashboardPage() {
           color="red"
           buttonActionName="Add Income"
           cardTitle="Income"
-          listItems={listItemsMock.listItems}
+          listItems={incomeData}
         />
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"
           buttonActionName="Add Expense"
           cardTitle="Expenses"
-          listItems={listItemsMock.listItems}
+          listItems={expenseData}
         />
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"
           buttonActionName="Add asset"
           cardTitle="Assets"
-          listItems={listItemsMock.listItems}
+          listItems={assetData}
         />
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"
           buttonActionName="Add Liability"
           cardTitle="Liabilities"
-          listItems={listItemsMock.listItems}
+          listItems={liabilityData}
         />
       </section>
     </>

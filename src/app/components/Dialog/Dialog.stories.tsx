@@ -8,11 +8,8 @@ export default {
 
 const Template: StoryFn = (args) => {
   return (
-    <div
-      //   style={{ backgroundColor: "#535f2e", padding: "1rem", height: "100vh" }}
-      className="h-screen w-screen bg-black opacity-80 flex justify-center items-center"
-    >
-      <Dialog {...args} />
+    <div className="h-screen w-screen bg-black opacity-80 flex justify-center items-center">
+      <Dialog {...args} open />
     </div>
   )
 }

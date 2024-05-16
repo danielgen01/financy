@@ -24,6 +24,7 @@ import {
   StyledTotalAmountWrapper,
 } from "./BigCard.styles"
 import { firebaseApp } from "@/app/utils/firebaseConfig"
+import { Dialog } from "../Dialog/Dialog"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -31,7 +32,18 @@ export const BigCard: React.FC<BigCardProps> = ({
   buttonActionName,
   headlineItems,
 }) => {
-  const [cardItems, setCardItems] = useState<ListItemProps[]>([])
+  const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems)
+  const [openDialog, setOpenDialog] = useState(false)
+
+  const handleClose = () => {
+    setOpenDialog(false)
+    console.log(openDialog)
+  }
+
+  const handleOpen = () => {
+    setOpenDialog(true)
+    console.log(openDialog)
+  }
 
   // Gesamtbetrag berechnen
   const determineTotal = () => {
@@ -42,10 +54,22 @@ export const BigCard: React.FC<BigCardProps> = ({
     return total
   }
 
+  const determineItemsRef = () => {
+    if (cardTitle === "Income") {
+      return "incomeItems"
+    } else if (cardTitle === "Expenses") {
+      return "expensesItems"
+    } else if (cardTitle === "Assets") {
+      return "assetsItems"
+    } else {
+      return "liabilitiesItems"
+    }
+  }
+
   // Funktion zum Abrufen und Aktualisieren der Daten
   const fetchCardItemsFromDatabase = () => {
     const db = getDatabase()
-    const itemsRef = ref(db, "listItems")
+    const itemsRef = ref(db, determineItemsRef())
 
     // Fügen Sie einen Listener hinzu, um Änderungen an den Daten zu beobachten
     onValue(itemsRef, (snapshot) => {
@@ -66,7 +90,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   const addCardItem = async () => {
     try {
       const db = getDatabase(firebaseApp)
-      const newItemRef = push(ref(db, "listItems"), {
+      const newItemRef = push(ref(db, determineItemsRef()), {
         name: "New Card Item",
         cashflowAmount: 0,
       })
@@ -89,7 +113,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   const removeCardItem = async (itemId: any) => {
     try {
       const db = getDatabase()
-      await remove(ref(db, `listItems/${itemId}`))
+      await remove(ref(db, `${determineItemsRef()}/${itemId}`))
       console.log("Element erfolgreich entfernt")
       setCardItems(cardItems?.filter((item) => item.id !== itemId))
     } catch (error) {
@@ -97,21 +121,9 @@ export const BigCard: React.FC<BigCardProps> = ({
     }
   }
 
-  // const newCardItem: ListItemProps = {
-  //   name: "New Card Item",
-  //   cashflowAmount: 0,
-  // }
-  // // Ein neues Element zur Datenbank hinzufügen
-  // const newItemRef = push(ref(database, "listItems"), newCardItem)
-  // const newItemKey = newItemRef.key
-  // // Setze das neue Element in den lokalen Zustand, nachdem es erfolgreich zur Datenbank hinzugefügt wurde
-  // newItemRef
-  //   .then(() => {
-  //     setCardItems([...cardItems, { ...newCardItem, id: newItemKey }])
-  //   })
-  //   .catch((error) => {
-  //     console.error("Fehler beim Hinzufügen des Elements: ", error)
-  //   })
+  const renderDialog = () => {
+    return <Dialog open={openDialog} onClose={handleClose}></Dialog>
+  }
 
   return (
     <StyledBigCardWrapper>
@@ -132,17 +144,18 @@ export const BigCard: React.FC<BigCardProps> = ({
           })}
         </StyledHeadlineWrapper>
 
-        {cardItems?.map((listItem: ListItemProps) => {
-          return (
-            <ListItem
-              id={listItem.id}
-              name={listItem.name}
-              key={listItem.id}
-              cashflowAmount={listItem.cashflowAmount}
-              onRemove={removeCardItem} // Hier wird die Funktion übergeben
-            />
-          )
-        })}
+        {cardItems &&
+          cardItems?.map((listItem: ListItemProps) => {
+            return (
+              <ListItem
+                id={listItem.id}
+                name={listItem.name}
+                key={listItem.id}
+                cashflowAmount={listItem.cashflowAmount}
+                onRemove={removeCardItem} // Hier wird die Funktion übergeben
+              />
+            )
+          })}
       </StyledHeadlineAndListWrapper>
       <hr />
       <StyledTotalAmountWrapper>
@@ -151,6 +164,7 @@ export const BigCard: React.FC<BigCardProps> = ({
           <strong style={{ fontSize: "18px" }}>${determineTotal()}</strong>
         </span>
       </StyledTotalAmountWrapper>
+      {openDialog && renderDialog()}
     </StyledBigCardWrapper>
   )
 }

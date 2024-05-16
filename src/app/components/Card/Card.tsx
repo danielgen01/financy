@@ -5,7 +5,6 @@ import {
   StyledAmount,
   StyledAmountAndPerformanceWrapper,
   StyledPaper,
-  StyledPerformanceOverview,
 } from "./Card.styles"
 // import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
