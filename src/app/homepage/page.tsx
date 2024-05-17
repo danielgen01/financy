@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import { BigCard } from "../components/BigCard/BigCard"
 import { FilterMenu } from "../components/FilterMenu/FilterMenu"
 import { getFirebaseData } from "../utils/firebaseConfig"
+import CashflowOverview from "../components/CashflowOverview/CashflowOverview"
 
 const Homepage: React.FC = () => {
   const [incomeData, setIncomeData] = useState([])
@@ -26,6 +27,7 @@ const Homepage: React.FC = () => {
 
     fetchData()
   }, [])
+
   return (
     <>
       <div className="grid grid-cols-1 gap-10 mt-10 md:grid-cols-2 xl:grid-cols-3 ">
@@ -52,6 +54,13 @@ const Homepage: React.FC = () => {
           cardTitle="Expenses"
           listItems={expenseData}
         />
+      </section>
+
+      <section className="StyledCashflowOverviewSection mt-10">
+        <CashflowOverview />
+      </section>
+
+      <section className="big-cards-wrapper-section grid grid-cols-1 gap-10 mt-10 xl:grid-cols-2">
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"

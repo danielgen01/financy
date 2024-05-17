@@ -17,7 +17,7 @@ const Template: StoryFn = (args) => {
         padding: "1rem",
       }}
     >
-      <CashflowOverview {...args} />
+      <CashflowOverview {...args} netCashflowAmount={2599} />
     </div>
   )
 }

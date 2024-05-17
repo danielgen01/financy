@@ -17,7 +17,6 @@ export const ListItem: React.FC<ListItemProps> = ({
   onRemove,
   id,
 }) => {
-  console.log(id, "listitem")
   return (
     <StyledListItemWrapper>
       <StyledNameWrapper>

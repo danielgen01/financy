@@ -15,7 +15,6 @@ export const StyledDeleteButton = styled(IconButton)`
   background-color: #9e4bf6;
   color: white;
   border-radius: 10rem;
-  
 
   &:hover {
     background-color: #9e1bf1;
@@ -31,13 +30,11 @@ export const StyledNameWrapper = styled.div`
   display: flex;
   justify-content: start;
   width: 100%;
-
-  @media screen and (max-width: 768px) {
-    /* Für Geräte mit einer Breite von 768px oder weniger */
-    display: -webkit-box; /* Altes Webkit */
-    -webkit-box-orient: vertical; /* Altes Webkit */
-    -webkit-line-clamp: 1; /* Altes Webkit, begrenzt die Anzahl der Textzeilen */
-  }
+  display: -webkit-box; /* Altes Webkit */
+  -webkit-box-orient: vertical; /* Altes Webkit */
+  -webkit-line-clamp: 1; /* Altes Webkit, begrenzt die Anzahl der Textzeilen */
+  overflow: hidden;
+  height: 1.5em;
 `
 export const StyledPriceWrapper = styled.div`
   display: flex;

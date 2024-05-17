@@ -38,12 +38,10 @@ export const BigCard: React.FC<BigCardProps> = ({
 
   const handleClose = () => {
     setOpenDialog(false)
-    console.log(openDialog)
   }
 
   const handleOpen = () => {
     setOpenDialog(true)
-    console.log(openDialog)
   }
 
   // Gesamtbetrag berechnen
@@ -84,7 +82,6 @@ export const BigCard: React.FC<BigCardProps> = ({
         )
         setCardItems(cardItemsWithIds)
       }
-      console.log("Daten erfolgreich abgerufen", data)
     })
   }
 
@@ -162,7 +159,6 @@ export const BigCard: React.FC<BigCardProps> = ({
 
         {cardItems &&
           cardItems?.map((listItem: ListItemProps) => {
-            console.log(listItem, "mapping")
             return (
               <ListItem
                 id={listItem.id}
