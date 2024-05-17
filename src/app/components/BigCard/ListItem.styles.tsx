@@ -15,6 +15,7 @@ export const StyledDeleteButton = styled(IconButton)`
   background-color: #9e4bf6;
   color: white;
   border-radius: 10rem;
+  
 
   &:hover {
     background-color: #9e1bf1;
