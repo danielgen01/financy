@@ -67,7 +67,6 @@ export const BigCard: React.FC<BigCardProps> = ({
     }
   }
 
-  // Funktion zum Abrufen und Aktualisieren der Daten
   const fetchCardItemsFromDatabase = () => {
     const db = getDatabase()
     const itemsRef = ref(db, determineItemsRef())
@@ -77,8 +76,15 @@ export const BigCard: React.FC<BigCardProps> = ({
       const data = snapshot.val()
       if (data) {
         // Wenn Daten vorhanden sind, setzen Sie den Zustand auf die abgerufenen Daten
-        setCardItems(Object.values(data))
+        const cardItemsWithIds = Object.entries<any>(data).map(
+          ([id, item]) => ({
+            id: id,
+            ...item,
+          })
+        )
+        setCardItems(cardItemsWithIds)
       }
+      console.log("Daten erfolgreich abgerufen", data)
     })
   }
 
@@ -87,7 +93,6 @@ export const BigCard: React.FC<BigCardProps> = ({
     fetchCardItemsFromDatabase()
   }, []) // Leeres Abhängigkeitsarray bedeutet, dass dieser Effekt nur einmal nach dem Rendern ausgeführt wird
 
-  // Funktion zum Hinzufügen eines Kartenelements
   const addCardItem = async (name: string, cashflowAmount: number) => {
     try {
       const db = getDatabase(firebaseApp)
@@ -96,32 +101,36 @@ export const BigCard: React.FC<BigCardProps> = ({
         cashflowAmount: cashflowAmount,
       })
 
-      const newItemKey = newItemRef.key
+      const newItemKey = newItemRef.key // Schlüssel von der Datenbank erhalten
 
-      const newCardItem: ListItemProps = {
-        name: name,
-        cashflowAmount: cashflowAmount,
-        id: newItemKey,
+      // Überprüfen, ob newItemKey definiert ist
+      if (newItemKey) {
+        const newCardItem: ListItemProps = {
+          name: name,
+          cashflowAmount: cashflowAmount,
+          id: newItemKey,
+        }
+
+        // Fügen Sie das neue Element zum lokalen Zustand hinzu
+        setCardItems([...cardItems, newCardItem])
+      } else {
+        console.error("Schlüssel wurde nicht von der Datenbank erhalten")
       }
-
-      // Fügen Sie das neue Element zum lokalen Zustand hinzu
-      setCardItems([...cardItems, newCardItem])
     } catch (error) {
       console.error("Fehler beim Hinzufügen des Elements: ", error)
     }
   }
 
-  const removeCardItem = async (itemId: any) => {
+  const removeCardItem = (itemId: any) => {
     try {
       const db = getDatabase()
-      await remove(ref(db, `${determineItemsRef()}/${itemId}`))
+      remove(ref(db, `${determineItemsRef()}/${itemId}`))
       console.log("Element erfolgreich entfernt")
       setCardItems(cardItems?.filter((item) => item.id !== itemId))
     } catch (error) {
       console.error("Fehler beim Entfernen des Elements: ", error)
     }
   }
-
   const renderDialog = () => {
     return (
       <Dialog
@@ -153,11 +162,12 @@ export const BigCard: React.FC<BigCardProps> = ({
 
         {cardItems &&
           cardItems?.map((listItem: ListItemProps) => {
+            console.log(listItem, "mapping")
             return (
               <ListItem
                 id={listItem.id}
+                key={`${listItem.name}-${listItem.cashflowAmount}`}
                 name={listItem.name}
-                key={listItem.id}
                 cashflowAmount={listItem.cashflowAmount}
                 onRemove={removeCardItem} // Hier wird die Funktion übergeben
               />
