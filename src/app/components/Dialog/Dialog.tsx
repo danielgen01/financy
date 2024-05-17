@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   ClickAwayListener,
   DialogContent,
@@ -9,24 +9,40 @@ import {
 } from "@mui/material"
 import { TextField } from "@mui/material"
 import { useForm } from "react-hook-form"
+import { ListItemProps } from "../BigCard/ListItem.types"
 import { StyledSubmitButton } from "./Dialog.styles"
+import { CustomDialogProps, DialogFormData } from "./Dialog.types"
+import { BigCardProps } from "../BigCard/BigCard.types"
 
-export const Dialog: React.FC<DialogProps> = ({ open }) => {
+export const Dialog: React.FC<CustomDialogProps> = ({
+  open,
+  onClose,
+  addCardItem,
+}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
-  const [isOpen, setOpen] = React.useState(open)
+  } = useForm<DialogFormData>()
 
-  const onSubmit = (data) => {
-    console.log(data) // TODO::  die Formulardaten verarbeiten, z.B. an  Datenbank senden
-    setOpen(false)
+  const [openDialog, setOpenDialog] = React.useState<boolean>(open)
+  const [name, setName] = useState<string>("")
+  const [amount, setAmount] = useState<number>(0)
+
+  const onSubmit = () => {
+    addCardItem(name, amount)
+    if (onClose) {
+      onClose() // Close the dialog
+    }
   }
 
   return (
-    <MuiDialog className="StyledDialogWrapper absolute" open={isOpen} fullWidth>
-      <ClickAwayListener onClickAway={() => setOpen(false)}>
+    <MuiDialog
+      className="StyledDialogWrapper absolute"
+      open={openDialog}
+      fullWidth
+    >
+      <ClickAwayListener onClickAway={() => onClose && onClose()}>
         <DialogContent sx={{ padding: "0" }}>
           <DialogTitle className="bg-[#7286FF] flex justify-center py-2 w-full h-full">
             <span className="text-white-default font-bold">Add new Item</span>
@@ -43,18 +59,24 @@ export const Dialog: React.FC<DialogProps> = ({ open }) => {
                   variant="filled"
                   label="Name"
                   className="border-2 border-gray-300 p-2 rounded-lg"
+                  onChange={(e) => {
+                    setName(e.target.value)
+                  }}
                 />
               </FormControl>
               <FormControl>
                 <TextField
-                  {...register("cashflow", {
+                  {...register("amount", {
                     required: true,
                     valueAsNumber: true,
                   })}
                   type="text"
                   variant="filled"
-                  label="Cashflow"
+                  label="Amount"
                   className="border-2 border-gray-300 p-2 rounded-lg"
+                  onChange={(e) => {
+                    setAmount(Number(e.target.value))
+                  }}
                 />
               </FormControl>
               <div className="flex justify-end">

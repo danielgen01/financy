@@ -3,7 +3,7 @@ export const headlineItemsMockCard = [
     headline: "Description",
   },
   {
-    headline: "Cashflow",
+    headline: "Amount",
   },
   {
     headline: "Actions",

@@ -24,7 +24,7 @@ export const ListItem: React.FC<ListItemProps> = ({
       </StyledNameWrapper>
 
       <StyledPriceWrapper>
-        <StyledCashflowAmount>${cashflowAmount}</StyledCashflowAmount>
+        <StyledCashflowAmount>€{cashflowAmount}</StyledCashflowAmount>
       </StyledPriceWrapper>
 
       <StyledActionButtonsWrapper>

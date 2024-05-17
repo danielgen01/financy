@@ -25,6 +25,7 @@ import {
 } from "./BigCard.styles"
 import { firebaseApp } from "@/app/utils/firebaseConfig"
 import { Dialog } from "../Dialog/Dialog"
+import { DialogFormData } from "../Dialog/Dialog.types"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -33,7 +34,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   headlineItems,
 }) => {
   const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems)
-  const [openDialog, setOpenDialog] = useState(false)
+  const [openDialog, setOpenDialog] = useState<boolean>(false)
 
   const handleClose = () => {
     setOpenDialog(false)
@@ -87,19 +88,19 @@ export const BigCard: React.FC<BigCardProps> = ({
   }, []) // Leeres Abhängigkeitsarray bedeutet, dass dieser Effekt nur einmal nach dem Rendern ausgeführt wird
 
   // Funktion zum Hinzufügen eines Kartenelements
-  const addCardItem = async () => {
+  const addCardItem = async (name: string, cashflowAmount: number) => {
     try {
       const db = getDatabase(firebaseApp)
       const newItemRef = push(ref(db, determineItemsRef()), {
-        name: "New Card Item",
-        cashflowAmount: 0,
+        name: name,
+        cashflowAmount: cashflowAmount,
       })
 
       const newItemKey = newItemRef.key
 
       const newCardItem: ListItemProps = {
-        name: "New Card Item",
-        cashflowAmount: 0,
+        name: name,
+        cashflowAmount: cashflowAmount,
         id: newItemKey,
       }
 
@@ -122,14 +123,20 @@ export const BigCard: React.FC<BigCardProps> = ({
   }
 
   const renderDialog = () => {
-    return <Dialog open={openDialog} onClose={handleClose}></Dialog>
+    return (
+      <Dialog
+        open={openDialog}
+        onClose={handleClose}
+        addCardItem={addCardItem}
+      ></Dialog>
+    )
   }
 
   return (
     <StyledBigCardWrapper>
       <StyledBigCardHeadWrapper>
         <StyledCardTitle>{cardTitle}</StyledCardTitle>
-        <StyledAddButton endIcon={<AddCircleOutline />} onClick={addCardItem}>
+        <StyledAddButton endIcon={<AddCircleOutline />} onClick={handleOpen}>
           {buttonActionName}
         </StyledAddButton>
       </StyledBigCardHeadWrapper>

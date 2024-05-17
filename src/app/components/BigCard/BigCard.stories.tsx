@@ -23,6 +23,7 @@ const Template: StoryFn<BigCardProps> = (args) => {
         listItems={listItemsMock.listItems}
         color="red"
         headlineItems={headlineItemsMockCard}
+        
       />
     </div>
   )
@@ -30,6 +31,6 @@ const Template: StoryFn<BigCardProps> = (args) => {
 
 export const Initial = Template.bind({})
 Initial.args = {
-  cardTitle: "Income",
+  cardTitle: "Testtitle",
   buttonActionName: "Add Income",
 }
