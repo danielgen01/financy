@@ -3,17 +3,14 @@ import {
   getDatabase,
   ref,
   push,
-  set,
   remove,
-  off,
   onValue,
+  update,
 } from "firebase/database"
 import { AddCircleOutline } from "@mui/icons-material"
 import { ListItem } from "./ListItem"
 import { BigCardProps } from "./BigCard.types"
 import { ListItemProps } from "./ListItem.types"
-import db from "../../utils/firesstore"
-import { collection, addDoc } from "firebase/firestore"
 import {
   StyledAddButton,
   StyledBigCardHeadWrapper,
@@ -25,7 +22,6 @@ import {
 } from "./BigCard.styles"
 import { firebaseApp } from "@/app/utils/firebaseConfig"
 import { Dialog } from "../Dialog/Dialog"
-import { DialogFormData } from "../Dialog/Dialog.types"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -138,6 +134,39 @@ export const BigCard: React.FC<BigCardProps> = ({
     )
   }
 
+  const editCardItem = async (
+    itemId: string,
+    updatedName: string,
+    updatedCashflowAmount: number
+  ) => {
+    try {
+      const db = getDatabase(firebaseApp)
+      const itemRef = ref(db, `${determineItemsRef()}/${itemId}`)
+
+      await update(itemRef, {
+        name: updatedName,
+        cashflowAmount: updatedCashflowAmount,
+      })
+
+      console.log("Element erfolgreich aktualisiert")
+
+      // Lokalen Zustand aktualisieren
+      setCardItems(
+        cardItems.map((item) =>
+          item.id === itemId
+            ? {
+                ...item,
+                name: updatedName,
+                cashflowAmount: updatedCashflowAmount,
+              }
+            : item
+        )
+      )
+    } catch (error) {
+      console.error("Fehler beim Aktualisieren des Elements: ", error)
+    }
+  }
+
   return (
     <StyledBigCardWrapper>
       <StyledBigCardHeadWrapper>
@@ -166,6 +195,7 @@ export const BigCard: React.FC<BigCardProps> = ({
                 name={listItem.name}
                 cashflowAmount={listItem.cashflowAmount}
                 onRemove={removeCardItem} // Hier wird die Funktion übergeben
+                onEdit={editCardItem}
               />
             )
           })}

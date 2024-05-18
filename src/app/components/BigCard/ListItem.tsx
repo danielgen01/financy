@@ -16,7 +16,20 @@ export const ListItem: React.FC<ListItemProps> = ({
   cashflowAmount,
   onRemove,
   id,
+  onEdit,
 }) => {
+  const handleEdit = () => {
+    const updatedName = prompt("Neuer Name:", name)
+    const updatedCashflowAmount = parseFloat(
+      prompt("Neuer Cashflow Betrag:", cashflowAmount.toString()) ||
+        cashflowAmount.toString()
+    )
+
+    if (updatedName && !isNaN(updatedCashflowAmount)) {
+      onEdit?.(id, updatedName, updatedCashflowAmount)
+    }
+  }
+
   return (
     <StyledListItemWrapper>
       <StyledNameWrapper>
@@ -28,7 +41,7 @@ export const ListItem: React.FC<ListItemProps> = ({
       </StyledPriceWrapper>
 
       <StyledActionButtonsWrapper>
-        <StyledEditButtonWrapper onClick={() => console.log("Edit")}>
+        <StyledEditButtonWrapper onClick={handleEdit}>
           <EditIcon />
         </StyledEditButtonWrapper>
         <StyledDeleteButton onClick={() => onRemove && onRemove(id)}>
