@@ -1,12 +1,16 @@
 import React from "react"
 import { MenuItemProps } from "./MenuItem.types"
-import { StyledLabelText, StyledListItem } from "./MenuItem.styles"
+import styles from "./MenuItem.styles.module.css"
 
 const MenuItem: React.FC<MenuItemProps> = ({ label, isActive }) => {
+  const labelClassName = isActive
+    ? `${styles.StyledLabelText} ${styles.StyledLabelTextActive}`
+    : styles.StyledLabelText
+
   return (
-    <StyledListItem>
-      <StyledLabelText isActive={isActive}>{label}</StyledLabelText>
-    </StyledListItem>
+    <li className={styles.StyledListItem}>
+      <a className={labelClassName}>{label}</a>
+    </li>
   )
 }
 
