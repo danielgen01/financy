@@ -10,21 +10,6 @@
   align-items: center;
 }
 
-@media screen and (max-width: 960px) {
-  .StyledHeaderWrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .StyledMenuList {
-    display: none;
-  }
-
-  .StyledAccountActionsWrapper {
-    display: none;
-  }
-}
-
 .StyledMenuList {
   display: flex;
   gap: 1rem;
@@ -39,4 +24,19 @@
 
 .StyledAccountProfileImage {
   @apply rounded-full aspect-square object-cover;
+}
+
+@media screen and (max-width: 960px) {
+  .StyledHeaderWrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .StyledMenuList {
+    display: none;
+  }
+
+  .StyledAccountActionsWrapper {
+    display: none;
+  }
 }
