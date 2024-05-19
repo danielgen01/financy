@@ -1,0 +1,42 @@
+/* styles.module.css */
+.StyledHeaderWrapper {
+  background-color: #ffffff;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 960px) {
+  .StyledHeaderWrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .StyledMenuList {
+    display: none;
+  }
+
+  .StyledAccountActionsWrapper {
+    display: none;
+  }
+}
+
+.StyledMenuList {
+  display: flex;
+  gap: 1rem;
+}
+
+.StyledAccountActionsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.StyledAccountProfileImage {
+  @apply rounded-full aspect-square object-cover;
+}
