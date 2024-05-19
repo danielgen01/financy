@@ -1,33 +1,25 @@
+"use client"
 import { headlineItemsMockCard } from "@/headlineItems.mock"
-import Card from "../components/Card/Card"
-import React, { useEffect, useState } from "react"
-import { BigCard } from "../components/BigCard/BigCard"
-import { FilterMenu } from "../components/FilterMenu/FilterMenu"
-import { getFirebaseData } from "../utils/firebaseConfig"
-import CashflowOverview from "../components/CashflowOverview/CashflowOverview"
+import Card from "../../Card/Card"
+import React from "react"
+import { BigCard } from "../../BigCard/BigCard"
+import { FilterMenu } from "../../FilterMenu/FilterMenu"
+import CashflowOverview from "../../CashflowOverview/CashflowOverview"
+import { DashboardPageProps } from "./DashboardPage.types"
 
-const Homepage: React.FC = () => {
-  const [incomeData, setIncomeData] = useState([])
-  const [expenseData, setExpenseData] = useState([])
-  const [assetData, setAssetData] = useState([])
-  const [liabilityData, setLiabilityData] = useState([])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const incomeData = await getFirebaseData("incomeItems")
-      const expenseData = await getFirebaseData("expensesItems")
-      const assetData = await getFirebaseData("assets")
-      const liabilityData = await getFirebaseData("liabilities")
-
-      setIncomeData(incomeData)
-      setExpenseData(expenseData)
-      setAssetData(assetData)
-      setLiabilityData(liabilityData)
-    }
-
-    fetchData()
-  }, [])
-
+const DashboardPage = ({
+  incomeData,
+  expenseData,
+  assetData,
+  liabilitiesData,
+}: DashboardPageProps) => {
+  console.log(
+    "dashboardpage",
+    incomeData,
+    expenseData,
+    assetData,
+    liabilitiesData
+  )
   return (
     <>
       <div className="grid grid-cols-1 gap-10 mt-10 md:grid-cols-2 xl:grid-cols-3 ">
@@ -57,7 +49,7 @@ const Homepage: React.FC = () => {
       </section>
 
       <section className="StyledCashflowOverviewSection mt-10">
-        <CashflowOverview />
+        <CashflowOverview netCashflowAmount={2} />
       </section>
 
       <section className="big-cards-wrapper-section grid grid-cols-1 gap-10 mt-10 xl:grid-cols-2">
@@ -73,11 +65,11 @@ const Homepage: React.FC = () => {
           color="red"
           buttonActionName="Add Liability"
           cardTitle="Liabilities"
-          listItems={liabilityData}
+          listItems={liabilitiesData}
         />
       </section>
     </>
   )
 }
 
-export default Homepage
+export default DashboardPage

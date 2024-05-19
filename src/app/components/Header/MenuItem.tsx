@@ -3,7 +3,6 @@ import { MenuItemProps } from "./MenuItem.types"
 import { StyledLabelText, StyledListItem } from "./MenuItem.styles"
 
 const MenuItem: React.FC<MenuItemProps> = ({ label, isActive }) => {
-  console.log(isActive)
   return (
     <StyledListItem>
       <StyledLabelText isActive={isActive}>{label}</StyledLabelText>

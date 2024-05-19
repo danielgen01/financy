@@ -1,13 +1,15 @@
-"use client"
-import { listItemsMock } from "@/listItems.mock"
-import { BigCard } from "./components/BigCard/BigCard"
-import Card from "./components/Card/Card"
-import { FilterMenu } from "./components/FilterMenu/FilterMenu"
-import { headlineItemsMockCard } from "@/headlineItems.mock"
 import { getFirebaseData } from "../app/utils/firebaseConfig"
-import React, { useState } from "react"
-import Homepage from "./homepage/page"
+import React from "react"
+import DashboardPage from "./components/pageTemplates/homepage/DashboardPage"
+import { fetchDashboardPageProps } from "@/fetcher/Dashboard/fetchDashboardPage"
 
-export default function HomePageAKADashboardPage() {
-  return <Homepage />
+export default async function HomePageAKADashboardPage() {
+  const dashboardPageProps = await fetchDashboardPageProps({
+    getIncomeData: () => getFirebaseData("incomeItems"),
+    getExpenseData: () => getFirebaseData("expensesItems"),
+    getAssetData: () => getFirebaseData("assetsItems"),
+    getLiabilitiesData: () => getFirebaseData("liabilitiesItems"),
+  })
+
+  return <DashboardPage {...dashboardPageProps} />
 }

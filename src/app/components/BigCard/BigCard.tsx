@@ -29,7 +29,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   buttonActionName,
   headlineItems,
 }) => {
-  const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems)
+  const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || [])
   const [openDialog, setOpenDialog] = useState<boolean>(false)
 
   const handleClose = () => {
@@ -40,12 +40,13 @@ export const BigCard: React.FC<BigCardProps> = ({
     setOpenDialog(true)
   }
 
-  // Gesamtbetrag berechnen
   const determineTotal = () => {
     let total = 0
-    cardItems?.forEach((listItem: ListItemProps) => {
-      total += listItem.cashflowAmount
-    })
+    for (const key in cardItems) {
+      if (Object.prototype.hasOwnProperty.call(cardItems, key)) {
+        total += cardItems[key].cashflowAmount
+      }
+    }
     return total
   }
 
@@ -186,19 +187,18 @@ export const BigCard: React.FC<BigCardProps> = ({
           })}
         </StyledHeadlineWrapper>
 
-        {cardItems &&
-          cardItems?.map((listItem: ListItemProps) => {
-            return (
-              <ListItem
-                id={listItem.id}
-                key={`${listItem.name}-${listItem.cashflowAmount}`}
-                name={listItem.name}
-                cashflowAmount={listItem.cashflowAmount}
-                onRemove={removeCardItem} // Hier wird die Funktion übergeben
-                onEdit={editCardItem}
-              />
-            )
-          })}
+        {Object.values(cardItems).map((listItem: ListItemProps) => {
+          return (
+            <ListItem
+              id={listItem.id}
+              key={`${listItem.name}-${listItem.cashflowAmount}`}
+              name={listItem.name}
+              cashflowAmount={listItem.cashflowAmount}
+              onRemove={removeCardItem} // Hier wird die Funktion übergeben
+              onEdit={editCardItem}
+            />
+          )
+        })}
       </StyledHeadlineAndListWrapper>
       <hr />
       <StyledTotalAmountWrapper>
