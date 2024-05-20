@@ -29,6 +29,13 @@
   margin: 0;
 }
 
+.StyledAmountPurpleColour {
+  font-weight: 600;
+  font-size: 36px;
+  margin: 0;
+  color: #5854c0;
+}
+
 .StyledPerformanceWrapper {
   @apply flex gap-2 items-center  border-[#D5DDE2] border-2  text-green-500 h-6 p-2 rounded-md;
 }

@@ -23,7 +23,12 @@ const DashboardPage = ({
   return (
     <>
       <div className="grid grid-cols-1 gap-10 mt-10 md:grid-cols-2 xl:grid-cols-3 ">
-        <Card title="Balance" amount={94242} performance={20} />
+        <Card
+          title="Balance"
+          amount={94242}
+          performance={20}
+          isBalanceCard={true}
+        />
         <Card title="Incomes" amount={9500} performance={20} />
         <Card title="Expenses" amount={2500} performance={10} />
       </div>
