@@ -198,7 +198,7 @@ export const BigCard: React.FC<BigCardProps> = ({
       <div className={styles.StyledTotalAmountWrapper}>
         <span>
           Total :{" "}
-          <strong style={{ fontSize: "18px" }}>${determineTotal()}</strong>
+          <strong style={{ fontSize: "18px" }}>€{determineTotal()}</strong>
         </span>
       </div>
       {openDialog && renderDialog()}
