@@ -11,7 +11,7 @@ import { AddCircleOutline } from "@mui/icons-material"
 import { ListItem } from "./ListItem"
 import { BigCardProps } from "./BigCard.types"
 import { ListItemProps } from "./ListItem.types"
-import { firebaseApp } from "@/app/utils/firebaseConfig"
+import { firebaseApp, getFirebaseData } from "@/app/utils/firebaseConfig"
 import { Dialog } from "../Dialog/Dialog"
 import styles from "./BigCard.styles.module.css"
 import { Button } from "@mui/material"
@@ -55,15 +55,10 @@ export const BigCard: React.FC<BigCardProps> = ({
     }
   }
 
-  const fetchCardItemsFromDatabase = () => {
-    const db = getDatabase()
-    const itemsRef = ref(db, determineItemsRef())
-
-    // Fügen Sie einen Listener hinzu, um Änderungen an den Daten zu beobachten
-    onValue(itemsRef, (snapshot) => {
-      const data = snapshot.val()
+  const fetchCardItemsFromDatabase = async () => {
+    try {
+      const data = await getFirebaseData(determineItemsRef())
       if (data) {
-        // Wenn Daten vorhanden sind, setzen Sie den Zustand auf die abgerufenen Daten
         const cardItemsWithIds = Object.entries<any>(data).map(
           ([id, item]) => ({
             id: id,
@@ -72,13 +67,15 @@ export const BigCard: React.FC<BigCardProps> = ({
         )
         setCardItems(cardItemsWithIds)
       }
-    })
+    } catch (error) {
+      console.error("Error fetching data from Firebase:", error)
+    }
   }
 
   // Die Funktion zum Abrufen von Daten wird beim ersten Rendern der Komponente aufgerufen
   useEffect(() => {
     fetchCardItemsFromDatabase()
-  }, []) // Leeres Abhängigkeitsarray bedeutet, dass dieser Effekt nur einmal nach dem Rendern ausgeführt wird
+  }, [cardItems]) // Leeres Abhängigkeitsarray bedeutet, dass dieser Effekt nur einmal nach dem Rendern ausgeführt wird
 
   const addCardItem = async (name: string, cashflowAmount: number) => {
     try {

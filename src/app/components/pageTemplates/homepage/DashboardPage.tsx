@@ -13,13 +13,20 @@ const DashboardPage = ({
   assetData,
   liabilitiesData,
 }: DashboardPageProps) => {
-  console.log(
-    "dashboardpage",
-    incomeData,
-    expenseData,
-    assetData,
-    liabilitiesData
-  )
+  const calculateTotal = () => {
+    let total = 0
+    for (const key in incomeData) {
+      if (Object.prototype.hasOwnProperty.call(incomeData, key)) {
+        total += incomeData[key].cashflowAmount
+      }
+    }
+    for (const key in expenseData) {
+      if (Object.prototype.hasOwnProperty.call(expenseData, key)) {
+        total -= expenseData[key].cashflowAmount
+      }
+    }
+    return total
+  }
   return (
     <>
       <div className="grid grid-cols-1 gap-10 mt-10 md:grid-cols-2 xl:grid-cols-3 ">
@@ -54,7 +61,7 @@ const DashboardPage = ({
       </section>
 
       <section className="StyledCashflowOverviewSection mt-10">
-        <CashflowOverview netCashflowAmount={2} />
+        <CashflowOverview netCashflowAmount={calculateTotal()} />
       </section>
 
       <section className="big-cards-wrapper-section grid grid-cols-1 gap-10 mt-10 xl:grid-cols-2">
