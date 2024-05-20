@@ -1,31 +1,26 @@
 "use client"
 import React from "react"
-import {
-  CardWrapper,
-  StyledAmount,
-  StyledAmountAndPerformanceWrapper,
-  StyledPaper,
-} from "./Card.styles"
-// import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { CardProps } from "./Card.types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import styles from "./Card.styles.module.css"
+import { Paper } from "@mui/material"
 
 const Card: React.FC<CardProps> = ({ title, amount, performance }) => {
   return (
-    <StyledPaper sx={{ p: 2 }} elevation={1}>
-      <CardWrapper>
-        <span style={{ color: "#516778" }}> {title}</span>
+    <Paper sx={{ p: 2 }} elevation={1} className={styles.StyledPaper}>
+      <div className={styles.CardWrapper}>
+        <span style={{ color: "#516778" }}>{title}</span>
         <br />
-        <StyledAmountAndPerformanceWrapper>
-          <StyledAmount>${amount}</StyledAmount>
-          <div className="flex gap-2 items-center  border-[#D5DDE2] border-2  text-green-500 h-6 p-2 rounded-md">
+        <div className={styles.StyledAmountAndPerformanceWrapper}>
+          <p className={styles.StyledAmount}>${amount}</p>
+          <div className={styles.StyledPerformanceWrapper}>
             <FontAwesomeIcon icon={faArrowUp} />
             {performance}%
           </div>
-        </StyledAmountAndPerformanceWrapper>
-      </CardWrapper>
-    </StyledPaper>
+        </div>
+      </div>
+    </Paper>
   )
 }
 
