@@ -1,0 +1,48 @@
+/* styles.module.css */
+
+.StyledBigCardWrapper {
+  padding: 30px 20px;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.StyledBigCardHeadWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.StyledCardTitle {
+  font-weight: 400;
+  font-size: 1.5rem !important;
+}
+
+.StyledAddButton {
+  font-size: 14px;
+}
+
+.StyledHeadlineAndListWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.StyledHeadlineWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 10px 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.StyledTotalAmountWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15px 0px 15px 0px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-top: auto;
+}

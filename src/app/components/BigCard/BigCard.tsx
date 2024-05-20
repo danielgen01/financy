@@ -11,17 +11,10 @@ import { AddCircleOutline } from "@mui/icons-material"
 import { ListItem } from "./ListItem"
 import { BigCardProps } from "./BigCard.types"
 import { ListItemProps } from "./ListItem.types"
-import {
-  StyledAddButton,
-  StyledBigCardHeadWrapper,
-  StyledBigCardWrapper,
-  StyledCardTitle,
-  StyledHeadlineAndListWrapper,
-  StyledHeadlineWrapper,
-  StyledTotalAmountWrapper,
-} from "./BigCard.styles"
 import { firebaseApp } from "@/app/utils/firebaseConfig"
 import { Dialog } from "../Dialog/Dialog"
+import styles from "./BigCard.styles.module.css"
+import { Button } from "@mui/material"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -169,15 +162,19 @@ export const BigCard: React.FC<BigCardProps> = ({
   }
 
   return (
-    <StyledBigCardWrapper>
-      <StyledBigCardHeadWrapper>
-        <StyledCardTitle>{cardTitle}</StyledCardTitle>
-        <StyledAddButton endIcon={<AddCircleOutline />} onClick={handleOpen}>
+    <div className={styles.StyledBigCardWrapper}>
+      <div className={styles.StyledBigCardHeadWrapper}>
+        <h2 className={styles.StyledCardTitle}>{cardTitle}</h2>
+        <Button
+          className={styles.StyledAddButton}
+          endIcon={<AddCircleOutline />}
+          onClick={handleOpen}
+        >
           {buttonActionName}
-        </StyledAddButton>
-      </StyledBigCardHeadWrapper>
-      <StyledHeadlineAndListWrapper>
-        <StyledHeadlineWrapper>
+        </Button>
+      </div>
+      <div className={styles.StyledHeadlineAndListWrapper}>
+        <div className={styles.StyledHeadlineWrapper}>
           {headlineItems?.map((headlineItem) => {
             return (
               <span key={headlineItem.headline + 1}>
@@ -185,7 +182,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               </span>
             )
           })}
-        </StyledHeadlineWrapper>
+        </div>
 
         {Object.values(cardItems).map((listItem: ListItemProps) => {
           return (
@@ -199,15 +196,15 @@ export const BigCard: React.FC<BigCardProps> = ({
             />
           )
         })}
-      </StyledHeadlineAndListWrapper>
+      </div>
       <hr />
-      <StyledTotalAmountWrapper>
+      <div className={styles.StyledTotalAmountWrapper}>
         <span>
           Total :{" "}
           <strong style={{ fontSize: "18px" }}>${determineTotal()}</strong>
         </span>
-      </StyledTotalAmountWrapper>
+      </div>
       {openDialog && renderDialog()}
-    </StyledBigCardWrapper>
+    </div>
   )
 }

@@ -1,4 +1,5 @@
 /* styles.module.css */
+
 .StyledHeaderWrapper {
   background-color: #ffffff;
   padding-left: 5rem;
@@ -23,7 +24,7 @@
 }
 
 .StyledAccountProfileImage {
-  @apply rounded-full aspect-square object-cover;
+  @apply rounded-full aspect-square object-cover !important;
 }
 
 @media screen and (max-width: 960px) {
