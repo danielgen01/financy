@@ -1,18 +1,16 @@
 import React, { useState } from "react"
 import {
+  Button,
   ClickAwayListener,
   DialogContent,
-  DialogProps,
   DialogTitle,
   FormControl,
   Dialog as MuiDialog,
 } from "@mui/material"
 import { TextField } from "@mui/material"
 import { useForm } from "react-hook-form"
-import { ListItemProps } from "../BigCard/ListItem.types"
-import { StyledSubmitButton } from "./Dialog.styles"
 import { CustomDialogProps, DialogFormData } from "./Dialog.types"
-import { BigCardProps } from "../BigCard/BigCard.types"
+import styles from "./Dialog.styles.module.css"
 
 export const Dialog: React.FC<CustomDialogProps> = ({
   open,
@@ -37,18 +35,14 @@ export const Dialog: React.FC<CustomDialogProps> = ({
   }
 
   return (
-    <MuiDialog
-      className="StyledDialogWrapper absolute"
-      open={openDialog}
-      fullWidth
-    >
+    <MuiDialog className="StyledDialogWrapper" open={openDialog} fullWidth>
       <ClickAwayListener onClickAway={() => onClose && onClose()}>
         <DialogContent sx={{ padding: "0" }}>
-          <DialogTitle className="bg-[#7286FF] flex justify-center py-2 w-full h-full">
-            <span className="text-white-default font-bold">Add new Item</span>
+          <DialogTitle className={styles.StyledDialogTitle}>
+            Add new Item
           </DialogTitle>
           <form action="" className="" onSubmit={handleSubmit(onSubmit)}>
-            <div className="StyledInputFieldsWrapper p-5 flex flex-col gap-5">
+            <div className={styles.StyledInputFieldsWrapper}>
               <FormControl>
                 <TextField
                   {...register("name", {
@@ -58,7 +52,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   type="text"
                   variant="filled"
                   label="Name"
-                  className="border-2 border-gray-300 p-2 rounded-lg"
+                  className={styles.StyledTextField}
                   onChange={(e) => {
                     setName(e.target.value)
                   }}
@@ -73,20 +67,20 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   type="text"
                   variant="filled"
                   label="Amount"
-                  className="border-2 border-gray-300 p-2 rounded-lg"
+                  className={styles.StyledTextField}
                   onChange={(e) => {
                     setAmount(Number(e.target.value))
                   }}
                 />
               </FormControl>
               <div className="flex justify-end">
-                <StyledSubmitButton
+                <Button
                   type="submit"
                   className="bg-[#7286FF] text-white-default p-2 rounded-lg"
                   onSubmit={onSubmit}
                 >
                   Add
-                </StyledSubmitButton>
+                </Button>
               </div>
             </div>
           </form>

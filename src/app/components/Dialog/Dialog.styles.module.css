@@ -1,0 +1,24 @@
+.StyledTextField {
+  border-width: 2px;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+  padding: 0.5rem;
+  @apply rounded-lg;
+}
+
+.StyledInputFieldsWrapper {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.StyledDialogTitle {
+  background-color: #7286ff;
+  display: flex;
+  justify-content: center;
+  @apply py-2;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
