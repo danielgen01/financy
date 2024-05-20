@@ -1,5 +1,6 @@
 import Image from "next/image"
 import React from "react"
+import styles from "./CashflowOverview.module.css"
 
 export interface CashflowOverviewProps {
   netCashflowAmount: number
@@ -9,22 +10,21 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
   netCashflowAmount,
 }) => {
   return (
-    <div className="StyledCashflowOverviewWrapper bg-white-default w-full rounded-md ">
-      <div className="StyledCashflowContentWrapper flex justify-between p-8 items-center h-full w-full">
-        <div className="StyledImagePlusTextWrapper flex items-center gap-5">
+    <div className={styles.StyledCashflowOverviewWrapper}>
+      <div className={styles.StyledCashflowContentWrapper}>
+        <div className={styles.StyledImagePlusTextWrapper}>
           <Image
             src="/cashflow.png"
             alt="Cashflow Overview"
             width={75}
             height={75}
-            className="bg-[#f1f1f1] rounded-md p-5"
+            className={styles.StyledCashflowImage}
           />
-          <div className="StyledCashflowTextWrapper flex flex-col">
-            <span className="font-semibold text-2xl">Monthly Cashflow</span>
-            <span>(Total Income - Expenses )</span>
+          <div className={styles.StyledCashflowTextWrapper}>
+            <span className={styles.StyledCashflowText}>Monthly Cashflow</span>
+            <span>(Total Income - Expenses)</span>
           </div>
         </div>
-
         <span className="text-primary-10% font-bold text-2xl">
           €{netCashflowAmount}
         </span>
