@@ -6,11 +6,14 @@ import MenuItem from "./MenuItem"
 import { faBell, faGear } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styles from "./Header.styles.module.css" // Stelle sicher, dass der Pfad korrekt ist
+import Link from "next/link"
 
 const Header = () => {
   return (
     <div className={styles.StyledHeaderWrapper}>
-      <Image src={"/Logo.png"} alt={"Logo_Financy"} width={150} height={50} />
+      <Link href="/">
+        <Image src={"/Logo.png"} alt={"Logo_Financy"} width={150} height={50} />
+      </Link>
       <ul className={styles.StyledMenuList}>
         <MenuItem label="Overview" isActive={true}></MenuItem>
         <MenuItem label="Transactions"></MenuItem>
