@@ -7,7 +7,11 @@ import { FilterMenu } from "../../FilterMenu/FilterMenu"
 import CashflowOverview from "../../CashflowOverview/CashflowOverview"
 import { DashboardPageProps } from "./DashboardPage.types"
 import styles from "./DashboardPage.styles.module.css"
-import { calculateTotal } from "./utilities"
+import {
+  calculateTotal,
+  calculateTotalExpense,
+  calculateTotalIncome,
+} from "./utilities"
 
 const DashboardPage = ({
   incomeData,
@@ -51,6 +55,8 @@ const DashboardPage = ({
       <section className="StyledCashflowOverviewSection mt-10">
         <CashflowOverview
           netCashflowAmount={calculateTotal({ incomeData, expenseData })}
+          incomeTotal={calculateTotalIncome(incomeData)}
+          expenseTotal={calculateTotalExpense(expenseData)}
         />
       </section>
 

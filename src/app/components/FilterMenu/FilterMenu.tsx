@@ -16,10 +16,6 @@ export const FilterMenu: React.FC = () => {
   return (
     <div className="Filter-box flex items-center gap-3 ">
       <span>Filter:</span>
-      {/* <button className="StyledMonthFilter bg-gray-200 text-primary-10% px-5 py-2 rounded-md gap-2 flex items-center cursor-pointer font-semibold">
-          <span>January</span>
-          <FontAwesomeIcon icon={faChevronDown} />
-        </button> */}
       <Dropdown>
         <BaseMenuButton className="bg-gray-200 text-primary-10% px-5 py-2 rounded-md gap-2 flex items-center cursor-pointer font-semibold">
           January

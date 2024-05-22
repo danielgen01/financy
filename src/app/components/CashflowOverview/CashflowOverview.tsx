@@ -4,10 +4,14 @@ import styles from "./CashflowOverview.module.css"
 
 export interface CashflowOverviewProps {
   netCashflowAmount: number
+  incomeTotal: number
+  expenseTotal: number
 }
 
 const CashflowOverview: React.FC<CashflowOverviewProps> = ({
   netCashflowAmount,
+  incomeTotal,
+  expenseTotal,
 }) => {
   return (
     <div className={styles.StyledCashflowOverviewWrapper}>
@@ -22,7 +26,9 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
           />
           <div className={styles.StyledCashflowTextWrapper}>
             <span className={styles.StyledCashflowText}>Monthly Cashflow</span>
-            <span>(Total Income - Expenses)</span>
+            <span>
+              ({incomeTotal}€ - {expenseTotal}€)
+            </span>
           </div>
         </div>
         <span className="text-primary-10% font-bold text-2xl">
