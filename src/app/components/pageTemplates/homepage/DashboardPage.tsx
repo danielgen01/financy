@@ -7,6 +7,7 @@ import { FilterMenu } from "../../FilterMenu/FilterMenu"
 import CashflowOverview from "../../CashflowOverview/CashflowOverview"
 import { DashboardPageProps } from "./DashboardPage.types"
 import styles from "./DashboardPage.styles.module.css"
+import { calculateTotal } from "./utilities"
 
 const DashboardPage = ({
   incomeData,
@@ -14,20 +15,6 @@ const DashboardPage = ({
   assetData,
   liabilitiesData,
 }: DashboardPageProps) => {
-  const calculateTotal = () => {
-    let total = 0
-    for (const key in incomeData) {
-      if (Object.prototype.hasOwnProperty.call(incomeData, key)) {
-        total += incomeData[key].cashflowAmount
-      }
-    }
-    for (const key in expenseData) {
-      if (Object.prototype.hasOwnProperty.call(expenseData, key)) {
-        total -= expenseData[key].cashflowAmount
-      }
-    }
-    return total
-  }
   return (
     <>
       <div className={styles.StyledDashboardPage}>
@@ -62,7 +49,9 @@ const DashboardPage = ({
       </section>
 
       <section className="StyledCashflowOverviewSection mt-10">
-        <CashflowOverview netCashflowAmount={calculateTotal()} />
+        <CashflowOverview
+          netCashflowAmount={calculateTotal({ incomeData, expenseData })}
+        />
       </section>
 
       <section className={styles.StyledBigCardsWrapperSection}>
