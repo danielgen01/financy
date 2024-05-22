@@ -6,6 +6,7 @@ import { BigCard } from "../../BigCard/BigCard"
 import { FilterMenu } from "../../FilterMenu/FilterMenu"
 import CashflowOverview from "../../CashflowOverview/CashflowOverview"
 import { DashboardPageProps } from "./DashboardPage.types"
+import styles from "./DashboardPage.styles.module.css"
 
 const DashboardPage = ({
   incomeData,
@@ -29,7 +30,7 @@ const DashboardPage = ({
   }
   return (
     <>
-      <div className="grid grid-cols-1 gap-10 mt-10 md:grid-cols-2 xl:grid-cols-3 ">
+      <div className={styles.StyledDashboardPage}>
         <Card
           title="Balance"
           amount={94242}
@@ -39,11 +40,11 @@ const DashboardPage = ({
         <Card title="Incomes" amount={9500} performance={20} />
         <Card title="Expenses" amount={2500} performance={10} />
       </div>
-      <div className="flex w-full justify-between StyledHeadlineAndFilterWrapper mt-10 ">
-        <h1 className="text-4xl font-semibold">Income Statement</h1>
+      <div className={styles.StyledHeadlineAndFilterWrapper}>
+        <h1 className={styles.StyledHeadline}>Income Statement</h1>
         <FilterMenu />
       </div>
-      <section className="big-cards-wrapper-section grid grid-cols-1 gap-10 mt-10 xl:grid-cols-2">
+      <section className={styles.StyledBigCardsWrapperSection}>
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"
@@ -64,7 +65,7 @@ const DashboardPage = ({
         <CashflowOverview netCashflowAmount={calculateTotal()} />
       </section>
 
-      <section className="big-cards-wrapper-section grid grid-cols-1 gap-10 mt-10 xl:grid-cols-2">
+      <section className={styles.StyledBigCardsWrapperSection}>
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"
