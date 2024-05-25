@@ -59,6 +59,12 @@ const DashboardPage = ({
           expenseTotal={calculateTotalExpense(expenseData)}
         />
       </section>
+      <p>
+        * Passive means in this case income, which you dont&apos; work actively
+        for. As an example this could be a rented out property, a youtube video
+        which brings you passive money after recording it, a published book
+        etc...{" "}
+      </p>
 
       <section className={styles.StyledBigCardsWrapperSection}>
         <BigCard
