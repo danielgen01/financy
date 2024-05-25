@@ -13,6 +13,9 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
   incomeTotal,
   expenseTotal,
 }) => {
+  const roundedIncomes = incomeTotal.toFixed(2)
+  const roundedExpenses = expenseTotal.toFixed(2)
+  const roundedNetCashflow = netCashflowAmount.toFixed(2)
   return (
     <div className={styles.StyledCashflowOverviewWrapper}>
       <div className={styles.StyledCashflowContentWrapper}>
@@ -27,12 +30,12 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
           <div className={styles.StyledCashflowTextWrapper}>
             <span className={styles.StyledCashflowText}>Monthly Cashflow</span>
             <span>
-              ({incomeTotal}€ - {expenseTotal}€)
+              ({roundedIncomes}€ - {roundedExpenses}€)
             </span>
           </div>
         </div>
         <span className="text-primary-10% font-bold text-2xl">
-          €{netCashflowAmount}
+          €{roundedNetCashflow}
         </span>
       </div>
     </div>
