@@ -11,6 +11,7 @@ import { TextField } from "@mui/material"
 import { useForm } from "react-hook-form"
 import { CustomDialogProps, DialogFormData } from "./Dialog.types"
 import styles from "./Dialog.styles.module.css"
+import { formatToTwoDecimalPlaces } from "./SubComponents"
 
 export const Dialog: React.FC<CustomDialogProps> = ({
   open,
@@ -69,7 +70,10 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   label="Amount"
                   className={styles.StyledTextField}
                   onChange={(e) => {
-                    setAmount(Number(e.target.value))
+                    const formattedAmount = formatToTwoDecimalPlaces(
+                      e.target.value
+                    )
+                    setAmount(formattedAmount)
                   }}
                 />
               </FormControl>

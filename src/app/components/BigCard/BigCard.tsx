@@ -40,7 +40,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         total += cardItems[key].cashflowAmount
       }
     }
-    return total
+    return parseFloat(total.toFixed(2))
   }
 
   const determineItemsRef = () => {
