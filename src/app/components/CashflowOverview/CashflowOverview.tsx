@@ -27,9 +27,15 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
           />
           <div className={styles.StyledPaydayTextWrapper}>
             <span className={styles.StyledPaydayText}>Payday</span>
-            <span>
-              ({roundToFixed(incomeTotal)}€ - {roundToFixed(expenseTotal)}€)
-            </span>
+            <div className="calculationwrapper  items-center gap-2 hidden md:flex">
+              <span className="text-green-500 font-semibold">
+                ( {roundToFixed(incomeTotal)}€
+              </span>
+              <span className="text-center">- </span>
+              <span className="text-red-500 font-semibold">
+                {roundToFixed(expenseTotal)}€ )
+              </span>
+            </div>
           </div>
         </div>
         <div className={styles.StyledCashflowAmountWrapper}>

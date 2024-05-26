@@ -27,6 +27,8 @@
 .StyledPaydayTextWrapper {
   display: flex;
   flex-direction: column;
+  align-items: left;
+  gap: 0.5rem;
 }
 
 .StyledPaydayText {
