@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { IconButton } from "@mui/material"
+import { IconButton, Tooltip } from "@mui/material"
 
 export const StyledEditButtonWrapper = styled(IconButton)`
   background-color: #3477f5;
@@ -26,7 +26,7 @@ export const StyledListItemWrapper = styled.div`
   padding: 5px;
   width: 100%;
 `
-export const StyledNameWrapper = styled.div`
+export const StyledNameWrapper = styled(Tooltip)`
   display: flex;
   justify-content: start;
   width: 100%;

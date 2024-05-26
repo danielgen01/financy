@@ -32,7 +32,7 @@ export const ListItem: React.FC<ListItemProps> = ({
 
   return (
     <StyledListItemWrapper>
-      <StyledNameWrapper>
+      <StyledNameWrapper title={name}>
         <span>{name}</span>
       </StyledNameWrapper>
 
