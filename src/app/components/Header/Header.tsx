@@ -22,11 +22,11 @@ const Header: React.FC = () => {
         <>
           {" "}
           <ul className={styles.StyledMenuList}>
-            <MenuItem label="Overview" isActive={true}></MenuItem>
-            <MenuItem label="Transactions"></MenuItem>
-            <MenuItem label="Analytics"></MenuItem>
-            <MenuItem label="Accounts"></MenuItem>
-            <MenuItem label="Wallet"></MenuItem>
+            <MenuItem href="/" label="Overview" isActive={true}></MenuItem>
+            <MenuItem href="/" label="Transactions"></MenuItem>
+            <MenuItem href="/" label="Analytics"></MenuItem>
+            <MenuItem href="/" label="Accounts"></MenuItem>
+            <MenuItem href="/" label="Wallet"></MenuItem>
           </ul>
           <div className={styles.StyledAccountActionsWrapper}>
             <FontAwesomeIcon

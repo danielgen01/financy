@@ -33,10 +33,10 @@ const HamburgerMenu = () => {
           <div>
             <div>
               <ul>
-                <MenuItem label="Home" />
-                <MenuItem label="About" />
-                <MenuItem label="Services" />
-                <MenuItem label="Contact" />
+                <MenuItem  href="/" label="Home" />
+                <MenuItem  href="/" label="About" />
+                <MenuItem  href="/" label="Services" />
+                <MenuItem  href="/" label="Contact" />
               </ul>
             </div>
           </div>
