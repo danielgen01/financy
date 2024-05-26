@@ -25,8 +25,8 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
             height={75}
             className={styles.StyledCashflowImage}
           />
-          <div className={styles.StyledCashflowTextWrapper}>
-            <span className={styles.StyledCashflowText}>Monthly Cashflow</span>
+          <div className={styles.StyledPaydayTextWrapper}>
+            <span className={styles.StyledPaydayText}>Payday</span>
             <span>
               ({roundToFixed(incomeTotal)}€ - {roundToFixed(expenseTotal)}€)
             </span>

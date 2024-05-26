@@ -24,18 +24,18 @@
   @apply rounded-md p-5;
 }
 
-.StyledCashflowTextWrapper {
+.StyledPaydayTextWrapper {
   display: flex;
   flex-direction: column;
 }
 
-.StyledCashflowText {
+.StyledPaydayText {
   font-size: 1rem;
   font-weight: 500;
 }
 
 @media screen and (min-width: 600px) {
-  .StyledCashflowText {
+  .StyledPaydayText {
     font-size: 1.5rem;
   }
 }
