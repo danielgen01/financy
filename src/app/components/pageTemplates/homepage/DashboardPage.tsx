@@ -28,8 +28,16 @@ const DashboardPage = ({
           performance={20}
           isBalanceCard={true}
         />
-        <Card title="Incomes" amount={9500} performance={20} />
-        <Card title="Expenses" amount={2500} performance={10} />
+        <Card
+          title="Incomes"
+          amount={calculateTotalIncome(incomeData)}
+          performance={20}
+        />
+        <Card
+          title="Expenses"
+          amount={calculateTotalIncome(expenseData)}
+          performance={10}
+        />
       </div>
       <div className={styles.StyledHeadlineAndFilterWrapper}>
         <h1 className={styles.StyledHeadline}>Income Statement</h1>
