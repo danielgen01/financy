@@ -29,14 +29,17 @@ const HamburgerMenu = () => {
         <div className={styles.hamburger}>
           <div></div>
         </div>
-        <div className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}>
+        <div
+          className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}
+          onClick={() => handleClickAway()}
+        >
           <div>
             <div>
               <ul>
-                <MenuItem  href="/" label="Home" />
-                <MenuItem  href="/" label="About" />
-                <MenuItem  href="/" label="Services" />
-                <MenuItem  href="/" label="Contact" />
+                <MenuItem href="/" label="Home" />
+                <MenuItem href="/" label="About" />
+                <MenuItem href="/" label="Services" />
+                <MenuItem href="/" label="Contact" />
               </ul>
             </div>
           </div>
