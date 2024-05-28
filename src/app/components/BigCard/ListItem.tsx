@@ -1,15 +1,8 @@
 import { DeleteForever } from "@mui/icons-material"
-import {
-  StyledEditButtonWrapper,
-  StyledDeleteButton,
-  StyledListItemWrapper,
-  StyledNameWrapper,
-  StyledPriceWrapper,
-  StyledCashflowAmount,
-  StyledActionButtonsWrapper,
-} from "./ListItem.styles"
 import EditIcon from "@mui/icons-material/Edit"
 import { ListItemProps } from "./ListItem.types"
+import { IconButton, Tooltip } from "@mui/material"
+import styles from "./ListItem.styles.module.css"
 
 export const ListItem: React.FC<ListItemProps> = ({
   name,
@@ -31,23 +24,29 @@ export const ListItem: React.FC<ListItemProps> = ({
   }
 
   return (
-    <StyledListItemWrapper>
-      <StyledNameWrapper title={name}>
+    <div className={styles.StyledListItemWrapper}>
+      <Tooltip title={name} className={styles.StyledNameWrapper}>
         <span>{name}</span>
-      </StyledNameWrapper>
+      </Tooltip>
 
-      <StyledPriceWrapper>
-        <StyledCashflowAmount>€{cashflowAmount}</StyledCashflowAmount>
-      </StyledPriceWrapper>
+      <div className={styles.StyledPriceWrapper}>
+        <div className={styles.StyledCashflowAmount}>€{cashflowAmount}</div>
+      </div>
 
-      <StyledActionButtonsWrapper>
-        <StyledEditButtonWrapper onClick={handleEdit}>
+      <div className={styles.StyledActionButtonsWrapper}>
+        <IconButton
+          className={styles.StyledEditButtonWrapper}
+          onClick={handleEdit}
+        >
           <EditIcon />
-        </StyledEditButtonWrapper>
-        <StyledDeleteButton onClick={() => onRemove && onRemove(id)}>
+        </IconButton>
+        <IconButton
+          className={styles.StyledDeleteButton}
+          onClick={() => onRemove && onRemove(id)}
+        >
           <DeleteForever />
-        </StyledDeleteButton>
-      </StyledActionButtonsWrapper>
-    </StyledListItemWrapper>
+        </IconButton>
+      </div>
+    </div>
   )
 }

@@ -1,0 +1,55 @@
+.StyledEditButtonWrapper {
+  background-color: #3477f5;
+  color: white;
+  border-radius: 10rem;
+}
+
+.StyledEditButtonWrapper:hover {
+  background-color: #3457f1;
+}
+
+.StyledDeleteButton {
+  background-color: #9e4bf6;
+  color: white;
+  border-radius: 10rem;
+}
+
+.StyledDeleteButton:hover {
+  background-color: #9e1bf1;
+}
+
+.StyledListItemWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  width: 100%;
+}
+
+.StyledNameWrapper {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  height: 1.5em;
+}
+
+.StyledPriceWrapper {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.StyledCashflowAmount {
+  display: flex;
+  justify-content: center;
+}
+
+.StyledActionButtonsWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 5px;
+}
