@@ -45,6 +45,7 @@
 .StyledCashflowAmount {
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .StyledActionButtonsWrapper {
