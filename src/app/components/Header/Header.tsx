@@ -51,7 +51,7 @@ const Header: React.FC = () => {
           </div>
         </>
       ) : (
-        <HamburgerMenu></HamburgerMenu>
+        <HamburgerMenu />
       )}
     </div>
   )

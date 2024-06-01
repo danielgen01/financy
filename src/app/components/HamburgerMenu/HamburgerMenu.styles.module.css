@@ -1,5 +1,4 @@
 .menuWrap {
-  position: fixed;
   top: 0;
   right: 0; /* Verschiebt das Menü nach rechts */
   z-index: 1;
@@ -18,7 +17,7 @@
 
 .hamburger {
   position: absolute;
-  top: 15px;
+  top: 5px;
   right: 15px; /* Verschiebt das Hamburger-Symbol nach rechts */
   z-index: 1;
   width: 50px;
