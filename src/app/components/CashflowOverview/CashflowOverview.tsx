@@ -39,10 +39,10 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
           </div>
         </div>
         <div className={styles.StyledCashflowAmountWrapper}>
-          <span className="text-primary-10% font-bold text-2xl">
+          <span className="text-primary-10% font-bold text-lg md:text-xl">
             €{roundToFixed(netCashflowAmount)}
           </span>
-          <span className="">of which passive* = €0</span>
+          <span className="hidden sm:block">of which passive* = €0</span>
         </div>
       </div>
     </div>
