@@ -1,5 +1,9 @@
 "use client"
-import { headlineItemsMockCard } from "@/headlineItems.mock"
+import {
+  headlineItemsMockCard,
+  headlineItemsMockBigCardAssets,
+  headlineItemsMockBigCardLiabilities,
+} from "@/headlineItems.mock"
 import Card from "../../Card/Card"
 import React from "react"
 import { BigCard } from "../../BigCard/BigCard"
@@ -76,18 +80,20 @@ const DashboardPage = ({
 
       <section className={styles.StyledBigCardsWrapperSection}>
         <BigCard
-          headlineItems={headlineItemsMockCard}
+          headlineItems={headlineItemsMockBigCardAssets}
           color="red"
           buttonActionName="Add asset"
           cardTitle="Assets"
           listItems={assetData}
+          isFourColumns={true}
         />
         <BigCard
-          headlineItems={headlineItemsMockCard}
+          headlineItems={headlineItemsMockBigCardLiabilities}
           color="red"
           buttonActionName="Add Liability"
           cardTitle="Liabilities"
           listItems={liabilitiesData}
+          isFourColumns={true}
         />
       </section>
     </>

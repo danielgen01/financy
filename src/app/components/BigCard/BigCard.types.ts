@@ -10,4 +10,5 @@ export type BigCardProps = {
   buttonActionName?: string
   color?: "green" | "red"
   headlineItems?: HeadlineItem[]
+  isFourColumns?: boolean
 }

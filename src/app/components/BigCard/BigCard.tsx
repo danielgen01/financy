@@ -21,6 +21,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   cardTitle,
   buttonActionName,
   headlineItems,
+  isFourColumns,
 }) => {
   const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || [])
   const [openDialog, setOpenDialog] = useState<boolean>(false)
@@ -181,6 +182,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               cashflowAmount={listItem.cashflowAmount}
               onRemove={removeCardItem} // Hier wird die Funktion übergeben
               onEdit={editCardItem}
+              isFourColumns={isFourColumns}
             />
           )
         })}

@@ -48,6 +48,12 @@
   flex: 1;
 }
 
+.StyledCashflowAmountFourColumns {
+  display: flex;
+  justify-content: left;
+  flex: 1;
+}
+
 .StyledActionButtonsWrapper {
   display: flex;
   justify-content: flex-end;

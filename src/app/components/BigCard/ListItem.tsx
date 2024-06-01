@@ -10,6 +10,7 @@ export const ListItem: React.FC<ListItemProps> = ({
   onRemove,
   id,
   onEdit,
+  isFourColumns,
 }) => {
   const handleEdit = () => {
     const updatedName = prompt("Neuer Name:", name)
@@ -30,7 +31,15 @@ export const ListItem: React.FC<ListItemProps> = ({
       </Tooltip>
 
       <div className={styles.StyledPriceWrapper}>
-        <div className={styles.StyledCashflowAmount}>€{cashflowAmount}</div>
+        <div
+          className={
+            isFourColumns
+              ? styles.StyledCashflowAmountFourColumns
+              : styles.StyledCashflowAmount
+          }
+        >
+          €{cashflowAmount}
+        </div>
       </div>
 
       <div className={styles.StyledActionButtonsWrapper}>
