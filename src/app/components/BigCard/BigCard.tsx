@@ -115,15 +115,6 @@ export const BigCard: React.FC<BigCardProps> = ({
       console.error("Fehler beim Entfernen des Elements: ", error)
     }
   }
-  const renderDialog = () => {
-    return (
-      <Dialog
-        open={openDialog}
-        onClose={handleClose}
-        addCardItem={addCardItem}
-      ></Dialog>
-    )
-  }
 
   const editCardItem = async (
     itemId: string,
@@ -201,7 +192,13 @@ export const BigCard: React.FC<BigCardProps> = ({
           <strong style={{ fontSize: "18px" }}>€{determineTotal()}</strong>
         </span>
       </div>
-      {openDialog && renderDialog()}
+      {openDialog && (
+        <Dialog
+          open={openDialog}
+          onClose={handleClose}
+          addCardItem={addCardItem}
+        ></Dialog>
+      )}
     </div>
   )
 }
