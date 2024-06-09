@@ -15,7 +15,12 @@ import { firebaseApp, getFirebaseData } from "@/app/utils/firebaseConfig"
 import { Dialog } from "../Dialog/Dialog"
 import styles from "./BigCard.styles.module.css"
 import { Button } from "@mui/material"
-import { determineItemsRef, determineTotal } from "./useBigCard"
+import {
+  determineItemsRef,
+  determineTotal,
+  handleClose,
+  handleOpen,
+} from "./useBigCard"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -26,14 +31,6 @@ export const BigCard: React.FC<BigCardProps> = ({
 }) => {
   const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || [])
   const [openDialog, setOpenDialog] = useState<boolean>(false)
-
-  const handleClose = () => {
-    setOpenDialog(false)
-  }
-
-  const handleOpen = () => {
-    setOpenDialog(true)
-  }
 
   const fetchCardItemsFromDatabase = async () => {
     try {
@@ -136,7 +133,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         <Button
           className={styles.StyledAddButton}
           endIcon={<AddCircleOutline />}
-          onClick={handleOpen}
+          onClick={() => handleOpen(setOpenDialog)}
         >
           {buttonActionName}
         </Button>
@@ -178,7 +175,7 @@ export const BigCard: React.FC<BigCardProps> = ({
       {openDialog && (
         <Dialog
           open={openDialog}
-          onClose={handleClose}
+          onClose={() => handleClose(setOpenDialog)}
           addCardItem={addCardItem}
         ></Dialog>
       )}

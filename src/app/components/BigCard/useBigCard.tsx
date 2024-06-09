@@ -21,3 +21,15 @@ export const determineTotal = (items: ListItemProps[]) => {
   }
   return parseFloat(total.toFixed(2))
 }
+
+export const handleClose = (
+  setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  setOpenDialog(false)
+}
+
+export const handleOpen = (
+  setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  setOpenDialog(true)
+}
