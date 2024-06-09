@@ -24,6 +24,7 @@ import {
 import {
   addCardItemToDataBase,
   fetchCardItemsFromDatabase,
+  removeCardItemFromDataBase,
 } from "./useFireBase"
 
 export const BigCard: React.FC<BigCardProps> = ({
@@ -42,34 +43,6 @@ export const BigCard: React.FC<BigCardProps> = ({
     fetchCardItemsFromDatabase(cardTitle, setCardItems)
   }, [cardItems])
 
-  // const addCardItem = async (name: string, cashflowAmount: number) => {
-  //   try {
-  //     const db = getDatabase(firebaseApp)
-  //     const newItemRef = push(ref(db, determineItemsRef(cardTitle)), {
-  //       name: name,
-  //       cashflowAmount: cashflowAmount,
-  //     })
-
-  //     const newItemKey = newItemRef.key // Schlüssel von der Datenbank erhalten
-
-  //     // Überprüfen, ob newItemKey definiert ist
-  //     if (newItemKey) {
-  //       const newCardItem: ListItemProps = {
-  //         name: name,
-  //         cashflowAmount: cashflowAmount,
-  //         id: newItemKey,
-  //       }
-
-  //       // Fügen Sie das neue Element zum lokalen Zustand hinzu
-  //       setCardItems([...cardItems, newCardItem])
-  //     } else {
-  //       console.error("Schlüssel wurde nicht von der Datenbank erhalten")
-  //     }
-  //   } catch (error) {
-  //     console.error("Fehler beim Hinzufügen des Elements: ", error)
-  //   }
-  // }
-
   const handleAddCardItem = (name: string, cashflowAmount: number) => {
     addCardItemToDataBase(
       name,
@@ -80,15 +53,8 @@ export const BigCard: React.FC<BigCardProps> = ({
     )
   }
 
-  const removeCardItem = (itemId: any) => {
-    try {
-      const db = getDatabase()
-      remove(ref(db, `${determineItemsRef(cardTitle)}/${itemId}`))
-      console.log("Element erfolgreich entfernt")
-      setCardItems(cardItems?.filter((item) => item.id !== itemId))
-    } catch (error) {
-      console.error("Fehler beim Entfernen des Elements: ", error)
-    }
+  const handleRemoveCardItem = (itemId: any) => {
+    removeCardItemFromDataBase(itemId, cardTitle, setCardItems, cardItems)
   }
 
   const editCardItem = async (
@@ -154,7 +120,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               key={`${listItem.name}-${listItem.cashflowAmount}`}
               name={listItem.name}
               cashflowAmount={listItem.cashflowAmount}
-              onRemove={removeCardItem} // Hier wird die Funktion übergeben
+              onRemove={handleRemoveCardItem} // Hier wird die Funktion übergeben
               onEdit={editCardItem}
               isFourColumns={isFourColumns}
             />

@@ -1,7 +1,7 @@
 import { firebaseApp, getFirebaseData } from "@/app/utils/firebaseConfig"
 import { determineItemsRef } from "./useBigCard"
 import { ListItemProps } from "./ListItem.types"
-import { getDatabase, push, ref } from "firebase/database"
+import { getDatabase, push, ref, remove } from "firebase/database"
 
 export const fetchCardItemsFromDatabase = async (
   cardTitle: string | undefined,
@@ -51,5 +51,21 @@ export const addCardItemToDataBase = async (
     }
   } catch (error) {
     console.error("Fehler beim Hinzufügen des Elements: ", error)
+  }
+}
+
+export const removeCardItemFromDataBase = (
+  itemId: any,
+  cardTitle: string | undefined,
+  setCardItems: React.Dispatch<React.SetStateAction<ListItemProps[]>>,
+  cardItems: ListItemProps[]
+) => {
+  try {
+    const db = getDatabase()
+    remove(ref(db, `${determineItemsRef(cardTitle)}/${itemId}`))
+    console.log("Element erfolgreich entfernt")
+    setCardItems(cardItems?.filter((item) => item.id !== itemId))
+  } catch (error) {
+    console.error("Fehler beim Entfernen des Elements: ", error)
   }
 }
