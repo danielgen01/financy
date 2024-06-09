@@ -15,7 +15,7 @@ import { firebaseApp, getFirebaseData } from "@/app/utils/firebaseConfig"
 import { Dialog } from "../Dialog/Dialog"
 import styles from "./BigCard.styles.module.css"
 import { Button } from "@mui/material"
-import { determineItemsRef } from "./useBigCard"
+import { determineItemsRef, determineTotal } from "./useBigCard"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -34,18 +34,6 @@ export const BigCard: React.FC<BigCardProps> = ({
   const handleOpen = () => {
     setOpenDialog(true)
   }
-
-  const determineTotal = () => {
-    let total = 0
-    for (const key in cardItems) {
-      if (Object.prototype.hasOwnProperty.call(cardItems, key)) {
-        total += cardItems[key].cashflowAmount
-      }
-    }
-    return parseFloat(total.toFixed(2))
-  }
-
-  determineItemsRef(cardTitle)
 
   const fetchCardItemsFromDatabase = async () => {
     try {
@@ -182,7 +170,9 @@ export const BigCard: React.FC<BigCardProps> = ({
       <div className={styles.StyledTotalAmountWrapper}>
         <span>
           Total :{" "}
-          <strong style={{ fontSize: "18px" }}>€{determineTotal()}</strong>
+          <strong style={{ fontSize: "18px" }}>
+            €{determineTotal(cardItems)}
+          </strong>
         </span>
       </div>
       {openDialog && (
