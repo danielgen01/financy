@@ -21,6 +21,10 @@ import {
   handleClose,
   handleOpen,
 } from "./useBigCard"
+import {
+  addCardItemToDataBase,
+  fetchCardItemsFromDatabase,
+} from "./useFireBase"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -32,54 +36,48 @@ export const BigCard: React.FC<BigCardProps> = ({
   const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || [])
   const [openDialog, setOpenDialog] = useState<boolean>(false)
 
-  const fetchCardItemsFromDatabase = async () => {
-    try {
-      const data = await getFirebaseData(determineItemsRef(cardTitle))
-      if (data) {
-        const cardItemsWithIds = Object.entries<any>(data).map(
-          ([id, item]) => ({
-            id: id,
-            ...item,
-          })
-        )
-        setCardItems(cardItemsWithIds)
-      }
-    } catch (error) {
-      console.error("Error fetching data from Firebase:", error)
-    }
-  }
+  fetchCardItemsFromDatabase(cardTitle, setCardItems)
 
-  // Die Funktion zum Abrufen von Daten wird beim ersten Rendern der Komponente aufgerufen
   useEffect(() => {
-    fetchCardItemsFromDatabase()
-  }, [cardItems]) // Leeres Abhängigkeitsarray bedeutet, dass dieser Effekt nur einmal nach dem Rendern ausgeführt wird
+    fetchCardItemsFromDatabase(cardTitle, setCardItems)
+  }, [cardItems])
 
-  const addCardItem = async (name: string, cashflowAmount: number) => {
-    try {
-      const db = getDatabase(firebaseApp)
-      const newItemRef = push(ref(db, determineItemsRef(cardTitle)), {
-        name: name,
-        cashflowAmount: cashflowAmount,
-      })
+  // const addCardItem = async (name: string, cashflowAmount: number) => {
+  //   try {
+  //     const db = getDatabase(firebaseApp)
+  //     const newItemRef = push(ref(db, determineItemsRef(cardTitle)), {
+  //       name: name,
+  //       cashflowAmount: cashflowAmount,
+  //     })
 
-      const newItemKey = newItemRef.key // Schlüssel von der Datenbank erhalten
+  //     const newItemKey = newItemRef.key // Schlüssel von der Datenbank erhalten
 
-      // Überprüfen, ob newItemKey definiert ist
-      if (newItemKey) {
-        const newCardItem: ListItemProps = {
-          name: name,
-          cashflowAmount: cashflowAmount,
-          id: newItemKey,
-        }
+  //     // Überprüfen, ob newItemKey definiert ist
+  //     if (newItemKey) {
+  //       const newCardItem: ListItemProps = {
+  //         name: name,
+  //         cashflowAmount: cashflowAmount,
+  //         id: newItemKey,
+  //       }
 
-        // Fügen Sie das neue Element zum lokalen Zustand hinzu
-        setCardItems([...cardItems, newCardItem])
-      } else {
-        console.error("Schlüssel wurde nicht von der Datenbank erhalten")
-      }
-    } catch (error) {
-      console.error("Fehler beim Hinzufügen des Elements: ", error)
-    }
+  //       // Fügen Sie das neue Element zum lokalen Zustand hinzu
+  //       setCardItems([...cardItems, newCardItem])
+  //     } else {
+  //       console.error("Schlüssel wurde nicht von der Datenbank erhalten")
+  //     }
+  //   } catch (error) {
+  //     console.error("Fehler beim Hinzufügen des Elements: ", error)
+  //   }
+  // }
+
+  const handleAddCardItem = (name: string, cashflowAmount: number) => {
+    addCardItemToDataBase(
+      name,
+      cashflowAmount,
+      cardTitle,
+      setCardItems,
+      cardItems
+    )
   }
 
   const removeCardItem = (itemId: any) => {
@@ -176,7 +174,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         <Dialog
           open={openDialog}
           onClose={() => handleClose(setOpenDialog)}
-          addCardItem={addCardItem}
+          addCardItem={handleAddCardItem}
         ></Dialog>
       )}
     </div>
