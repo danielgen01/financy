@@ -1,7 +1,7 @@
 import { firebaseApp, getFirebaseData } from "@/app/utils/firebaseConfig"
 import { determineItemsRef } from "./useBigCard"
 import { ListItemProps } from "./ListItem.types"
-import { getDatabase, push, ref, remove } from "firebase/database"
+import { getDatabase, push, ref, remove, update } from "firebase/database"
 
 export const fetchCardItemsFromDatabase = async (
   cardTitle: string | undefined,
@@ -67,5 +67,44 @@ export const removeCardItemFromDataBase = (
     setCardItems(cardItems?.filter((item) => item.id !== itemId))
   } catch (error) {
     console.error("Fehler beim Entfernen des Elements: ", error)
+  }
+}
+
+export const editCardItemFromDatabase = async (
+  itemId: string,
+  updatedName: string,
+  updatedCashflowAmount: number,
+  cardTitle: string | undefined,
+  setCardItems: React.Dispatch<React.SetStateAction<ListItemProps[]>>,
+  cardItems: ListItemProps[]
+) => {
+  try {
+    if (typeof itemId !== "string") {
+      throw new Error("itemId must be a string")
+    }
+
+    const db = getDatabase(firebaseApp)
+    const itemRef = ref(db, `${determineItemsRef(cardTitle)}/${itemId}`)
+
+    await update(itemRef, {
+      name: updatedName,
+      cashflowAmount: updatedCashflowAmount,
+    })
+
+    console.log("Element erfolgreich aktualisiert")
+
+    setCardItems(
+      cardItems.map((item) =>
+        item.id === itemId
+          ? {
+              ...item,
+              name: updatedName,
+              cashflowAmount: updatedCashflowAmount,
+            }
+          : item
+      )
+    )
+  } catch (error) {
+    console.error("Fehler beim Aktualisieren des Elements: ", error)
   }
 }

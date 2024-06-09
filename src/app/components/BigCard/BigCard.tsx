@@ -23,6 +23,7 @@ import {
 } from "./useBigCard"
 import {
   addCardItemToDataBase,
+  editCardItemFromDatabase,
   fetchCardItemsFromDatabase,
   removeCardItemFromDataBase,
 } from "./useFireBase"
@@ -57,37 +58,19 @@ export const BigCard: React.FC<BigCardProps> = ({
     removeCardItemFromDataBase(itemId, cardTitle, setCardItems, cardItems)
   }
 
-  const editCardItem = async (
+  const handleEditItem = (
     itemId: string,
     updatedName: string,
     updatedCashflowAmount: number
   ) => {
-    try {
-      const db = getDatabase(firebaseApp)
-      const itemRef = ref(db, `${determineItemsRef(cardTitle)}/${itemId}`)
-
-      await update(itemRef, {
-        name: updatedName,
-        cashflowAmount: updatedCashflowAmount,
-      })
-
-      console.log("Element erfolgreich aktualisiert")
-
-      // Lokalen Zustand aktualisieren
-      setCardItems(
-        cardItems.map((item) =>
-          item.id === itemId
-            ? {
-                ...item,
-                name: updatedName,
-                cashflowAmount: updatedCashflowAmount,
-              }
-            : item
-        )
-      )
-    } catch (error) {
-      console.error("Fehler beim Aktualisieren des Elements: ", error)
-    }
+    editCardItemFromDatabase(
+      itemId,
+      updatedName,
+      updatedCashflowAmount,
+      cardTitle,
+      setCardItems,
+      cardItems
+    )
   }
 
   return (
@@ -121,7 +104,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               name={listItem.name}
               cashflowAmount={listItem.cashflowAmount}
               onRemove={handleRemoveCardItem} // Hier wird die Funktion übergeben
-              onEdit={editCardItem}
+              onEdit={handleEditItem}
               isFourColumns={isFourColumns}
             />
           )
