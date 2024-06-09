@@ -15,6 +15,7 @@ import { firebaseApp, getFirebaseData } from "@/app/utils/firebaseConfig"
 import { Dialog } from "../Dialog/Dialog"
 import styles from "./BigCard.styles.module.css"
 import { Button } from "@mui/material"
+import { determineItemsRef } from "./useBigCard"
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -44,21 +45,11 @@ export const BigCard: React.FC<BigCardProps> = ({
     return parseFloat(total.toFixed(2))
   }
 
-  const determineItemsRef = () => {
-    if (cardTitle === "Income") {
-      return "incomeItems"
-    } else if (cardTitle === "Expenses") {
-      return "expensesItems"
-    } else if (cardTitle === "Assets") {
-      return "assetsItems"
-    } else {
-      return "liabilitiesItems"
-    }
-  }
+  determineItemsRef(cardTitle)
 
   const fetchCardItemsFromDatabase = async () => {
     try {
-      const data = await getFirebaseData(determineItemsRef())
+      const data = await getFirebaseData(determineItemsRef(cardTitle))
       if (data) {
         const cardItemsWithIds = Object.entries<any>(data).map(
           ([id, item]) => ({
@@ -81,7 +72,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   const addCardItem = async (name: string, cashflowAmount: number) => {
     try {
       const db = getDatabase(firebaseApp)
-      const newItemRef = push(ref(db, determineItemsRef()), {
+      const newItemRef = push(ref(db, determineItemsRef(cardTitle)), {
         name: name,
         cashflowAmount: cashflowAmount,
       })
@@ -109,7 +100,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   const removeCardItem = (itemId: any) => {
     try {
       const db = getDatabase()
-      remove(ref(db, `${determineItemsRef()}/${itemId}`))
+      remove(ref(db, `${determineItemsRef(cardTitle)}/${itemId}`))
       console.log("Element erfolgreich entfernt")
       setCardItems(cardItems?.filter((item) => item.id !== itemId))
     } catch (error) {
@@ -124,7 +115,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   ) => {
     try {
       const db = getDatabase(firebaseApp)
-      const itemRef = ref(db, `${determineItemsRef()}/${itemId}`)
+      const itemRef = ref(db, `${determineItemsRef(cardTitle)}/${itemId}`)
 
       await update(itemRef, {
         name: updatedName,
