@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import {
   getDatabase,
   ref,
@@ -40,9 +40,13 @@ export const BigCard: React.FC<BigCardProps> = ({
 
   fetchCardItemsFromDatabase(cardTitle, setCardItems)
 
-  useEffect(() => {
+  const fetchItems = useCallback(() => {
     fetchCardItemsFromDatabase(cardTitle, setCardItems)
-  }, [cardItems])
+  }, [cardTitle])
+
+  useEffect(() => {
+    fetchItems()
+  }, [fetchItems])
 
   const handleAddCardItem = (name: string, cashflowAmount: number) => {
     addCardItemToDataBase(
