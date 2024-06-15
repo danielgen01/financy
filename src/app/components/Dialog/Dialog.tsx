@@ -29,7 +29,9 @@ export const Dialog: React.FC<CustomDialogProps> = ({
   const [amount, setAmount] = useState<number>(0)
 
   const onSubmit = () => {
-    addCardItem(name, amount)
+    if (addCardItem) {
+      addCardItem(name, amount)
+    }
     if (onClose) {
       onClose() // Close the dialog
     }
