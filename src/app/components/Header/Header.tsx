@@ -9,6 +9,7 @@ import styles from "./Header.styles.module.css" // Stelle sicher, dass der Pfad 
 import Link from "next/link"
 import { useMediaQuery } from "@mui/material"
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu"
+import { ToggleTheme } from "../ToggleThemeButton/ToggleThemeButton"
 
 const Header: React.FC = () => {
   const isLaptopOrAbove = useMediaQuery("(min-width: 1280px)")
@@ -28,6 +29,7 @@ const Header: React.FC = () => {
             <MenuItem href="/" label="Accounts"></MenuItem>
             <MenuItem href="/" label="Wallet"></MenuItem>
           </ul>
+          <ToggleTheme />
           <div className={styles.StyledAccountActionsWrapper}>
             <FontAwesomeIcon
               icon={faGear}

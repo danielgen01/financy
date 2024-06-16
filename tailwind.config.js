@@ -26,6 +26,6 @@ module.exports = {
       },
     },
   },
-  darkMode: ["class", '[data-mode="dark"]'],
+  darkMode: "class", // Verwendet die 'class'-Strategie für den Dark Mode
   plugins: [],
 }
