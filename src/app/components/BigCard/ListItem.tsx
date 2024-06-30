@@ -3,6 +3,9 @@ import EditIcon from "@mui/icons-material/Edit"
 import { ListItemProps } from "./ListItem.types"
 import { IconButton, Tooltip } from "@mui/material"
 import styles from "./ListItem.styles.module.css"
+import { useState } from "react"
+import { Dialog } from "../Dialog/Dialog"
+import { handleClose } from "./useBigCard"
 
 export const ListItem: React.FC<ListItemProps> = ({
   name,
@@ -12,16 +15,11 @@ export const ListItem: React.FC<ListItemProps> = ({
   onEdit,
   isFourColumns,
 }) => {
-  const handleEdit = () => {
-    const updatedName = prompt("Neuer Name:", name)
-    const updatedCashflowAmount = parseFloat(
-      prompt("Neuer Cashflow Betrag:", cashflowAmount.toString()) ||
-        cashflowAmount.toString()
-    )
+  const [openDialog, setOpenDialog] = useState<boolean>(false)
 
-    if (updatedName && !isNaN(updatedCashflowAmount)) {
-      onEdit?.(id, updatedName, updatedCashflowAmount)
-    }
+  const dialogContentState = {
+    name: name,
+    cashflowAmount: cashflowAmount,
   }
 
   return (
@@ -45,7 +43,9 @@ export const ListItem: React.FC<ListItemProps> = ({
       <div className={styles.StyledActionButtonsWrapper}>
         <IconButton
           className={styles.StyledEditButtonWrapper}
-          onClick={handleEdit}
+          onClick={() => {
+            setOpenDialog(true)
+          }}
         >
           <EditIcon />
         </IconButton>
@@ -56,6 +56,17 @@ export const ListItem: React.FC<ListItemProps> = ({
           <DeleteForever />
         </IconButton>
       </div>
+      {openDialog && (
+        <Dialog
+          open={openDialog}
+          dialogTitle="Edit item"
+          onClose={() => handleClose(setOpenDialog)}
+          dialogContent={dialogContentState}
+          editCardItem={(updatedName: string, updatedCashflowAmount: number) =>
+            onEdit && onEdit(id, updatedName, updatedCashflowAmount)
+          }
+        ></Dialog>
+      )}
     </div>
   )
 }

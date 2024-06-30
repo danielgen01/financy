@@ -17,6 +17,9 @@ export const Dialog: React.FC<CustomDialogProps> = ({
   open,
   onClose,
   addCardItem,
+  editCardItem,
+  dialogTitle,
+  dialogContent,
 }) => {
   const {
     register,
@@ -25,24 +28,32 @@ export const Dialog: React.FC<CustomDialogProps> = ({
   } = useForm<DialogFormData>()
 
   const [openDialog, setOpenDialog] = React.useState<boolean>(open)
-  const [name, setName] = useState<string>("")
-  const [amount, setAmount] = useState<number>(0)
+  const [name, setName] = useState<string>(dialogContent?.name || "")
+  const [amount, setAmount] = useState<number>(
+    dialogContent?.cashflowAmount || 0
+  )
 
   const onSubmit = () => {
     if (addCardItem) {
       addCardItem(name, amount)
     }
+    if (editCardItem) {
+      editCardItem(name, amount)
+    }
+
     if (onClose) {
-      onClose() // Close the dialog
+      onClose()
     }
   }
+
+  console.log(open)
 
   return (
     <MuiDialog className="StyledDialogWrapper" open={openDialog} fullWidth>
       <ClickAwayListener onClickAway={() => onClose && onClose()}>
         <DialogContent sx={{ padding: "0" }}>
           <DialogTitle className={styles.StyledDialogTitle}>
-            Add new Item
+            {dialogTitle}
           </DialogTitle>
           <form action="" className="" onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.StyledInputFieldsWrapper}>
@@ -55,6 +66,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   type="text"
                   variant="filled"
                   label="Name"
+                  defaultValue={dialogContent?.name && dialogContent.name}
                   className={styles.StyledTextField}
                   onChange={(e) => {
                     setName(e.target.value)
@@ -71,6 +83,10 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   variant="filled"
                   label="Amount"
                   className={styles.StyledTextField}
+                  defaultValue={
+                    dialogContent?.cashflowAmount &&
+                    dialogContent.cashflowAmount
+                  }
                   onChange={(e) => {
                     const formattedAmount = formatToTwoDecimalPlaces(
                       e.target.value

@@ -2,6 +2,9 @@ import { DialogProps } from "@mui/material"
 
 export interface CustomDialogProps extends DialogProps {
   addCardItem?: (name: string, cashflowAmount: number) => void // Definiere die Typen für die Parameter
+  editCardItem?: (name: string, cashflowAmount: number) => void // Definiere die Typen für die Parameter
+  dialogTitle: string
+  dialogContent?: any
 }
 
 export interface DialogFormData {

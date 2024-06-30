@@ -126,6 +126,7 @@ export const BigCard: React.FC<BigCardProps> = ({
       {openDialog && (
         <Dialog
           open={openDialog}
+          dialogTitle="Add item"
           onClose={() => handleClose(setOpenDialog)}
           addCardItem={handleAddCardItem}
         ></Dialog>
