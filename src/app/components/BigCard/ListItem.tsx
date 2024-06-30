@@ -24,7 +24,11 @@ export const ListItem: React.FC<ListItemProps> = ({
 
   return (
     <div className={styles.StyledListItemWrapper}>
-      <Tooltip title={name} className={styles.StyledNameWrapper}>
+      <Tooltip
+        title={name}
+        className={styles.StyledNameWrapper}
+        style={{ cursor: "default" }}
+      >
         <span>{name}</span>
       </Tooltip>
 
