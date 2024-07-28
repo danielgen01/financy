@@ -63,7 +63,21 @@ const Header: React.FC = () => {
                 <button onClick={handleLogOut}>Logout</button>
               </>
             ) : (
-              <Link className="shadow-sm p-2 rounded-xl bg-green-300" href={"./auth"}>Registrieren / Anmelden </Link>
+              <>
+                <Link
+                  className="shadow-sm p-2 rounded-xl bg-green-300"
+                  href={"./signup"}
+                >
+                  Registrieren{" "}
+                </Link>
+                <Link
+                  className="shadow-sm p-2 rounded-xl bg-green-300"
+                  href={"./signin"}
+                >
+                  {" "}
+                  Anmelden{" "}
+                </Link>
+              </>
             )}
           </div>
         </>
