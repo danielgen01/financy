@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react";
 import {
   getDatabase,
   ref,
@@ -6,27 +6,19 @@ import {
   remove,
   onValue,
   update,
-} from "firebase/database"
-import { AddCircleOutline } from "@mui/icons-material"
-import { ListItem } from "./ListItem"
-import { BigCardProps } from "./BigCard.types"
-import { ListItemProps } from "./ListItem.types"
-import { firebaseApp, getFirebaseData } from "@/app/utils/firebaseConfig"
-import { Dialog } from "../Dialog/Dialog"
-import styles from "./BigCard.styles.module.css"
-import { Button } from "@mui/material"
-import {
-  determineItemsRef,
-  determineTotal,
-  handleClose,
-  handleOpen,
-} from "./useBigCard"
-import {
-  addCardItemToDataBase,
-  editCardItemFromDatabase,
-  fetchCardItemsFromDatabase,
-  removeCardItemFromDataBase,
-} from "./useFireBase"
+} from "firebase/database";
+import { AddCircleOutline } from "@mui/icons-material";
+import { ListItem } from "./ListItem";
+import { BigCardProps } from "./BigCard.types";
+import { ListItemProps } from "./ListItem.types";
+import { Dialog } from "../Dialog/Dialog";
+import styles from "./BigCard.styles.module.css";
+import { Button } from "@mui/material";
+import { determineTotal, handleClose, handleOpen } from "./useBigCard";
+import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
+import { editCardItemFromDatabase } from "../../utils/editCardItemFromDataBase";
+import { fetchCardItemsFromDatabase } from "../../utils/fetchCardItemsFromDataBase";
+import { removeCardItemFromDataBase } from "../../utils/removeCardItemFromDataBase";
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -35,18 +27,18 @@ export const BigCard: React.FC<BigCardProps> = ({
   headlineItems,
   isFourColumns,
 }) => {
-  const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || [])
-  const [openDialog, setOpenDialog] = useState<boolean>(false)
+  const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || []);
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
 
-  fetchCardItemsFromDatabase(cardTitle, setCardItems)
+  fetchCardItemsFromDatabase(cardTitle, setCardItems);
 
   const fetchItems = useCallback(() => {
-    fetchCardItemsFromDatabase(cardTitle, setCardItems)
-  }, [cardTitle])
+    fetchCardItemsFromDatabase(cardTitle, setCardItems);
+  }, [cardTitle]);
 
   useEffect(() => {
-    fetchItems()
-  }, [fetchItems])
+    fetchItems();
+  }, [fetchItems]);
 
   const handleAddCardItem = (name: string, cashflowAmount: number) => {
     addCardItemToDataBase(
@@ -54,18 +46,18 @@ export const BigCard: React.FC<BigCardProps> = ({
       cashflowAmount,
       cardTitle,
       setCardItems,
-      cardItems
-    )
-  }
+      cardItems,
+    );
+  };
 
   const handleRemoveCardItem = (itemId: any) => {
-    removeCardItemFromDataBase(itemId, cardTitle, setCardItems, cardItems)
-  }
+    removeCardItemFromDataBase(itemId, cardTitle, setCardItems, cardItems);
+  };
 
   const handleEditItem = (
     itemId: string,
     updatedName: string,
-    updatedCashflowAmount: number
+    updatedCashflowAmount: number,
   ) => {
     editCardItemFromDatabase(
       itemId,
@@ -73,9 +65,9 @@ export const BigCard: React.FC<BigCardProps> = ({
       updatedCashflowAmount,
       cardTitle,
       setCardItems,
-      cardItems
-    )
-  }
+      cardItems,
+    );
+  };
 
   return (
     <div className={styles.StyledBigCardWrapper}>
@@ -96,7 +88,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               <span key={headlineItem.headline + 1}>
                 {headlineItem.headline}
               </span>
-            )
+            );
           })}
         </div>
 
@@ -111,7 +103,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               onEdit={handleEditItem}
               isFourColumns={isFourColumns}
             />
-          )
+          );
         })}
       </div>
       <hr />
@@ -132,5 +124,5 @@ export const BigCard: React.FC<BigCardProps> = ({
         ></Dialog>
       )}
     </div>
-  )
-}
+  );
+};
