@@ -1,18 +1,26 @@
-"use client"
-import React from "react"
-
-import Image from "next/image"
-import MenuItem from "./MenuItem"
-import { faBell, faGear } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import styles from "./Header.styles.module.css" // Stelle sicher, dass der Pfad korrekt ist
-import Link from "next/link"
-import { useMediaQuery } from "@mui/material"
-import HamburgerMenu from "../HamburgerMenu/HamburgerMenu"
-import { ToggleTheme } from "../ToggleThemeButton/ToggleThemeButton"
+"use client";
+import React from "react";
+import Image from "next/image";
+import MenuItem from "./MenuItem";
+import { faBell, faGear } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./Header.styles.module.css"; // Stelle sicher, dass der Pfad korrekt ist
+import Link from "next/link";
+import { useMediaQuery } from "@mui/material";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { ToggleTheme } from "../ToggleThemeButton/ToggleThemeButton";
+import { logOut } from "@/app/utils/auth";
+import { useAuth } from "@/app/utils/useAuth";
 
 const Header: React.FC = () => {
-  const isLaptopOrAbove = useMediaQuery("(min-width: 1280px)")
+  const isLaptopOrAbove = useMediaQuery("(min-width: 1280px)");
+  const { user } = useAuth(); 
+
+  const handleLogOut = () => {
+    logOut();
+    console.log("user logged out");
+    window.location.reload();
+  };
 
   return (
     <div className={styles.StyledHeaderWrapper}>
@@ -21,7 +29,6 @@ const Header: React.FC = () => {
       </Link>
       {isLaptopOrAbove ? (
         <>
-          {" "}
           <ul className={styles.StyledMenuList}>
             <MenuItem href="/" label="Overview" isActive={true}></MenuItem>
             <MenuItem href="/" label="Transactions"></MenuItem>
@@ -41,22 +48,28 @@ const Header: React.FC = () => {
               fontSize={"1.5rem"}
               cursor={"pointer"}
             />
-            <div className="flex mx-auto overflow-hidden">
+
+            <Link className="flex mx-auto overflow-hidden" href={"./auth"}>
               <Image
                 src={"/Profile.png"}
                 height={40}
                 width={40}
-                alt="Dummy Image"
+                alt="Profile Image"
                 className={styles.StyledAccountProfileImage}
               />
-            </div>
+            </Link>
+            {user && (
+              <>
+                <button onClick={handleLogOut}>Logout</button>
+              </>
+            )}
           </div>
         </>
       ) : (
         <HamburgerMenu />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
