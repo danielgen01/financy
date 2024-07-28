@@ -14,7 +14,7 @@ import { useAuth } from "@/app/utils/useAuth";
 
 const Header: React.FC = () => {
   const isLaptopOrAbove = useMediaQuery("(min-width: 1280px)");
-  const { user } = useAuth(); 
+  const { user } = useAuth();
 
   const handleLogOut = () => {
     logOut();
@@ -49,19 +49,21 @@ const Header: React.FC = () => {
               cursor={"pointer"}
             />
 
-            <Link className="flex mx-auto overflow-hidden" href={"./auth"}>
-              <Image
-                src={"/Profile.png"}
-                height={40}
-                width={40}
-                alt="Profile Image"
-                className={styles.StyledAccountProfileImage}
-              />
-            </Link>
-            {user && (
+            {user ? (
               <>
+                <div className="flex mx-auto overflow-hidden">
+                  <Image
+                    src={"/Profile.png"}
+                    height={40}
+                    width={40}
+                    alt="Profile Image"
+                    className={styles.StyledAccountProfileImage}
+                  />
+                </div>
                 <button onClick={handleLogOut}>Logout</button>
               </>
+            ) : (
+              <Link className="shadow-sm p-2 rounded-xl bg-green-300" href={"./auth"}>Registrieren / Anmelden </Link>
             )}
           </div>
         </>
