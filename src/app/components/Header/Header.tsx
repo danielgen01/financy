@@ -60,7 +60,12 @@ const Header: React.FC = () => {
                     className={styles.StyledAccountProfileImage}
                   />
                 </div>
-                <button onClick={handleLogOut}>Logout</button>
+                <button
+                  onClick={handleLogOut}
+                  className="bg-red-500 p-2 rounded-xl text-white-default font-bold"
+                >
+                  Logout
+                </button>
               </>
             ) : (
               <>
