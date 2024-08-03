@@ -53,7 +53,8 @@ const Header: React.FC = () => {
             {!loading ? (
               <FontAwesomeIcon
                 icon={faGear}
-                fontSize="1.5rem"
+                width={40}
+                height={40}
                 cursor="pointer"
               />
             ) : (
@@ -62,7 +63,8 @@ const Header: React.FC = () => {
             {!loading ? (
               <FontAwesomeIcon
                 icon={faBell}
-                fontSize="1.5rem"
+                width={40}
+                height={40}
                 cursor="pointer"
               />
             ) : (
