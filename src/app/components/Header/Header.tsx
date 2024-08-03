@@ -14,14 +14,7 @@ import { useAuth } from "@/app/utils/useAuth";
 
 const Header: React.FC = () => {
   const isLaptopOrAbove = useMediaQuery("(min-width: 1280px)");
-  const { user } = useAuth();
-  const [loading, setLoading] = useState<boolean>(true); // Add loading state
-
-  useEffect(() => {
-    if (user) {
-      setLoading(false);
-    }
-  }, [user]);
+  const { user, loading } = useAuth();
 
   const handleLogOut = () => {
     logOut();
