@@ -13,13 +13,13 @@ import { BigCardProps } from "./BigCard.types";
 import { ListItemProps } from "./ListItem.types";
 import { Dialog } from "../Dialog/Dialog";
 import styles from "./BigCard.styles.module.css";
-import { Button } from "@mui/material";
+import { Button, Skeleton } from "@mui/material";
 import { determineTotal, handleClose, handleOpen } from "./useBigCard";
 import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
-import { editCardItemFromDatabase } from "../../utils/editCardItemFromDataBase";
-import { fetchCardItemsFromDatabase } from "../../utils/fetchCardItemsFromDataBase";
-import { removeCardItemFromDataBase } from "../../utils/removeCardItemFromDataBase";
-import { auth } from "@/app/utils/firebaseConfig"; // Ensure this import is correct
+import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
+import { fetchCardItemsFromDatabase } from "@/app/utils/fetchCardItemsFromDataBase";
+import { removeCardItemFromDataBase } from "@/app/utils/removeCardItemFromDataBase";
+import { auth } from "@/app/utils/firebaseConfig";
 import { User } from "firebase/auth";
 
 export const BigCard: React.FC<BigCardProps> = ({
@@ -32,6 +32,7 @@ export const BigCard: React.FC<BigCardProps> = ({
   const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || []);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
   const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true); // Add loading state
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -47,7 +48,10 @@ export const BigCard: React.FC<BigCardProps> = ({
 
   const fetchItems = useCallback(() => {
     if (user) {
-      fetchCardItemsFromDatabase(user.uid, cardTitle, setCardItems);
+      setLoading(true);
+      fetchCardItemsFromDatabase(user.uid, cardTitle, setCardItems).then(() => {
+        setLoading(false); // Set loading to false once data is fetched
+      });
     }
   }, [user, cardTitle]);
 
@@ -107,19 +111,24 @@ export const BigCard: React.FC<BigCardProps> = ({
           })}
         </div>
 
-        {Object.values(cardItems).map((listItem: ListItemProps) => {
-          return (
-            <ListItem
-              id={listItem.id}
-              key={`${listItem.name}-${listItem.cashflowAmount}`}
-              name={listItem.name}
-              cashflowAmount={listItem.cashflowAmount}
-              onRemove={handleRemoveCardItem} // Hier wird die Funktion übergeben
-              onEdit={handleEditItem}
-              isFourColumns={isFourColumns}
-            />
-          );
-        })}
+        {loading
+          ? Array.from({ length: 7 }).map((_, index) => (
+              <Skeleton key={index} width="100%" height={75} />
+            ))
+          : // Render card items when not loading
+            Object.values(cardItems).map((listItem: ListItemProps) => {
+              return (
+                <ListItem
+                  id={listItem.id}
+                  key={`${listItem.name}-${listItem.cashflowAmount}`}
+                  name={listItem.name}
+                  cashflowAmount={listItem.cashflowAmount}
+                  onRemove={handleRemoveCardItem}
+                  onEdit={handleEditItem}
+                  isFourColumns={isFourColumns}
+                />
+              );
+            })}
       </div>
       <hr />
       <div className={styles.StyledTotalAmountWrapper}>
