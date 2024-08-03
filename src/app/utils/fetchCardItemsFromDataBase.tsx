@@ -4,21 +4,13 @@ import { ListItemProps } from "../components/BigCard/ListItem.types";
 import { getDatabase, ref, get } from "firebase/database";
 
 export const fetchCardItemsFromDatabase = async (
+  userId: string,
   cardTitle: string | undefined,
   setCardItems: React.Dispatch<React.SetStateAction<ListItemProps[]>>,
 ) => {
-  const user = auth.currentUser;
-  if (!user) {
-    console.error("User is not authenticated");
-    return;
-  }
-
   try {
     const db = getDatabase(firebaseApp);
-    const itemsRef = ref(
-      db,
-      `users/${user.uid}/${determineItemsRef(cardTitle)}`,
-    );
+    const itemsRef = ref(db, `users/${userId}/${determineItemsRef(cardTitle)}`);
     const snapshot = await get(itemsRef);
 
     if (snapshot.exists()) {

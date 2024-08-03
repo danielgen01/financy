@@ -19,6 +19,8 @@ import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
 import { editCardItemFromDatabase } from "../../utils/editCardItemFromDataBase";
 import { fetchCardItemsFromDatabase } from "../../utils/fetchCardItemsFromDataBase";
 import { removeCardItemFromDataBase } from "../../utils/removeCardItemFromDataBase";
+import { auth } from "@/app/utils/firebaseConfig"; // Ensure this import is correct
+import { User } from "firebase/auth";
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -29,12 +31,25 @@ export const BigCard: React.FC<BigCardProps> = ({
 }) => {
   const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || []);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [user, setUser] = useState<User | null>(null);
 
-  fetchCardItemsFromDatabase(cardTitle, setCardItems);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const fetchItems = useCallback(() => {
-    fetchCardItemsFromDatabase(cardTitle, setCardItems);
-  }, [cardTitle]);
+    if (user) {
+      fetchCardItemsFromDatabase(user.uid, cardTitle, setCardItems);
+    }
+  }, [user, cardTitle]);
 
   useEffect(() => {
     fetchItems();
