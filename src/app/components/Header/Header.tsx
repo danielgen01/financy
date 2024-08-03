@@ -50,8 +50,24 @@ const Header: React.FC = () => {
           )}
           <ToggleTheme />
           <div className={styles.StyledAccountActionsWrapper}>
-            <FontAwesomeIcon icon={faGear} fontSize="1.5rem" cursor="pointer" />
-            <FontAwesomeIcon icon={faBell} fontSize="1.5rem" cursor="pointer" />
+            {!loading ? (
+              <FontAwesomeIcon
+                icon={faGear}
+                fontSize="1.5rem"
+                cursor="pointer"
+              />
+            ) : (
+              <Skeleton variant="circular" width={40} height={40} />
+            )}
+            {!loading ? (
+              <FontAwesomeIcon
+                icon={faBell}
+                fontSize="1.5rem"
+                cursor="pointer"
+              />
+            ) : (
+              <Skeleton variant="circular" width={40} height={40} />
+            )}
             <>
               <div className="flex mx-auto overflow-hidden">
                 {!loading && user ? (
