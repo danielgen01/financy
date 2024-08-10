@@ -29,12 +29,10 @@ export const BigCard: React.FC<BigCardProps> = ({
 }) => {
   const [cardItems, setCardItems] = useState<ListItemProps[]>([]);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (listItems) {
       setCardItems(listItems);
-      setLoading(false);
     }
   }, [cardItems, listItems]);
 
@@ -90,7 +88,7 @@ export const BigCard: React.FC<BigCardProps> = ({
           })}
         </div>
 
-        {loading
+        {!listItems
           ? Array.from({ length: 7 }).map((_, index) => (
               <Box display={"flex"} justifyContent="space-between">
                 <Skeleton key={index} width="40%" height={75} />
