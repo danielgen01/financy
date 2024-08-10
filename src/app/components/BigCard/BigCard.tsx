@@ -6,6 +6,7 @@ import {
   remove,
   onValue,
   update,
+  set,
 } from "firebase/database";
 import { AddCircleOutline } from "@mui/icons-material";
 import { ListItem } from "./ListItem";
@@ -17,10 +18,7 @@ import { Button, Skeleton } from "@mui/material";
 import { determineTotal, handleClose, handleOpen } from "./useBigCard";
 import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
 import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
-import { fetchCardItemsFromDatabase } from "@/app/utils/fetchCardItemsFromDataBase";
 import { removeCardItemFromDataBase } from "@/app/utils/removeCardItemFromDataBase";
-import { auth } from "@/app/utils/firebaseConfig";
-import { User } from "firebase/auth";
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -29,35 +27,16 @@ export const BigCard: React.FC<BigCardProps> = ({
   headlineItems,
   isFourColumns,
 }) => {
-  const [cardItems, setCardItems] = useState<ListItemProps[]>(listItems || []);
+  const [cardItems, setCardItems] = useState<ListItemProps[]>([]);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState<boolean>(true); // Add loading state
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const fetchItems = useCallback(() => {
-    if (user) {
-      setLoading(true);
-      fetchCardItemsFromDatabase(user.uid, cardTitle, setCardItems).then(() => {
-        setLoading(false); // Set loading to false once data is fetched
-      });
+    if (listItems) {
+      setCardItems(listItems);
+      setLoading(false);
     }
-  }, [user, cardTitle]);
-
-  useEffect(() => {
-    fetchItems();
-  }, [fetchItems]);
+  }, [cardItems, listItems]);
 
   const handleAddCardItem = (name: string, cashflowAmount: number) => {
     addCardItemToDataBase(

@@ -1,28 +1,24 @@
-"use client"
+"use client";
 import {
   headlineItemsMockCard,
   headlineItemsMockBigCardAssets,
   headlineItemsMockBigCardLiabilities,
-} from "@/headlineItems.mock"
-import Card from "../../Card/Card"
-import React from "react"
-import { BigCard } from "../../BigCard/BigCard"
-import { FilterMenu } from "../../FilterMenu/FilterMenu"
-import CashflowOverview from "../../CashflowOverview/CashflowOverview"
-import { DashboardPageProps } from "./DashboardPage.types"
-import styles from "./DashboardPage.styles.module.css"
+} from "@/headlineItems.mock";
+import Card from "../../Card/Card";
+import React from "react";
+import { BigCard } from "../../BigCard/BigCard";
+import { FilterMenu } from "../../FilterMenu/FilterMenu";
+import CashflowOverview from "../../CashflowOverview/CashflowOverview";
+import { DashboardPageProps } from "./DashboardPage.types";
+import styles from "./DashboardPage.styles.module.css";
 import {
   calculateTotal,
   calculateTotalExpense,
   calculateTotalIncome,
-} from "./utilities"
+} from "./utilities";
 
-const DashboardPage = ({
-  incomeData,
-  expenseData,
-  assetData,
-  liabilitiesData,
-}: DashboardPageProps) => {
+const DashboardPage = ({ ...props }: DashboardPageProps) => {
+  console.log("DahshboardPageProps", props);
   return (
     <>
       <div className={styles.StyledDashboardPage}>
@@ -34,12 +30,12 @@ const DashboardPage = ({
         />
         <Card
           title="Incomes"
-          amount={calculateTotalIncome(incomeData)}
+          amount={calculateTotalIncome(props.incomeData)}
           performance={20}
         />
         <Card
           title="Expenses"
-          amount={calculateTotalIncome(expenseData)}
+          amount={calculateTotalIncome(props.expenseData)}
           performance={10}
         />
       </div>
@@ -53,22 +49,25 @@ const DashboardPage = ({
           color="red"
           buttonActionName="Add Income"
           cardTitle="Income"
-          listItems={incomeData}
+          listItems={props.incomeData}
         />
         <BigCard
           headlineItems={headlineItemsMockCard}
           color="red"
           buttonActionName="Add Expense"
           cardTitle="Expenses"
-          listItems={expenseData}
+          listItems={props.expenseData}
         />
       </section>
 
       <section className="StyledCashflowOverviewSection mt-10">
         <CashflowOverview
-          netCashflowAmount={calculateTotal({ incomeData, expenseData })}
-          incomeTotal={calculateTotalIncome(incomeData)}
-          expenseTotal={calculateTotalExpense(expenseData)}
+          netCashflowAmount={calculateTotal({
+            incomeData: props.incomeData,
+            expenseData: props.expenseData,
+          })}
+          incomeTotal={calculateTotalIncome(props.incomeData)}
+          expenseTotal={calculateTotalExpense(props.expenseData)}
         />
       </section>
       <p>
@@ -84,7 +83,7 @@ const DashboardPage = ({
           color="red"
           buttonActionName="Add asset"
           cardTitle="Assets"
-          listItems={assetData}
+          listItems={props.assetData}
           isFourColumns={true}
         />
         <BigCard
@@ -92,12 +91,12 @@ const DashboardPage = ({
           color="red"
           buttonActionName="Add Liability"
           cardTitle="Liabilities"
-          listItems={liabilitiesData}
+          listItems={props.liabilitiesData}
           isFourColumns={true}
         />
       </section>
     </>
-  )
-}
+  );
+};
 
-export default DashboardPage
+export default DashboardPage;

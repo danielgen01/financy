@@ -1,7 +1,5 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import firebase from "firebase/compat/app";
 import { get, getDatabase, ref } from "firebase/database";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -21,19 +19,17 @@ export const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-export const getFirebaseData = async (dataType: any) => {
+export const getFirebaseData = async (userId: string, dataType: string) => {
   try {
-    const db = getDatabase();
-    const snapshot = await get(ref(db, dataType));
+    const db = getDatabase(firebaseApp);
+    const itemsRef = ref(db, `users/${userId}/${dataType}`);
+    const snapshot = await get(itemsRef);
     return snapshot.val();
   } catch (error) {
     console.error("Error fetching data from Firebase:", error);
     return [];
   }
 };
-
-// Initialize Firebase
 export const firebaseApp = initializeApp(firebaseConfig);
 export const auth = getAuth(firebaseApp);
 export const db = getDatabase(firebaseApp);
-
