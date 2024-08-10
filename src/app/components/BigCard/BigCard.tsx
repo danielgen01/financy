@@ -14,7 +14,7 @@ import { BigCardProps } from "./BigCard.types";
 import { ListItemProps } from "./ListItem.types";
 import { Dialog } from "../Dialog/Dialog";
 import styles from "./BigCard.styles.module.css";
-import { Button, Skeleton } from "@mui/material";
+import { Box, Button, Skeleton } from "@mui/material";
 import { determineTotal, handleClose, handleOpen } from "./useBigCard";
 import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
 import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
@@ -92,7 +92,24 @@ export const BigCard: React.FC<BigCardProps> = ({
 
         {loading
           ? Array.from({ length: 7 }).map((_, index) => (
-              <Skeleton key={index} width="100%" height={75} />
+              <Box display={"flex"} justifyContent="space-between">
+                <Skeleton key={index} width="40%" height={75} />
+                <Skeleton key={index} width="40%" height={75} />
+                <Skeleton
+                  sx={{ marginTop: "10px" }}
+                  key={index}
+                  width={50}
+                  height={50}
+                  variant="circular"
+                />
+                <Skeleton
+                  sx={{ marginTop: "10px" }}
+                  key={index}
+                  width={50}
+                  height={50}
+                  variant="circular"
+                />
+              </Box>
             ))
           : // Render card items when not loading
             Object.values(cardItems).map((listItem: ListItemProps) => {
