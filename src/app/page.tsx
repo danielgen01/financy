@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, getFirebaseData } from "../app/utils/firebaseConfig";
+import { ref, onValue } from "firebase/database"; // Für Realtime Database
+import { auth, getFirebaseData, db } from "../app/utils/firebaseConfig"; // Stelle sicher, dass db dein Database-Objekt ist
 import DashboardPage from "./components/pageTemplates/homepage/DashboardPage";
-import { fetchDashboardPageProps } from "@/fetcher/Dashboard/fetchDashboardPage";
 
-// Hilfsfunktion zum Umwandeln von Objekten in Arrays
 const objectToArray = (obj: any) => {
   if (!obj) return [];
   return Object.entries(obj).map(([id, data]) => ({ id, ...data }));
@@ -18,10 +17,10 @@ export default function HomePageAKADashboardPage() {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUserId(user.uid);
-        fetchData(user.uid);
+        setupRealtimeListeners(user.uid);
       } else {
         setUserId("");
         setDashboardPageProps(null);
@@ -29,33 +28,41 @@ export default function HomePageAKADashboardPage() {
       }
     });
 
-    return () => unsubscribe();
+    return () => unsubscribeAuth();
   }, []);
 
-  const fetchData = async (uid: string) => {
-    setLoading(true);
-    try {
-      const props = await fetchDashboardPageProps({
-        getIncomeData: () => getFirebaseData(uid, "incomeItems"),
-        getExpenseData: () => getFirebaseData(uid, "expensesItems"),
-        getAssetData: () => getFirebaseData(uid, "assetsItems"),
-        getLiabilitiesData: () => getFirebaseData(uid, "liabilitiesItems"),
-      });
+  const setupRealtimeListeners = (uid: string) => {
+    const incomeRef = ref(db, `users/${uid}/incomeItems/`);
+    const expenseRef = ref(db, `users/${uid}/expensesItems/`);
+    const assetRef = ref(db, `users/${uid}/assetsItems/`);
+    const liabilitiesRef = ref(db, `users/${uid}/liabilitiesItems/`);
 
-      // Umwandlung der Objekte in Arrays
-      const formattedProps = {
-        incomeData: objectToArray(props.incomeData),
-        expenseData: objectToArray(props.expenseData),
-        assetData: objectToArray(props.assetData),
-        liabilitiesData: objectToArray(props.liabilitiesData),
-      };
+    onValue(incomeRef, (snapshot) => {
+      const incomeData = snapshot.val();
+      updateDashboardProps("incomeData", incomeData);
+    });
 
-      setDashboardPageProps(formattedProps);
-    } catch (error) {
-      console.error("Error fetching dashboard props:", error);
-    } finally {
-      setLoading(false);
-    }
+    onValue(expenseRef, (snapshot) => {
+      const expenseData = snapshot.val();
+      updateDashboardProps("expenseData", expenseData);
+    });
+
+    onValue(assetRef, (snapshot) => {
+      const assetData = snapshot.val();
+      updateDashboardProps("assetData", assetData);
+    });
+
+    onValue(liabilitiesRef, (snapshot) => {
+      const liabilitiesData = snapshot.val();
+      updateDashboardProps("liabilitiesData", liabilitiesData);
+    });
+  };
+
+  const updateDashboardProps = (key: string, data: any) => {
+    setDashboardPageProps((prevProps: any) => ({
+      ...prevProps,
+      [key]: objectToArray(data),
+    }));
   };
 
   return <DashboardPage {...dashboardPageProps} />;
