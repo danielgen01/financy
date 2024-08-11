@@ -1,10 +1,10 @@
-"use client"
-import React from "react"
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
-import { CardProps } from "./Card.types"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import styles from "./Card.styles.module.css"
-import { Paper } from "@mui/material"
+"use client";
+import React from "react";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { CardProps } from "./Card.types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./Card.styles.module.css";
+import { Paper, Skeleton } from "@mui/material";
 
 const Card: React.FC<CardProps> = ({
   title,
@@ -14,18 +14,20 @@ const Card: React.FC<CardProps> = ({
 }) => {
   const determineStyling = () => {
     if (isBalanceCard) {
-      return styles.StyledAmountPurpleColour
+      return styles.StyledAmountPurpleColour;
     } else {
-      return styles.StyledAmount
+      return styles.StyledAmount;
     }
-  }
+  };
   return (
     <Paper sx={{ p: 2 }} elevation={1} className={styles.StyledPaper}>
       <div className={styles.CardWrapper}>
         <span style={{ color: "#516778" }}>{title}</span>
         <br />
         <div className={styles.StyledAmountAndPerformanceWrapper}>
-          <p className={determineStyling()}>${amount}</p>
+          <p className={determineStyling()}>
+            {!amount ? <Skeleton height={75} width={115} /> : amount}
+          </p>
           <div className={styles.StyledPerformanceWrapper}>
             <FontAwesomeIcon icon={faArrowUp} />
             {performance}%
@@ -33,7 +35,7 @@ const Card: React.FC<CardProps> = ({
         </div>
       </div>
     </Paper>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

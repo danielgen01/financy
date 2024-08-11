@@ -1,12 +1,13 @@
-import Image from "next/image"
-import React from "react"
-import styles from "./CashflowOverview.module.css"
-import { roundToFixed } from "./SubComponents"
+import Image from "next/image";
+import React from "react";
+import styles from "./CashflowOverview.module.css";
+import { roundToFixed } from "./SubComponents";
+import { Skeleton } from "@mui/material";
 
 export interface CashflowOverviewProps {
-  netCashflowAmount: number
-  incomeTotal: number
-  expenseTotal: number
+  netCashflowAmount: number;
+  incomeTotal: number;
+  expenseTotal: number;
 }
 
 const CashflowOverview: React.FC<CashflowOverviewProps> = ({
@@ -29,24 +30,38 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
             <span className={styles.StyledPaydayText}>Payday</span>
             <div className="calculationwrapper  items-center gap-2 hidden md:flex">
               <span className="text-green-500 font-semibold">
-                ( {roundToFixed(incomeTotal)}€
+                {!incomeTotal ? (
+                  <Skeleton variant="text" width={80} height={45} />
+                ) : (
+                  roundToFixed(incomeTotal)
+                )}
               </span>
               <span className="text-center">- </span>
               <span className="text-red-500 font-semibold">
-                {roundToFixed(expenseTotal)}€ )
+                {!incomeTotal ? (
+                  <Skeleton variant="text" width={80} height={45} />
+                ) : (
+                  roundToFixed(expenseTotal)
+                )}
               </span>
             </div>
           </div>
         </div>
         <div className={styles.StyledCashflowAmountWrapper}>
           <span className="text-primary-10% font-bold text-lg md:text-xl">
-            €{roundToFixed(netCashflowAmount)}
+            <span className="text-primary-10% font-bold text-lg md:text-xl">
+              {!incomeTotal ? (
+                <Skeleton variant="text" width={150} height={45} />
+              ) : (
+                `€ ${roundToFixed(netCashflowAmount)}`
+              )}
+            </span>
           </span>
           <span className="hidden sm:block">of which passive* = €0</span>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CashflowOverview
+export default CashflowOverview;
