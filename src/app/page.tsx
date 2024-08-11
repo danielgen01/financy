@@ -12,19 +12,14 @@ const objectToArray = (obj: any) => {
 };
 
 export default function HomePageAKADashboardPage() {
-  const [userId, setUserId] = useState<string>("");
   const [dashboardPageProps, setDashboardPageProps] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUserId(user.uid);
         setupRealtimeListeners(user.uid);
       } else {
-        setUserId("");
         setDashboardPageProps(null);
-        setLoading(false);
       }
     });
 

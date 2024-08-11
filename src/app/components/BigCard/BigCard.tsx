@@ -1,13 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
-import {
-  getDatabase,
-  ref,
-  push,
-  remove,
-  onValue,
-  update,
-  set,
-} from "firebase/database";
+import React, { useEffect, useState } from "react";
 import { AddCircleOutline } from "@mui/icons-material";
 import { ListItem } from "./ListItem";
 import { BigCardProps } from "./BigCard.types";
@@ -19,6 +10,7 @@ import { determineTotal, handleClose, handleOpen } from "./useBigCard";
 import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
 import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
 import { removeCardItemFromDataBase } from "@/app/utils/removeCardItemFromDataBase";
+import { nanoid } from "nanoid";
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -90,7 +82,11 @@ export const BigCard: React.FC<BigCardProps> = ({
 
         {!listItems
           ? Array.from({ length: 7 }).map((_, index) => (
-              <Box display={"flex"} justifyContent="space-between">
+              <Box
+                display={"flex"}
+                justifyContent="space-between"
+                key={nanoid()}
+              >
                 <Skeleton key={index} width="40%" height={75} />
                 <Skeleton key={index} width="40%" height={75} />
                 <Skeleton

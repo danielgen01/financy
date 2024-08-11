@@ -18,7 +18,6 @@ import {
 } from "./utilities";
 
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
-  console.log("DahshboardPageProps", props);
   return (
     <>
       <div className={styles.StyledDashboardPage}>
