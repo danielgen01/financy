@@ -7,8 +7,8 @@ import { auth, getFirebaseData, db } from "../app/utils/firebaseConfig"; // Stel
 import DashboardPage from "./components/pageTemplates/homepage/DashboardPage";
 
 const objectToArray = (obj: any) => {
-  if (!obj) return [];
-  return Object.entries(obj).map(([id, data]) => ({ id, ...data }));
+  if (!obj || typeof obj !== "object") return [];
+  return Object.entries(obj).map(([id, data]) => ({ id, ...(data as object) }));
 };
 
 export default function HomePageAKADashboardPage() {
