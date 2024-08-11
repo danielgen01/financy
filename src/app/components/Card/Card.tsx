@@ -26,7 +26,11 @@ const Card: React.FC<CardProps> = ({
         <br />
         <div className={styles.StyledAmountAndPerformanceWrapper}>
           <p className={determineStyling()}>
-            {!amount ? <Skeleton height={75} width={115} /> : amount}
+            {!amount ? (
+              <Skeleton height={50} width={115} variant="text" />
+            ) : (
+              amount
+            )}
           </p>
           <div className={styles.StyledPerformanceWrapper}>
             <FontAwesomeIcon icon={faArrowUp} />
