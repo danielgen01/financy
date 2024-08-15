@@ -40,7 +40,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
       </div>
       <div className={styles.StyledHeadlineAndFilterWrapper}>
         <h1 className={styles.StyledHeadline}>Income Statement</h1>
-        <FilterMenu />
+        {/* <FilterMenu /> */}
       </div>
       <section className={styles.StyledBigCardsWrapperSection}>
         <BigCard
