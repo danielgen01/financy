@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { ref, onValue } from "firebase/database"; // Für Realtime Database
-import { auth, getFirebaseData, db } from "../app/utils/firebaseConfig"; // Stelle sicher, dass db dein Database-Objekt ist
+import { ref, onValue } from "firebase/database";
+import { auth, db } from "../app/utils/firebaseConfig";
 import DashboardPage from "./components/pageTemplates/homepage/DashboardPage";
 
 const objectToArray = (obj: any) => {
