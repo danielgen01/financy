@@ -40,7 +40,7 @@ export const ListItem: React.FC<ListItemProps> = ({
               : styles.StyledCashflowAmount
           }
         >
-          €{cashflowAmount}
+          € {cashflowAmount}
         </div>
       </div>
 

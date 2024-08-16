@@ -125,7 +125,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         <span>
           Total :{" "}
           <strong style={{ fontSize: "18px" }}>
-            €{determineTotal(cardItems)}
+            € {determineTotal(cardItems)}
           </strong>
         </span>
       </div>

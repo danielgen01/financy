@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({
             {!amount ? (
               <Skeleton height={50} width={115} variant="text" />
             ) : (
-              amount
+              `€ ${amount}`
             )}
           </p>
           <div className={styles.StyledPerformanceWrapper}>
