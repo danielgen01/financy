@@ -24,6 +24,7 @@ export default function HomePageAKADashboardPage() {
     });
 
     return () => unsubscribeAuth();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const setupRealtimeListeners = (uid: string) => {
