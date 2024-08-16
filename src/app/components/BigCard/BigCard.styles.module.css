@@ -15,8 +15,9 @@
 }
 
 .StyledCardTitle {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1.5rem !important;
+  color: #5854c0;
 }
 
 .StyledAddButton {
