@@ -1,7 +1,6 @@
 .CardWrapper {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
 }
 
 .StyledPaper {
@@ -33,7 +32,7 @@
   font-weight: 600;
   font-size: 36px;
   margin: 0;
-  color: #5854c0;
+  color: var(--color-primary-main);
 }
 
 .StyledPerformanceWrapper {

@@ -1,16 +1,16 @@
 .StyledEditButtonWrapper {
-  background-color: #3477f5;
-  color: white;
+  background-color: #3477f5 !important;
+  color: white !important;
   border-radius: 10rem;
 }
 
 .StyledEditButtonWrapper:hover {
-  background-color: #3457f1;
+  background-color: #3457f1 !important;
 }
 
 .StyledDeleteButton {
   background-color: #9e4bf6;
-  color: white;
+  color: var(--color-primary-main);
   border-radius: 10rem;
 }
 

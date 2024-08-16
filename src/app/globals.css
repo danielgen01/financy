@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-[#f2f6fd] dark:bg-[rgb(62,63,78)];
+:root {
+  --color-primary-main: #5854C0;
+  --color-secondary-main: #D92D20;
+  --color-text-primary: #101828;
+  --color-background-default: #F2F6FD;
+  --color-background-white: #FFFFFF;
+  --color-icon: #778499;
+  --color-line:#E5E9F0;
+  --color-custom-green:#14AF9C;
+  --color-custom-blue:#3477F5;
+  --color-custom-purple:#9E4BF6;
+  --color-inactive:#778499;
+  --color-items:#37383C;
+  --color-success-600: #0B9055;
+  --color-text-green:#0B9055;
+  --color-text-red:#D92D20;
+
+
 }
+
+body {
+  @apply bg-[var(--color-background-default)] dark:bg-[var(--color-background-default)];
+}
+

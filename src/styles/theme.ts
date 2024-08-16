@@ -1,87 +1,61 @@
-import { createTheme } from "@mui/material"
+"use client";
+import { createTheme } from "@mui/material/styles";
 
+const themeColors = {
+  primaryMain: "#5854C0",
+  secondaryMain: "#D92D20",
+  textPrimary: "#101828",
+  backgroundDefault: "#F2F6FD",
+  backgroundWhite: "#FFFFFF",
+  icon: "#778499",
+  line: "#E5E9F0",
+  customGreen: "#14AF9C",
+  customBlue: "#3477F5",
+  customPurple: "#9E4BF6",
+  inactive: "#778499",
+  items: "#37383C",
+  success600: "#0B9055",
+  textGreen: "#0B9055",
+  textRed: "#D92D20",
+};
+
+// Erstelle das Theme
 export const theme = createTheme({
   palette: {
     primary: {
-      main: "#5854C0",
+      main: themeColors.primaryMain,
     },
     secondary: {
-      main: "#EB5757",
-    },
-    success: {
-      main: "#14AF9C",
-    },
-    error: {
-      main: "#D92D20",
-    },
-    warning: {
-      main: "#F2994A",
-    },
-    info: {
-      main: "#2D9CDB",
+      main: themeColors.secondaryMain,
     },
     text: {
-      primary: "#37383C",
-      disabled: "#BDBDBD",
+      primary: themeColors.textPrimary,
+      secondary: themeColors.icon,
     },
     background: {
-      default: "#F2F6FD",
-      paper: "#FFFFFF",
+      default: themeColors.backgroundDefault,
+      paper: themeColors.backgroundWhite,
+    },
+    success: {
+      main: themeColors.success600,
+    },
+    error: {
+      main: themeColors.textRed,
+    },
+    info: {
+      main: themeColors.customBlue,
+    },
+    warning: {
+      main: themeColors.customPurple,
     },
   },
-  typography: {
-    fontFamily: "Poppins, sans-serif",
-    h1: {
-      fontSize: "2.25rem",
-      fontWeight: 600,
-    },
-    h2: {
-      fontSize: "1.875rem",
-      fontWeight: 600,
-    },
-    h3: {
-      fontSize: "1.5rem",
-      fontWeight: 600,
-    },
-    h4: {
-      fontSize: "1.25rem",
-      fontWeight: 600,
-    },
-    h5: {
-      fontSize: "1rem",
-      fontWeight: 600,
-    },
-    h6: {
-      fontSize: "0.875rem",
-      fontWeight: 600,
-    },
-    subtitle1: {
-      fontSize: "1rem",
-      fontWeight: 400,
-    },
-    subtitle2: {
-      fontSize: "0.875rem",
-      fontWeight: 400,
-    },
-    body1: {
-      fontSize: "1rem",
-      fontWeight: 400,
-    },
-    body2: {
-      fontSize: "0.875rem",
-      fontWeight: 400,
-    },
-    button: {
-      fontSize: "1rem",
-      fontWeight: 600,
-    },
-    caption: {
-      fontSize: "0.75rem",
-      fontWeight: 400,
-    },
-    overline: {
-      fontSize: "0.625rem",
-      fontWeight: 400,
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: themeColors.primaryMain,
+        },
+      },
     },
   },
-})
+});
