@@ -1,4 +1,3 @@
-// Card.test.tsx
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
@@ -15,33 +14,10 @@ describe("Card Component", () => {
       />,
     );
 
-    // Check if the title is rendered
     expect(screen.getByText("Balance")).toBeInTheDocument();
-
-    // Check if the amount is rendered
     expect(screen.getByText("1000")).toBeInTheDocument();
-
-    // Check if the performance is rendered
     expect(screen.getByText("5%")).toBeInTheDocument();
   });
-
-  //   it("shows Skeleton loader when amount is not provided", () => {
-  //     render(
-  //       <Card
-  //         title="Balance"
-  //         amount={undefined}
-  //         performance={5}
-  //         isBalanceCard={false}
-  //       />,
-  //     );
-
-  //     // Check if the Skeleton loader is displayed
-  //     const loader = screen.getByRole("status"); // Skeleton has 'status' role in MUI
-  //     expect(loader).toBeInTheDocument();
-
-  //     // Check if the performance percentage is still rendered
-  //     expect(screen.getByText("5%")).toBeInTheDocument();
-  //   });
 
   it("applies the correct styling for balance card", () => {
     render(
@@ -53,7 +29,6 @@ describe("Card Component", () => {
       />,
     );
 
-    // Check if the amount has the correct styling when isBalanceCard is true
     const amountElement = screen.getByText("1999");
     expect(amountElement).toHaveClass("StyledAmountPurpleColour");
   });
