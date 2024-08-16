@@ -72,11 +72,7 @@ export const BigCard: React.FC<BigCardProps> = ({
       <div className={styles.StyledHeadlineAndListWrapper}>
         <div className={styles.StyledHeadlineWrapper}>
           {headlineItems?.map((headlineItem) => {
-            return (
-              <span key={headlineItem.headline + 1}>
-                {headlineItem.headline}
-              </span>
-            );
+            return <span key={nanoid()}>{headlineItem.headline}</span>;
           })}
         </div>
 
@@ -87,18 +83,18 @@ export const BigCard: React.FC<BigCardProps> = ({
                 justifyContent="space-between"
                 key={nanoid()}
               >
-                <Skeleton key={index} width="40%" height={75} />
-                <Skeleton key={index} width="40%" height={75} />
+                <Skeleton key={nanoid()} width="40%" height={75} />
+                <Skeleton key={nanoid()} width="40%" height={75} />
                 <Skeleton
                   sx={{ marginTop: "10px" }}
-                  key={index}
+                  key={nanoid()}
                   width={50}
                   height={50}
                   variant="circular"
                 />
                 <Skeleton
                   sx={{ marginTop: "10px" }}
-                  key={index}
+                  key={nanoid()}
                   width={50}
                   height={50}
                   variant="circular"
@@ -110,7 +106,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               return (
                 <ListItem
                   id={listItem.id}
-                  key={`${listItem.name}-${listItem.cashflowAmount}`}
+                  key={`${listItem.name}-${listItem.cashflowAmount} ${nanoid()}`}
                   name={listItem.name}
                   cashflowAmount={listItem.cashflowAmount}
                   onRemove={handleRemoveCardItem}
