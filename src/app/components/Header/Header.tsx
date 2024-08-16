@@ -29,17 +29,7 @@ const Header: React.FC = () => {
       </Link>
       {isLaptopOrAbove ? (
         <>
-          {loading ? (
-            <>
-              {/* Render skeleton or loading indicator while fetching data */}
-              <Skeleton variant="rectangular" width={100} height={40} />
-              <Skeleton variant="rectangular" width={100} height={40} />
-              <Skeleton variant="rectangular" width={100} height={40} />
-              <Skeleton variant="rectangular" width={100} height={40} />
-              <Skeleton variant="rectangular" width={100} height={40} />
-            </>
-          ) : (
-            // Render menu items when not loading
+          <>
             <ul className={styles.StyledMenuList}>
               <MenuItem href="/" label="Overview" isActive={true} />
               <MenuItem href="/" label="Transactions" />
@@ -47,69 +37,69 @@ const Header: React.FC = () => {
               <MenuItem href="/" label="Accounts" />
               <MenuItem href="/" label="Wallet" />
             </ul>
-          )}
-          <ToggleTheme />
-          <div className={styles.StyledAccountActionsWrapper}>
-            {!loading ? (
-              <FontAwesomeIcon
-                icon={faGear}
-                width={40}
-                height={40}
-                cursor="pointer"
-              />
-            ) : (
-              <Skeleton variant="circular" width={40} height={40} />
-            )}
-            {!loading ? (
-              <FontAwesomeIcon
-                icon={faBell}
-                width={40}
-                height={40}
-                cursor="pointer"
-              />
-            ) : (
-              <Skeleton variant="circular" width={40} height={40} />
-            )}
-            <>
-              <div className="flex mx-auto overflow-hidden">
-                {!loading && user ? (
-                  <Image
-                    src="/Profile.png"
-                    height={40}
-                    width={40}
-                    alt="Profile Image"
-                    className={styles.StyledAccountProfileImage}
-                  />
-                ) : (
-                  <Skeleton variant="circular" width={40} height={40} />
-                )}
-              </div>
-              <button
-                onClick={handleLogOut}
-                className="bg-red-500 p-2 rounded-xl text-white-default font-bold"
-              >
-                Logout
-              </button>
-            </>
-            <>
-              {!user && !loading && (
-                <>
-                  <Link
-                    className="shadow-sm p-2 rounded-xl bg-green-300"
-                    href="./signup"
-                  >
-                    Registrieren
-                  </Link>
-                  <Link
-                    className="shadow-sm p-2 rounded-xl bg-green-300"
-                    href="./signin"
-                  >
-                    Anmelden
-                  </Link>
-                </>
+            <ToggleTheme />
+            <div className={styles.StyledAccountActionsWrapper}>
+              {!loading ? (
+                <FontAwesomeIcon
+                  icon={faGear}
+                  width={40}
+                  height={40}
+                  cursor="pointer"
+                />
+              ) : (
+                <Skeleton variant="circular" width={40} height={40} />
               )}
-            </>
-          </div>
+              {!loading ? (
+                <FontAwesomeIcon
+                  icon={faBell}
+                  width={40}
+                  height={40}
+                  cursor="pointer"
+                />
+              ) : (
+                <Skeleton variant="circular" width={40} height={40} />
+              )}
+              <>
+                <div className="flex mx-auto overflow-hidden">
+                  {!loading && user ? (
+                    <Image
+                      src="/Profile.png"
+                      height={40}
+                      width={40}
+                      alt="Profile Image"
+                      className={styles.StyledAccountProfileImage}
+                    />
+                  ) : (
+                    <Skeleton variant="circular" width={40} height={40} />
+                  )}
+                </div>
+                <button
+                  onClick={handleLogOut}
+                  className="bg-red-500 p-2 rounded-xl text-white-default font-bold"
+                >
+                  Logout
+                </button>
+              </>
+              <>
+                {!user && !loading && (
+                  <>
+                    <Link
+                      className="shadow-sm p-2 rounded-xl bg-green-300"
+                      href="./signup"
+                    >
+                      Registrieren
+                    </Link>
+                    <Link
+                      className="shadow-sm p-2 rounded-xl bg-green-300"
+                      href="./signin"
+                    >
+                      Anmelden
+                    </Link>
+                  </>
+                )}
+              </>
+            </div>
+          </>
         </>
       ) : (
         !loading && <HamburgerMenu />
