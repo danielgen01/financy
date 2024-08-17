@@ -83,6 +83,14 @@
     --shadow-lg: 0px 10px 15px rgba(0, 0, 0, 0.2);
     --shadow-xl: 0px 20px 25px rgba(0, 0, 0, 0.25);
 
+    /* screen sizes */
+    --sreensize-xs:0px;
+    --sreensize-sm:600px;
+    --sreensize-md:960px;
+    --sreensize-lg:1280px;
+    --sreensize-xl:1920px;
+
+
 }
 
 body {

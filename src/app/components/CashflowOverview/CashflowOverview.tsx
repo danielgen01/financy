@@ -28,7 +28,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
           />
           <div className={styles.StyledPaydayTextWrapper}>
             <span className={styles.StyledPaydayText}>Payday</span>
-            <div className="calculationwrapper  items-center gap-2 hidden md:flex">
+            <div className={styles.StyledCashflowCalculationWrapper}>
               <span className="text-green-500 font-semibold">
                 {!incomeTotal ? (
                   <Skeleton variant="text" width={80} height={45} />

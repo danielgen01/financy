@@ -1,55 +1,66 @@
 .StyledCashflowOverviewWrapper {
   width: 100%;
   background-color: white;
-  @apply rounded-md;
+  border-radius: var(--border-radius-sm);
 }
 
 .StyledCashflowContentWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
-  width: 100%;
-  @apply p-8;
+  padding: var(--spacing-xl);
 }
 
 .StyledImagePlusTextWrapper {
   display: flex;
   align-items: center;
-  @apply gap-5;
+  gap:var(--spacing-md);
+
 }
 
 .StyledCashflowImage {
   background-color: #f1f1f1;
-  @apply rounded-md p-5;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md);
 }
 
 .StyledPaydayTextWrapper {
   display: flex;
   flex-direction: column;
   align-items: left;
-  gap: 0.5rem;
+  gap: var(--spacing-sm);
 }
 
 .StyledPaydayText {
-  font-size: 1rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 @media screen and (min-width: 600px) {
   .StyledPaydayText {
-    font-size: 1.5rem;
+    font-size:var(--font-size-xl);
   }
 }
 
 .StyledCashflowAmountWrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: var(--spacing-xs);
 }
 
 .StyledCasfhlowAmount {
-  font-size: 1.25rem;
+  font-size: var(--font-size-lg);
   font-weight: bold;
   color: var(--color-primary-main);
+}
+
+.StyledCashflowCalculationWrapper {
+  gap: var(--spacing-sm);
+  display: none;
+  justify-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .StyledCashflowCalculationWrapper {
+    display: flex;
+  }
 }
