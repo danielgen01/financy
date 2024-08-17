@@ -1,5 +1,5 @@
 "use client";
-import { createTheme, TypeText } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
 const themeColors = {
   primaryMain: "#5854C0",

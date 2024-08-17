@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "@/styles/theme";
 
@@ -21,19 +20,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <header>
-              <Header />
-            </header>
-            <main className="px-5 sm:px-10 md:px-16 lg:px-20 2xl:px-52">
-              {children}
-            </main>
-            <footer className=" bg-white-default py-4 mt-10   px-20">
-              Footer
-            </footer>
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <ThemeProvider theme={theme}>
+          <header>
+            <Header />
+          </header>
+          <main className="px-5 sm:px-10 md:px-16 lg:px-20 2xl:px-52">
+            {children}
+          </main>
+          <footer className=" bg-white-default py-4 mt-10   px-20">
+            Footer
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );

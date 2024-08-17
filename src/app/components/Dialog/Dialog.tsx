@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 import {
   Button,
   ClickAwayListener,
@@ -6,12 +6,12 @@ import {
   DialogTitle,
   FormControl,
   Dialog as MuiDialog,
-} from "@mui/material"
-import { TextField } from "@mui/material"
-import { useForm } from "react-hook-form"
-import { CustomDialogProps, DialogFormData } from "./Dialog.types"
-import styles from "./Dialog.styles.module.css"
-import { formatToTwoDecimalPlaces } from "./SubComponents"
+} from "@mui/material";
+import { TextField } from "@mui/material";
+import { useForm } from "react-hook-form";
+import { CustomDialogProps, DialogFormData } from "./Dialog.types";
+import styles from "./Dialog.styles.module.css";
+import { formatToTwoDecimalPlaces } from "./SubComponents";
 
 export const Dialog: React.FC<CustomDialogProps> = ({
   open,
@@ -25,28 +25,28 @@ export const Dialog: React.FC<CustomDialogProps> = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<DialogFormData>()
+  } = useForm<DialogFormData>();
 
-  const [openDialog, setOpenDialog] = React.useState<boolean>(open)
-  const [name, setName] = useState<string>(dialogContent?.name || "")
+  const [openDialog, setOpenDialog] = React.useState<boolean>(open);
+  const [name, setName] = useState<string>(dialogContent?.name || "");
   const [amount, setAmount] = useState<number>(
-    dialogContent?.cashflowAmount || 0
-  )
+    dialogContent?.cashflowAmount || 0,
+  );
 
   const onSubmit = () => {
     if (addCardItem) {
-      addCardItem(name, amount)
+      addCardItem(name, amount);
     }
     if (editCardItem) {
-      editCardItem(name, amount)
+      editCardItem(name, amount);
     }
 
     if (onClose) {
-      onClose()
+      onClose();
     }
-  }
+  };
 
-  console.log(open)
+  console.log(open);
 
   return (
     <MuiDialog className="StyledDialogWrapper" open={openDialog} fullWidth>
@@ -69,7 +69,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   defaultValue={dialogContent?.name && dialogContent.name}
                   className={styles.StyledTextField}
                   onChange={(e) => {
-                    setName(e.target.value)
+                    setName(e.target.value);
                   }}
                 />
               </FormControl>
@@ -89,16 +89,16 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   }
                   onChange={(e) => {
                     const formattedAmount = formatToTwoDecimalPlaces(
-                      e.target.value
-                    )
-                    setAmount(formattedAmount)
+                      e.target.value,
+                    );
+                    setAmount(formattedAmount);
                   }}
                 />
               </FormControl>
               <div className="flex justify-end">
                 <Button
+                  className={styles.StyledAddButton}
                   type="submit"
-                  className="bg-[#7286FF] text-white-default p-2 rounded-lg"
                   onSubmit={onSubmit}
                 >
                   Add
@@ -109,5 +109,5 @@ export const Dialog: React.FC<CustomDialogProps> = ({
         </DialogContent>
       </ClickAwayListener>
     </MuiDialog>
-  )
-}
+  );
+};

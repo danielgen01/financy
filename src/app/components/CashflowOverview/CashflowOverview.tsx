@@ -48,14 +48,12 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
           </div>
         </div>
         <div className={styles.StyledCashflowAmountWrapper}>
-          <span className="text-primary-10% font-bold text-lg md:text-xl">
-            <span className="text-primary-10% font-bold text-lg md:text-xl">
-              {!incomeTotal ? (
-                <Skeleton variant="text" width={150} height={45} />
-              ) : (
-                `€ ${roundToFixed(netCashflowAmount)}`
-              )}
-            </span>
+          <span className={styles.StyledCasfhlowAmount}>
+            {!incomeTotal ? (
+              <Skeleton variant="text" width={150} height={45} />
+            ) : (
+              `€ ${roundToFixed(netCashflowAmount)}`
+            )}
           </span>
           <span className="hidden sm:block">of which passive* = €0</span>
         </div>

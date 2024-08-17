@@ -1,21 +1,21 @@
 .StyledEditButtonWrapper {
-  background-color:var(--color-custom-blue) !important;
+  background-color:var(--color-custom-blue);
   border-radius: 10rem;
-  color:var(--color-background-white) !important;
+  color:var(--color-background-white);
 }
 
 .StyledEditButtonWrapper:hover {
-  background-color: #3457f1 !important;
+  background-color: #3457f1;
 }
 
 .StyledDeleteButton {
-  background-color: var(--color-custom-purple) !important;
-  color: var(--color-background-white) !important;
+  background-color: var(--color-custom-purple);
+  color: var(--color-background-white);
   border-radius: 10rem;
 }
 
 .StyledDeleteButton:hover {
-  background-color: #9e1bf1/20;
+  background-color: #9e1bf1;
 }
 
 .StyledListItemWrapper {
