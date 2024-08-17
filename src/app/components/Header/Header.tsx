@@ -75,7 +75,7 @@ const Header: React.FC = () => {
                 </div>
                 <button
                   onClick={handleLogOut}
-                  className="bg-red-500 p-2 rounded-xl text-white-default font-bold"
+                  className={styles.StyledLogoutButton}
                 >
                   Logout
                 </button>

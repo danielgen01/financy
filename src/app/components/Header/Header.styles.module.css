@@ -40,3 +40,18 @@
     display: none;
   }
 }
+
+.StyledLogoutButton {
+  background-color: var(--color-secondary-main);
+  color: var(--color-background-white);
+  padding: var(--spacing-sm);
+  @apply rounded-md;
+}
+
+.StyledLogoutButton:hover {
+  background-color: var(--color-secondary-main);
+  opacity: 0.8;
+  @apply transition-opacity;
+
+
+}
