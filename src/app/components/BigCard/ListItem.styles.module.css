@@ -1,7 +1,7 @@
 .StyledEditButtonWrapper {
-  background-color: #3477f5 !important;
-  color: white !important;
+  background-color:var(--color-custom-blue) !important;
   border-radius: 10rem;
+  color:var(--color-background-white) !important;
 }
 
 .StyledEditButtonWrapper:hover {
@@ -9,13 +9,13 @@
 }
 
 .StyledDeleteButton {
-  background-color: #9e4bf6;
-  color: var(--color-primary-main);
+  background-color: var(--color-custom-purple) !important;
+  color: var(--color-background-white) !important;
   border-radius: 10rem;
 }
 
 .StyledDeleteButton:hover {
-  background-color: #9e1bf1;
+  background-color: #9e1bf1/20;
 }
 
 .StyledListItemWrapper {

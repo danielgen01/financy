@@ -1,5 +1,5 @@
 "use client";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, TypeText } from "@mui/material/styles";
 
 const themeColors = {
   primaryMain: "#5854C0",
@@ -47,15 +47,6 @@ export const theme = createTheme({
     },
     warning: {
       main: themeColors.customPurple,
-    },
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          color: themeColors.primaryMain,
-        },
-      },
     },
   },
 });

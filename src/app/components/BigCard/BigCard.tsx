@@ -77,7 +77,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         </div>
 
         {!listItems
-          ? Array.from({ length: 7 }).map((_, index) => (
+          ? Array.from({ length: 7 }).map(() => (
               <Box
                 display={"flex"}
                 justifyContent="space-between"
