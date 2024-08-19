@@ -16,28 +16,37 @@ import {
   calculateTotalExpense,
   calculateTotalIncome,
 } from "./utilities";
+import { Grid } from "@mui/material";
 
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
     <>
-      <div className={styles.StyledDashboardPage}>
-        <Card
-          title="Balance"
-          amount={94242}
-          performance={20}
-          isBalanceCard={true}
-        />
-        <Card
-          title="Incomes"
-          amount={calculateTotalIncome(props.incomeData)}
-          performance={20}
-        />
-        <Card
-          title="Expenses"
-          amount={calculateTotalIncome(props.expenseData)}
-          performance={10}
-        />
-      </div>
+      <section>
+        <Grid container className={styles.StyledCardWrapper} spacing={4}>
+          <Grid item xs={12} sm={6} lg={4}>
+            <Card
+              title="Balance"
+              amount={94242}
+              performance={20}
+              isBalanceCard={true}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} lg={4}>
+            <Card
+              title="Incomes"
+              amount={calculateTotalIncome(props.incomeData)}
+              performance={20}
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} lg={4}>
+            <Card
+              title="Expenses"
+              amount={calculateTotalIncome(props.expenseData)}
+              performance={10}
+            />
+          </Grid>
+        </Grid>
+      </section>
       <div className={styles.StyledHeadlineAndFilterWrapper}>
         <h1 className={styles.StyledHeadline}>Income Statement</h1>
         {/* <FilterMenu /> */}

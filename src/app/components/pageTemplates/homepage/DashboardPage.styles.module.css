@@ -1,27 +1,24 @@
-.StyledDashboardPage {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 2.5rem;
-  margin-top: 2.5rem;
+.StyledCardWrapper {
+  margin-top: var(--spacing-md);
+
 }
 
 .StyledHeadlineAndFilterWrapper {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin-top: 2.5rem;
+  margin-top: var(--spacing-md);
 }
 
 .StyledHeadline {
-  font-size: 1.25rem;
+  font-size: var(--font-size-lg);
   font-weight: bolder;
 }
 
 .StyledBigCardsWrapperSection {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 2.5rem;
-  margin-top: 2.5rem;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
 }
 
 @media screen and (min-width: 768px) {
