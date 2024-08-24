@@ -11,6 +11,7 @@ import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
 import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
 import { removeCardItemFromDataBase } from "@/app/utils/removeCardItemFromDataBase";
 import { nanoid } from "nanoid";
+import { BigCardSkeleton } from "./SubComponents";
 
 export const BigCard: React.FC<BigCardProps> = ({
   listItems,
@@ -77,29 +78,8 @@ export const BigCard: React.FC<BigCardProps> = ({
         </div>
 
         {!listItems
-          ? Array.from({ length: 7 }).map(() => (
-              <Box
-                display={"flex"}
-                justifyContent="space-between"
-                key={nanoid()}
-              >
-                <Skeleton key={nanoid()} width="40%" height={75} />
-                <Skeleton key={nanoid()} width="40%" height={75} />
-                <Skeleton
-                  sx={{ marginTop: "10px" }}
-                  key={nanoid()}
-                  width={50}
-                  height={50}
-                  variant="circular"
-                />
-                <Skeleton
-                  sx={{ marginTop: "10px" }}
-                  key={nanoid()}
-                  width={50}
-                  height={50}
-                  variant="circular"
-                />
-              </Box>
+          ? Array.from({ length: 7 }).map((index: any) => (
+              <BigCardSkeleton key={nanoid()} />
             ))
           : // Render card items when not loading
             Object.values(cardItems).map((listItem: ListItemProps) => {
