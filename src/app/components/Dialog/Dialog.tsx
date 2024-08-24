@@ -40,74 +40,72 @@ export const Dialog: React.FC<CustomDialogProps> = ({
     if (editCardItem) {
       editCardItem(name, amount);
     }
-
-    if (onClose) {
-      onClose();
-    }
   };
 
   console.log(open);
 
   return (
-    <MuiDialog className="StyledDialogWrapper" open={openDialog} fullWidth>
-      <ClickAwayListener onClickAway={() => onClose && onClose()}>
-        <DialogContent sx={{ padding: "0" }}>
-          <DialogTitle className={styles.StyledDialogTitle}>
-            {dialogTitle}
-          </DialogTitle>
-          <form action="" className="" onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles.StyledInputFieldsWrapper}>
-              <FormControl>
-                <TextField
-                  {...register("name", {
-                    required: true,
-                    validate: (value) => typeof value === "string",
-                  })}
-                  type="text"
-                  variant="filled"
-                  label="Name"
-                  defaultValue={dialogContent?.name && dialogContent.name}
-                  className={styles.StyledTextField}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
-                />
-              </FormControl>
-              <FormControl>
-                <TextField
-                  {...register("amount", {
-                    required: true,
-                    valueAsNumber: true,
-                  })}
-                  type="text"
-                  variant="filled"
-                  label="Amount"
-                  className={styles.StyledTextField}
-                  defaultValue={
-                    dialogContent?.cashflowAmount &&
-                    dialogContent.cashflowAmount
-                  }
-                  onChange={(e) => {
-                    const formattedAmount = formatToTwoDecimalPlaces(
-                      e.target.value,
-                    );
-                    setAmount(formattedAmount);
-                  }}
-                />
-              </FormControl>
-              <div className="flex justify-end">
-                <Button
-                  className={styles.StyledAddButton}
-                  type="submit"
-                  onSubmit={onSubmit}
-                >
-                  Add
-                </Button>
-              </div>
+    <MuiDialog
+      className="StyledDialogWrapper"
+      open={openDialog}
+      fullWidth
+      onClose={onClose}
+    >
+      <DialogContent sx={{ padding: "0" }}>
+        <DialogTitle className={styles.StyledDialogTitle}>
+          {dialogTitle}
+        </DialogTitle>
+        <form action="" className="" onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles.StyledInputFieldsWrapper}>
+            <FormControl>
+              <TextField
+                {...register("name", {
+                  required: true,
+                  validate: (value) => typeof value === "string",
+                })}
+                type="text"
+                variant="filled"
+                label="Name"
+                defaultValue={dialogContent?.name && dialogContent.name}
+                className={styles.StyledTextField}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              />
+            </FormControl>
+            <FormControl>
+              <TextField
+                {...register("amount", {
+                  required: true,
+                  valueAsNumber: true,
+                })}
+                type="text"
+                variant="filled"
+                label="Amount"
+                className={styles.StyledTextField}
+                defaultValue={
+                  dialogContent?.cashflowAmount && dialogContent.cashflowAmount
+                }
+                onChange={(e) => {
+                  const formattedAmount = formatToTwoDecimalPlaces(
+                    e.target.value,
+                  );
+                  setAmount(formattedAmount);
+                }}
+              />
+            </FormControl>
+            <div className="flex justify-end">
+              <Button
+                className={styles.StyledAddButton}
+                type="submit"
+                onSubmit={onSubmit}
+              >
+                Add
+              </Button>
             </div>
-          </form>
-        </DialogContent>
-      </ClickAwayListener>
+          </div>
+        </form>
+      </DialogContent>
     </MuiDialog>
   );
 };
