@@ -21,7 +21,7 @@
   align-items: center;
   gap: var(--spacing-sm);
 
-  @apply xl:flex ;
+  /* @apply xl:flex ; */
 }
 
 .StyledAccountProfileImage {
@@ -41,13 +41,28 @@
   .StyledAccountActionsWrapper {
     display: none;
   }
+
+  
 }
 
 .StyledLogoutButton {
   background-color: var(--color-secondary-main);
   color: var(--color-background-white);
   padding: var(--spacing-sm);
+  display: none;
   @apply rounded-md;
+}
+
+@media screen and (min-width: 960px) {
+  .StyledLogoutButton {
+  display: block;
+
+  }
+
+  .StyledAccountActionsWrapper {
+    display: flex;
+  }
+  
 }
 
 .StyledLogoutButton:hover {
