@@ -27,83 +27,81 @@ const Header: React.FC = () => {
       <Link href="/">
         <Image src="/Logo.png" alt="Logo_Financy" width={150} height={50} />
       </Link>
-      {isLaptopOrAbove ? (
+      {/* {isLaptopOrAbove ? ( */}
+      <>
         <>
-          <>
-            <ul className={styles.StyledMenuList}>
-              <MenuItem href="/" label="Overview" isActive={true} />
-              <MenuItem href="/" label="Transactions" />
-              <MenuItem href="/" label="Analytics" />
-              <MenuItem href="/" label="Accounts" />
-              <MenuItem href="/" label="Wallet" />
-            </ul>
-            <ToggleTheme />
-            <div className={styles.StyledAccountActionsWrapper}>
-              {!loading ? (
-                <FontAwesomeIcon
-                  icon={faGear}
-                  width={40}
-                  height={40}
-                  cursor="pointer"
-                />
-              ) : (
-                <Skeleton variant="circular" width={40} height={40} />
-              )}
-              {!loading ? (
-                <FontAwesomeIcon
-                  icon={faBell}
-                  width={40}
-                  height={40}
-                  cursor="pointer"
-                />
-              ) : (
-                <Skeleton variant="circular" width={40} height={40} />
-              )}
-              <>
-                <div className="flex mx-auto overflow-hidden">
-                  {!loading && user ? (
-                    <Image
-                      src="/Profile.png"
-                      height={40}
-                      width={40}
-                      alt="Profile Image"
-                      className={styles.StyledAccountProfileImage}
-                    />
-                  ) : (
-                    <Skeleton variant="circular" width={40} height={40} />
-                  )}
-                </div>
-                <button
-                  onClick={handleLogOut}
-                  className={styles.StyledLogoutButton}
-                >
-                  Logout
-                </button>
-              </>
-              <>
-                {!user && !loading && (
-                  <>
-                    <Link
-                      className="shadow-sm p-2 rounded-xl bg-green-300"
-                      href="./signup"
-                    >
-                      Registrieren
-                    </Link>
-                    <Link
-                      className="shadow-sm p-2 rounded-xl bg-green-300"
-                      href="./signin"
-                    >
-                      Anmelden
-                    </Link>
-                  </>
+          <ul className={styles.StyledMenuList}>
+            <MenuItem href="/" label="Overview" isActive={true} />
+            <MenuItem href="/" label="Transactions" />
+            <MenuItem href="/" label="Analytics" />
+            <MenuItem href="/" label="Accounts" />
+            <MenuItem href="/" label="Wallet" />
+          </ul>
+          <ToggleTheme />
+          <div className={styles.StyledAccountActionsWrapper}>
+            {!loading ? (
+              <FontAwesomeIcon
+                icon={faGear}
+                width={40}
+                height={40}
+                cursor="pointer"
+              />
+            ) : (
+              <Skeleton variant="circular" width={40} height={40} />
+            )}
+            {!loading ? (
+              <FontAwesomeIcon
+                icon={faBell}
+                width={40}
+                height={40}
+                cursor="pointer"
+              />
+            ) : (
+              <Skeleton variant="circular" width={40} height={40} />
+            )}
+            <>
+              <div className="flex mx-auto overflow-hidden">
+                {!loading && user ? (
+                  <Image
+                    src="/Profile.png"
+                    height={40}
+                    width={40}
+                    alt="Profile Image"
+                    className={styles.StyledAccountProfileImage}
+                  />
+                ) : (
+                  <Skeleton variant="circular" width={40} height={40} />
                 )}
-              </>
-            </div>
-          </>
+              </div>
+              <button
+                onClick={handleLogOut}
+                className={styles.StyledLogoutButton}
+              >
+                Logout
+              </button>
+            </>
+            <>
+              {!user && !loading && (
+                <>
+                  <Link
+                    className="shadow-sm p-2 rounded-xl bg-green-300"
+                    href="./signup"
+                  >
+                    Registrieren
+                  </Link>
+                  <Link
+                    className="shadow-sm p-2 rounded-xl bg-green-300"
+                    href="./signin"
+                  >
+                    Anmelden
+                  </Link>
+                </>
+              )}
+            </>
+          </div>
         </>
-      ) : (
-        !loading && <HamburgerMenu />
-      )}
+      </>
+      <HamburgerMenu />
     </div>
   );
 };

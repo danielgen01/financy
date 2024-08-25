@@ -16,10 +16,12 @@
 }
 
 .StyledAccountActionsWrapper {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+
+  @apply xl:flex ;
 }
 
 .StyledAccountProfileImage {
@@ -55,3 +57,5 @@
 
 
 }
+
+

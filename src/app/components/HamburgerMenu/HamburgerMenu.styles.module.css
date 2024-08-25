@@ -2,6 +2,8 @@
   top: 0;
   right: 0; /* Verschiebt das Menü nach rechts */
   z-index: 1;
+  display: flex;
+  @apply xl:hidden;
 }
 
 .toggler {
