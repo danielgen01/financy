@@ -8,7 +8,7 @@ import styles from "./Header.styles.module.css"; // Ensure path is correct
 import Link from "next/link";
 import { Skeleton, useMediaQuery } from "@mui/material";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import { ToggleTheme } from "../ToggleThemeButton/ToggleThemeButton";
+import { ToggleThemeButton } from "../ToggleThemeButton/ToggleThemeButton";
 import { logOut } from "@/app/utils/auth";
 import { useAuth } from "@/app/utils/useAuth";
 
@@ -37,8 +37,12 @@ const Header: React.FC = () => {
             <MenuItem href="/" label="Accounts" />
             <MenuItem href="/" label="Wallet" />
           </ul>
-          <ToggleTheme />
           <div className={styles.StyledAccountActionsWrapper}>
+            {!loading ? (
+              <ToggleThemeButton />
+            ) : (
+              <Skeleton variant="circular" width={40} height={40} />
+            )}
             {!loading ? (
               <FontAwesomeIcon
                 icon={faGear}
@@ -73,12 +77,6 @@ const Header: React.FC = () => {
                   <Skeleton variant="circular" width={40} height={40} />
                 )}
               </div>
-              <button
-                onClick={handleLogOut}
-                className={styles.StyledLogoutButton}
-              >
-                Logout
-              </button>
             </>
             <>
               {!user && !loading && (
@@ -99,6 +97,9 @@ const Header: React.FC = () => {
               )}
             </>
           </div>
+          <button onClick={handleLogOut} className={styles.StyledLogoutButton}>
+            Logout
+          </button>
         </>
       </>
       <HamburgerMenu />
