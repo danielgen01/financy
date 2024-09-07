@@ -1,10 +1,11 @@
 .StyledHeaderWrapper {
   background-color: var(--color-background-white);
-  @apply px-5 sm:px-10 md:px-16 lg:px-20 2xl:px-52;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: var(--spacing-6xl);
+  padding-left:var(--spacing-md);
+  padding-right:var(--spacing-md);
 }
 
 .StyledMenuList {
@@ -18,37 +19,47 @@
   align-items: center;
   gap: var(--spacing-sm);
 
-  /* @apply xl:flex ; */
 }
 
 .StyledAccountProfileImage {
-  @apply rounded-full aspect-square object-cover ;
+  aspect-ratio: 1/1;
+  border-radius: 99px;
+  object-fit: cover
 }
 
-@media screen and (max-width: 960px) {
-  .StyledHeaderWrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
 
-  .StyledMenuList {
-    display: none;
-  }
-
-  .StyledAccountActionsWrapper {
-    display: none;
-  }
-
-  
-}
 
 .StyledLogoutButton {
   background-color: var(--color-secondary-main);
   color: var(--color-background-white);
   padding: var(--spacing-sm);
   display: none;
-  @apply rounded-md;
+  border-radius: var(--spacing-sm);
 }
+
+
+.StyledLogoutButton:hover {
+  background-color: var(--color-secondary-main);
+  opacity: 0.8;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+
+
+}
+
+/* Medias */
+
+@media screen and (min-width: 600px) {
+ 
+  .StyledHeaderWrapper {
+    padding-left:34px;
+    padding-right:34px;
+
+  }
+  
+}
+
 
 @media screen and (min-width: 960px) {
   .StyledLogoutButton {
@@ -59,15 +70,50 @@
   .StyledAccountActionsWrapper {
     display: flex;
   }
+
+  .StyledHeaderWrapper {
+    padding-left:64px;
+    padding-right:64px;
+
+  }
   
 }
 
-.StyledLogoutButton:hover {
-  background-color: var(--color-secondary-main);
-  opacity: 0.8;
-  @apply transition-opacity;
+
+
+@media screen and (min-width: 1280px) {
+ 
+
+  .StyledHeaderWrapper {
+    padding-left:80px;
+    padding-right:80px;
+
+  }
+  
+}
+
+
+@media screen and (min-width: 1920px) {
+ 
+  .StyledHeaderWrapper {
+    padding-left:200px;
+    padding-right:200px;
+
+  }
+  
 
 
 }
 
+@media screen and (max-width: 960px) {
+ 
+  .StyledMenuList {
+    display: none;
+  }
 
+  .StyledAccountActionsWrapper {
+    display: none;
+  }
+
+  
+}
