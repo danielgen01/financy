@@ -14,7 +14,6 @@ const HamburgerMenu = () => {
     if (isOpen) {
       setIsOpen(false);
     }
-    console.log("click away");
   };
 
   return (

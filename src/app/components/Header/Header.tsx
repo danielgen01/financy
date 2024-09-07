@@ -6,20 +6,55 @@ import { faBell, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Header.styles.module.css"; // Ensure path is correct
 import Link from "next/link";
-import { Skeleton, useMediaQuery } from "@mui/material";
+import {
+  Dialog,
+  DialogTitle,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Modal,
+  Skeleton,
+  useMediaQuery,
+} from "@mui/material";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { ToggleThemeButton } from "../ToggleThemeButton/ToggleThemeButton";
 import { logOut } from "@/app/utils/auth";
 import { useAuth } from "@/app/utils/useAuth";
+import { log } from "console";
 
 const Header: React.FC = () => {
-  const isLaptopOrAbove = useMediaQuery("(min-width: 1280px)");
   const { user, loading } = useAuth();
+  const [openUserDialog, setOpenUserDialog] = useState(false);
 
-  const handleLogOut = () => {
-    logOut();
-    console.log("user logged out");
-    window.location.reload();
+  const UserActionModal: React.FC<{ isOpen: boolean; setOpenDialog: any }> = ({
+    isOpen,
+    setOpenDialog,
+  }) => {
+    return (
+      <Dialog
+        open={isOpen}
+        onClose={() => {
+          setOpenDialog(false);
+        }}
+      >
+        <DialogTitle>User Actions</DialogTitle>
+        <List sx={{ pt: 0 }}>
+          <ListItem>
+            <ListItemButton
+              className={styles.StyledLogoutButton}
+              onClick={() => {
+                logOut();
+                setOpenDialog(false);
+                window.location.reload();
+              }}
+            >
+              <ListItemText primary="Logout bra" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Dialog>
+    );
   };
 
   return (
@@ -64,7 +99,12 @@ const Header: React.FC = () => {
               <Skeleton variant="circular" width={40} height={40} />
             )}
             <>
-              <div className="flex mx-auto overflow-hidden">
+              <div
+                className="flex mx-auto overflow-hidden"
+                onClick={() => {
+                  setOpenUserDialog(true);
+                }}
+              >
                 {!loading && user ? (
                   <Image
                     src="/Profile.png"
@@ -97,9 +137,10 @@ const Header: React.FC = () => {
               )}
             </>
           </div>
-          <button onClick={handleLogOut} className={styles.StyledLogoutButton}>
-            Logout
-          </button>
+          <UserActionModal
+            isOpen={openUserDialog}
+            setOpenDialog={setOpenUserDialog}
+          />
         </>
       </>
       <HamburgerMenu />
