@@ -89,7 +89,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         <BigCard
           headlineItems={headlineItemsMockBigCardAssets}
           color="red"
-          buttonActionName="Add asset"
+          buttonActionName="Add Asset"
           cardTitle="Assets"
           listItems={props.assetData}
           isFourColumns={true}

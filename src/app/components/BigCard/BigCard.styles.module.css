@@ -15,7 +15,6 @@
 .StyledCardTitle {
   font-weight: 600;
   font-size: 1.5rem ;
-  color: var(--color-primary-main);
 
 }
 
@@ -41,4 +40,23 @@
   background-color: var(--color-background-default);
   border-radius: 5px;
   margin-top: auto;
+}
+
+.StyledAddButton {
+  color: var(--color-text-green);
+  font-weight: 500;
+  padding:var(--spacing-sm);
+  display: flex;
+  gap:var(--spacing-xs);
+  border-radius: var(--spacing-xs);
+  background-color: var(--color-background-green);
+}
+.StyledAddButonRed {
+  color: var(--color-text-red);
+  font-weight: 500;
+  padding:var(--spacing-sm);
+  display: flex;
+  gap:var(--spacing-xs);
+  border-radius: var(--spacing-xs);
+  background-color: var(--color-background-red);
 }

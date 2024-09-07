@@ -58,17 +58,26 @@ export const BigCard: React.FC<BigCardProps> = ({
     );
   };
 
+  const determineAddButtonStyling = () => {
+    console.log(buttonActionName);
+    if (buttonActionName === "Add Income" || buttonActionName === "Add Asset") {
+      return styles.StyledAddButton;
+    } else {
+      return styles.StyledAddButonRed;
+    }
+  };
+
   return (
     <div className={styles.StyledBigCardWrapper}>
       <div className={styles.StyledBigCardHeadWrapper}>
         <h2 className={styles.StyledCardTitle}>{cardTitle}</h2>
-        <Button
-          className={styles.StyledAddButton}
-          endIcon={<AddCircleOutline />}
+        <button
+          className={determineAddButtonStyling()}
           onClick={() => handleOpen(setOpenDialog)}
         >
           {buttonActionName}
-        </Button>
+          {<AddCircleOutline />}
+        </button>
       </div>
       <div className={styles.StyledHeadlineAndListWrapper}>
         <div className={styles.StyledHeadlineWrapper}>

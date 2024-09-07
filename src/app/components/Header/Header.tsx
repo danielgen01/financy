@@ -21,7 +21,6 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { ToggleThemeButton } from "../ToggleThemeButton/ToggleThemeButton";
 import { logOut } from "@/app/utils/auth";
 import { useAuth } from "@/app/utils/useAuth";
-import { log } from "console";
 
 const Header: React.FC = () => {
   const { user, loading } = useAuth();

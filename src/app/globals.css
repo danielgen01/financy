@@ -6,7 +6,6 @@
 
   /* colors */
   --color-primary-main: #5854C0;
-  --color-secondary-main: #D92D20;
   --color-text-primary: #101828;
   --color-background-default: #F2F6FD;
   --color-background-white: #FFFFFF;
@@ -20,6 +19,8 @@
   --color-success-600: #0B9055;
   --color-text-green:#0B9055;
   --color-text-red:#D92D20;
+  --color-background-green: #DCFAE6;
+  --color-background-red: #FEE4E2;
 
 
     /* fonts */
