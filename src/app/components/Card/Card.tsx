@@ -20,7 +20,7 @@ const Card: React.FC<CardProps> = ({
     }
   };
   return (
-    <Paper sx={{ p: 2 }} elevation={1} className={styles.StyledPaper}>
+    <div className={styles.StyledPaper}>
       <div className={styles.CardWrapper}>
         <span style={{ color: "#516778" }}>{title}</span>
         <br />
@@ -38,7 +38,7 @@ const Card: React.FC<CardProps> = ({
           </div>
         </div>
       </div>
-    </Paper>
+    </div>
   );
 };
 

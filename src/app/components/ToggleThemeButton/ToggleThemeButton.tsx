@@ -1,21 +1,8 @@
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export function ThemeToggler() {
-  const [theme, setTheme] = useState(() => {
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return "dark";
-    }
-    return "light";
-  });
-
+  const { theme, setTheme } = useTheme();
   const nextTheme = theme === "light" ? "dark" : "light";
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-  }, [theme]);
 
   return (
     <button onClick={() => setTheme(nextTheme)}>
