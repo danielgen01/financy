@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header/Header";
-import { ThemeProvider } from "next-themes";
-import { theme } from "@/styles/theme";
-import { CssBaseline } from "@mui/material";
+import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
+import { lightTheme } from "@/styles/theme";
+import { ThemeProvider } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,17 +21,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider>
-          <header>
-            <Header />
-          </header>
-          <main className="px-5 sm:px-10 md:px-16 lg:px-20 2xl:px-52">
-            {children}
-          </main>
-          <footer className=" bg-white-default py-4 mt-10   px-20">
-            Footer
-          </footer>
-        </ThemeProvider>
+        <NextThemesProvider>
+          <ThemeProvider theme={lightTheme}>
+            <header>
+              <Header />
+            </header>
+            <main className="px-5 sm:px-10 md:px-16 lg:px-20 2xl:px-52">
+              {children}
+            </main>
+            <footer className=" bg-white-default py-4 mt-10   px-20">
+              Footer
+            </footer>
+          </ThemeProvider>
+        </NextThemesProvider>
       </body>
     </html>
   );

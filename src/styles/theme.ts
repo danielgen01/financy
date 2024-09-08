@@ -1,7 +1,8 @@
 "use client";
+
 import { createTheme } from "@mui/material/styles";
 
-const themeColors = {
+const themeColorsLight = {
   primaryMain: "#5854C0",
   secondaryMain: "#D92D20",
   textPrimary: "#101828",
@@ -19,8 +20,7 @@ const themeColors = {
   textRed: "#D92D20",
 };
 
-// Erstelle das Theme
-export const theme = createTheme({
+export const lightTheme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -32,30 +32,30 @@ export const theme = createTheme({
   },
   palette: {
     primary: {
-      main: themeColors.primaryMain,
+      main: themeColorsLight.primaryMain,
     },
     secondary: {
-      main: themeColors.secondaryMain,
+      main: themeColorsLight.secondaryMain,
     },
     text: {
-      primary: themeColors.textPrimary,
-      secondary: themeColors.icon,
+      primary: themeColorsLight.textPrimary,
+      secondary: themeColorsLight.icon,
     },
     background: {
-      default: themeColors.backgroundDefault,
-      paper: themeColors.backgroundWhite,
+      default: themeColorsLight.backgroundDefault,
+      paper: themeColorsLight.backgroundWhite,
     },
     success: {
-      main: themeColors.success600,
+      main: themeColorsLight.success600,
     },
     error: {
-      main: themeColors.textRed,
+      main: themeColorsLight.textRed,
     },
     info: {
-      main: themeColors.customBlue,
+      main: themeColorsLight.customBlue,
     },
     warning: {
-      main: themeColors.customPurple,
+      main: themeColorsLight.customPurple,
     },
   },
 });

@@ -5,6 +5,7 @@ import { CardProps } from "./Card.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Card.styles.module.css";
 import { Skeleton } from "@mui/material";
+import { useTheme } from "next-themes";
 
 const Card: React.FC<CardProps> = ({
   title,
@@ -12,8 +13,10 @@ const Card: React.FC<CardProps> = ({
   performance,
   isBalanceCard,
 }) => {
+  const { theme } = useTheme();
+
   const determineStyling = () => {
-    if (isBalanceCard) {
+    if (isBalanceCard && theme === "light") {
       return styles.StyledAmountPurpleColour;
     } else {
       return styles.StyledAmount;
@@ -27,11 +30,7 @@ const Card: React.FC<CardProps> = ({
         <div className={styles.StyledAmountAndPerformanceWrapper}>
           <p className={determineStyling()}>
             {!amount ? (
-              <Skeleton
-                height={50}
-                width={115}
-                variant="text"
-              />
+              <Skeleton height={50} width={115} variant="text" />
             ) : (
               `€ ${amount}`
             )}
