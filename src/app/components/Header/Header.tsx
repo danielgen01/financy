@@ -21,10 +21,12 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton";
 import { logOut } from "@/app/utils/auth";
 import { useAuth } from "@/app/utils/useAuth";
+import { useTheme } from "next-themes";
 
 const Header: React.FC = () => {
   const { user, loading } = useAuth();
   const [openUserDialog, setOpenUserDialog] = useState(false);
+  const { theme } = useTheme();
 
   const UserActionModal: React.FC<{ isOpen: boolean; setOpenDialog: any }> = ({
     isOpen,
@@ -58,10 +60,31 @@ const Header: React.FC = () => {
 
   return (
     <div className={styles.StyledHeaderWrapper}>
-      <Link href="/">
-        <Image src="/Logo.png" alt="Logo_Financy" width={150} height={50} />
+      <Link
+        href="/"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: ".5rem",
+          fontWeight: "bold",
+        }}
+      >
+        {theme === "light" ? (
+          <Image
+            src="/Logo-light.png"
+            alt="Logo_Financy"
+            width={150}
+            height={50}
+          />
+        ) : (
+          <Image
+            src="/Logo-dark.png"
+            alt="Logo_Financy"
+            width={150}
+            height={50}
+          />
+        )}
       </Link>
-      {/* {isLaptopOrAbove ? ( */}
       <>
         <>
           <ul className={styles.StyledMenuList}>
