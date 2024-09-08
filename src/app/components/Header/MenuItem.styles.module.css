@@ -1,16 +1,15 @@
-/* styles.module.css */
 
 .StyledListItem {
   list-style-type: none;
 }
 
 .StyledLabelText {
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: var(--font-weight-medium);
   color: var(--color-navigation-item);
   transition-duration: 250ms;
   padding: 0.5rem;
-  border-radius: 0.25rem;
+  border-radius: var(--border-radius-sm);
+
 }
 
 .StyledLabelTextActive {
@@ -24,3 +23,4 @@
   background-color: #f2f6fd;
   cursor: pointer;
 }
+

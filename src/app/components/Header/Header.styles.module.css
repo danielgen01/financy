@@ -10,7 +10,7 @@
 
 .StyledMenuList {
   display: flex;
-  gap: 1rem;
+  gap:var(--spacing-md);
 }
 
 .StyledAccountActionsWrapper {
@@ -49,13 +49,21 @@ cursor: pointer;
 
 }
 
+.StyledLink {
+  background-color:var(--color-text-green);
+  padding:var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  
+
+}
+
 /* Medias */
 
 @media screen and (min-width: 600px) {
  
   .StyledHeaderWrapper {
-    padding-left:34px;
-    padding-right:34px;
+    padding-left:var(--spacing-xl);
+    padding-right:var(--spacing-xl);
 
   }
   
@@ -73,8 +81,8 @@ cursor: pointer;
   }
 
   .StyledHeaderWrapper {
-    padding-left:64px;
-    padding-right:64px;
+    padding-left:var(--spacing-6xl);
+    padding-right:var(--spacing-6xl);
 
   }
   
@@ -101,9 +109,6 @@ cursor: pointer;
     padding-right:200px;
 
   }
-  
-
-
 }
 
 @media screen and (max-width: 960px) {
@@ -115,6 +120,5 @@ cursor: pointer;
   .StyledAccountActionsWrapper {
     display: none;
   }
-
   
 }

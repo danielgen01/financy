@@ -1,10 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
 import { faBell, faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./Header.styles.module.css"; // Ensure path is correct
+import styles from "./Header.styles.module.css";
 import Link from "next/link";
 import {
   Avatar,
@@ -14,9 +14,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Modal,
   Skeleton,
-  useMediaQuery,
 } from "@mui/material";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton";
@@ -118,7 +116,6 @@ const Header: React.FC = () => {
             )}
             <>
               <div
-                className="flex mx-auto overflow-hidden"
                 onClick={() => {
                   setOpenUserDialog(true);
                 }}
@@ -128,7 +125,6 @@ const Header: React.FC = () => {
                     src="/Profile.png"
                     alt="Profile Image"
                     className={styles.StyledAccountProfileImage}
-
                   />
                 ) : (
                   <Skeleton variant="circular" width={40} height={40} />
@@ -138,16 +134,10 @@ const Header: React.FC = () => {
             <>
               {!user && !loading && (
                 <>
-                  <Link
-                    className="shadow-sm p-2 rounded-xl bg-green-300"
-                    href="./signup"
-                  >
+                  <Link className={styles.StyledLink} href="./signup">
                     Registrieren
                   </Link>
-                  <Link
-                    className="shadow-sm p-2 rounded-xl bg-green-300"
-                    href="./signin"
-                  >
+                  <Link className={styles.StyledLink} href="./signin">
                     Anmelden
                   </Link>
                 </>
