@@ -45,7 +45,10 @@
 .StyledAddButton {
   color: var(--color-text-green);
   font-weight: 500;
-  padding:var(--spacing-sm);
+  padding:var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  justify-items: center;
+  align-items: center;
   display: flex;
   gap:var(--spacing-xs);
   border-radius: var(--spacing-xs);
@@ -54,7 +57,10 @@
 .StyledAddButonRed {
   color: var(--color-text-red);
   font-weight: 500;
-  padding:var(--spacing-sm);
+  padding:var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  justify-items: center;
+  align-items: center;
   display: flex;
   gap:var(--spacing-xs);
   border-radius: var(--spacing-xs);
