@@ -18,7 +18,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import { ToggleThemeButton } from "../ToggleThemeButton/ToggleThemeButton";
+import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton";
 import { logOut } from "@/app/utils/auth";
 import { useAuth } from "@/app/utils/useAuth";
 
@@ -73,7 +73,7 @@ const Header: React.FC = () => {
           </ul>
           <div className={styles.StyledAccountActionsWrapper}>
             {!loading ? (
-              <ToggleThemeButton />
+              <ThemeToggler />
             ) : (
               <Skeleton variant="circular" width={40} height={40} />
             )}

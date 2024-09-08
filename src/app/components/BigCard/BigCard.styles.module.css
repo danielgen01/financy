@@ -1,6 +1,6 @@
 .StyledBigCardWrapper {
   padding: 30px 20px;
-  background-color: var(--color-background-white);
+  background-color: var(--color-container-color);
   border-radius: 1rem;
   display: flex;
   flex-direction: column;

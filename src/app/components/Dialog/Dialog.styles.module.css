@@ -25,7 +25,7 @@
 
 .StyledAddButton {
   background-color: var(--color-primary-main);
-  color: var(--color-background-white);
+  color: var(--color-container-color);
   padding: 0.5rem;
 }
 

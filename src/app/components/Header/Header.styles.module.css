@@ -1,5 +1,5 @@
 .StyledHeaderWrapper {
-  background-color: var(--color-background-white);
+  background-color: var(--color-container-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +31,7 @@
 
 .StyledLogoutButton {
   background-color: var(--color-secondary-main);
-  color: var(--color-background-white);
+  color: var(--color-container-color);
   padding: var(--spacing-sm);
   display: none;
   border-radius: var(--spacing-sm);
