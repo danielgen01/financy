@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  Button,
-  ClickAwayListener,
   DialogContent,
   DialogTitle,
   FormControl,
@@ -40,6 +38,8 @@ export const Dialog: React.FC<CustomDialogProps> = ({
     if (editCardItem) {
       editCardItem(name, amount);
     }
+
+    setOpenDialog(!openDialog);
   };
 
   return (
@@ -49,14 +49,11 @@ export const Dialog: React.FC<CustomDialogProps> = ({
       fullWidth
       onClose={onClose}
     >
-      <DialogContent
-        sx={{ padding: "0" }}
-        className={styles.StyledDialogContent}
-      >
+      <DialogContent className={styles.StyledDialogContent}>
         <DialogTitle className={styles.StyledDialogTitle}>
           {dialogTitle}
         </DialogTitle>
-        <form action="" className="" onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.StyledInputFieldsWrapper}>
             <FormControl>
               <TextField
@@ -79,6 +76,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                 {...register("amount", {
                   required: true,
                   valueAsNumber: true,
+                  validate: (value) => typeof value === "number",
                 })}
                 type="text"
                 variant="filled"
@@ -95,7 +93,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                 }}
               />
             </FormControl>
-            <div className="flex justify-end">
+            <div className={styles.StyledSubmitButtonWrapper}>
               <button
                 className={styles.StyledAddButton}
                 type="submit"

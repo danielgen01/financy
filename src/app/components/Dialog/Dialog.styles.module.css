@@ -41,5 +41,10 @@ color: var(--color-text-primary);
 
 .StyledDialogContent {
   background-color: var(--color-container-color);
+  padding:0;
 }
 
+.StyledSubmitButtonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
