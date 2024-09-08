@@ -4,7 +4,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { CardProps } from "./Card.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Card.styles.module.css";
-import { Paper, Skeleton } from "@mui/material";
+import { Skeleton } from "@mui/material";
 
 const Card: React.FC<CardProps> = ({
   title,
@@ -27,7 +27,11 @@ const Card: React.FC<CardProps> = ({
         <div className={styles.StyledAmountAndPerformanceWrapper}>
           <p className={determineStyling()}>
             {!amount ? (
-              <Skeleton height={50} width={115} variant="text" />
+              <Skeleton
+                height={50}
+                width={115}
+                variant="text"
+              />
             ) : (
               `€ ${amount}`
             )}
