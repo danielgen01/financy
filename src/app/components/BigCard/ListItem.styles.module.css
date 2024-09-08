@@ -1,7 +1,8 @@
 .StyledEditButtonWrapper {
   background-color:var(--color-custom-blue);
   border-radius: 10rem;
-  color:var(--color-container-color);
+  color: #ffffff;
+
 }
 
 .StyledEditButtonWrapper:hover {
@@ -10,7 +11,7 @@
 
 .StyledDeleteButton {
   background-color: var(--color-custom-purple);
-  color: var(--color-container-color);
+  color: #ffffff;
   border-radius: 10rem;
 }
 
