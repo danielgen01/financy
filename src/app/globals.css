@@ -118,13 +118,13 @@ body {
   background-color: var(--color-background-default);
 }
 
-main {
+main, footer {
   padding-left:var(--spacing-xl);
   padding-right:var(--spacing-xl);
 }
 
 @media screen and (min-width: 960px) {
-  main {
+  main, footer {
     padding-left:var(--spacing-6xl);
     padding-right:var(--spacing-6xl);
 
@@ -132,7 +132,7 @@ main {
   
 }
 @media screen and (min-width: 1280px) {
-  main {
+  main, footer {
     padding-left:80px;
     padding-right:80px;
 
@@ -140,7 +140,7 @@ main {
   
 }
 @media screen and (min-width: 1920px) {
-  main {
+  main, footer {
     padding-left:200px;
     padding-right:200px;
 

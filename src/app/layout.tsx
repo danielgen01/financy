@@ -27,9 +27,7 @@ export default function RootLayout({
               <Header />
             </header>
             <main>{children}</main>
-            <footer className=" bg-white-default py-4 mt-10   px-20">
-              Footer
-            </footer>
+            <footer>Footer</footer>
           </ThemeProvider>
         </NextThemesProvider>
       </body>
