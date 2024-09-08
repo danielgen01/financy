@@ -78,6 +78,9 @@
     --color-background-default: #F2F6FD;
     --color-container-color: #FFFFFF;
     --color-container-outline:#ECEFF2;
+    --color-navigation-item: #516778;
+    --color-icon-background:#F2F6FD;
+    /* shared colors */
     --color-icon: #778499;
     --color-line:#E5E9F0;
     --color-custom-green:#14AF9C;
@@ -90,8 +93,7 @@
     --color-text-red:#D92D20;
     --color-background-green: #DCFAE6;
     --color-background-red: #FEE4E2;
-    --color-navigation-item: #516778;
-    --color-icon-background:#F2F6FD;
+   
 }
 
 
