@@ -1,6 +1,7 @@
 .StyledCashflowOverviewWrapper {
   width: 100%;
   background-color:var(--color-container-color);
+  border: 1px solid var(--color-container-outline);
   border-radius: var(--border-radius-sm);
 }
 
