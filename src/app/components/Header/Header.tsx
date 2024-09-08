@@ -26,7 +26,7 @@ import { useTheme } from "next-themes";
 const Header: React.FC = () => {
   const { user, loading } = useAuth();
   const [openUserDialog, setOpenUserDialog] = useState(false);
-  const { theme } = useTheme();
+  let { theme } = useTheme();
 
   const UserActionModal: React.FC<{ isOpen: boolean; setOpenDialog: any }> = ({
     isOpen,
@@ -69,21 +69,12 @@ const Header: React.FC = () => {
           fontWeight: "bold",
         }}
       >
-        {theme === "light" ? (
-          <Image
-            src="/Logo-light.png"
-            alt="Logo_Financy"
-            width={150}
-            height={50}
-          />
-        ) : (
-          <Image
-            src="/Logo-dark.png"
-            alt="Logo_Financy"
-            width={150}
-            height={50}
-          />
-        )}
+        <Image
+          src={theme === "dark" ? "/Logo-dark.png" : "/Logo-light.png"}
+          alt="Logo_Financy"
+          width={150}
+          height={50}
+        />
       </Link>
       <>
         <>
