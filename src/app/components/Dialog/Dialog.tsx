@@ -42,7 +42,13 @@ export const Dialog: React.FC<CustomDialogProps> = ({
     }
   };
 
-  console.log(open);
+  const determineButtonActionName = () => {
+    if (dialogTitle.includes("Add")) {
+      return "Add";
+    } else {
+      return "Edit";
+    }
+  };
 
   return (
     <MuiDialog
@@ -51,7 +57,10 @@ export const Dialog: React.FC<CustomDialogProps> = ({
       fullWidth
       onClose={onClose}
     >
-      <DialogContent sx={{ padding: "0" }}>
+      <DialogContent
+        sx={{ padding: "0" }}
+        className={styles.StyledDialogContent}
+      >
         <DialogTitle className={styles.StyledDialogTitle}>
           {dialogTitle}
         </DialogTitle>
@@ -63,11 +72,11 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                   required: true,
                   validate: (value) => typeof value === "string",
                 })}
+                className={styles.StyledTextField}
                 type="text"
                 variant="filled"
                 label="Name"
                 defaultValue={dialogContent?.name && dialogContent.name}
-                className={styles.StyledTextField}
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -95,13 +104,13 @@ export const Dialog: React.FC<CustomDialogProps> = ({
               />
             </FormControl>
             <div className="flex justify-end">
-              <Button
+              <button
                 className={styles.StyledAddButton}
                 type="submit"
                 onSubmit={onSubmit}
               >
-                Add
-              </Button>
+                {determineButtonActionName()}
+              </button>
             </div>
           </div>
         </form>
