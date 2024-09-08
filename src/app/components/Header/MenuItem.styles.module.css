@@ -7,20 +7,20 @@
 .StyledLabelText {
   font-weight: 600;
   font-size: 16px;
-  color: #516778;
+  color: var(--color-navigation-item);
   transition-duration: 250ms;
   padding: 0.5rem;
   border-radius: 0.25rem;
 }
 
 .StyledLabelTextActive {
-  color: #5854c0;
+  color: var(--color-primary-main);
   background-color: #f2f6fd;
   pointer-events: none;
 }
 
 .StyledLabelText:hover {
-  color: #5854c0;
+  color: var(--color-primary-main);
   background-color: #f2f6fd;
   cursor: pointer;
 }

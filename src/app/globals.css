@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-
-
     /* fonts */
     --font-family-sans: 'Inter', sans-serif;
     --font-family-serif: 'Merriweather', serif;
@@ -97,6 +95,7 @@ body[data-theme='light'] {
    --color-text-red:#D92D20;
    --color-background-green: #DCFAE6;
    --color-background-red: #FEE4E2;
+   --color-navigation-item: #516778;
 }
 
 body[data-theme='dark'] {
@@ -105,6 +104,7 @@ body[data-theme='dark'] {
   --color-background-default: #0E0D17;
   --color-container-color: #1E1D3A;
   --color-container-outline:#413F75;
+  --color-navigation-item: #E5E9F0;
 }
 
 body {
