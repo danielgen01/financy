@@ -9,9 +9,9 @@ export function ThemeToggler() {
 
   const determineToolTip = () => {
     if (theme === "light") {
-      return "Turn on the light ";
-    } else {
       return "Turn off the light ";
+    } else {
+      return "Turn on the light ";
     }
   };
 
