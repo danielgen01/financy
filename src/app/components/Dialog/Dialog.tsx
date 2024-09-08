@@ -42,14 +42,6 @@ export const Dialog: React.FC<CustomDialogProps> = ({
     }
   };
 
-  const determineButtonActionName = () => {
-    if (dialogTitle.includes("Add")) {
-      return "Add";
-    } else {
-      return "Edit";
-    }
-  };
-
   return (
     <MuiDialog
       className="StyledDialogWrapper"
@@ -109,7 +101,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
                 type="submit"
                 onSubmit={onSubmit}
               >
-                {determineButtonActionName()}
+                {dialogTitle.includes("Add") ? "Add" : "Edit"}
               </button>
             </div>
           </div>
