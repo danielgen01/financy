@@ -91,7 +91,7 @@
     --color-background-green: #DCFAE6;
     --color-background-red: #FEE4E2;
     --color-navigation-item: #516778;
-
+    --color-icon-background:#F2F6FD;
 }
 
 
@@ -106,6 +106,7 @@
   --color-container-color: #1E1D3A;
   --color-container-outline:#413F75;
   --color-navigation-item: #E5E9F0;
+  --color-icon-background:#312F58;
 }
 
 body {
@@ -113,4 +114,10 @@ body {
   font-size: var(--font-size-md);
   color: var(--color-text-primary);
   background-color: var(--color-background-default);
+}
+
+.header-action-icon {
+  background-color: var(--color-icon-background);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
 }

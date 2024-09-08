@@ -2,6 +2,7 @@ import { useTheme } from "next-themes";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Tooltip } from "@mui/material";
+import styles from "./ToggleThemeButton.styles.module.css";
 
 export function ThemeToggler() {
   const { theme, setTheme } = useTheme();
@@ -17,7 +18,10 @@ export function ThemeToggler() {
 
   return (
     <Tooltip title={determineToolTip()}>
-      <button onClick={() => setTheme(nextTheme)}>
+      <button
+        onClick={() => setTheme(nextTheme)}
+        className={"header-action-icon"}
+      >
         {theme === "light" ? <DarkModeIcon /> : <LightModeIcon />}
       </button>
     </Tooltip>

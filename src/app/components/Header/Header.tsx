@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Header.styles.module.css"; // Ensure path is correct
 import Link from "next/link";
 import {
+  Avatar,
   Dialog,
   DialogTitle,
   List,
@@ -92,22 +93,26 @@ const Header: React.FC = () => {
               <Skeleton variant="circular" width={40} height={40} />
             )}
             {!loading ? (
-              <FontAwesomeIcon
-                icon={faGear}
-                width={40}
-                height={40}
-                cursor="pointer"
-              />
+              <button className="header-action-icon">
+                <FontAwesomeIcon
+                  icon={faGear}
+                  width={40}
+                  height={40}
+                  cursor="pointer"
+                />
+              </button>
             ) : (
               <Skeleton variant="circular" width={40} height={40} />
             )}
             {!loading ? (
-              <FontAwesomeIcon
-                icon={faBell}
-                width={40}
-                height={40}
-                cursor="pointer"
-              />
+              <button className="header-action-icon">
+                <FontAwesomeIcon
+                  icon={faBell}
+                  width={40}
+                  height={40}
+                  cursor="pointer"
+                />
+              </button>
             ) : (
               <Skeleton variant="circular" width={40} height={40} />
             )}
@@ -119,12 +124,11 @@ const Header: React.FC = () => {
                 }}
               >
                 {!loading && user ? (
-                  <Image
+                  <Avatar
                     src="/Profile.png"
-                    height={40}
-                    width={40}
                     alt="Profile Image"
                     className={styles.StyledAccountProfileImage}
+
                   />
                 ) : (
                   <Skeleton variant="circular" width={40} height={40} />

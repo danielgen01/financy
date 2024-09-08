@@ -22,9 +22,10 @@
 }
 
 .StyledAccountProfileImage {
-  aspect-ratio: 1/1;
-  border-radius: 99px;
-  object-fit: cover
+width:var(--spacing-3xl);
+height:var(--spacing-3xl);
+cursor: pointer;
+
 }
 
 
