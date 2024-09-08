@@ -2,7 +2,6 @@
   background-color:var(--color-custom-blue);
   border-radius: 10rem;
   color: #ffffff;
-
 }
 
 .StyledEditButtonWrapper:hover {
@@ -12,7 +11,7 @@
 .StyledDeleteButton {
   background-color: var(--color-custom-purple);
   color: #ffffff;
-  border-radius: 10rem;
+  border-radius: var(--border-radius-full);
 }
 
 .StyledDeleteButton:hover {
@@ -22,8 +21,7 @@
 .StyledListItemWrapper {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
-  width: 100%;
+  padding: var(--spacing-xs);
 }
 
 .StyledNameWrapper {
@@ -59,5 +57,5 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  gap: 5px;
+  gap: var(--spacing-xs);
 }
