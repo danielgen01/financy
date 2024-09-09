@@ -109,6 +109,7 @@
   --color-container-outline:#413F75;
   --color-navigation-item: #E5E9F0;
   --color-icon-background:#312F58;
+
 }
 
 body {
@@ -116,6 +117,10 @@ body {
   font-size: var(--font-size-md);
   color: var(--color-text-primary);
   background-color: var(--color-background-default);
+}
+
+:root[data-theme='dark'] body {
+  background-image: radial-gradient(ellipse,rgba(14, 13, 23, 0.9) 60%,  rgba(88, 84, 192, 0.7) 100%)
 }
 
 main, footer {
@@ -152,3 +157,4 @@ main, footer {
   padding: var(--spacing-sm);
   border-radius: var(--border-radius-sm);
 }
+
