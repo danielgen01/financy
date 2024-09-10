@@ -1,3 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
 :root {
     /* fonts */
     --font-family-sans: 'Inter', sans-serif;
