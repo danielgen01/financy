@@ -1,11 +1,11 @@
-"use client";
+import React from "react";
+import { Grid } from "@mui/material";
 import {
   headlineItemsMockCard,
   headlineItemsMockBigCardAssets,
   headlineItemsMockBigCardLiabilities,
 } from "@/headlineItems.mock";
 import Card from "../../Card/Card";
-import React from "react";
 import { BigCard } from "../../BigCard/BigCard";
 import { FilterMenu } from "../../FilterMenu/FilterMenu";
 import CashflowOverview from "../../CashflowOverview/CashflowOverview";
@@ -16,7 +16,6 @@ import {
   calculateTotalExpense,
   calculateTotalIncome,
 } from "./utilities";
-import { Grid } from "@mui/material";
 
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
@@ -41,7 +40,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
           <Grid item xs={12} sm={12} lg={4}>
             <Card
               title="Expenses"
-              amount={calculateTotalIncome(props.expenseData)}
+              amount={calculateTotalExpense(props.expenseData)}
               performance={10}
             />
           </Grid>
@@ -52,20 +51,26 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         {/* <FilterMenu /> */}
       </div>
       <section className={styles.StyledBigCardsWrapperSection}>
-        <BigCard
-          headlineItems={headlineItemsMockCard}
-          color="red"
-          buttonActionName="Add Income"
-          cardTitle="Income"
-          listItems={props.incomeData}
-        />
-        <BigCard
-          headlineItems={headlineItemsMockCard}
-          color="red"
-          buttonActionName="Add Expense"
-          cardTitle="Expenses"
-          listItems={props.expenseData}
-        />
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6}>
+            <BigCard
+              headlineItems={headlineItemsMockCard}
+              color="red"
+              buttonActionName="Add Income"
+              cardTitle="Income"
+              listItems={props.incomeData}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <BigCard
+              headlineItems={headlineItemsMockCard}
+              color="red"
+              buttonActionName="Add Expense"
+              cardTitle="Expenses"
+              listItems={props.expenseData}
+            />
+          </Grid>
+        </Grid>
       </section>
 
       <section className="StyledCashflowOverviewSection mt-10">
@@ -79,29 +84,35 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         />
       </section>
       <p>
-        * Passive means in this case income, which you dont&apos; work actively
-        for. As an example this could be a rented out property, a youtube video
-        which brings you passive money after recording it, a published book
-        etc...{" "}
+        * Passive means in this case income, which you don&apos;t work actively
+        for. As an example this could be a rented-out property, a YouTube video
+        which brings you passive money after recording it, a published book,
+        etc...
       </p>
 
       <section className={styles.StyledBigCardsWrapperSection}>
-        <BigCard
-          headlineItems={headlineItemsMockBigCardAssets}
-          color="red"
-          buttonActionName="Add Asset"
-          cardTitle="Assets"
-          listItems={props.assetData}
-          isFourColumns={true}
-        />
-        <BigCard
-          headlineItems={headlineItemsMockBigCardLiabilities}
-          color="red"
-          buttonActionName="Add Liability"
-          cardTitle="Liabilities"
-          listItems={props.liabilitiesData}
-          isFourColumns={true}
-        />
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={6} >
+            <BigCard
+              headlineItems={headlineItemsMockBigCardAssets}
+              color="red"
+              buttonActionName="Add Asset"
+              cardTitle="Assets"
+              listItems={props.assetData}
+              isFourColumns={true}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <BigCard
+              headlineItems={headlineItemsMockBigCardLiabilities}
+              color="red"
+              buttonActionName="Add Liability"
+              cardTitle="Liabilities"
+              listItems={props.liabilitiesData}
+              isFourColumns={true}
+            />
+          </Grid>
+        </Grid>
       </section>
     </>
   );
