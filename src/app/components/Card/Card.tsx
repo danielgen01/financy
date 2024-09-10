@@ -13,10 +13,8 @@ const Card: React.FC<CardProps> = ({
   performance,
   isBalanceCard,
 }) => {
-  const { theme } = useTheme();
-
   const determineStyling = () => {
-    if (isBalanceCard && theme === "light") {
+    if (isBalanceCard) {
       return styles.StyledAmountPurpleColour;
     } else {
       return styles.StyledAmount;

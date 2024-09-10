@@ -80,7 +80,7 @@
     --color-container-outline:#ECEFF2;
     --color-navigation-item: #516778;
     --color-icon-background:#F2F6FD;
-  --color-card-title:#516788;
+     --color-card-title:#516788;
 
     /* shared colors */
     --color-icon: #778499;
@@ -94,6 +94,8 @@
     --color-text-red:#D92D20;
     --color-background-green: #DCFAE6;
     --color-background-red: #FEE4E2;
+    --color-icon-green: #17B26A;
+
    
 }
 
@@ -103,7 +105,7 @@
 
 
 :root[data-theme='dark'] {
-  --color-primary-main: #5854C0;
+  --color-primary-main: #A578FA;
   --color-text-primary: #F2F6FD;
   --color-background-default: #0E0D17;
   --color-container-color: #1E1D3A;
