@@ -1,11 +1,11 @@
 .StyledBigCardWrapper {
-  padding: 30px 20px;
+  padding: var(--spacing-xl) var(--spacing-md);
   background-color: var(--color-container-color);
   border: 1px solid var(--color-container-outline);
-  border-radius: 1rem;
+  border-radius: var(--border-radius-lg);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--spacing-lg);
 }
 
 .StyledBigCardHeadWrapper {
@@ -14,8 +14,8 @@
 }
 
 .StyledCardTitle {
-  font-weight: 600;
-  font-size: 1.5rem ;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xl) ;
 
 }
 
@@ -28,25 +28,25 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px 10px 10px;
+  padding: var(--spacing-xs) var(--spacing-md);
   background-color: var(--color-background-default);
-  border-radius: 5px;
+  border-radius: var(--border-radius-sm);
 }
 
 .StyledTotalAmountWrapper {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 15px 0px 15px 0px;
+  padding: var(--spacing-md) 0px;
   background-color: var(--color-background-default);
-  border-radius: 5px;
+  border-radius: var(--border-radius-sm);
   margin-top: auto;
 }
 
 .StyledAddButton {
   color: var(--color-text-green);
-  font-weight: 500;
-  padding:var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  padding:var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-sm);
   justify-items: center;
   align-items: center;
@@ -57,8 +57,8 @@
 }
 .StyledAddButonRed {
   color: var(--color-text-red);
-  font-weight: 500;
-  padding:var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  padding:var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-sm);
   justify-items: center;
   align-items: center;

@@ -7,7 +7,7 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-navigation-item);
   transition-duration: 250ms;
-  padding: 0.5rem;
+  padding: var(--spacing-sm);
   border-radius: var(--border-radius-sm);
 
 }
