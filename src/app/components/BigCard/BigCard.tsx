@@ -86,12 +86,14 @@ export const BigCard: React.FC<BigCardProps> = ({
           })}
         </div>
 
-        {!listItems
-          ? Array.from({ length: 7 }).map((index: any) => (
-              <BigCardSkeleton key={nanoid()} />
-            ))
-          : // Render card items when not loading
-            Object.values(cardItems).map((listItem: ListItemProps) => {
+        {!listItems ? (
+          Array.from({ length: 7 }).map((index: any) => (
+            <BigCardSkeleton key={nanoid()} />
+          ))
+        ) : (
+          // Render card items when not loading
+          <div className={styles.StyledListItemsArrayWrapper}>
+            {Object.values(cardItems).map((listItem: ListItemProps) => {
               return (
                 <ListItem
                   id={listItem.id}
@@ -104,6 +106,8 @@ export const BigCard: React.FC<BigCardProps> = ({
                 />
               );
             })}
+          </div>
+        )}
       </div>
       <hr />
       <div className={styles.StyledTotalAmountWrapper}>

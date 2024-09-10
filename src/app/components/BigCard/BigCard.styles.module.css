@@ -43,6 +43,12 @@
   margin-top: auto;
 }
 
+.StyledListItemsArrayWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-sm) var(--spacing-xs);
+}
+
 .StyledAddButton {
   color: var(--color-text-green);
   font-weight: var(--font-weight-medium);
@@ -55,6 +61,7 @@
   border-radius: var(--spacing-xs);
   background-color: var(--color-background-green);
 }
+
 .StyledAddButonRed {
   color: var(--color-text-red);
   font-weight: var(--font-weight-medium);
