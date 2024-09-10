@@ -36,12 +36,6 @@
   font-weight: var(--font-weight-medium);
 }
 
-@media screen and (min-width: 600px) {
-  .StyledPaydayText {
-    font-size:var(--font-size-xl);
-  }
-}
-
 .StyledCashflowAmountWrapper {
   display: flex;
   flex-direction: column;
@@ -63,5 +57,13 @@
 @media screen and (min-width: 600px) {
   .StyledCashflowCalculationWrapper {
     display: flex;
+  }
+  .StyledCasfhlowAmount {
+    font-size: var(--font-size-xl);
+
+  }
+
+  .StyledPaydayText {
+    font-size:var(--font-size-xl);
   }
 }
