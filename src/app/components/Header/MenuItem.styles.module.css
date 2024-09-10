@@ -14,13 +14,13 @@
 
 .StyledLabelTextActive {
   color: var(--color-primary-main);
-  background-color: #f2f6fd;
+  background-color: var(--color-icon-background);
   pointer-events: none;
 }
 
 .StyledLabelText:hover {
   color: var(--color-primary-main);
-  background-color: #f2f6fd;
+  background-color: var(--color-icon-background);
   cursor: pointer;
 }
 
