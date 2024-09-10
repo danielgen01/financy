@@ -18,8 +18,8 @@ export default function AuthPage() {
   };
 
   return (
-    <section className="m-auto w-full h-full p-auto">
-      <div className="flex gap-10 mt-10">
+    <section className="">
+      <div className="">
         <input
           type="email"
           value={email}
@@ -34,8 +34,8 @@ export default function AuthPage() {
         />
       </div>
 
-      <div className="flex gap-10 mt-10">
-        <button onClick={handleSignIn} className="bg-green-300 p-5 rounded-xl">
+      <div className="">
+        <button onClick={handleSignIn} className="">
           Sign In
         </button>
       </div>

@@ -1,5 +1,5 @@
-import type { Meta, StoryFn } from "@storybook/react"
-import { Dialog } from "./Dialog"
+import type { Meta, StoryFn } from "@storybook/react";
+import { Dialog } from "./Dialog";
 
 export default {
   title: "Components/Dialog",
@@ -8,15 +8,15 @@ export default {
     onClose: { action: "onClose" },
     addCardItem: { action: "addCardItem" },
   },
-} as Meta
+} as Meta;
 
 const Template: StoryFn = (args) => {
   return (
-    <div className="h-screen w-screen bg-black opacity-80 flex justify-center items-center">
+    <div>
       <Dialog open {...args} />
     </div>
-  )
-}
+  );
+};
 
-export const Initial = Template.bind({})
-Initial.args = {}
+export const Initial = Template.bind({});
+Initial.args = {};
