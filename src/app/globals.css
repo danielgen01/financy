@@ -164,3 +164,8 @@ main, footer {
   border-radius: var(--border-radius-sm);
 }
 
+.header-action-icon:hover {
+  cursor: pointer;
+  color: var(--color-primary-main);
+}
+
