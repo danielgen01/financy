@@ -25,7 +25,6 @@
 }
 
 .StyledHeadlineWrapper {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: var(--spacing-xs) var(--spacing-md);
@@ -51,7 +50,7 @@
 
 .StyledAddButton {
   color: var(--color-text-green);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   padding:var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-sm);
   justify-items: center;
@@ -60,11 +59,13 @@
   gap:var(--spacing-xs);
   border-radius: var(--spacing-xs);
   background-color: var(--color-background-green);
+  cursor: pointer;
+  border:none;
 }
 
 .StyledAddButonRed {
   color: var(--color-text-red);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   padding:var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-sm);
   justify-items: center;
@@ -73,4 +74,6 @@
   gap:var(--spacing-xs);
   border-radius: var(--spacing-xs);
   background-color: var(--color-background-red);
+  cursor: pointer;
+  border:none;
 }
