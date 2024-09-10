@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./CashflowOverview.module.css";
 import { roundToFixed } from "./SubComponents";
 import { Skeleton } from "@mui/material";
+import { useTheme } from "next-themes";
 
 export interface CashflowOverviewProps {
   netCashflowAmount: number;
@@ -15,12 +16,14 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
   incomeTotal,
   expenseTotal,
 }) => {
+  const { theme } = useTheme();
+
   return (
     <div className={styles.StyledCashflowOverviewWrapper}>
       <div className={styles.StyledCashflowContentWrapper}>
         <div className={styles.StyledImagePlusTextWrapper}>
           <Image
-            src="/cashflow.png"
+            src={`${theme === "dark" ? "/Icon wrapper-dark.png" : "/Icon wrapper.png"}`}
             alt="Cashflow Overview"
             width={75}
             height={75}
