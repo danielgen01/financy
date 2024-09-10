@@ -1,6 +1,7 @@
 
 .StyledListItem {
   list-style-type: none;
+
 }
 
 .StyledLabelText {
@@ -9,7 +10,7 @@
   transition-duration: 250ms;
   padding: var(--spacing-sm);
   border-radius: var(--border-radius-sm);
-
+  text-decoration: none;
 }
 
 .StyledLabelTextActive {

@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 
 :root {
     /* fonts */
@@ -160,6 +164,10 @@ main, footer {
   background-color: var(--color-icon-background);
   padding: var(--spacing-sm);
   border-radius: var(--border-radius-sm);
+  border:none;
+  height: 70%;
+  width: 70%;
+ 
 }
 
 .header-action-icon:hover {

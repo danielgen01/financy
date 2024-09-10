@@ -72,7 +72,7 @@ const Header: React.FC = () => {
           src={theme === "dark" ? "/Logo-dark.png" : "/Logo-light.png"}
           alt="Logo_Financy"
           width={150}
-          height={50}
+          height={40}
         />
       </Link>
       <>
@@ -97,6 +97,7 @@ const Header: React.FC = () => {
                   width={40}
                   height={40}
                   cursor="pointer"
+                  size="lg"
                 />
               </button>
             ) : (
@@ -109,6 +110,7 @@ const Header: React.FC = () => {
                   width={40}
                   height={40}
                   cursor="pointer"
+                  size="lg"
                 />
               </button>
             ) : (
