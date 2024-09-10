@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className={styles.StyledPaper}>
       <div className={styles.CardWrapper}>
-        <span style={{ color: "#516778" }}>{title}</span>
+        <span className={styles.StyledTitle}>{title}</span>
         <br />
         <div className={styles.StyledAmountAndPerformanceWrapper}>
           <p className={determineStyling()}>

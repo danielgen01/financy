@@ -39,6 +39,10 @@
   color: var(--color-primary-main);
 }
 
+.StyledTitle { 
+  color:var(--color-card-title);
+}
+
 .StyledPerformanceWrapper {
   @apply flex gap-2 items-center  border-[#D5DDE2] border-2  text-green-500 h-6 p-2 rounded-md;
 }

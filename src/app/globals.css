@@ -80,9 +80,10 @@
     --color-container-outline:#ECEFF2;
     --color-navigation-item: #516778;
     --color-icon-background:#F2F6FD;
+  --color-card-title:#516788;
+
     /* shared colors */
     --color-icon: #778499;
-    --color-line:#E5E9F0;
     --color-custom-green:#14AF9C;
     --color-custom-blue:#3477F5;
     --color-custom-purple:#9E4BF6;
@@ -109,6 +110,9 @@
   --color-container-outline:#413F75;
   --color-navigation-item: #E5E9F0;
   --color-icon-background:#312F58;
+  --color-card-title:#E5E9F0;
+
+
 
 }
 
