@@ -66,6 +66,10 @@ export const BigCard: React.FC<BigCardProps> = ({
     }
   };
 
+  const sortedCardItems = Object.values(cardItems).sort(
+    (a, b) => b.cashflowAmount - a.cashflowAmount,
+  );
+
   return (
     <div className={styles.StyledBigCardWrapper}>
       <div className={styles.StyledBigCardHeadWrapper}>
@@ -92,19 +96,17 @@ export const BigCard: React.FC<BigCardProps> = ({
         ) : (
           // Render card items when not loading
           <div className={styles.StyledListItemsArrayWrapper}>
-            {Object.values(cardItems).map((listItem: ListItemProps) => {
-              return (
-                <ListItem
-                  id={listItem.id}
-                  key={`${listItem.name}-${listItem.cashflowAmount} ${nanoid()}`}
-                  name={listItem.name}
-                  cashflowAmount={listItem.cashflowAmount}
-                  onRemove={handleRemoveCardItem}
-                  onEdit={handleEditItem}
-                  isFourColumns={isFourColumns}
-                />
-              );
-            })}
+            {sortedCardItems.map((listItem: ListItemProps) => (
+              <ListItem
+                id={listItem.id}
+                key={`${listItem.name}-${listItem.cashflowAmount} ${nanoid()}`}
+                name={listItem.name}
+                cashflowAmount={listItem.cashflowAmount}
+                onRemove={handleRemoveCardItem}
+                onEdit={handleEditItem}
+                isFourColumns={isFourColumns}
+              />
+            ))}
           </div>
         )}
       </div>
