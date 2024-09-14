@@ -99,7 +99,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
               buttonActionName="Add Asset"
               cardTitle="Assets"
               listItems={props.assetData}
-              isFourColumns={true}
+              isFourColumns={false} // We will check later on if we really need 4 columns TODO
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -109,7 +109,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
               buttonActionName="Add Liability"
               cardTitle="Liabilities"
               listItems={props.liabilitiesData}
-              isFourColumns={true}
+              isFourColumns={false} // We will check later on if we really need 4 columns TODO
             />
           </Grid>
         </Grid>

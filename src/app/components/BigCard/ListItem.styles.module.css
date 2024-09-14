@@ -28,13 +28,11 @@
   display: flex;
   justify-content: start;
   width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  overflow: hidden;
-  height: 1.5em; /* no theme values possible*/
+  white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
 }
-
 .StyledPriceWrapper {
   display: flex;
   justify-content: end;
