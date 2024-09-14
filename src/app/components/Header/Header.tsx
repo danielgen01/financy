@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import MenuItem from "./MenuItem";
 import { faBell, faGear } from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +26,13 @@ const Header: React.FC = () => {
   const { user, loading } = useAuth();
   const [openUserDialog, setOpenUserDialog] = useState(false);
   let { theme } = useTheme();
+  const [loadedTheme, setLoadedTheme] = useState<string | undefined>("system");
+
+  useEffect(() => {
+    setLoadedTheme(theme);
+  }, [theme]);
+
+  const logoSrc = loadedTheme === "dark" ? "/Logo-dark.png" : "/Logo-light.png";
 
   const UserActionModal: React.FC<{ isOpen: boolean; setOpenDialog: any }> = ({
     isOpen,
@@ -69,10 +76,13 @@ const Header: React.FC = () => {
         }}
       >
         <Image
-          src={theme === "dark" ? "/Logo-dark.png" : "/Logo-light.png"}
+          src={logoSrc}
           alt="Logo_Financy"
           width={150}
           height={40}
+          // Add a placeholder or loader
+          placeholder="blur"
+          blurDataURL="/placeholder.png"
         />
       </Link>
       <>
