@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Alert, AlertTitle, Grid } from "@mui/material";
 import {
   headlineItemsMockCard,
   headlineItemsMockBigCardAssets,
@@ -83,16 +83,17 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
           expenseTotal={calculateTotalExpense(props.expenseData)}
         />
       </section>
-      <p>
-        * Passive means in this case income, which you don&apos;t work actively
+      <Alert severity="info" className={styles.StyledInfoCard}>
+        <AlertTitle>Info</AlertTitle>
+        Passive means in this case income, which you don&apos;t work actively
         for. As an example this could be a rented-out property, a YouTube video
         which brings you passive money after recording it, a published book,
-        etc...
-      </p>
+        etc..
+      </Alert>
 
       <section className={styles.StyledBigCardsWrapperSection}>
         <Grid container spacing={4}>
-          <Grid item xs={12} md={6} >
+          <Grid item xs={12} md={6}>
             <BigCard
               headlineItems={headlineItemsMockBigCardAssets}
               color="red"

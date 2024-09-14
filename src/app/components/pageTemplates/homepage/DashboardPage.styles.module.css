@@ -17,3 +17,8 @@
 .StyledBigCardsWrapperSection {
   margin-top: var(--spacing-2xl);
 }
+
+.StyledInfoCard {
+  background-color: var(--color-container-color);
+  color: var(--color-text-primary);
+}
