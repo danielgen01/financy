@@ -90,7 +90,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
             }}
           />
           <FormControlLabel
-            label="Is this passive income ?"
+            label="This income is earned passively*"
             labelPlacement="end"
             className={styles.StyledFormControlCheckboxWrapper}
             control={<Checkbox />}
