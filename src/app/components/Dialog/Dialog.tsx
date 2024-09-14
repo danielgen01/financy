@@ -55,44 +55,44 @@ export const Dialog: React.FC<CustomDialogProps> = ({
         </DialogTitle>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.StyledInputFieldsWrapper}>
-            <FormControl>
-              <TextField
-                {...register("name", {
-                  required: true,
-                  validate: (value) => typeof value === "string",
-                })}
-                className={styles.StyledTextField}
-                type="text"
-                variant="filled"
-                label="Name"
-                defaultValue={dialogContent?.name && dialogContent.name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-            </FormControl>
-            <FormControl>
-              <TextField
-                {...register("amount", {
-                  required: true,
-                  valueAsNumber: true,
-                  validate: (value) => typeof value === "number",
-                })}
-                type="text"
-                variant="filled"
-                label="Amount"
-                className={styles.StyledTextField}
-                defaultValue={
-                  dialogContent?.cashflowAmount && dialogContent.cashflowAmount
-                }
-                onChange={(e) => {
-                  const formattedAmount = formatToTwoDecimalPlaces(
-                    e.target.value,
-                  );
-                  setAmount(formattedAmount);
-                }}
-              />
-            </FormControl>
+            <TextField
+              {...register("name", {
+                required: true,
+                validate: (value) => typeof value === "string",
+              })}
+              className={styles.StyledTextField}
+              type="text"
+              InputLabelProps={{ shrink: true }}
+              variant="filled"
+              required
+              label="Name"
+              defaultValue={dialogContent?.name && dialogContent.name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+            <TextField
+              {...register("amount", {
+                required: true,
+                valueAsNumber: true,
+                validate: (value) => typeof value === "number",
+              })}
+              type="text"
+              variant="filled"
+              required
+              InputLabelProps={{ shrink: true }}
+              label="Amount"
+              className={styles.StyledTextField}
+              defaultValue={
+                dialogContent?.cashflowAmount && dialogContent.cashflowAmount
+              }
+              onChange={(e) => {
+                const formattedAmount = formatToTwoDecimalPlaces(
+                  e.target.value,
+                );
+                setAmount(formattedAmount);
+              }}
+            />
             <div className={styles.StyledSubmitButtonWrapper}>
               <button
                 className={styles.StyledAddButton}
