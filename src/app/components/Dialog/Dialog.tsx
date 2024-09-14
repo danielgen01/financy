@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import {
+  Checkbox,
   DialogContent,
   DialogTitle,
-  FormControl,
+  FormControlLabel,
   Dialog as MuiDialog,
 } from "@mui/material";
 import { TextField } from "@mui/material";
@@ -43,65 +44,66 @@ export const Dialog: React.FC<CustomDialogProps> = ({
   };
 
   return (
-    <MuiDialog
-      className="StyledDialogWrapper"
-      open={openDialog}
-      fullWidth
-      onClose={onClose}
-    >
+    <MuiDialog open={openDialog} fullWidth onClose={onClose}>
       <DialogContent className={styles.StyledDialogContent}>
         <DialogTitle className={styles.StyledDialogTitle}>
           {dialogTitle}
         </DialogTitle>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className={styles.StyledInputFieldsWrapper}>
-            <TextField
-              {...register("name", {
-                required: true,
-                validate: (value) => typeof value === "string",
-              })}
-              className={styles.StyledTextField}
-              type="text"
-              InputLabelProps={{ shrink: true }}
-              variant="filled"
-              required
-              label="Name"
-              defaultValue={dialogContent?.name && dialogContent.name}
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
-            />
-            <TextField
-              {...register("amount", {
-                required: true,
-                valueAsNumber: true,
-                validate: (value) => typeof value === "number",
-              })}
-              type="text"
-              variant="filled"
-              required
-              InputLabelProps={{ shrink: true }}
-              label="Amount"
-              className={styles.StyledTextField}
-              defaultValue={
-                dialogContent?.cashflowAmount && dialogContent.cashflowAmount
-              }
-              onChange={(e) => {
-                const formattedAmount = formatToTwoDecimalPlaces(
-                  e.target.value,
-                );
-                setAmount(formattedAmount);
-              }}
-            />
-            <div className={styles.StyledSubmitButtonWrapper}>
-              <button
-                className={styles.StyledAddButton}
-                type="submit"
-                onSubmit={onSubmit}
-              >
-                {dialogTitle.includes("Add") ? "Add" : "Edit"}
-              </button>
-            </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles.StyledFormWrapper}
+        >
+          <TextField
+            {...register("name", {
+              required: true,
+              validate: (value) => typeof value === "string",
+            })}
+            className={styles.StyledTextField}
+            type="text"
+            InputLabelProps={{ shrink: true }}
+            variant="filled"
+            required
+            label="Name"
+            defaultValue={dialogContent?.name && dialogContent.name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
+          <TextField
+            {...register("amount", {
+              required: true,
+              valueAsNumber: true,
+              validate: (value) => typeof value === "number",
+            })}
+            type="text"
+            variant="filled"
+            required
+            InputLabelProps={{ shrink: true }}
+            label="Amount"
+            className={styles.StyledTextField}
+            defaultValue={
+              dialogContent?.cashflowAmount && dialogContent.cashflowAmount
+            }
+            onChange={(e) => {
+              const formattedAmount = formatToTwoDecimalPlaces(e.target.value);
+              setAmount(formattedAmount);
+            }}
+          />
+          <FormControlLabel
+            label="Is this passive income ?"
+            color="primary"
+            labelPlacement="end"
+            className={styles.StyledFormControlCheckboxWrapper}
+            control={<Checkbox />}
+          />
+          <div className={styles.StyledSubmitButtonWrapper}>
+            <button
+              className={styles.StyledAddButton}
+              type="submit"
+              onSubmit={onSubmit}
+            >
+              {dialogTitle.includes("Add") ? "Add" : "Edit"}
+            </button>
           </div>
         </form>
       </DialogContent>
