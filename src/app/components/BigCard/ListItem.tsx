@@ -1,11 +1,8 @@
-import { DeleteForever } from "@mui/icons-material";
-import EditIcon from "@mui/icons-material/Edit";
 import { ListItemProps } from "./ListItem.types";
 import { IconButton, Tooltip } from "@mui/material";
 import styles from "./ListItem.styles.module.css";
 import { useState } from "react";
 import { Dialog } from "../Dialog/Dialog";
-import { handleClose } from "./useBigCard";
 
 export const EditSvg = () => {
   return (
@@ -104,7 +101,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         <Dialog
           open={openDialog}
           dialogTitle="Edit item"
-          onClose={() => handleClose(setOpenDialog)}
+          onClose={() => setOpenDialog(!openDialog)}
           dialogContent={dialogContentState}
           editCardItem={(updatedName: string, updatedCashflowAmount: number) =>
             onEdit && onEdit(id, updatedName, updatedCashflowAmount)

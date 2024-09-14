@@ -6,7 +6,7 @@ import { ListItemProps } from "./ListItem.types";
 import { Dialog } from "../Dialog/Dialog";
 import styles from "./BigCard.styles.module.css";
 import { Box, Button, Skeleton } from "@mui/material";
-import { determineTotal, handleClose, handleOpen } from "./useBigCard";
+import { determineTotal } from "./useBigCard";
 import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
 import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
 import { removeCardItemFromDataBase } from "@/app/utils/removeCardItemFromDataBase";
@@ -73,7 +73,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         <h2 className={styles.StyledCardTitle}>{cardTitle}</h2>
         <button
           className={determineAddButtonStyling()}
-          onClick={() => handleOpen(setOpenDialog)}
+          onClick={() => setOpenDialog(!openDialog)}
         >
           {buttonActionName}
           {<AddCircleOutline />}
@@ -122,9 +122,9 @@ export const BigCard: React.FC<BigCardProps> = ({
         <Dialog
           open={openDialog}
           dialogTitle="Add item"
-          onClose={() => handleClose(setOpenDialog)}
+          onClose={() => setOpenDialog(!openDialog)}
           addCardItem={handleAddCardItem}
-        ></Dialog>
+        />
       )}
     </div>
   );
