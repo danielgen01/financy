@@ -19,6 +19,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
   editCardItem,
   dialogTitle,
   dialogContent,
+  buttonActionName,
 }) => {
   const {
     register,
@@ -89,12 +90,14 @@ export const Dialog: React.FC<CustomDialogProps> = ({
               setAmount(formattedAmount);
             }}
           />
-          <FormControlLabel
-            label="This income is earned passively*"
-            labelPlacement="end"
-            className={styles.StyledFormControlCheckboxWrapper}
-            control={<Checkbox />}
-          />
+          {buttonActionName === "Add Income" && (
+            <FormControlLabel
+              label="This income is earned passively*"
+              labelPlacement="end"
+              className={styles.StyledFormControlCheckboxWrapper}
+              control={<Checkbox />}
+            />
+          )}
           <div className={styles.StyledSubmitButtonWrapper}>
             <button
               className={styles.StyledAddButton}

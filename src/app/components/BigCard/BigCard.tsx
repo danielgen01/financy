@@ -59,7 +59,6 @@ export const BigCard: React.FC<BigCardProps> = ({
   };
 
   const determineAddButtonStyling = () => {
-    console.log(buttonActionName);
     if (buttonActionName === "Add Income" || buttonActionName === "Add Asset") {
       return styles.StyledAddButton;
     } else {
@@ -124,6 +123,7 @@ export const BigCard: React.FC<BigCardProps> = ({
           dialogTitle="Add item"
           onClose={() => setOpenDialog(!openDialog)}
           addCardItem={handleAddCardItem}
+          buttonActionName={buttonActionName || ""}
         />
       )}
     </div>
