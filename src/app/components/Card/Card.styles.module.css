@@ -9,12 +9,12 @@
   background-color: var(--color-container-color);
   border: 1px solid var(--color-container-outline);
   padding: var(--spacing-md);
-  height: 120px; /* no theme value */
+  height: 100px; /* no theme value */
 }
 
 .StyledAmountAndPerformanceWrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   margin: 0;
 }
@@ -38,15 +38,19 @@
 }
 
 .StyledPerformanceWrapper {
+  display: flex;
+
+}
+
+
+.StyledPerformance {
   display:flex;
-  justify-items: center;
-  align-items: center;
+  align-items:center;
+  align-self: end;
   gap:var(--spacing-md);
   padding:var(--spacing-xs);
   color: var(--color-text-green);
   font-weight: var(--font-weight-semibold);
   border: 1px solid var(--color-primary-main);
   border-radius: var(--border-radius-md);
-  margin-left:auto;
 }
-

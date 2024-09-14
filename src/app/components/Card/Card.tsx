@@ -34,8 +34,10 @@ const Card: React.FC<CardProps> = ({
             )}
           </p>
           <div className={styles.StyledPerformanceWrapper}>
-            <FontAwesomeIcon icon={faArrowUp} />
-            {performance}%
+            <div className={styles.StyledPerformance}>
+              <FontAwesomeIcon icon={faArrowUp} />
+              {performance}%
+            </div>
           </div>
         </div>
       </div>

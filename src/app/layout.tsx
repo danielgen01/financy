@@ -28,6 +28,7 @@ export default function RootLayout({
               <Header />
             </header>
             <main>{children}</main>
+
             <footer>Footer</footer>
           </ThemeProvider>
         </NextThemesProvider>
