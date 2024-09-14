@@ -116,7 +116,8 @@
   --color-navigation-item: #E5E9F0;
   --color-icon-background:#312F58;
   --color-card-title:#E5E9F0;
-
+  --color-gradient-from: rgba(14, 13, 23, 0.9);
+  --color-gradient-to: rgba(88, 84, 192, 0.7);
 
 
 }
@@ -129,7 +130,7 @@ body {
 }
 
 :root[data-theme='dark'] body {
-  background-image: radial-gradient(ellipse,rgba(14, 13, 23, 0.9) 60%,  rgba(88, 84, 192, 0.7) 100%)
+  background-image: radial-gradient(ellipse, var(--color-gradient-from) 60%, var(--color-gradient-to) 100%);
 }
 
 main, footer {

@@ -35,10 +35,14 @@ color: var(--color-text-primary);
   cursor: pointer;
 }
 
+
+
 .StyledDialogContent {
   background-color: var(--color-container-color);
   padding:0;
+  border:1px solid var(--color-container-outline);
 }
+
 
 .StyledSubmitButtonWrapper {
   display: flex;
@@ -46,5 +50,5 @@ color: var(--color-text-primary);
 }
 
 .StyledFormControlCheckboxWrapper {
-  color:var(--color-white);
+  color:var(--color-text-primary);
 }
