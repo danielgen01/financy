@@ -9,7 +9,7 @@ import { ThemeProvider } from "@mui/material";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "financy",
+  title: "Finany - Manage your finances with ease ",
   description:
     "Manage your finances with ease and get in control of your cashflow",
 };
