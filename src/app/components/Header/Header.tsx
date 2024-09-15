@@ -99,7 +99,7 @@ const Header: React.FC = () => {
             {!loading ? (
               <ThemeToggler />
             ) : (
-              <MuiSkeleton variant="circular" width={40} height={40} />
+              <MuiSkeleton variant="circular" width={50} height={50} />
             )}
             {!loading ? (
               <button className="header-action-icon">
@@ -112,7 +112,7 @@ const Header: React.FC = () => {
                 />
               </button>
             ) : (
-              <MuiSkeleton variant="circular" width={40} height={40} />
+              <MuiSkeleton variant="circular" width={50} height={50} />
             )}
             {!loading ? (
               <button className="header-action-icon">
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
                 />
               </button>
             ) : (
-              <MuiSkeleton variant="circular" width={40} height={40} />
+              <MuiSkeleton variant="circular" width={50} height={50} />
             )}
             <>
               <div
@@ -140,7 +140,7 @@ const Header: React.FC = () => {
                     className={styles.StyledAccountProfileImage}
                   />
                 ) : (
-                  <MuiSkeleton variant="circular" width={40} height={40} />
+                  <MuiSkeleton variant="circular" width={50} height={50} />
                 )}
               </div>
             </>
