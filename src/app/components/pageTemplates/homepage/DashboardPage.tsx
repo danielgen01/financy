@@ -7,7 +7,6 @@ import {
 } from "@/headlineItems.mock";
 import Card from "../../Card/Card";
 import { BigCard } from "../../BigCard/BigCard";
-import { FilterMenu } from "../../FilterMenu/FilterMenu";
 import CashflowOverview from "../../CashflowOverview/CashflowOverview";
 import { DashboardPageProps } from "./DashboardPage.types";
 import styles from "./DashboardPage.styles.module.css";

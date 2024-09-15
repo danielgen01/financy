@@ -1,11 +1,12 @@
-import { Box, Skeleton } from "@mui/material";
+import { Box } from "@mui/material";
+import MuiSkeleton from "../MuiSkeleton/MuiSkeleton";
 
 export const BigCardSkeleton: React.FC = () => {
   return (
     <Box display="flex" justifyContent="space-between">
-      <Skeleton width="40%" height={75} />
-      <Skeleton width="40%" height={75} />
-      <Skeleton
+      <MuiSkeleton width="40%" height={75} />
+      <MuiSkeleton width="40%" height={75} />
+      <MuiSkeleton
         sx={{
           marginTop: "10px",
         }}
@@ -13,7 +14,7 @@ export const BigCardSkeleton: React.FC = () => {
         height={50}
         variant="circular"
       />
-      <Skeleton
+      <MuiSkeleton
         sx={{
           marginTop: "10px",
         }}

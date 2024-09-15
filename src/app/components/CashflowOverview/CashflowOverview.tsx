@@ -2,8 +2,8 @@ import Image from "next/image";
 import React from "react";
 import styles from "./CashflowOverview.module.css";
 import { roundToFixed } from "./SubComponents";
-import { Skeleton } from "@mui/material";
 import { useTheme } from "next-themes";
+import MuiSkeleton from "../MuiSkeleton/MuiSkeleton";
 
 export interface CashflowOverviewProps {
   netCashflowAmount: number;
@@ -34,7 +34,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
             <div className={styles.StyledCashflowCalculationWrapper}>
               <span className="">
                 {!incomeTotal ? (
-                  <Skeleton variant="text" width={80} height={45} />
+                  <MuiSkeleton variant="text" width={80} height={45} />
                 ) : (
                   roundToFixed(incomeTotal)
                 )}
@@ -42,7 +42,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
               <span className="">- </span>
               <span className="">
                 {!incomeTotal ? (
-                  <Skeleton variant="text" width={80} height={45} />
+                  <MuiSkeleton variant="text" width={80} height={45} />
                 ) : (
                   roundToFixed(expenseTotal)
                 )}
@@ -53,7 +53,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
         <div className={styles.StyledCashflowAmountWrapper}>
           <span className={styles.StyledCasfhlowAmount}>
             {!incomeTotal ? (
-              <Skeleton variant="text" width={150} height={45} />
+              <MuiSkeleton variant="text" width={150} height={45} />
             ) : (
               `€ ${roundToFixed(netCashflowAmount)}`
             )}

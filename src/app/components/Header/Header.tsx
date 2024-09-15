@@ -14,13 +14,13 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Skeleton,
 } from "@mui/material";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton";
 import { logOut } from "@/app/utils/auth";
 import { useAuth } from "@/app/utils/useAuth";
 import { useTheme } from "next-themes";
+import MuiSkeleton from "../MuiSkeleton/MuiSkeleton";
 
 const Header: React.FC = () => {
   const { user, loading } = useAuth();
@@ -99,7 +99,7 @@ const Header: React.FC = () => {
             {!loading ? (
               <ThemeToggler />
             ) : (
-              <Skeleton variant="circular" width={40} height={40} />
+              <MuiSkeleton variant="circular" width={40} height={40} />
             )}
             {!loading ? (
               <button className="header-action-icon">
@@ -112,7 +112,7 @@ const Header: React.FC = () => {
                 />
               </button>
             ) : (
-              <Skeleton variant="circular" width={40} height={40} />
+              <MuiSkeleton variant="circular" width={40} height={40} />
             )}
             {!loading ? (
               <button className="header-action-icon">
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
                 />
               </button>
             ) : (
-              <Skeleton variant="circular" width={40} height={40} />
+              <MuiSkeleton variant="circular" width={40} height={40} />
             )}
             <>
               <div
@@ -140,7 +140,7 @@ const Header: React.FC = () => {
                     className={styles.StyledAccountProfileImage}
                   />
                 ) : (
-                  <Skeleton variant="circular" width={40} height={40} />
+                  <MuiSkeleton variant="circular" width={40} height={40} />
                 )}
               </div>
             </>
