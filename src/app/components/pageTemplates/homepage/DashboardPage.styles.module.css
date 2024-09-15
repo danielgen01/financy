@@ -22,3 +22,31 @@
   background-color: var(--color-container-color);
   color: var(--color-text-primary);
 }
+
+:root[data-theme='dark'] .StyledOvalFadeShapeLeft {
+  position: absolute;
+  z-index: -1;
+  top:50%;
+  left:-20%;
+  height: 200px;
+  width: 500px;
+  background-color: #5854C0;
+  border-radius: 50%;
+  filter:blur(200px);
+  -webkit-filter:blur(200px);
+
+}
+
+:root[data-theme='dark'] .StyledOvalFadeShapeRight {
+  position: absolute;
+  z-index: -1;
+  top:50%;
+  right:-20%;
+  height: 200px;
+  width: 500px;
+  background-color: #5854C0;
+  border-radius: 50%;
+  filter:blur(200px);
+  -webkit-filter:blur(200px);
+
+}

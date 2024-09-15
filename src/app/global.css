@@ -127,11 +127,10 @@ body {
   font-size: var(--font-size-md);
   color: var(--color-text-primary);
   background-color: var(--color-background-default);
+  overflow-x:hidden;
+
 }
 
-:root[data-theme='dark'] body {
-  background-image: radial-gradient(ellipse, var(--color-gradient-from) 60%, var(--color-gradient-to) 100%);
-}
 
 main, footer {
   padding-left:var(--spacing-xl);

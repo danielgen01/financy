@@ -17,9 +17,15 @@ import {
   calculateTotalIncome,
 } from "./utilities";
 
+const OvalShape = ({ styles }: { styles: string }) => {
+  return <div className={styles} />;
+};
+
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
     <>
+      <OvalShape styles={styles.StyledOvalFadeShapeLeft} />
+      <OvalShape styles={styles.StyledOvalFadeShapeRight} />
       <section>
         <Grid container className={styles.StyledCardWrapper} spacing={4}>
           <Grid item xs={12} sm={6} lg={4}>
