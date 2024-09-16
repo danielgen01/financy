@@ -57,3 +57,11 @@
   width: 100%;
   gap: var(--spacing-xs);
 }
+
+/* For Subcomponents.tsx */
+
+.StyledSkeletonActionIconsWrapper {
+  display:flex;
+  gap:var(--spacing-xs);
+
+}
