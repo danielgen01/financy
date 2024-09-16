@@ -1,4 +1,4 @@
 :root[data-theme='dark'] .StyledDarkSkeleton {
-    background-color: #312F58;
+    background-color: var(--color-icon-background);
 
 }
