@@ -23,8 +23,8 @@ const OvalShape = ({ styles }: { styles: string }) => {
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
     <>
-      <OvalShape styles={styles.StyledOvalFadeShapeLeft} />
-      <OvalShape styles={styles.StyledOvalFadeShapeRight} />
+      {/* // <OvalShape styles={styles.StyledOvalFadeShapeLeft} />
+      // <OvalShape styles={styles.StyledOvalFadeShapeRight} /> */}
       <section>
         <Grid container className={styles.StyledCardWrapper} spacing={4}>
           <Grid item xs={12} sm={6} lg={4}>
@@ -77,7 +77,6 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
           </Grid>
         </Grid>
       </section>
-
       <section className="StyledCashflowOverviewSection mt-10">
         <CashflowOverview
           netCashflowAmount={calculateTotal({
@@ -95,7 +94,6 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         which brings you passive money after recording it, a published book,
         etc..
       </Alert>
-
       <section className={styles.StyledBigCardsWrapperSection}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
