@@ -46,7 +46,7 @@
 .StyledPerformance {
   display:flex;
   align-items:center;
-  align-self: end;
+  align-self: flex-end;
   gap:var(--spacing-md);
   padding:var(--spacing-xs);
   color: var(--color-text-green);

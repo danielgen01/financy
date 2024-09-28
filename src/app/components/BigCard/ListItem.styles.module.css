@@ -27,7 +27,7 @@
 
 .StyledNameWrapper {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   width: 100%;
   white-space: nowrap;
     overflow: hidden;
@@ -36,7 +36,7 @@
 }
 .StyledPriceWrapper {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
 }
 
