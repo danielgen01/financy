@@ -30,7 +30,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
             className={styles.StyledCashflowImage}
           />
           <div className={styles.StyledPaydayTextWrapper}>
-            <span className={styles.StyledPaydayText}>Payday</span>
+            <span className={styles.StyledPaydayText}>Monthly Cashflow (Payday)</span>
             <div className={styles.StyledCashflowCalculationWrapper}>
               <span className="">
                 {!incomeTotal ? (
