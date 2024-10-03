@@ -23,30 +23,28 @@
   color: var(--color-text-primary);
 }
 
-:root[data-theme='dark'] .StyledOvalFadeShapeLeft {
+ .StyledOvalFadeShapeLeft {
   position: absolute;
-  z-index: -1;
-  top:50%;
-  left:-20%;
-  height: 200px;
-  width: 500px;
-  background-color: #5854C0;
-  border-radius: 50%;
-  filter:blur(200px);
-  -webkit-filter:blur(200px);
-
+  width: 1253.04px;
+  height: 449.09px;
+  left: -677px;
+  top: 482px;
+  background: var(--color-primary-main);
+  mix-blend-mode: screen;
+  opacity: 0.2; 
+  filter: blur(75px);
+  z-index: -100;
 }
 
-:root[data-theme='dark'] .StyledOvalFadeShapeRight {
+ .StyledOvalFadeShapeRight {
   position: absolute;
-  z-index: -1;
-  top:50%;
-  right:-20%;
-  height: 200px;
-  width: 500px;
-  background-color: #5854C0;
-  border-radius: 50%;
-  filter:blur(200px);
-  -webkit-filter:blur(200px);
-
+  width: 1253.04px;
+  height: 449.09px;
+  left: 973px;
+  top: 482px;
+  background: var(--color-primary-main);
+  mix-blend-mode: screen;
+  opacity: 0.2;
+  filter: blur(75px);
+  z-index: -100;
 }
