@@ -5,6 +5,7 @@ import { CardProps } from "./Card.types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Card.styles.module.css";
 import MuiSkeleton from "../MuiSkeleton/MuiSkeleton";
+import { determineStyling } from "./useCard";
 
 const Card: React.FC<CardProps> = ({
   title,
@@ -12,20 +13,13 @@ const Card: React.FC<CardProps> = ({
   performance,
   isBalanceCard,
 }) => {
-  const determineStyling = () => {
-    if (isBalanceCard) {
-      return styles.StyledAmountPurpleColour;
-    } else {
-      return styles.StyledAmount;
-    }
-  };
   return (
     <div className={styles.StyledPaper}>
       <div className={styles.CardWrapper}>
         <span className={styles.StyledTitle}>{title}</span>
         <br />
         <div className={styles.StyledAmountAndPerformanceWrapper}>
-          <p className={determineStyling()}>
+          <p className={determineStyling(styles, isBalanceCard)}>
             {!amount ? (
               <MuiSkeleton height={50} width={115} variant="text" />
             ) : (
