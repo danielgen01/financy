@@ -10,7 +10,6 @@ import { nanoid } from "nanoid";
 import { BigCardSkeleton } from "./SubComponents";
 
 export const BigCard: React.FC<BigCardProps> = ({
-  listItems,
   cardTitle,
   buttonActionName,
   headlineItems,
@@ -19,21 +18,20 @@ export const BigCard: React.FC<BigCardProps> = ({
   handleRemoveCardItem,
   handleEditItem,
   cardItems,
-  setCardItems,
 }) => {
   const [openDialog, setOpenDialog] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (listItems) {
-      setCardItems(listItems);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cardItems, listItems]);
+  const [cardItemsLoading, setCardItemsLoading] = useState<boolean>(true);
 
   const sortedCardItems = Object.values(cardItems).sort(
     (a, b) =>
       (b as ListItemProps).cashflowAmount - (a as ListItemProps).cashflowAmount,
   ) as ListItemProps[];
+
+  useEffect(() => {
+    if (cardItems.length > 0) {
+      setCardItemsLoading(false);
+    }
+  }, [cardItems]);
 
   return (
     <div className={styles.StyledBigCardWrapper}>
@@ -54,7 +52,7 @@ export const BigCard: React.FC<BigCardProps> = ({
           })}
         </div>
 
-        {!listItems ? (
+        {cardItemsLoading ? (
           Array.from({ length: 7 }).map((index: any) => (
             <BigCardSkeleton key={nanoid()} />
           ))

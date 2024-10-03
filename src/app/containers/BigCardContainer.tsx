@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BigCard } from "../components/BigCard/BigCard";
 import { ListItemProps } from "../components/BigCard/ListItem.types";
 import { addCardItemToDataBase } from "../utils/addCartItemToDataBase";
@@ -21,6 +21,13 @@ export const BigCardContainer: React.FC<BigCardContainerProps> = ({
   isFourColumns,
 }) => {
   const [cardItems, setCardItems] = useState<ListItemProps[]>([]);
+
+  useEffect(() => {
+    if (listItems) {
+      setCardItems(listItems);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cardItems, listItems]);
 
   const handleAddCardItem = (name: string, cashflowAmount: number) => {
     addCardItemToDataBase(

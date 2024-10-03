@@ -5,7 +5,6 @@ interface HeadlineItem {
 }
 
 export type BigCardProps = {
-  listItems?: ListItemProps[];
   cardTitle?: string;
   buttonActionName?: string;
   headlineItems?: HeadlineItem[];
