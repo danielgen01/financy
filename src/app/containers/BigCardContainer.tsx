@@ -59,7 +59,6 @@ export const BigCardContainer: React.FC<BigCardContainerProps> = ({
   };
   return (
     <BigCard
-      listItems={listItems}
       cardTitle={cardTitle}
       buttonActionName={buttonActionName}
       headlineItems={headlineItems}
