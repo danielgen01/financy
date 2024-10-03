@@ -6,7 +6,7 @@ import { ListItemProps } from "./ListItem.types";
 import { Dialog } from "../Dialog/Dialog";
 import styles from "./BigCard.styles.module.css";
 import { Box, Button, Skeleton } from "@mui/material";
-import { determineTotal } from "./useBigCard";
+import { determineAddButtonStyling, determineTotal } from "./useBigCard";
 import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
 import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
 import { removeCardItemFromDataBase } from "@/app/utils/removeCardItemFromDataBase";
@@ -58,14 +58,6 @@ export const BigCard: React.FC<BigCardProps> = ({
     );
   };
 
-  const determineAddButtonStyling = () => {
-    if (buttonActionName === "Add Income" || buttonActionName === "Add Asset") {
-      return styles.StyledAddButton;
-    } else {
-      return styles.StyledAddButonRed;
-    }
-  };
-
   const sortedCardItems = Object.values(cardItems).sort(
     (a, b) => b.cashflowAmount - a.cashflowAmount,
   );
@@ -75,7 +67,7 @@ export const BigCard: React.FC<BigCardProps> = ({
       <div className={styles.StyledBigCardHeadWrapper}>
         <h2 className={styles.StyledCardTitle}>{cardTitle}</h2>
         <button
-          className={determineAddButtonStyling()}
+          className={determineAddButtonStyling(styles, buttonActionName)}
           onClick={() => setOpenDialog(!openDialog)}
         >
           {buttonActionName}

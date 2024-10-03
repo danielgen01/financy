@@ -9,3 +9,14 @@ export const determineTotal = (items: ListItemProps[]) => {
   }
   return parseFloat(total.toFixed(2));
 };
+
+export const determineAddButtonStyling = (
+  styles: Record<string, string>,
+  buttonActionName?: string,
+) => {
+  if (buttonActionName === "Add Income" || buttonActionName === "Add Asset") {
+    return styles.StyledAddButton;
+  } else {
+    return styles.StyledAddButonRed;
+  }
+};
