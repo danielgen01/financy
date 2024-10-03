@@ -5,11 +5,7 @@ import { BigCardProps } from "./BigCard.types";
 import { ListItemProps } from "./ListItem.types";
 import { Dialog } from "../Dialog/Dialog";
 import styles from "./BigCard.styles.module.css";
-import { Box, Button, Skeleton } from "@mui/material";
 import { determineAddButtonStyling, determineTotal } from "./useBigCard";
-import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
-import { editCardItemFromDatabase } from "@/app/utils/editCardItemFromDataBase";
-import { removeCardItemFromDataBase } from "@/app/utils/removeCardItemFromDataBase";
 import { nanoid } from "nanoid";
 import { BigCardSkeleton } from "./SubComponents";
 
@@ -19,48 +15,25 @@ export const BigCard: React.FC<BigCardProps> = ({
   buttonActionName,
   headlineItems,
   isFourColumns,
+  handleAddCardItem,
+  handleRemoveCardItem,
+  handleEditItem,
+  cardItems,
+  setCardItems,
 }) => {
-  const [cardItems, setCardItems] = useState<ListItemProps[]>([]);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
 
   useEffect(() => {
     if (listItems) {
       setCardItems(listItems);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardItems, listItems]);
 
-  const handleAddCardItem = (name: string, cashflowAmount: number) => {
-    addCardItemToDataBase(
-      name,
-      cashflowAmount,
-      cardTitle,
-      setCardItems,
-      cardItems,
-    );
-  };
-
-  const handleRemoveCardItem = (itemId: any) => {
-    removeCardItemFromDataBase(itemId, cardTitle, setCardItems, cardItems);
-  };
-
-  const handleEditItem = (
-    itemId: string,
-    updatedName: string,
-    updatedCashflowAmount: number,
-  ) => {
-    editCardItemFromDatabase(
-      itemId,
-      updatedName,
-      updatedCashflowAmount,
-      cardTitle,
-      setCardItems,
-      cardItems,
-    );
-  };
-
   const sortedCardItems = Object.values(cardItems).sort(
-    (a, b) => b.cashflowAmount - a.cashflowAmount,
-  );
+    (a, b) =>
+      (b as ListItemProps).cashflowAmount - (a as ListItemProps).cashflowAmount,
+  ) as ListItemProps[];
 
   return (
     <div className={styles.StyledBigCardWrapper}>

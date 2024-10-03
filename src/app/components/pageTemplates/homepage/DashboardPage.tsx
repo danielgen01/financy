@@ -6,7 +6,6 @@ import {
   headlineItemsMockBigCardLiabilities,
 } from "@/headlineItems.mock";
 import Card from "../../Card/Card";
-import { BigCard } from "../../BigCard/BigCard";
 import CashflowOverview from "../../CashflowOverview/CashflowOverview";
 import { DashboardPageProps } from "./DashboardPage.types";
 import styles from "./DashboardPage.styles.module.css";
@@ -15,6 +14,7 @@ import {
   calculateTotalExpense,
   calculateTotalIncome,
 } from "./utilities";
+import { BigCardContainer } from "@/app/containers/BigCardContainer";
 
 const OvalShape = ({ styles }: { styles: string }) => {
   return <div className={styles} />;
@@ -58,18 +58,16 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
       <section className={styles.StyledBigCardsWrapperSection}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
-            <BigCard
+            <BigCardContainer
               headlineItems={headlineItemsMockCard}
-              color="red"
               buttonActionName="Add Income"
               cardTitle="Income"
               listItems={props.incomeData}
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <BigCard
+            <BigCardContainer
               headlineItems={headlineItemsMockCard}
-              color="red"
               buttonActionName="Add Expense"
               cardTitle="Expenses"
               listItems={props.expenseData}
@@ -97,9 +95,8 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
       <section className={styles.StyledBigCardsWrapperSection}>
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
-            <BigCard
+            <BigCardContainer
               headlineItems={headlineItemsMockBigCardAssets}
-              color="red"
               buttonActionName="Add Asset"
               cardTitle="Assets"
               listItems={props.assetData}
@@ -107,9 +104,8 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <BigCard
+            <BigCardContainer
               headlineItems={headlineItemsMockBigCardLiabilities}
-              color="red"
               buttonActionName="Add Liability"
               cardTitle="Liabilities"
               listItems={props.liabilitiesData}
