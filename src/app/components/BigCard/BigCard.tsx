@@ -27,10 +27,20 @@ export const BigCard: React.FC<BigCardProps> = ({
       (b as ListItemProps).cashflowAmount - (a as ListItemProps).cashflowAmount,
   ) as ListItemProps[];
 
+  // this functions makes the sure the skeleton is not showed even if the items array is empty
+  const checkForEmptyItems = () => {
+    setTimeout(() => {
+      if (cardItems && cardItems.length === 0) {
+        setCardItemsLoading(false);
+      }
+    }, 5000);
+  };
+
   useEffect(() => {
     if (cardItems.length > 0) {
       setCardItemsLoading(false);
     }
+    checkForEmptyItems();
   }, [cardItems]);
 
   return (
