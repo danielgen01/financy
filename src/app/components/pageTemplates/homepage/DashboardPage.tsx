@@ -75,7 +75,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
           </Grid>
         </Grid>
       </section>
-      <section className="StyledCashflowOverviewSection mt-10">
+      <section className={styles.StyledCashflowOverviewSection}>
         <CashflowOverview
           netCashflowAmount={calculateTotal({
             incomeData: props.incomeData,
