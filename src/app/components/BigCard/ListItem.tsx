@@ -100,6 +100,7 @@ export const ListItem: React.FC<ListItemProps> = ({
       {openDialog && (
         <Dialog
           open={openDialog}
+          buttonActionName="" //TODO check why this is required
           dialogTitle="Edit item"
           onClose={() => setOpenDialog(!openDialog)}
           dialogContent={dialogContentState}
