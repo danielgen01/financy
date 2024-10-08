@@ -2,7 +2,6 @@ import { useTheme } from "next-themes";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Tooltip } from "@mui/material";
-import styles from "./ToggleThemeButton.styles.module.css";
 
 export function ThemeToggler() {
   const { theme, setTheme } = useTheme();
@@ -10,9 +9,9 @@ export function ThemeToggler() {
 
   const determineToolTip = () => {
     if (theme === "light") {
-      return "Turn off the light ";
+      return "Turn off the light";
     } else {
-      return "Turn on the light ";
+      return "Turn on the light";
     }
   };
 
