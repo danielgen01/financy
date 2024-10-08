@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { ref, onValue } from "firebase/database";
 import { auth, db } from "../app/utils/firebaseConfig";
-import DashboardPage from "./components/pageTemplates/homepage/DashboardPage";
+import DashboardPage from "./pageTemplates/homepage/DashboardPage";
 
 const objectToArray = (obj: any) => {
   if (!obj || typeof obj !== "object") return [];

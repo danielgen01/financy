@@ -5,8 +5,8 @@ import {
   headlineItemsMockBigCardAssets,
   headlineItemsMockBigCardLiabilities,
 } from "@/headlineItems.mock";
-import Card from "../../Card/Card";
-import CashflowOverview from "../../CashflowOverview/CashflowOverview";
+import Card from "@/app/components/Card/Card";
+import CashflowOverview from "@/app/components/CashflowOverview/CashflowOverview";
 import { DashboardPageProps } from "./DashboardPage.types";
 import styles from "./DashboardPage.styles.module.css";
 import {
