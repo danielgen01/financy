@@ -23,3 +23,21 @@
     filter: blur(75px);
     z-index: -100;
   }
+
+  .StyledHighlightedSpan {
+    color: var(--color-primary-main);
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
+
+  .StyledHeroSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xl);
+    padding-top: var(--spacing-5xl)
+  }
+
+
