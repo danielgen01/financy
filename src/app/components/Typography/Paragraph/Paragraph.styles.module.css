@@ -1,0 +1,12 @@
+.StyledParagraph {
+font-weight:var(--font-weight-regular);
+color: var( --color-navigation-item);
+font-size: 18px;
+line-height: 150%;
+leading-trim: both;
+text-edge: cap;
+text-align: center;
+flex: none;
+order: 0;
+flex-grow: 1;
+}
