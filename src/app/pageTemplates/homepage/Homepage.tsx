@@ -5,6 +5,7 @@ import React from "react";
 import styles from "./Homepage.styles.module.css";
 import Paragraph from "@/app/components/Typography/Paragraph/Paragraph";
 import Button from "@/app/components/Button/Button";
+import { useRouter } from "next/navigation";
 
 const ArrowSvg = () => {
   return (
@@ -26,6 +27,7 @@ const ArrowSvg = () => {
 };
 
 const Homepage = () => {
+  const router = useRouter();
   return (
     <>
       <OvalShapeFigure styles={styles.StyledOvalFadeShapeLeft} />
@@ -43,7 +45,7 @@ const Homepage = () => {
         </Paragraph>
         <Button
           onClick={() => {
-            alert("Hi");
+            router.push("/signup");
           }}
         >
           Sign up now <ArrowSvg />
