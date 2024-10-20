@@ -15,16 +15,13 @@ import {
   calculateTotalIncome,
 } from "./utilities";
 import { BigCardContainer } from "@/app/containers/BigCardContainer";
-
-const OvalShape = ({ styles }: { styles: string }) => {
-  return <div className={styles} />;
-};
+import { OvalShapeFigure } from "@/app/components/OvalShapeBackground/OvalShapeFigure";
 
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
     <>
-      <OvalShape styles={styles.StyledOvalFadeShapeLeft} />
-      <OvalShape styles={styles.StyledOvalFadeShapeRight} />
+      <OvalShapeFigure styles={styles.StyledOvalFadeShapeLeft} />
+      <OvalShapeFigure styles={styles.StyledOvalFadeShapeRight} />
       <section>
         <Grid container className={styles.StyledCardWrapper} spacing={4}>
           <Grid item xs={12} sm={6} lg={4}>

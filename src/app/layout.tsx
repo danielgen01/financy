@@ -5,13 +5,16 @@ import Header from "./components/Header/Header";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { lightTheme } from "@/styles/theme";
 import { ThemeProvider } from "@mui/material";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Finany - Manage your finances with ease ",
-  description:
-    "Manage your finances with ease and get in control of your cashflow",
+// this function should somehow determine if the user is new on the home page
+const checkForInitialHomePage = () => {
+  if (typeof window !== "undefined" && window.location.pathname === "/") {
+    return true;
+  }
+  return false;
 };
 
 export default function RootLayout({
