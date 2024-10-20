@@ -1,3 +1,4 @@
+"use client";
 import { OvalShapeFigure } from "@/app/components/OvalShapeBackground/OvalShapeFigure";
 import H1 from "@/app/components/Typography/H1/H1";
 import React from "react";
@@ -40,7 +41,11 @@ const Homepage = () => {
           <br />
           assets, and liabilities, all in one place
         </Paragraph>
-        <Button>
+        <Button
+          onClick={() => {
+            alert("Hi");
+          }}
+        >
           Sign up now <ArrowSvg />
         </Button>
       </section>

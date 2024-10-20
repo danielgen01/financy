@@ -1,16 +1,18 @@
 import React from "react";
 import styles from "./Button.styles.module.css";
-// import { Button as MuiButton } from "@mui/material";
-// import { ButtonProps as MuiButtonProps } from "@mui/material";
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   label?: string;
   icon?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, label, icon }) => {
-  return <button className={styles.StyledButton}>{children}</button>;
+const Button: React.FC<ButtonProps> = ({ ...props }) => {
+  return (
+    <button className={styles.StyledButton} {...props}>
+      {props.children}
+    </button>
+  );
 };
 
 export default Button;
