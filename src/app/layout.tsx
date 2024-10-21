@@ -6,6 +6,10 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { lightTheme } from "@/styles/theme";
 import { ThemeProvider } from "@mui/material";
 import { useEffect } from "react";
+import {
+  OvalShapeFigureLeft,
+  OvalShapeFigureRight,
+} from "./components/OvalShapeFigure/OvalShapeFigure";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +37,11 @@ export default function RootLayout({
             <header>
               <Header />
             </header>
-            <main>{children}</main>
+            <main>
+              <OvalShapeFigureLeft />
+              <OvalShapeFigureRight />
+              {children}
+            </main>
 
             <footer>Footer</footer>
           </ThemeProvider>

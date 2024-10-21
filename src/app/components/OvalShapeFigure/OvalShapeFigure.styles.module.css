@@ -1,0 +1,25 @@
+.StyledOvalFadeShapeLeft {
+    position: absolute;
+    width: 1253.04px;
+    height: 449.09px;
+    left: -677px;
+    top: 200px;
+    background: #5854C0;
+    mix-blend-mode: screen;
+    opacity: 0.2; 
+    filter: blur(75px);
+    z-index: -100;
+  }
+  
+   .StyledOvalFadeShapeRight {
+    position: absolute;
+    width: 1253.04px;
+    height: 449.09px;
+    left: 973px;
+    top: 200px;
+    background: #5854C0;
+    mix-blend-mode: screen;
+    opacity: 0.2;
+    filter: blur(75px);
+    z-index: -100;
+  }
