@@ -6,6 +6,8 @@ import styles from "./Homepage.styles.module.css";
 import Paragraph from "@/app/components/Typography/Paragraph/Paragraph";
 import Button from "@/app/components/Button/Button";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const ArrowSvg = () => {
   return (
@@ -26,32 +28,78 @@ const ArrowSvg = () => {
   );
 };
 
-const Homepage = () => {
+const HeroSection: React.FC = () => {
   const router = useRouter();
+
   return (
-    <>
+    <section className={styles.StyledHeroSection}>
+      <H1>
+        Manage your{" "}
+        <span className={styles.StyledHighlightedSpan}>Finances</span> <br />{" "}
+        with ease
+      </H1>
+      <Paragraph>
+        Our powerful platform helps you take control of your income, expenses{" "}
+        <br />
+        assets, and liabilities, all in one place
+      </Paragraph>
+      <Button
+        onClick={() => {
+          router.push("/signup");
+        }}
+      >
+        Sign up now <ArrowSvg />
+      </Button>
+    </section>
+  );
+};
+
+const PreviewSection: React.FC = () => {
+  const theme = useTheme();
+
+  const determineImage = () => {
+    if (theme.theme === "dark") {
+      return (
+        <Image
+          alt="preview-financy-dashboard"
+          src="/Preview_dark.png"
+          width={500}
+          height={500}
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+        />
+      );
+    }
+    return (
+      <Image
+        alt="preview-financy-dashboard"
+        src="/Preview_light.png"
+        width={500}
+        height={500}
+        style={{
+          width: "100%",
+          height: "auto",
+        }}
+      />
+    );
+  };
+  return (
+    <section style={{ margin: "0 auto" }}>
+      <div className={styles.StyledImagePreviewWrapper}>{determineImage()}</div>
+    </section>
+  );
+};
+
+const Homepage = () => {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <OvalShapeFigure styles={styles.StyledOvalFadeShapeLeft} />
       <OvalShapeFigure styles={styles.StyledOvalFadeShapeRight} />
-      <section className={styles.StyledHeroSection}>
-        <H1>
-          Manage your{" "}
-          <span className={styles.StyledHighlightedSpan}>Finances</span> <br />{" "}
-          with ease
-        </H1>
-        <Paragraph>
-          Our powerful platform helps you take control of your income, expenses{" "}
-          <br />
-          assets, and liabilities, all in one place
-        </Paragraph>
-        <Button
-          onClick={() => {
-            router.push("/signup");
-          }}
-        >
-          Sign up now <ArrowSvg />
-        </Button>
-      </section>
-    </>
+      <HeroSection />
+      <PreviewSection />
+    </div>
   );
 };
 

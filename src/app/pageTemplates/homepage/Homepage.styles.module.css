@@ -36,8 +36,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--spacing-xl);
-    padding-top: var(--spacing-5xl)
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-3xl)
   }
 
 
+.StyledImagePreviewWrapper {
+  position:relative;
+  padding:var(--spacing-lg);
+  background-color: var(--color-preview-section-background);
+  border-radius: var(--border-radius-xl);
+  -webkit-border-radius: var(--border-radius-xl);
+  -moz-border-radius: var(--border-radius-xl);
+  -ms-border-radius: var(--border-radius-xl);
+  -o-border-radius: var(--border-radius-xl);
+}
