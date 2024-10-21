@@ -7,7 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ ...props }) => {
+export const CustomButton: React.FC<ButtonProps> = ({ ...props }) => {
   return (
     <button className={styles.StyledButton} {...props}>
       {props.children}
@@ -15,4 +15,4 @@ const Button: React.FC<ButtonProps> = ({ ...props }) => {
   );
 };
 
-export default Button;
+export default CustomButton;

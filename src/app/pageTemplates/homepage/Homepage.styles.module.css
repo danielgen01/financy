@@ -24,30 +24,8 @@
     z-index: -100;
   }
 
-  .StyledHighlightedSpan {
-    color: var(--color-primary-main);
-    font-size: inherit;
-    line-height: inherit;
-    font-weight: inherit;
-  }
-
-  .StyledHeroSection {
+  .StyledHomePageContentWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding-top: var(--spacing-3xl)
+    gap: var(--spacing-lg);
   }
-
-
-.StyledImagePreviewWrapper {
-  position:relative;
-  padding:var(--spacing-lg);
-  background-color: var(--color-preview-section-background);
-  border-radius: var(--border-radius-xl);
-  -webkit-border-radius: var(--border-radius-xl);
-  -moz-border-radius: var(--border-radius-xl);
-  -ms-border-radius: var(--border-radius-xl);
-  -o-border-radius: var(--border-radius-xl);
-}
