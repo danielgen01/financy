@@ -63,15 +63,12 @@
   .StyledCashflowCalculationWrapper {
     display: flex;
   }
-  .StyledCasfhlowAmount {
-    font-size: var(--font-size-xl);
 
-  }
 
   .StyledPaydayText {
     display: block;
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-md);
     color: var(--color-primary-main);
   }
 }

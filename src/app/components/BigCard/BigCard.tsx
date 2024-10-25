@@ -58,7 +58,11 @@ export const BigCard: React.FC<BigCardProps> = ({
       <div className={styles.StyledHeadlineAndListWrapper}>
         <div className={styles.StyledHeadlineWrapper}>
           {headlineItems?.map((headlineItem) => {
-            return <span key={nanoid()}>{headlineItem.headline}</span>;
+            return (
+              <span key={nanoid()} className={styles.StyledHeadlineItemLabel}>
+                {headlineItem.headline}
+              </span>
+            );
           })}
         </div>
 
@@ -85,11 +89,8 @@ export const BigCard: React.FC<BigCardProps> = ({
       </div>
       <hr />
       <div className={styles.StyledTotalAmountWrapper}>
-        <span>
-          Total :{" "}
-          <strong style={{ fontSize: "18px" }}>
-            € {determineTotal(cardItems)}
-          </strong>
+        <span className={styles.StyledTotalText}>
+          Total : <strong>€ {determineTotal(cardItems)}</strong>
         </span>
       </div>
       {openDialog && (

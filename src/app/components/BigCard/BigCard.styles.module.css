@@ -22,7 +22,7 @@
 
 .StyledCardTitle {
   font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-xl) ;
+  font-size: var(--font-size-md) ;
 
 }
 
@@ -59,7 +59,7 @@
   color: var(--color-text-green);
   font-weight: var(--font-weight-semibold);
   padding:var(--spacing-xs) var(--spacing-sm);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   justify-items: center;
   align-items: center;
   display: flex;
@@ -74,7 +74,7 @@
   color: var(--color-text-red);
   font-weight: var(--font-weight-semibold);
   padding:var(--spacing-xs) var(--spacing-sm);
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
   justify-items: center;
   align-items: center;
   display: flex;
@@ -85,3 +85,10 @@
   border:none;
 }
 
+.StyledHeadlineItemLabel {
+  font-size: var(--font-size-xs);
+}
+
+.StyledTotalText {
+  font-size: var(--font-size-sm);
+}
