@@ -15,7 +15,7 @@ const ArrowSvg = () => {
       viewBox="0 0 16 16"
       xmlns="http://www.w3.org/2000/svg"
       fill="#000000"
-      class="bi bi-arrow-right-short"
+      className="bi bi-arrow-right-short"
       stroke="white"
     >
       <path
@@ -33,7 +33,7 @@ export const HeroSection: React.FC = () => {
     <section className={styles.StyledHeroSection}>
       <H1>
         Manage your{" "}
-        <span className={styles.StyledHighlightedSpan}>Finances</span> <br />{" "}
+        <span className={styles.StyledHighlightedSpan}>Finances </span>
         with ease
       </H1>
       <Paragraph>
