@@ -1,7 +1,14 @@
 
 .StyledListItem {
   list-style-type: none;
+  height: 100%;
 
+}
+
+.StyledListItem:hover > .StyledLabelText {
+  color: var(--color-primary-main);
+  background-color: var(--color-icon-background);
+  cursor: pointer;
 }
 
 .StyledLabelText {
@@ -21,9 +28,5 @@
   pointer-events: none;
 }
 
-.StyledLabelText:hover {
-  color: var(--color-primary-main);
-  background-color: var(--color-icon-background);
-  cursor: pointer;
-}
+
 
