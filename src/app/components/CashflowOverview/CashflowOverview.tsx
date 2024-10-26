@@ -30,9 +30,11 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
             className={styles.StyledCashflowImage}
           />
           <div className={styles.StyledPaydayTextWrapper}>
-            <span className={styles.StyledPaydayText}>Monthly Cashflow (Payday)</span>
+            <span className={styles.StyledPaydayText}>
+              Monthly Cashflow (Payday)
+            </span>
             <div className={styles.StyledCashflowCalculationWrapper}>
-              <span className="">
+              <span className={styles.StyledIncomAndExpenseTotalText}>
                 {!incomeTotal ? (
                   <MuiSkeleton variant="text" width={80} height={45} />
                 ) : (
@@ -40,7 +42,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
                 )}
               </span>
               <span className="">- </span>
-              <span className="">
+              <span className={styles.StyledIncomAndExpenseTotalText}>
                 {!incomeTotal ? (
                   <MuiSkeleton variant="text" width={80} height={45} />
                 ) : (
@@ -58,7 +60,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
               `€ ${roundToFixed(netCashflowAmount)}`
             )}
           </span>
-          <span className="">of which passive* = €0</span>
+          {/* <span className="">of which passive* = €0</span> */}
         </div>
       </div>
     </div>
