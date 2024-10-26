@@ -104,7 +104,7 @@
     --color-navigation-item: #516778;
     --color-icon-background:#F2F6FD;
      --color-card-title:#516788;
-    --color-h1:#121027;
+     --color-typography-default:#121027;
     --color-preview-section-background:#E5E9F0;
 
     /* shared colors */
@@ -144,7 +144,7 @@
   --color-card-title:#E5E9F0;
   --color-gradient-from: rgba(14, 13, 23, 0.9);
   --color-gradient-to: rgba(88, 84, 192, 0.7);
-  --color-h1:#F2F6FD;
+  --color-typography-default:#F2F6FD;
   --color-preview-section-background:#292644;
 
 
