@@ -1,11 +1,12 @@
 "use client";
-import H1 from "@/app/components/Typography/H1/H1";
+import { H1 } from "@/app/components/Typography/H1/H1";
 import Paragraph from "@/app/components/Typography/Paragraph/Paragraph";
 import CustomButton from "@/app/components/Button/Button";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./SubComponents.styles.module.css";
+import { H2 } from "@/app/components/Typography/H2/H2";
 
 const ArrowSvg = () => {
   return (
@@ -38,7 +39,6 @@ export const HeroSection: React.FC = () => {
       </H1>
       <Paragraph>
         Our powerful platform helps you take control of your income, expenses{" "}
-        <br />
         assets, and liabilities, all in one place
       </Paragraph>
       <CustomButton
@@ -86,6 +86,18 @@ export const PreviewSection: React.FC = () => {
   return (
     <section className={styles.StyledPreviewSection}>
       <div className={styles.StyledImagePreviewWrapper}>{determineImage()}</div>
+    </section>
+  );
+};
+
+export const BenefitSection = () => {
+  return (
+    <section className={styles.StyledBenefitsSection}>
+      <H2>Why choose financy ? </H2>
+      <Paragraph>
+        Financy gives you a perfect overview of your monthly incomes and
+        expenses to help you get in control of your cashflow{" "}
+      </Paragraph>
     </section>
   );
 };

@@ -29,3 +29,12 @@
 .StyledPreviewSection { 
     margin: 0 auto;
 }
+
+.StyledBenefitsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-3xl)
+}
