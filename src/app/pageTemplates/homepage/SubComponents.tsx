@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./SubComponents.styles.module.css";
 import { H2 } from "@/app/components/Typography/H2/H2";
+import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser";
 
 const ArrowSvg = () => {
   return (
@@ -98,6 +99,20 @@ export const BenefitSection = () => {
         Financy gives you a perfect overview of your monthly incomes and
         expenses to help you get in control of your cashflow{" "}
       </Paragraph>
+      <div className={styles.StyledBenefitTeaserWrapper}>
+        <BenefitTeaser
+          src={"/_Audit_Report.png"}
+          text="Comprehensive Financial Overview"
+        />
+        <BenefitTeaser
+          src={"/_cashflow-insights.png"}
+          text="Monthly Cashflow Insights"
+        />
+        <BenefitTeaser
+          src={"/_analytis_reports.png"}
+          text="Automatic Analytics & Reporting"
+        />
+      </div>
     </section>
   );
 };

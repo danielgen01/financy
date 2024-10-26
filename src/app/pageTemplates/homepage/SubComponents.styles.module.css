@@ -35,6 +35,54 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
   padding-top: var(--spacing-3xl)
+}
+
+.StyledBenefitTeaserWrapper { 
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .StyledBenefitTeaserWrapper { 
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+  }
+
+  /* Das erste und zweite Element nebeneinander */
+  .StyledBenefitTeaserWrapper > *:nth-child(1),
+  .StyledBenefitTeaserWrapper > *:nth-child(2) {
+    flex-basis: calc(40% - var(--spacing-xl) / 2); /* 50% minus der halbe Abstand */
+
+  }
+
+  /* Das dritte Element soll eine ganze Zeile einnehmen */
+  .StyledBenefitTeaserWrapper > *:nth-child(3) {
+    flex-basis: 50%;
+    margin:auto;
+  }
+}
+
+
+
+
+@media (min-width: 1280px) {
+
+  .StyledBenefitTeaserWrapper { 
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap !important;
+    gap: var(--spacing-5xl);
+  }
+
+  .StyledBenefitTeaserWrapper > * {
+    flex-basis: 30% !important;
+  }
+ 
+  
+
 }
