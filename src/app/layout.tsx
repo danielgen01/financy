@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./global.css";
 import Header from "./components/Header/Header";
@@ -28,10 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={inter.className}
-        style={{ display: "flex", flexDirection: "column" }}
-      >
+      <body className={inter.className}>
         <NextThemesProvider>
           <ThemeProvider theme={lightTheme}>
             <header>

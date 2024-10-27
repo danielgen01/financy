@@ -92,6 +92,7 @@ export const PreviewSection: React.FC = () => {
 };
 
 export const BenefitSection = () => {
+  const theme = useTheme();
   return (
     <section className={styles.StyledBenefitsSection}>
       <H2>Why choose financy ? </H2>
@@ -101,15 +102,23 @@ export const BenefitSection = () => {
       </Paragraph>
       <div className={styles.StyledBenefitTeaserWrapper}>
         <BenefitTeaser
-          src={"/_Audit_Report.png"}
+          src={
+            theme.theme === "dark" ? "/report_dark.png" : "/report_light.png"
+          }
           text="Comprehensive Financial Overview"
         />
         <BenefitTeaser
-          src={"/_cashflow-insights.png"}
+          src={
+            theme.theme === "dark"
+              ? "/insights_dark.png"
+              : "/insights_light.png"
+          }
           text="Monthly Cashflow Insights"
         />
         <BenefitTeaser
-          src={"/_analytis_reports.png"}
+          src={
+            theme.theme === "dark" ? "/analytics_dark.png" : "/analytics_light.png"
+          }
           text="Automatic Analytics & Reporting"
         />
       </div>
