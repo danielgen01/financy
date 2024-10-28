@@ -77,6 +77,7 @@ export const PreviewSection: React.FC = () => {
             alt={"Preview_of_financy"}
             width={500}
             height={500}
+            placeholder="blur"
           />
         }
       </div>
