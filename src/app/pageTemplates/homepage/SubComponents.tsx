@@ -9,6 +9,16 @@ import styles from "./SubComponents.styles.module.css";
 import { H2 } from "@/app/components/Typography/H2/H2";
 import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser";
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser";
+import PreviewDark from "../../../../public/FinancyDark-preview.png";
+import PreviewLight from "../../../../public/Financy-preview.png";
+import DarkReport from "../../../../public/report_dark.png";
+import LightReport from "../../../../public/report_light.png";
+import InsightsDark from "../../../../public/insights_dark.png";
+import InsightsLight from "../../../../public/insights_light.png";
+import AnalyticsDark from "../../../../public/analytics_dark.png";
+import AnalyticsLigth from "../../../../public/analytics_light.png";
+import CyberSecurityImage from "../../../../public/cyber_secrurity.png";
+import TrackingImage from "../../../../public/tracking.png";
 
 const ArrowSvg = () => {
   return (
@@ -55,45 +65,31 @@ export const HeroSection: React.FC = () => {
 };
 
 export const PreviewSection: React.FC = () => {
-  const theme = useTheme();
+  const { theme } = useTheme();
+  const imageSrc = theme === "dark" ? PreviewDark : PreviewLight;
 
-  const determineImage = () => {
-    if (theme.theme === "dark") {
-      return (
-        <Image
-          alt="preview-financy-dashboard"
-          src="/Preview_dark.png"
-          width={500}
-          height={500}
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-        />
-      );
-    }
-    return (
-      <Image
-        alt="preview-financy-dashboard"
-        src="/Preview_light.png"
-        width={500}
-        height={500}
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
-      />
-    );
-  };
   return (
     <section className={styles.StyledPreviewSection}>
-      <div className={styles.StyledImagePreviewWrapper}>{determineImage()}</div>
+      <div className={styles.StyledImagePreviewWrapper}>
+        {
+          <Image
+            src={imageSrc}
+            alt={"Preview_of_financy"}
+            width={500}
+            height={500}
+          />
+        }
+      </div>
     </section>
   );
 };
 
 export const BenefitSection = () => {
-  const theme = useTheme();
+  const { theme } = useTheme();
+  const imageSrcReport = theme === "dark" ? DarkReport : LightReport;
+  const imageSrcAnalytics = theme === "dark" ? AnalyticsDark : AnalyticsLigth;
+  const imageSrcInsights = theme === "dark" ? InsightsDark : InsightsLight;
+
   return (
     <section className={styles.StyledBenefitsSection}>
       <H2>Why choose financy ? </H2>
@@ -103,25 +99,15 @@ export const BenefitSection = () => {
       </Paragraph>
       <div className={styles.StyledBenefitTeaserWrapper}>
         <BenefitTeaser
-          src={
-            theme.theme === "dark" ? "/report_dark.png" : "/report_light.png"
-          }
+          src={imageSrcReport}
           text="Comprehensive Financial Overview"
         />
         <BenefitTeaser
-          src={
-            theme.theme === "dark"
-              ? "/insights_dark.png"
-              : "/insights_light.png"
-          }
+          src={imageSrcInsights}
           text="Monthly Cashflow Insights"
         />
         <BenefitTeaser
-          src={
-            theme.theme === "dark"
-              ? "/analytics_dark.png"
-              : "/analytics_light.png"
-          }
+          src={imageSrcAnalytics}
           text="Automatic Analytics & Reporting"
         />
       </div>
@@ -130,7 +116,7 @@ export const BenefitSection = () => {
           headlineText="Safe & Secure"
           paragraphText="Emphasize data security and privacy protection"
           image={{
-            src: "/cyber_secrurity.png",
+            src: CyberSecurityImage,
             alt: "cyber-security",
             width: 200,
             height: 200,
@@ -138,7 +124,7 @@ export const BenefitSection = () => {
         />
         <BigBenefitTeaser
           image={{
-            src: "/tracking.png",
+            src: TrackingImage,
             alt: "tracking.png",
             width: 200,
             height: 200,
