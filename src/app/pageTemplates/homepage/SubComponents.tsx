@@ -8,6 +8,7 @@ import Image from "next/image";
 import styles from "./SubComponents.styles.module.css";
 import { H2 } from "@/app/components/Typography/H2/H2";
 import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser";
+import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser";
 
 const ArrowSvg = () => {
   return (
@@ -117,9 +118,33 @@ export const BenefitSection = () => {
         />
         <BenefitTeaser
           src={
-            theme.theme === "dark" ? "/analytics_dark.png" : "/analytics_light.png"
+            theme.theme === "dark"
+              ? "/analytics_dark.png"
+              : "/analytics_light.png"
           }
           text="Automatic Analytics & Reporting"
+        />
+      </div>
+      <div className={styles.StyledBigTeaserWrapper}>
+        <BigBenefitTeaser
+          headlineText="Safe & Secure"
+          paragraphText="Emphasize data security and privacy protection"
+          image={{
+            src: "/cyber_secrurity.png",
+            alt: "cyber-security",
+            width: 200,
+            height: 200,
+          }}
+        />
+        <BigBenefitTeaser
+          image={{
+            src: "/tracking.png",
+            alt: "tracking.png",
+            width: 200,
+            height: 200,
+          }}
+          headlineText="Easy cashflow tracking"
+          paragraphText="Track your income and expenses with ease"
         />
       </div>
     </section>

@@ -84,5 +84,19 @@
   }
  
   
+}
 
+ .StyledBigTeaserWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+  width: 100%;
+}
+
+  
+@media (min-width: 600px) {
+  .StyledBigTeaserWrapper {
+    grid-template-columns: 1fr 1fr;
+
+  }
 }
