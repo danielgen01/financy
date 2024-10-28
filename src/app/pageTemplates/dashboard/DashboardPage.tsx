@@ -15,11 +15,6 @@ import {
   calculateTotalIncome,
 } from "./utilities";
 import { BigCardContainer } from "@/app/containers/BigCardContainer";
-import {
-  OvalShapeFigure,
-  OvalShapeFigureLeft,
-  OvalShapeFigureRight,
-} from "@/app/components/OvalShapeFigure/OvalShapeFigure";
 
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
