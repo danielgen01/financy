@@ -88,7 +88,7 @@ const Header: React.FC = () => {
       <>
         <>
           <ul className={styles.StyledMenuList}>
-            <MenuItem href="/" label="Overview" isActive={true} />
+            <MenuItem href="/overview" label="Overview" isActive={true} />
             <MenuItem href="/" label="Transactions" />
             <MenuItem href="/" label="Analytics" />
             <MenuItem href="/" label="Accounts" />
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
                   width={40}
                   height={40}
                   cursor="pointer"
-                  size="lg"
+                  size="2x"
                 />
               </button>
             ) : (
@@ -120,7 +120,7 @@ const Header: React.FC = () => {
                   width={40}
                   height={40}
                   cursor="pointer"
-                  size="lg"
+                  size="2x"
                 />
               </button>
             ) : (
