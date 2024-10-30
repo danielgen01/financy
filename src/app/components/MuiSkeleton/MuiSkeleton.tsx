@@ -22,5 +22,3 @@ export const MuiSkeleton: React.FC<SkeletonProps> = ({
     />
   )
 }
-
-export default MuiSkeleton
