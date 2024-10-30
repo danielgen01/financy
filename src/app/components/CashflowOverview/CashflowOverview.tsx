@@ -2,7 +2,7 @@ import Image from "next/image"
 import { useTheme } from "next-themes"
 import React from "react"
 
-import MuiSkeleton from "../MuiSkeleton/MuiSkeleton"
+import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import styles from "./CashflowOverview.module.css"
 import { roundToFixed } from "./SubComponents"
 

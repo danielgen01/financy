@@ -36,8 +36,8 @@ export default function RootLayout({
               <Header />
             </header>
             <main>
-              <OvalShapeFigureLeft />
-              <OvalShapeFigureRight />
+              {/* <OvalShapeFigureLeft />
+              <OvalShapeFigureRight /> */}
               {children}
             </main>
 

@@ -4,7 +4,7 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 
-import MuiSkeleton from "../MuiSkeleton/MuiSkeleton"
+import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import styles from "./Card.styles.module.css"
 import type { CardProps } from "./Card.types"
 import { determineStyling } from "./useCard"

@@ -1,6 +1,6 @@
 import { Box } from "@mui/material"
 
-import MuiSkeleton from "../MuiSkeleton/MuiSkeleton"
+import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import styles from "./ListItem.styles.module.css"
 
 const CircularSkeletonActionIcon: React.FC = () => {
