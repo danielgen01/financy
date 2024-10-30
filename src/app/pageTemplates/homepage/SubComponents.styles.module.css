@@ -94,7 +94,7 @@
 }
 
   
-@media (min-width: 600px) {
+@media (min-width: 960px) {
   .StyledBigTeaserWrapper {
     grid-template-columns: 1fr 1fr;
 
