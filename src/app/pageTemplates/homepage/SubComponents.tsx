@@ -6,7 +6,7 @@ import { useTheme } from "next-themes"
 
 import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
-import CustomButton from "@/app/components/Button/Button"
+import { CustomButton } from "@/app/components/Button/Button"
 import { H1 } from "@/app/components/Typography/H1/H1"
 import { H2 } from "@/app/components/Typography/H2/H2"
 import Paragraph from "@/app/components/Typography/Paragraph/Paragraph"
