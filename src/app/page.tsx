@@ -1,6 +1,7 @@
-import React from "react";
-import Homepage from "./pageTemplates/homepage/Homepage";
-import { Metadata } from "next";
+import type { Metadata } from "next"
+import React from "react"
+
+import Homepage from "./pageTemplates/homepage/Homepage"
 
 export const metadata: Metadata = {
   title: "Financy - Get in control of your cashflow",
@@ -8,10 +9,10 @@ export const metadata: Metadata = {
     "Manage your finances with financy easily and finally get in control of your cashflow",
   robots: "noindex, nofollow",
   keywords: "financy, finances, cashflow, budgeting",
-};
+}
 
 const page = () => {
-  return <Homepage />;
-};
+  return <Homepage />
+}
 
-export default page;
+export default page

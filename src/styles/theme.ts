@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles"
 
 const themeColorsLight = {
   primaryMain: "#5854C0",
@@ -18,7 +18,7 @@ const themeColorsLight = {
   success600: "#0B9055",
   textGreen: "#0B9055",
   textRed: "#D92D20",
-};
+}
 
 export const lightTheme = createTheme({
   breakpoints: {
@@ -58,4 +58,4 @@ export const lightTheme = createTheme({
       main: themeColorsLight.customPurple,
     },
   },
-});
+})

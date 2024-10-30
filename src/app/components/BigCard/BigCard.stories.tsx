@@ -1,12 +1,15 @@
-import type { Meta, StoryFn } from "@storybook/react";
-import { BigCard } from "./BigCard";
-import { BigCardProps } from "./BigCard.types";
-import { headlineItemsMockCard } from "@/headlineItems.mock";
-import { listItemsMock } from "@/listItems.mock";
+import type { Meta, StoryFn } from "@storybook/react"
+
+import { headlineItemsMockCard } from "@/headlineItems.mock"
+import { listItemsMock } from "@/listItems.mock"
+
+import { BigCard } from "./BigCard"
+import type { BigCardProps } from "./BigCard.types"
+
 export default {
   title: "Components/BigCard",
   component: BigCard,
-} as Meta;
+} as Meta
 
 const Template: StoryFn<BigCardProps> = (args) => {
   return (
@@ -24,11 +27,11 @@ const Template: StoryFn<BigCardProps> = (args) => {
         headlineItems={headlineItemsMockCard}
       />
     </div>
-  );
-};
+  )
+}
 
-export const Initial = Template.bind({});
+export const Initial = Template.bind({})
 Initial.args = {
   cardTitle: "Testtitle",
   buttonActionName: "Add Income",
-};
+}

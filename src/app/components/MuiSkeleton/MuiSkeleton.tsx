@@ -1,6 +1,8 @@
-import { Skeleton, SkeletonProps } from "@mui/material";
-import React from "react";
-import styles from "./MuiSkeleton.styles.module.css";
+import type { SkeletonProps } from "@mui/material"
+import { Skeleton } from "@mui/material"
+import React from "react"
+
+import styles from "./MuiSkeleton.styles.module.css"
 
 export const MuiSkeleton: React.FC<SkeletonProps> = ({
   className,
@@ -18,7 +20,7 @@ export const MuiSkeleton: React.FC<SkeletonProps> = ({
       variant={variant}
       {...rest}
     />
-  );
-};
+  )
+}
 
-export default MuiSkeleton;
+export default MuiSkeleton

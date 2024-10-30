@@ -1,24 +1,27 @@
-"use client";
-import { H1 } from "@/app/components/Typography/H1/H1";
-import Paragraph from "@/app/components/Typography/Paragraph/Paragraph";
-import CustomButton from "@/app/components/Button/Button";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import styles from "./SubComponents.styles.module.css";
-import { H2 } from "@/app/components/Typography/H2/H2";
-import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser";
-import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser";
-import PreviewDark from "../../../../public/FinancyDark-preview.png";
-import PreviewLight from "../../../../public/Financy-preview.png";
-import DarkReport from "../../../../public/report_dark.png";
-import LightReport from "../../../../public/report_light.png";
-import InsightsDark from "../../../../public/insights_dark.png";
-import InsightsLight from "../../../../public/insights_light.png";
-import AnalyticsDark from "../../../../public/analytics_dark.png";
-import AnalyticsLigth from "../../../../public/analytics_light.png";
-import CyberSecurityImage from "../../../../public/cyber_secrurity.png";
-import TrackingImage from "../../../../public/tracking.png";
+"use client"
+
+import Image from "next/image"
+import { useRouter } from "next/navigation"
+import { useTheme } from "next-themes"
+
+import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
+import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
+import CustomButton from "@/app/components/Button/Button"
+import { H1 } from "@/app/components/Typography/H1/H1"
+import { H2 } from "@/app/components/Typography/H2/H2"
+import Paragraph from "@/app/components/Typography/Paragraph/Paragraph"
+
+import AnalyticsDark from "../../../../public/analytics_dark.png"
+import AnalyticsLigth from "../../../../public/analytics_light.png"
+import CyberSecurityImage from "../../../../public/cyber_secrurity.png"
+import PreviewLight from "../../../../public/Financy-preview.png"
+import PreviewDark from "../../../../public/FinancyDark-preview.png"
+import InsightsDark from "../../../../public/insights_dark.png"
+import InsightsLight from "../../../../public/insights_light.png"
+import DarkReport from "../../../../public/report_dark.png"
+import LightReport from "../../../../public/report_light.png"
+import TrackingImage from "../../../../public/tracking.png"
+import styles from "./SubComponents.styles.module.css"
 
 const ArrowSvg = () => {
   return (
@@ -36,11 +39,11 @@ const ArrowSvg = () => {
         d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
       />
     </svg>
-  );
-};
+  )
+}
 
 export const HeroSection: React.FC = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <section className={styles.StyledHeroSection}>
@@ -55,41 +58,39 @@ export const HeroSection: React.FC = () => {
       </Paragraph>
       <CustomButton
         onClick={() => {
-          router.push("/signup");
+          router.push("/signup")
         }}
       >
         Sign up now <ArrowSvg />
       </CustomButton>
     </section>
-  );
-};
+  )
+}
 
 export const PreviewSection: React.FC = () => {
-  const { theme } = useTheme();
-  const imageSrc = theme === "dark" ? PreviewDark : PreviewLight;
+  const { theme } = useTheme()
+  const imageSrc = theme === "dark" ? PreviewDark : PreviewLight
 
   return (
     <section className={styles.StyledPreviewSection}>
       <div className={styles.StyledImagePreviewWrapper}>
-        {
-          <Image
-            src={imageSrc}
-            alt={"Preview_of_financy"}
-            width={500}
-            height={500}
-            placeholder="blur"
-          />
-        }
+        <Image
+          src={imageSrc}
+          alt="Preview_of_financy"
+          width={500}
+          height={500}
+          placeholder="blur"
+        />
       </div>
     </section>
-  );
-};
+  )
+}
 
 export const BenefitSection = () => {
-  const { theme } = useTheme();
-  const imageSrcReport = theme === "dark" ? DarkReport : LightReport;
-  const imageSrcAnalytics = theme === "dark" ? AnalyticsDark : AnalyticsLigth;
-  const imageSrcInsights = theme === "dark" ? InsightsDark : InsightsLight;
+  const { theme } = useTheme()
+  const imageSrcReport = theme === "dark" ? DarkReport : LightReport
+  const imageSrcAnalytics = theme === "dark" ? AnalyticsDark : AnalyticsLigth
+  const imageSrcInsights = theme === "dark" ? InsightsDark : InsightsLight
 
   return (
     <section className={styles.StyledBenefitsSection}>
@@ -135,5 +136,5 @@ export const BenefitSection = () => {
         />
       </div>
     </section>
-  );
-};
+  )
+}

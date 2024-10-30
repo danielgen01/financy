@@ -1,12 +1,13 @@
-import Paragraph from "../Typography/Paragraph/Paragraph";
-import styles from "./BigBenefitTeaser.styles.module.css";
-import Image from "next/image";
-import { ImageProps } from "next/image";
+import type { ImageProps } from "next/image"
+import Image from "next/image"
+
+import Paragraph from "../Typography/Paragraph/Paragraph"
+import styles from "./BigBenefitTeaser.styles.module.css"
 
 interface BigBenefitTeaserProps {
-  image: ImageProps;
-  headlineText: string;
-  paragraphText: string;
+  image: ImageProps
+  headlineText: string
+  paragraphText: string
 }
 
 export const BigBenefitTeaser: React.FC<BigBenefitTeaserProps> = ({
@@ -20,5 +21,5 @@ export const BigBenefitTeaser: React.FC<BigBenefitTeaserProps> = ({
       <Paragraph>{paragraphText}</Paragraph>
       <Image {...image} />
     </div>
-  );
-};
+  )
+}

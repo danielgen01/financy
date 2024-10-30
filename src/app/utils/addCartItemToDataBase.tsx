@@ -1,45 +1,47 @@
-import { firebaseApp, auth } from "@/app/utils/firebaseConfig";
-import { determineItemsRef } from "./globals";
-import { ListItemProps } from "../components/BigCard/ListItem.types";
-import { getDatabase, push, ref } from "firebase/database";
+import { getDatabase, push, ref } from "firebase/database"
+
+import { auth, firebaseApp } from "@/app/utils/firebaseConfig"
+
+import type { ListItemProps } from "../components/BigCard/ListItem.types"
+import { determineItemsRef } from "./globals"
 
 export const addCardItemToDataBase = async (
   name: string,
   cashflowAmount: number,
   cardTitle: string | undefined,
   setCardItems: React.Dispatch<React.SetStateAction<ListItemProps[]>>,
-  cardItems: ListItemProps[],
+  cardItems: ListItemProps[]
 ) => {
-  const user = auth.currentUser;
+  const user = auth.currentUser
   if (!user) {
-    console.error("User is not authenticated");
-    return;
+    console.error("User is not authenticated")
+    return
   }
 
   try {
-    const db = getDatabase(firebaseApp);
+    const db = getDatabase(firebaseApp)
     const newItemRef = push(
       ref(db, `users/${user.uid}/${determineItemsRef(cardTitle)}`),
       {
-        name: name,
-        cashflowAmount: cashflowAmount,
-      },
-    );
+        name,
+        cashflowAmount,
+      }
+    )
 
-    const newItemKey = newItemRef.key;
+    const newItemKey = newItemRef.key
 
     if (newItemKey) {
       const newCardItem: ListItemProps = {
-        name: name,
-        cashflowAmount: cashflowAmount,
+        name,
+        cashflowAmount,
         id: newItemKey,
-      };
+      }
 
-      setCardItems([...cardItems, newCardItem]);
+      setCardItems([...cardItems, newCardItem])
     } else {
-      console.error("Key was not returned from the database");
+      console.error("Key was not returned from the database")
     }
   } catch (error) {
-    console.error("Error adding item:", error);
+    console.error("Error adding item:", error)
   }
-};
+}

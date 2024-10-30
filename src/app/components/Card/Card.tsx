@@ -1,11 +1,13 @@
-"use client";
-import React from "react";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { CardProps } from "./Card.types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from "./Card.styles.module.css";
-import MuiSkeleton from "../MuiSkeleton/MuiSkeleton";
-import { determineStyling } from "./useCard";
+"use client"
+
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from "react"
+
+import MuiSkeleton from "../MuiSkeleton/MuiSkeleton"
+import styles from "./Card.styles.module.css"
+import type { CardProps } from "./Card.types"
+import { determineStyling } from "./useCard"
 
 const Card: React.FC<CardProps> = ({
   title,
@@ -35,7 +37,7 @@ const Card: React.FC<CardProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

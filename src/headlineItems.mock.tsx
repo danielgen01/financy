@@ -8,7 +8,7 @@ export const headlineItemsMockCard = [
   {
     headline: "Actions",
   },
-];
+]
 
 export const headlineItemsMockBigCardAssets = [
   {
@@ -23,7 +23,7 @@ export const headlineItemsMockBigCardAssets = [
   {
     headline: "Actions",
   },
-];
+]
 
 export const headlineItemsMockBigCardLiabilities = [
   {
@@ -38,4 +38,4 @@ export const headlineItemsMockBigCardLiabilities = [
   {
     headline: "Actions",
   },
-];
+]

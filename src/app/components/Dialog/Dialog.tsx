@@ -1,16 +1,15 @@
-import React, { useState } from "react";
 import {
-  Checkbox,
+  Dialog as MuiDialog,
   DialogContent,
   DialogTitle,
-  FormControlLabel,
-  Dialog as MuiDialog,
-} from "@mui/material";
-import { TextField } from "@mui/material";
-import { useForm } from "react-hook-form";
-import { CustomDialogProps, DialogFormData } from "./Dialog.types";
-import styles from "./Dialog.styles.module.css";
-import { formatToTwoDecimalPlaces } from "./SubComponents";
+  TextField,
+} from "@mui/material"
+import React, { useState } from "react"
+import { useForm } from "react-hook-form"
+
+import styles from "./Dialog.styles.module.css"
+import type { CustomDialogProps, DialogFormData } from "./Dialog.types"
+import { formatToTwoDecimalPlaces } from "./SubComponents"
 
 export const Dialog: React.FC<CustomDialogProps> = ({
   open,
@@ -25,24 +24,24 @@ export const Dialog: React.FC<CustomDialogProps> = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<DialogFormData>();
+  } = useForm<DialogFormData>()
 
-  const [openDialog, setOpenDialog] = React.useState<boolean>(open);
-  const [name, setName] = useState<string>(dialogContent?.name || "");
+  const [openDialog, setOpenDialog] = React.useState<boolean>(open)
+  const [name, setName] = useState<string>(dialogContent?.name || "")
   const [amount, setAmount] = useState<number>(
-    dialogContent?.cashflowAmount || 0,
-  );
+    dialogContent?.cashflowAmount || 0
+  )
 
   const onSubmit = () => {
     if (addCardItem) {
-      addCardItem(name, amount);
+      addCardItem(name, amount)
     }
     if (editCardItem) {
-      editCardItem(name, amount);
+      editCardItem(name, amount)
     }
 
-    setOpenDialog(!openDialog);
-  };
+    setOpenDialog(!openDialog)
+  }
 
   return (
     <MuiDialog open={openDialog} fullWidth onClose={onClose}>
@@ -67,7 +66,7 @@ export const Dialog: React.FC<CustomDialogProps> = ({
             label="Name"
             defaultValue={dialogContent?.name && dialogContent.name}
             onChange={(e) => {
-              setName(e.target.value);
+              setName(e.target.value)
             }}
           />
           <TextField
@@ -86,8 +85,8 @@ export const Dialog: React.FC<CustomDialogProps> = ({
               dialogContent?.cashflowAmount && dialogContent.cashflowAmount
             }
             onChange={(e) => {
-              const formattedAmount = formatToTwoDecimalPlaces(e.target.value);
-              setAmount(formattedAmount);
+              const formattedAmount = formatToTwoDecimalPlaces(e.target.value)
+              setAmount(formattedAmount)
             }}
           />
           {/* {buttonActionName === "Add Income" && (
@@ -110,5 +109,5 @@ export const Dialog: React.FC<CustomDialogProps> = ({
         </form>
       </DialogContent>
     </MuiDialog>
-  );
-};
+  )
+}

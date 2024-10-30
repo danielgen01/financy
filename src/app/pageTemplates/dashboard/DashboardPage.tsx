@@ -1,20 +1,22 @@
-import React from "react";
-import { Alert, AlertTitle, Grid } from "@mui/material";
+import { Alert, AlertTitle, Grid } from "@mui/material"
+import React from "react"
+
+import Card from "@/app/components/Card/Card"
+import CashflowOverview from "@/app/components/CashflowOverview/CashflowOverview"
+import { BigCardContainer } from "@/app/containers/BigCardContainer"
 import {
-  headlineItemsMockCard,
   headlineItemsMockBigCardAssets,
   headlineItemsMockBigCardLiabilities,
-} from "@/headlineItems.mock";
-import Card from "@/app/components/Card/Card";
-import CashflowOverview from "@/app/components/CashflowOverview/CashflowOverview";
-import { DashboardPageProps } from "./DashboardPage.types";
-import styles from "./DashboardPage.styles.module.css";
+  headlineItemsMockCard,
+} from "@/headlineItems.mock"
+
+import styles from "./DashboardPage.styles.module.css"
+import type { DashboardPageProps } from "./DashboardPage.types"
 import {
   calculateTotal,
   calculateTotalExpense,
   calculateTotalIncome,
-} from "./utilities";
-import { BigCardContainer } from "@/app/containers/BigCardContainer";
+} from "./utilities"
 
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
@@ -26,7 +28,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
               title="Balance"
               amount={94242}
               performance={20}
-              isBalanceCard={true}
+              isBalanceCard
             />
           </Grid>
           <Grid item xs={12} sm={6} lg={4}>
@@ -109,7 +111,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         </Grid>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default DashboardPage;
+export default DashboardPage

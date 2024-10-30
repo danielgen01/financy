@@ -1,7 +1,7 @@
 import type { Meta, StoryFn } from "@storybook/react"
-import { headlineItemsMockCard } from "@/headlineItems.mock"
-import { listItemsMock } from "@/listItems.mock"
+
 import CashflowOverview from "./CashflowOverview"
+
 export default {
   title: "Components/CashflowOverview",
   component: CashflowOverview,

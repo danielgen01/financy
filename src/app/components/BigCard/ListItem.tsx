@@ -1,8 +1,9 @@
-import { ListItemProps } from "./ListItem.types";
-import { IconButton, Tooltip } from "@mui/material";
-import styles from "./ListItem.styles.module.css";
-import { useState } from "react";
-import { Dialog } from "../Dialog/Dialog";
+import { IconButton, Tooltip } from "@mui/material"
+import { useState } from "react"
+
+import { Dialog } from "../Dialog/Dialog"
+import styles from "./ListItem.styles.module.css"
+import type { ListItemProps } from "./ListItem.types"
 
 export const EditSvg = () => {
   return (
@@ -21,8 +22,8 @@ export const EditSvg = () => {
         stroke-linejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
 export const DeleteSvg = () => {
   return (
@@ -41,8 +42,8 @@ export const DeleteSvg = () => {
         stroke-linejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
 export const ListItem: React.FC<ListItemProps> = ({
   name,
@@ -52,12 +53,12 @@ export const ListItem: React.FC<ListItemProps> = ({
   onEdit,
   isFourColumns,
 }) => {
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
+  const [openDialog, setOpenDialog] = useState<boolean>(false)
 
   const dialogContentState = {
-    name: name,
-    cashflowAmount: cashflowAmount,
-  };
+    name,
+    cashflowAmount,
+  }
 
   return (
     <div className={styles.StyledListItemWrapper}>
@@ -85,7 +86,7 @@ export const ListItem: React.FC<ListItemProps> = ({
         <IconButton
           className={styles.StyledEditButtonWrapper}
           onClick={() => {
-            setOpenDialog(true);
+            setOpenDialog(true)
           }}
         >
           <EditSvg />
@@ -100,15 +101,15 @@ export const ListItem: React.FC<ListItemProps> = ({
       {openDialog && (
         <Dialog
           open={openDialog}
-          buttonActionName="" //TODO check why this is required
+          buttonActionName="" // TODO check why this is required
           dialogTitle="Edit item"
           onClose={() => setOpenDialog(!openDialog)}
           dialogContent={dialogContentState}
           editCardItem={(updatedName: string, updatedCashflowAmount: number) =>
             onEdit && onEdit(id, updatedName, updatedCashflowAmount)
           }
-        ></Dialog>
+        />
       )}
     </div>
-  );
-};
+  )
+}

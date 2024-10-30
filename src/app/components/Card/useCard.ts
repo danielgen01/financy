@@ -1,10 +1,9 @@
 export const determineStyling = (
   styles: Record<string, string>,
-  isBalanceCard?: boolean,
+  isBalanceCard?: boolean
 ) => {
   if (isBalanceCard) {
-    return styles.StyledAmountPurpleColour;
-  } else {
-    return styles.StyledAmount;
+    return styles.StyledAmountPurpleColour
   }
-};
+  return styles.StyledAmount
+}

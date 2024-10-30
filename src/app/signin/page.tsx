@@ -1,21 +1,23 @@
-"use client";
+"use client"
+
 // pages/auth.js
-import { useState } from "react";
-import { signIn } from "../utils/auth";
+import { useState } from "react"
+
+import { signIn } from "../utils/auth"
 
 export default function AuthPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState(false)
 
   const handleSignIn = async () => {
-    const { user, error } = await signIn(email, password);
+    const { user, error } = await signIn(email, password)
     if (error) {
-      setError(true);
+      setError(true)
     } else {
-      console.log("User signed in:", user);
+      console.log("User signed in:", user)
     }
-  };
+  }
 
   return (
     <section className="">
@@ -41,5 +43,5 @@ export default function AuthPage() {
       </div>
       {error && <p>{error}</p>}
     </section>
-  );
+  )
 }

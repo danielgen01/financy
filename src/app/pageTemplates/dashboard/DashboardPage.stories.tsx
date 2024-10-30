@@ -1,10 +1,11 @@
-import type { Meta, StoryFn } from "@storybook/react";
-import DashboardPage from "./DashboardPage";
+import type { Meta, StoryFn } from "@storybook/react"
+
+import DashboardPage from "./DashboardPage"
 
 export default {
   title: "pages/DashboardPage",
   component: DashboardPage,
-} as Meta;
+} as Meta
 
 const Template: StoryFn = (args) => {
   return (
@@ -39,8 +40,8 @@ const Template: StoryFn = (args) => {
         {...args}
       />
     </div>
-  );
-};
+  )
+}
 
-export const Initial = Template.bind({});
-Initial.args = {};
+export const Initial = Template.bind({})
+Initial.args = {}

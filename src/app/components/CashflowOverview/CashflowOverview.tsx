@@ -1,14 +1,15 @@
-import Image from "next/image";
-import React from "react";
-import styles from "./CashflowOverview.module.css";
-import { roundToFixed } from "./SubComponents";
-import { useTheme } from "next-themes";
-import MuiSkeleton from "../MuiSkeleton/MuiSkeleton";
+import Image from "next/image"
+import { useTheme } from "next-themes"
+import React from "react"
+
+import MuiSkeleton from "../MuiSkeleton/MuiSkeleton"
+import styles from "./CashflowOverview.module.css"
+import { roundToFixed } from "./SubComponents"
 
 export interface CashflowOverviewProps {
-  netCashflowAmount: number;
-  incomeTotal: number;
-  expenseTotal: number;
+  netCashflowAmount: number
+  incomeTotal: number
+  expenseTotal: number
 }
 
 const CashflowOverview: React.FC<CashflowOverviewProps> = ({
@@ -16,7 +17,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
   incomeTotal,
   expenseTotal,
 }) => {
-  const { theme } = useTheme();
+  const { theme } = useTheme()
 
   return (
     <div className={styles.StyledCashflowOverviewWrapper}>
@@ -64,7 +65,7 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CashflowOverview;
+export default CashflowOverview

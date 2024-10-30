@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { BigCard } from "../components/BigCard/BigCard";
-import { ListItemProps } from "../components/BigCard/ListItem.types";
-import { addCardItemToDataBase } from "../utils/addCartItemToDataBase";
-import { editCardItemFromDatabase } from "../utils/editCardItemFromDataBase";
-import { removeCardItemFromDataBase } from "../utils/removeCardItemFromDataBase";
+import React, { useEffect, useState } from "react"
+
+import { BigCard } from "../components/BigCard/BigCard"
+import type { ListItemProps } from "../components/BigCard/ListItem.types"
+import { addCardItemToDataBase } from "../utils/addCartItemToDataBase"
+import { editCardItemFromDatabase } from "../utils/editCardItemFromDataBase"
+import { removeCardItemFromDataBase } from "../utils/removeCardItemFromDataBase"
 
 interface BigCardContainerProps {
-  listItems?: ListItemProps[];
-  cardTitle?: string;
-  buttonActionName?: string;
-  headlineItems?: { headline: string }[];
-  isFourColumns?: boolean;
+  listItems?: ListItemProps[]
+  cardTitle?: string
+  buttonActionName?: string
+  headlineItems?: { headline: string }[]
+  isFourColumns?: boolean
 }
 
 export const BigCardContainer: React.FC<BigCardContainerProps> = ({
@@ -20,14 +21,14 @@ export const BigCardContainer: React.FC<BigCardContainerProps> = ({
   headlineItems,
   isFourColumns,
 }) => {
-  const [cardItems, setCardItems] = useState<ListItemProps[]>([]);
+  const [cardItems, setCardItems] = useState<ListItemProps[]>([])
 
   useEffect(() => {
     if (listItems) {
-      setCardItems(listItems);
+      setCardItems(listItems)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cardItems, listItems]);
+  }, [cardItems, listItems])
 
   const handleAddCardItem = (name: string, cashflowAmount: number) => {
     addCardItemToDataBase(
@@ -35,18 +36,18 @@ export const BigCardContainer: React.FC<BigCardContainerProps> = ({
       cashflowAmount,
       cardTitle,
       setCardItems,
-      cardItems,
-    );
-  };
+      cardItems
+    )
+  }
 
   const handleRemoveCardItem = (itemId: any) => {
-    removeCardItemFromDataBase(itemId, cardTitle, setCardItems, cardItems);
-  };
+    removeCardItemFromDataBase(itemId, cardTitle, setCardItems, cardItems)
+  }
 
   const handleEditItem = (
     itemId: string,
     updatedName: string,
-    updatedCashflowAmount: number,
+    updatedCashflowAmount: number
   ) => {
     editCardItemFromDatabase(
       itemId,
@@ -54,9 +55,9 @@ export const BigCardContainer: React.FC<BigCardContainerProps> = ({
       updatedCashflowAmount,
       cardTitle,
       setCardItems,
-      cardItems,
-    );
-  };
+      cardItems
+    )
+  }
   return (
     <BigCard
       cardTitle={cardTitle}
@@ -69,5 +70,5 @@ export const BigCardContainer: React.FC<BigCardContainerProps> = ({
       cardItems={cardItems}
       setCardItems={setCardItems}
     />
-  );
-};
+  )
+}

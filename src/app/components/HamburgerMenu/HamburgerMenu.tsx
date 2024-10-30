@@ -1,20 +1,21 @@
-import { useState } from "react";
-import styles from "./HamburgerMenu.styles.module.css";
-import MenuItem from "../Header/MenuItem";
-import { ClickAwayListener } from "@mui/material";
+import { ClickAwayListener } from "@mui/material"
+import { useState } from "react"
+
+import MenuItem from "../Header/MenuItem"
+import styles from "./HamburgerMenu.styles.module.css"
 
 const HamburgerMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   const handleClickAway = () => {
     if (isOpen) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
-  };
+  }
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
@@ -26,7 +27,7 @@ const HamburgerMenu = () => {
           onChange={toggleMenu}
         />
         <div className={styles.hamburger}>
-          <div></div>
+          <div />
         </div>
         <div
           className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}
@@ -45,7 +46,7 @@ const HamburgerMenu = () => {
         </div>
       </div>
     </ClickAwayListener>
-  );
-};
+  )
+}
 
-export default HamburgerMenu;
+export default HamburgerMenu

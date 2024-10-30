@@ -1,29 +1,31 @@
-import { Inter } from "next/font/google";
-import "./global.css";
-import Header from "./components/Header/Header";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { lightTheme } from "@/styles/theme";
-import { ThemeProvider } from "@mui/material";
-import { useEffect } from "react";
+import "./global.css"
+
+import { ThemeProvider } from "@mui/material"
+import { Inter } from "next/font/google"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+
+import { lightTheme } from "@/styles/theme"
+
+import Header from "./components/Header/Header"
 import {
   OvalShapeFigureLeft,
   OvalShapeFigureRight,
-} from "./components/OvalShapeFigure/OvalShapeFigure";
+} from "./components/OvalShapeFigure/OvalShapeFigure"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
 
 // this function should somehow determine if the user is new on the home page
 const checkForInitialHomePage = () => {
   if (typeof window !== "undefined" && window.location.pathname === "/") {
-    return true;
+    return true
   }
-  return false;
-};
+  return false
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -44,5 +46,5 @@ export default function RootLayout({
         </NextThemesProvider>
       </body>
     </html>
-  );
+  )
 }

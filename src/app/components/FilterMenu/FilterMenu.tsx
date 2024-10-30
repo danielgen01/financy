@@ -1,17 +1,17 @@
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { Dropdown } from "@mui/base/Dropdown";
-import { Menu } from "@mui/base/Menu";
-import { MenuButton as BaseMenuButton } from "@mui/base/MenuButton";
-import { MenuItem as BaseMenuItem, menuItemClasses } from "@mui/base/MenuItem";
-import styled from "@emotion/styled";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styled from "@emotion/styled"
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Dropdown } from "@mui/base/Dropdown"
+import { Menu } from "@mui/base/Menu"
+import { MenuButton as BaseMenuButton } from "@mui/base/MenuButton"
+import { MenuItem as BaseMenuItem } from "@mui/base/MenuItem"
 
 export const FilterMenu: React.FC = () => {
   const createHandleMenuClick = (menuItem: string) => {
     return () => {
-      console.log(`Clicked on ${menuItem}`);
-    };
-  };
+      console.log(`Clicked on ${menuItem}`)
+    }
+  }
 
   return (
     <div className="Filter-box  ">
@@ -34,8 +34,8 @@ export const FilterMenu: React.FC = () => {
         </Menu>
       </Dropdown>
     </div>
-  );
-};
+  )
+}
 
 const Listbox = styled("ul")(
   ({ theme }) => `
@@ -48,5 +48,5 @@ const Listbox = styled("ul")(
     overflow: auto;
     outline: 0px;
     z-index: 1;
-    `,
-);
+    `
+)

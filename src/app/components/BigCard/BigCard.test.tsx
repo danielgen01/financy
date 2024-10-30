@@ -1,27 +1,24 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import { addCardItemToDataBase } from "../../utils/addCartItemToDataBase";
-import { editCardItemFromDatabase } from "../../utils/editCardItemFromDataBase";
-import { removeCardItemFromDataBase } from "../../utils/removeCardItemFromDataBase";
-import { BigCard } from "./BigCard";
-import exp from "constants";
+import { fireEvent, render, screen } from "@testing-library/react"
+import React from "react"
+
+import { BigCard } from "./BigCard"
 
 // Firebase Funktionen mocken
 jest.mock("../../utils/addCartItemToDataBase", () => ({
   addCardItemToDataBase: jest.fn(),
-}));
+}))
 
 jest.mock("../../utils/editCardItemFromDataBase", () => ({
   editCardItemFromDatabase: jest.fn(),
-}));
+}))
 
 jest.mock("../../utils/removeCardItemFromDataBase", () => ({
   removeCardItemFromDataBase: jest.fn(),
-}));
+}))
 
 jest.mock("nanoid", () => ({
   nanoid: jest.fn(() => "mocked-id"), // Mockt die Funktion und gibt einen festen Wert zurück
-}));
+}))
 
 describe("BigCard Component", () => {
   const defaultProps = {
@@ -52,52 +49,52 @@ describe("BigCard Component", () => {
       },
     ],
     setCardItems: jest.fn(),
-  };
+  }
 
   test("renders BigCard with card title and items", () => {
-    render(<BigCard {...defaultProps} />);
+    render(<BigCard {...defaultProps} />)
 
     // Überprüfe, ob der Titel angezeigt wird
-    expect(screen.getByText("Test Card")).toBeInTheDocument();
+    expect(screen.getByText("Test Card")).toBeInTheDocument()
 
     // Überprüfe, ob die Listenelemente angezeigt werden
-    expect(screen.getByText("Full-time Job")).toBeInTheDocument();
-    expect(screen.getByText("Part-time Job")).toBeInTheDocument();
-    expect(screen.getByText("Real Estate earnings")).toBeInTheDocument();
-    expect(screen.getByText("Arcade automated business")).toBeInTheDocument();
-  });
+    expect(screen.getByText("Full-time Job")).toBeInTheDocument()
+    expect(screen.getByText("Part-time Job")).toBeInTheDocument()
+    expect(screen.getByText("Real Estate earnings")).toBeInTheDocument()
+    expect(screen.getByText("Arcade automated business")).toBeInTheDocument()
+  })
 
   test("opens dialog when add button is clicked", () => {
-    render(<BigCard {...defaultProps} />);
+    render(<BigCard {...defaultProps} />)
 
-    const addButton = screen.getByText("Add Income");
-    fireEvent.click(addButton);
+    const addButton = screen.getByText("Add Income")
+    fireEvent.click(addButton)
 
-    expect(screen.getByText("Add item")).toBeInTheDocument();
-  });
+    expect(screen.getByText("Add item")).toBeInTheDocument()
+  })
 
   test("calls addCardItemToDataBase when adding an item", () => {
-    render(<BigCard {...defaultProps} />);
+    render(<BigCard {...defaultProps} />)
 
     // Öffne den Dialog
-    const openDialogButton = screen.getByText("Add Income");
-    fireEvent.click(openDialogButton);
+    const openDialogButton = screen.getByText("Add Income")
+    fireEvent.click(openDialogButton)
 
-    const nameInput = screen.getByRole("textbox", { name: /name/i });
-    fireEvent.change(nameInput, { target: { value: "New Item" } });
+    const nameInput = screen.getByRole("textbox", { name: /name/i })
+    fireEvent.change(nameInput, { target: { value: "New Item" } })
 
     // Finde das Betragsfeld und ändere den Wert
-    const amountInput = screen.getByRole("textbox", { name: /amount/i });
-    fireEvent.change(amountInput, { target: { value: "500" } });
+    const amountInput = screen.getByRole("textbox", { name: /amount/i })
+    fireEvent.change(amountInput, { target: { value: "500" } })
 
-    expect(nameInput).toHaveValue("New Item");
-    expect(amountInput).toHaveValue("500");
+    expect(nameInput).toHaveValue("New Item")
+    expect(amountInput).toHaveValue("500")
 
-    const dialogButton = screen.getByRole("button", { name: "Add" });
+    const dialogButton = screen.getByRole("button", { name: "Add" })
 
-    expect(dialogButton).toBeInTheDocument();
-    fireEvent.click(dialogButton);
-  });
+    expect(dialogButton).toBeInTheDocument()
+    fireEvent.click(dialogButton)
+  })
 
   // test("calls editCardItemFromDatabase when editing an item", () => {
   //   render(<BigCard {...defaultProps} />);
@@ -120,4 +117,4 @@ describe("BigCard Component", () => {
   //   // Überprüfe, ob die Funktion aufgerufen wurde
   //   expect(removeCardItemFromDataBase).toHaveBeenCalled();
   // });
-});
+})

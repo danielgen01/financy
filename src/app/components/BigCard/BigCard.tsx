@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { AddCircleOutline } from "@mui/icons-material";
-import { ListItem } from "./ListItem";
-import { BigCardProps } from "./BigCard.types";
-import { ListItemProps } from "./ListItem.types";
-import { Dialog } from "../Dialog/Dialog";
-import styles from "./BigCard.styles.module.css";
-import { determineAddButtonStyling, determineTotal } from "./useBigCard";
-import { nanoid } from "nanoid";
-import { BigCardSkeleton } from "./SubComponents";
+import { AddCircleOutline } from "@mui/icons-material"
+import { nanoid } from "nanoid"
+import React, { useEffect, useState } from "react"
+
+import { Dialog } from "../Dialog/Dialog"
+import styles from "./BigCard.styles.module.css"
+import type { BigCardProps } from "./BigCard.types"
+import { ListItem } from "./ListItem"
+import type { ListItemProps } from "./ListItem.types"
+import { BigCardSkeleton } from "./SubComponents"
+import { determineAddButtonStyling, determineTotal } from "./useBigCard"
 
 export const BigCard: React.FC<BigCardProps> = ({
   cardTitle,
@@ -19,29 +20,29 @@ export const BigCard: React.FC<BigCardProps> = ({
   handleEditItem,
   cardItems,
 }) => {
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const [cardItemsLoading, setCardItemsLoading] = useState<boolean>(true);
+  const [openDialog, setOpenDialog] = useState<boolean>(false)
+  const [cardItemsLoading, setCardItemsLoading] = useState<boolean>(true)
 
   const sortedCardItems = Object.values(cardItems).sort(
     (a, b) =>
-      (b as ListItemProps).cashflowAmount - (a as ListItemProps).cashflowAmount,
-  ) as ListItemProps[];
+      (b as ListItemProps).cashflowAmount - (a as ListItemProps).cashflowAmount
+  ) as ListItemProps[]
 
   // this functions makes the sure the skeleton is not showed even if the items array is empty
   const checkForEmptyItems = () => {
     setTimeout(() => {
       if (cardItems && cardItems.length === 0) {
-        setCardItemsLoading(false);
+        setCardItemsLoading(false)
       }
-    }, 5000);
-  };
+    }, 5000)
+  }
 
   useEffect(() => {
     if (cardItems.length > 0) {
-      setCardItemsLoading(false);
+      setCardItemsLoading(false)
     }
-    checkForEmptyItems();
-  }, [cardItems]);
+    checkForEmptyItems()
+  }, [cardItems])
 
   return (
     <div className={styles.StyledBigCardWrapper}>
@@ -52,7 +53,7 @@ export const BigCard: React.FC<BigCardProps> = ({
           onClick={() => setOpenDialog(!openDialog)}
         >
           {buttonActionName}
-          {<AddCircleOutline />}
+          <AddCircleOutline />
         </button>
       </div>
       <div className={styles.StyledHeadlineAndListWrapper}>
@@ -62,7 +63,7 @@ export const BigCard: React.FC<BigCardProps> = ({
               <span key={nanoid()} className={styles.StyledHeadlineItemLabel}>
                 {headlineItem.headline}
               </span>
-            );
+            )
           })}
         </div>
 
@@ -103,5 +104,5 @@ export const BigCard: React.FC<BigCardProps> = ({
         />
       )}
     </div>
-  );
-};
+  )
+}
