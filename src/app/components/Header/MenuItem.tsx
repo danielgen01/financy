@@ -1,6 +1,7 @@
 import React from "react"
-import { MenuItemProps } from "./MenuItem.types"
+
 import styles from "./MenuItem.styles.module.css"
+import type { MenuItemProps } from "./MenuItem.types"
 
 const MenuItem: React.FC<MenuItemProps> = ({ label, isActive, href }) => {
   const labelClassName = isActive

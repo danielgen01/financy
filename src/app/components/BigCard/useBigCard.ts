@@ -1,16 +1,4 @@
-import { ListItemProps } from "./ListItem.types"
-
-export const determineItemsRef = (cardTitle: string | undefined) => {
-  if (cardTitle === "Income") {
-    return "incomeItems"
-  } else if (cardTitle === "Expenses") {
-    return "expensesItems"
-  } else if (cardTitle === "Assets") {
-    return "assetsItems"
-  } else {
-    return "liabilitiesItems"
-  }
-}
+import type { ListItemProps } from "./ListItem.types"
 
 export const determineTotal = (items: ListItemProps[]) => {
   let total = 0
@@ -22,14 +10,12 @@ export const determineTotal = (items: ListItemProps[]) => {
   return parseFloat(total.toFixed(2))
 }
 
-export const handleClose = (
-  setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>
+export const determineAddButtonStyling = (
+  styles: Record<string, string>,
+  buttonActionName?: string
 ) => {
-  setOpenDialog(false)
-}
-
-export const handleOpen = (
-  setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>
-) => {
-  setOpenDialog(true)
+  if (buttonActionName === "Add Income" || buttonActionName === "Add Asset") {
+    return styles.StyledAddButton
+  }
+  return styles.StyledAddButonRed
 }

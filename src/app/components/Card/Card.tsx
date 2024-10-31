@@ -1,10 +1,13 @@
 "use client"
-import React from "react"
+
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
-import { CardProps } from "./Card.types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from "react"
+
+import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import styles from "./Card.styles.module.css"
-import { Paper } from "@mui/material"
+import type { CardProps } from "./Card.types"
+import { determineStyling } from "./useCard"
 
 const Card: React.FC<CardProps> = ({
   title,
@@ -12,27 +15,28 @@ const Card: React.FC<CardProps> = ({
   performance,
   isBalanceCard,
 }) => {
-  const determineStyling = () => {
-    if (isBalanceCard) {
-      return styles.StyledAmountPurpleColour
-    } else {
-      return styles.StyledAmount
-    }
-  }
   return (
-    <Paper sx={{ p: 2 }} elevation={1} className={styles.StyledPaper}>
+    <div className={styles.StyledPaper}>
       <div className={styles.CardWrapper}>
-        <span style={{ color: "#516778" }}>{title}</span>
+        <span className={styles.StyledTitle}>{title}</span>
         <br />
         <div className={styles.StyledAmountAndPerformanceWrapper}>
-          <p className={determineStyling()}>${amount}</p>
+          <p className={determineStyling(styles, isBalanceCard)}>
+            {!amount ? (
+              <MuiSkeleton height={50} width={115} variant="text" />
+            ) : (
+              `€ ${amount}`
+            )}
+          </p>
           <div className={styles.StyledPerformanceWrapper}>
-            <FontAwesomeIcon icon={faArrowUp} />
-            {performance}%
+            <div className={styles.StyledPerformance}>
+              <FontAwesomeIcon icon={faArrowUp} />
+              {performance}%
+            </div>
           </div>
         </div>
       </div>
-    </Paper>
+    </div>
   )
 }
 

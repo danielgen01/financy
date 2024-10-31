@@ -1,41 +1,61 @@
 .CardWrapper {
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+
 }
 
 .StyledPaper {
-  border-radius: 0.5rem;
-  transition:
-    box-shadow 0.3s,
-    transform 0.3s;
-}
-
-.StyledPaper:hover {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  transform: translateY(2px);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-container-color);
+  border: 1px solid var(--color-container-outline);
+  padding: var(--spacing-md);
+  min-height: 100px; /* no theme value */
 }
 
 .StyledAmountAndPerformanceWrapper {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  align-items: end;
-  margin: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  height:50px;
 }
 
 .StyledAmount {
-  font-weight: 600;
-  font-size: 36px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xl);
   margin: 0;
+  color: var(--color-text-primary);
 }
 
 .StyledAmountPurpleColour {
-  font-weight: 600;
-  font-size: 36px;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xl);
   margin: 0;
-  color: #5854c0;
+  color: var(--color-primary-main);
+}
+
+.StyledTitle { 
+  color:var(--color-card-title);
+  font-size: var(--font-size-sm);
 }
 
 .StyledPerformanceWrapper {
-  @apply flex gap-2 items-center  border-[#D5DDE2] border-2  text-green-500 h-6 p-2 rounded-md;
+  display: flex;
+
 }
+
+
+.StyledPerformance {
+  display:flex;
+  align-items:center;
+  align-self: flex-end;
+  gap:var(--spacing-md);
+  padding:var(--spacing-xs);
+  color: var(--color-text-green);
+  font-weight: var(--font-weight-semibold);
+  border: 1px solid var(--color-primary-main);
+  border-radius: var(--border-radius-md);
+}
+
+  

@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/react"
+
 import { Dialog } from "./Dialog"
 
 export default {
@@ -12,7 +13,7 @@ export default {
 
 const Template: StoryFn = (args) => {
   return (
-    <div className="h-screen w-screen bg-black opacity-80 flex justify-center items-center">
+    <div>
       <Dialog open {...args} />
     </div>
   )

@@ -2,7 +2,20 @@
   top: 0;
   right: 0; /* Verschiebt das Menü nach rechts */
   z-index: 1;
+  display: flex;
+
+  
 }
+
+@media screen and (min-width: 960px) {
+  .menuWrap {
+  display: none;
+
+  }
+  
+}
+
+  
 
 .toggler {
   position: absolute;

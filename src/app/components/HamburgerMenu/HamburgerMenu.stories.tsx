@@ -1,4 +1,5 @@
 import type { Meta, StoryFn } from "@storybook/react"
+
 import HamburgerMenu from "./HamburgerMenu"
 
 export default {

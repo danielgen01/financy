@@ -1,15 +1,18 @@
-import { getFirebaseData } from "../app/utils/firebaseConfig"
+import type { Metadata } from "next"
 import React from "react"
-import DashboardPage from "./components/pageTemplates/homepage/DashboardPage"
-import { fetchDashboardPageProps } from "@/fetcher/Dashboard/fetchDashboardPage"
 
-export default async function HomePageAKADashboardPage() {
-  const dashboardPageProps = await fetchDashboardPageProps({
-    getIncomeData: () => getFirebaseData("incomeItems"),
-    getExpenseData: () => getFirebaseData("expensesItems"),
-    getAssetData: () => getFirebaseData("assetsItems"),
-    getLiabilitiesData: () => getFirebaseData("liabilitiesItems"),
-  })
+import Homepage from "./pageTemplates/homepage/Homepage"
 
-  return <DashboardPage {...dashboardPageProps} />
+export const metadata: Metadata = {
+  title: "Financy - Get in control of your cashflow",
+  description:
+    "Manage your finances with financy easily and finally get in control of your cashflow",
+  robots: "noindex, nofollow",
+  keywords: "financy, finances, cashflow, budgeting",
 }
+
+const page = () => {
+  return <Homepage />
+}
+
+export default page

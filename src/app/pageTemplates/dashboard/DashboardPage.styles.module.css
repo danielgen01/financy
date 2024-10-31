@@ -1,0 +1,29 @@
+.StyledCardWrapper {
+  padding-top: var(--spacing-xl);
+
+}
+
+.StyledHeadlineAndFilterWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-md);
+}
+
+.StyledHeadline {
+  font-size: var(--font-size-lg);
+  font-weight: bolder;
+}
+
+.StyledBigCardsWrapperSection {
+  padding-top: var(--spacing-2xl);
+}
+
+.StyledInfoCard {
+  background-color: var(--color-container-color);
+  color: var(--color-text-primary);
+}
+
+.StyledCashflowOverviewSection {
+  padding-top: var(--spacing-6xl) ;
+}
+

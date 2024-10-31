@@ -17,24 +17,24 @@ export const headlineItemsMockBigCardAssets = [
   {
     headline: "Amount",
   },
-  {
-    headline: "Value",
-  },
+  // {
+  //   headline: "Value",
+  // },
   {
     headline: "Actions",
   },
 ]
 
-export const headlineItemsMockBigCardLiabilities= [
+export const headlineItemsMockBigCardLiabilities = [
   {
     headline: "Description",
   },
   {
     headline: "Amount",
   },
-  {
-    headline: "Paid/Expense",
-  },
+  // {
+  //   headline: "Paid/Expense",
+  // },
   {
     headline: "Actions",
   },

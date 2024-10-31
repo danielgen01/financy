@@ -1,10 +1,10 @@
+import styled from "@emotion/styled"
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Dropdown } from "@mui/base/Dropdown"
 import { Menu } from "@mui/base/Menu"
 import { MenuButton as BaseMenuButton } from "@mui/base/MenuButton"
-import { MenuItem as BaseMenuItem, menuItemClasses } from "@mui/base/MenuItem"
-import styled from "@emotion/styled"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { MenuItem as BaseMenuItem } from "@mui/base/MenuItem"
 
 export const FilterMenu: React.FC = () => {
   const createHandleMenuClick = (menuItem: string) => {
@@ -14,10 +14,10 @@ export const FilterMenu: React.FC = () => {
   }
 
   return (
-    <div className="Filter-box flex items-center gap-3 ">
+    <div className="Filter-box  ">
       <span>Filter:</span>
       <Dropdown>
-        <BaseMenuButton className="bg-gray-200 text-primary-10% px-5 py-2 rounded-md gap-2 flex items-center cursor-pointer font-semibold">
+        <BaseMenuButton className="">
           January
           <FontAwesomeIcon icon={faChevronDown} />
         </BaseMenuButton>

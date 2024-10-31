@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+}
+
+@media (min-width: 600px) {
+  :root {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    font-size: 22px;
+  }
+}
+
+
+:root {
+    /* fonts */
+    --font-family-sans: 'Inter', sans-serif;
+    --font-family-serif: 'Merriweather', serif;
+    /* Font Weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    
+    /* Font Sizes */
+    --font-size-xs: 0.75rem; /* 12px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem; /* 16px */
+    --font-size-lg: 1.25rem; /* 20px */
+    --font-size-xl: 1.5rem; /* 24px */
+    --font-size-2xl: 1.75rem; /* 28px */
+    --font-size-3xl: 2rem; /* 32px */
+    --font-size-4xl: 2.25rem; /* 36px */
+    --font-size-5xl: 2.5rem; /* 40px */
+    --font-size-6xl: 3rem; /* 48px */
+
+    /* Spacing */
+    --spacing-xxs: 2px;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 40px;
+    --spacing-3xl: 48px;
+    --spacing-4xl: 56px;
+    --spacing-5xl: 64px;
+    --spacing-6xl: 72px;
+  
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    --border-radius-full: 9999px; /* for pill-shaped buttons, etc. */
+  
+    /* Line Heights */
+    --line-height-sm: 1.2;
+    --line-height-md: 1.5;
+    --line-height-lg: 1.75;
+    --line-height-xl: 2;
+  
+    /* Z-Index */
+    --z-index-low: 10;
+    --z-index-medium: 100;
+    --z-index-high: 1000;
+    --z-index-max: 10000;
+  
+    /* Shadows */
+    --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0px 10px 15px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0px 20px 25px rgba(0, 0, 0, 0.25);
+
+    /* screen sizes */
+    --sreensize-xs:0px;
+    --sreensize-sm:600px;
+    --sreensize-md:960px;
+    --sreensize-lg:1280px;
+    --sreensize-xl:1920px;
+
+    /* colors */
+
+    --color-primary-main: #5854C0;
+    --color-text-primary: #101828;
+    --color-background-default: #F2F6FD;
+    --color-container-color: #FFFFFF;
+    --color-container-outline:#ECEFF2;
+    --color-navigation-item: #516778;
+    --color-icon-background:#F2F6FD;
+     --color-card-title:#516788;
+     --color-typography-default:#121027;
+    --color-preview-section-background:#E5E9F0;
+
+    /* shared colors */
+    --color-icon: #778499;
+    --color-custom-green:#14AF9C;
+    --color-custom-blue:#3477F5;
+    --color-custom-purple:#9E4BF6;
+    --color-inactive:#778499;
+    --color-items:#37383C;
+    --color-success-600: #0B9055;
+    --color-text-green:#0B9055;
+    --color-text-red:#D92D20;
+    --color-background-green: #DCFAE6;
+    --color-background-red: #FEE4E2;
+    --color-icon-green: #17B26A;
+    --color-white:#ffffff;
+
+
+
+
+   
+}
+
+
+
+
+
+
+:root[data-theme='dark'] {
+  --color-primary-main: #A578FA;
+  --color-text-primary: #F2F6FD;
+  --color-background-default: #0E0D17;
+  --color-container-color: #1E1D3A;
+  --color-container-outline:#413F75;
+  --color-navigation-item: #E5E9F0;
+  --color-icon-background:#312F58;
+  --color-card-title:#E5E9F0;
+  --color-gradient-from: rgba(14, 13, 23, 0.9);
+  --color-gradient-to: rgba(88, 84, 192, 0.7);
+  --color-typography-default:#F2F6FD;
+  --color-preview-section-background:#292644;
+
+
+
+
+}
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-default);
+  overflow-x:hidden;
+
+}
+
+
+main, footer {
+  padding-left:var(--spacing-xl);
+  padding-right:var(--spacing-xl);
+}
+
+@media screen and (min-width: 960px) {
+  main, footer {
+    padding-left:var(--spacing-6xl);
+    padding-right:var(--spacing-6xl);
+
+  }
+  
+}
+@media screen and (min-width: 1280px) {
+  main, footer {
+    padding-left:80px;
+    padding-right:80px;
+
+  }
+  
+}
+@media screen and (min-width: 1920px) {
+  main, footer {
+    padding-left:200px;
+    padding-right:200px;
+
+  }
+}
+
+.header-action-icon {
+  background-color: var(--color-icon-background);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  border:none;
+  height: 70%;
+  width: 70%;
+ 
+}
+
+.header-action-icon:hover {
+  cursor: pointer;
+  color: var(--color-primary-main);
+}
+

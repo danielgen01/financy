@@ -1,14 +1,21 @@
-import { ListItemProps } from "./ListItem.types"
+import type { ListItemProps } from "./ListItem.types"
 
 interface HeadlineItem {
   headline: string
 }
 
 export type BigCardProps = {
-  listItems?: ListItemProps[]
   cardTitle?: string
   buttonActionName?: string
-  color?: "green" | "red"
   headlineItems?: HeadlineItem[]
   isFourColumns?: boolean
+  cardItems: ListItemProps[]
+  setCardItems: React.Dispatch<React.SetStateAction<ListItemProps[]>>
+  handleAddCardItem?: (name: string, cashflowAmount: number) => void
+  handleRemoveCardItem?: (itemId: string) => void
+  handleEditItem?: (
+    itemId: string,
+    updatedName: string,
+    updatedCashflowAmount: number
+  ) => void
 }

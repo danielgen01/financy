@@ -1,7 +1,8 @@
-import { useState } from "react"
-import styles from "./HamburgerMenu.styles.module.css"
-import MenuItem from "../Header/MenuItem"
 import { ClickAwayListener } from "@mui/material"
+import { useState } from "react"
+
+import MenuItem from "../Header/MenuItem"
+import styles from "./HamburgerMenu.styles.module.css"
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +15,6 @@ const HamburgerMenu = () => {
     if (isOpen) {
       setIsOpen(false)
     }
-    console.log("click away")
   }
 
   return (
@@ -27,7 +27,7 @@ const HamburgerMenu = () => {
           onChange={toggleMenu}
         />
         <div className={styles.hamburger}>
-          <div></div>
+          <div />
         </div>
         <div
           className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}

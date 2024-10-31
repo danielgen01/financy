@@ -2,7 +2,7 @@ export type ListItemProps = {
   name: string
   cashflowAmount: number
   isFourColumns?: boolean
-  id: string | null
+  id: string
   onRemove?: (id: any) => void | null
   onEdit?: (
     itemId: string,
