@@ -16,7 +16,9 @@ export const CTATeaser: React.FC<CTATeaserProps> = ({
     <div className={styles.StyledCTAWrapper}>
       <span className={styles.StyledCTATeaserHeadlineText}>{headlineText}</span>
       <div className={styles.StyledParagraphAndCtaButtonWrapper}>
-        <Paragraph>{paragraphText}</Paragraph>
+        <div className={styles.StyledParagraphWrapper}>
+          <Paragraph>{paragraphText}</Paragraph>
+        </div>
         <button type="button" className={styles.StyledCTAButton}>
           Join Now Today Free ! <ArrowForward />
         </button>
