@@ -21,8 +21,15 @@ export function ThemeToggler() {
       <button
         onClick={() => setTheme(nextTheme)}
         className="header-action-icon"
+        type="button"
       >
-        <FontAwesomeIcon icon={image} width={40} height={40} size="2x" />
+        <FontAwesomeIcon
+          icon={image}
+          width={40}
+          height={40}
+          size="2x"
+          fontVariant="solid"
+        />
       </button>
     </Tooltip>
   )

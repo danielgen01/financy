@@ -1,0 +1,61 @@
+ 
+.StyledCTAWrapper {
+    position:relative;
+    padding:var(--spacing-3xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    background-color: var(--color-primary-main);
+    border-radius: var(--border-radius-xl);
+    -webkit-border-radius: var(--border-radius-xl);
+    -moz-border-radius: var(--border-radius-xl);
+    -ms-border-radius: var(--border-radius-xl);
+    -o-border-radius: var(--border-radius-xl);
+  }
+
+  .StyledParagraphAndCtaButtonWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @media (min-width: 960px) {
+    .StyledParagraphAndCtaButtonWrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+  }
+
+  
+  .StyledCTATeaserHeadlineText {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    text-align: center;
+  }
+
+  .StyledCTAButton {
+    text-transform: uppercase;
+    color: #000000;
+    border: none;
+    background-color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-3xl);
+    border-radius: var(--border-radius-xl);
+    -webkit-border-radius: var(--border-radius-xl);
+    -moz-border-radius: var(--border-radius-xl);
+    -ms-border-radius: var(--border-radius-xl);
+    -o-border-radius: var(--border-radius-xl);
+    cursor: pointer;
+    font-weight: var(--font-weight-semibold);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-grow: 1;
+
+}
+
+.StyledCTAButton:hover { 
+    opacity: 0.8;
+}

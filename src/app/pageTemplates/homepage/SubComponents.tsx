@@ -7,6 +7,8 @@ import { useTheme } from "next-themes"
 import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
 import { CustomButton } from "@/app/components/Button/Button"
+import { CTATeaser } from "@/app/components/CTATeaser/CTATeaser"
+
 import { H1 } from "@/app/components/Typography/H1/H1"
 import { H2 } from "@/app/components/Typography/H2/H2"
 import Paragraph from "@/app/components/Typography/Paragraph/Paragraph"
@@ -16,9 +18,11 @@ import AnalyticsLigth from "../../../../public/analytics_light.png"
 import CyberSecurityImage from "../../../../public/cyber_secrurity.png"
 import PreviewLight from "../../../../public/Financy-preview.png"
 import PreviewDark from "../../../../public/FinancyDark-preview.png"
+
 import InsightsDark from "../../../../public/insights_dark.png"
 import InsightsLight from "../../../../public/insights_light.png"
 import DarkReport from "../../../../public/report_dark.png"
+
 import LightReport from "../../../../public/report_light.png"
 import TrackingImage from "../../../../public/tracking.png"
 import styles from "./SubComponents.styles.module.css"
@@ -77,8 +81,8 @@ export const PreviewSection: React.FC = () => {
         <Image
           src={imageSrc}
           alt="Preview_of_financy"
-          placeholder="blur"
           layout="responsive"
+          placeholder="blur"
         />
       </div>
     </section>
@@ -135,5 +139,16 @@ export const BenefitSection = () => {
         />
       </div>
     </section>
+  )
+}
+
+export const CTASection = () => {
+  return (
+    <CTATeaser
+      headlineText="Take Control of Your Finances Today"
+      paragraphText="Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has
+Been The Industry's Standard Dummy Text Ever Since The ISOOS,
+"
+    />
   )
 }

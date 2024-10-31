@@ -4,5 +4,4 @@ color: var( --color-navigation-item);
 font-size: var(--font-size-xs);
 line-height: 150%;
 text-align: center;
-flex: none;
 }
