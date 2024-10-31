@@ -28,7 +28,7 @@
   .StyledCTATeaserHeadlineText {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary);
+    color: var(--color-white);
     text-align: center;
     width: 100%;
   }
@@ -61,6 +61,11 @@
     opacity: 0.8;
 }
 
+.StyledParagraph {
+    color: var(--color-white);
+    text-align: left;
+
+}
 
 @media (min-width: 960px) {
     .StyledParagraphAndCtaButtonWrapper {
@@ -71,7 +76,7 @@
 
   .StyledParagraphWrapper { 
     flex-basis:50%;
-    text-align: left !important;
+
   }
 
   .StyledCTATeaserHeadlineText {
