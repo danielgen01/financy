@@ -64,6 +64,7 @@
 .StyledParagraph {
     color: var(--color-white);
     text-align: left;
+    font-size: var(--font-size-xs);
 
 }
 
