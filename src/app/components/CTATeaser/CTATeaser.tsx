@@ -1,9 +1,9 @@
 "use client"
-import { ArrowForward } from "@mui/icons-material"
 
-import Paragraph from "../Typography/Paragraph/Paragraph"
-import styles from "./CTATeaser.styles.module.css"
+import { ArrowForward } from "@mui/icons-material"
 import { useRouter } from "next/navigation"
+
+import styles from "./CTATeaser.styles.module.css"
 
 interface CTATeaserProps {
   headlineText: string
