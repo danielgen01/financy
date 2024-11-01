@@ -83,9 +83,7 @@
     flex-basis: 30% !important;
   }
  
-  .StyledPreviewSection {
-    max-width: 50%;
-  }
+ 
   
 }
 
@@ -98,6 +96,10 @@
 
   
 @media (min-width: 960px) {
+  .StyledPreviewSection {
+    max-width: 50%;
+  }
+  
   .StyledBigTeaserWrapper {
     grid-template-columns: 1fr 1fr;
 
