@@ -19,11 +19,7 @@ export const BigBenefitTeaser: React.FC<BigBenefitTeaserProps> = ({
     <div className={styles.StyledImageWrapper}>
       <span className={styles.StyledBigTeaserHeadlineText}>{headlineText}</span>
       <Paragraph>{paragraphText}</Paragraph>
-      <Image
-        {...image}
-        alt={image.alt || "default_alt_text"}
-        layout="responsive"
-      />
+      <Image {...image} alt={image.alt || "default_alt_text"} />
     </div>
   )
 }
