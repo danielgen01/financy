@@ -83,6 +83,9 @@
     flex-basis: 30% !important;
   }
  
+  .StyledPreviewSection {
+    max-width: 50%;
+  }
   
 }
 
