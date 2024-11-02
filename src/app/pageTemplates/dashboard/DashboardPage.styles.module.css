@@ -34,7 +34,7 @@
 }
 
 
-@media (min-width: 600px) and (max-width: 1279px) {
+@media (width >= 600px) and (width <= 1279px) {
   .StyledCardWrapper {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Zwei Spalten, beide nehmen gleich viel Platz ein */
@@ -62,7 +62,7 @@
 }
 
 
-@media (min-width: 1280px) {
+@media (width >= 1280px) {
   .StyledCardWrapper {
     grid-template-columns: 1fr 1fr 1fr;
 

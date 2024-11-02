@@ -9,10 +9,6 @@
     gap: var(--spacing-lg);
     background-color: var(--color-primary-main);
     border-radius: var(--border-radius-xl);
-    -webkit-border-radius: var(--border-radius-xl);
-    -moz-border-radius: var(--border-radius-xl);
-    -ms-border-radius: var(--border-radius-xl);
-    -o-border-radius: var(--border-radius-xl);
   }
 
   .StyledParagraphAndCtaButtonWrapper {
@@ -36,21 +32,16 @@
 
   .StyledCTAButton {
     text-transform: uppercase;
-    color: #000000;
+    color: #000;
     border: none;
     background-color: var(--color-white);
     padding: var(--spacing-md) var(--spacing-3xl);
     border-radius: var(--border-radius-xl);
-    -webkit-border-radius: var(--border-radius-xl);
-    -moz-border-radius: var(--border-radius-xl);
-    -ms-border-radius: var(--border-radius-xl);
-    -o-border-radius: var(--border-radius-xl);
     cursor: pointer;
     font-weight: var(--font-weight-semibold);
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    flex-grow: 1;
     white-space: nowrap;
     flex-grow: 0;
     align-self: center;
@@ -68,7 +59,7 @@
 
 }
 
-@media (min-width: 960px) {
+@media (width >= 960px) {
     .StyledParagraphAndCtaButtonWrapper {
         flex-direction: row;
         justify-content: space-between;

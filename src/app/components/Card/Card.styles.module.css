@@ -14,10 +14,9 @@
 
 .StyledAmountAndPerformanceWrapper {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   height:50px;
 }
 

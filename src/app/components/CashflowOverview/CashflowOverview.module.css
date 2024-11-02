@@ -63,7 +63,7 @@
   font-size: var(--font-size-sm);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
   .StyledCashflowCalculationWrapper {
     display: flex;
   }

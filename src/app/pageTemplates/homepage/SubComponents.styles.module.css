@@ -20,10 +20,6 @@
   padding:var(--spacing-lg);
   background-color: var(--color-preview-section-background);
   border-radius: var(--border-radius-xl);
-  -webkit-border-radius: var(--border-radius-xl);
-  -moz-border-radius: var(--border-radius-xl);
-  -ms-border-radius: var(--border-radius-xl);
-  -o-border-radius: var(--border-radius-xl);
 }
 
 .StyledPreviewSection { 
@@ -46,10 +42,9 @@
   width: 100%;
 }
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .StyledBenefitTeaserWrapper { 
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     gap: var(--spacing-xl);
   }
 
@@ -70,12 +65,10 @@
 
 
 
-@media (min-width: 1280px) {
-
+@media (width >= 1280px) {
   .StyledBenefitTeaserWrapper { 
-    flex-direction: row;
+    flex-flow: row nowrap;
     justify-content: space-between;
-    flex-wrap: nowrap !important;
     gap: var(--spacing-5xl);
   }
 
@@ -94,7 +87,7 @@
 }
 
   
-@media (min-width: 960px) {
+@media (width >= 960px) {
   .StyledPreviewSection {
     max-width: 50%;
   }

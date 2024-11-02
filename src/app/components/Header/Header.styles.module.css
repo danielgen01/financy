@@ -58,8 +58,7 @@ cursor: pointer;
 
 /* Medias */
 
-@media screen and (min-width: 600px) {
- 
+@media screen and (width >= 600px) {
   .StyledHeaderWrapper {
     padding-left:var(--spacing-xl);
     padding-right:var(--spacing-xl);
@@ -69,7 +68,7 @@ cursor: pointer;
 }
 
 
-@media screen and (min-width: 960px) {
+@media screen and (width >= 960px) {
   .StyledLogoutButton {
   display: block;
 
@@ -89,9 +88,7 @@ cursor: pointer;
 
 
 
-@media screen and (min-width: 1280px) {
- 
-
+@media screen and (width >= 1280px) {
   .StyledHeaderWrapper {
     padding-left:80px;
     padding-right:80px;
@@ -101,8 +98,7 @@ cursor: pointer;
 }
 
 
-@media screen and (min-width: 1920px) {
- 
+@media screen and (width >= 1920px) {
   .StyledHeaderWrapper {
     padding-left:200px;
     padding-right:200px;
@@ -110,8 +106,7 @@ cursor: pointer;
   }
 }
 
-@media screen and (max-width: 960px) {
- 
+@media screen and (width <= 960px) {
   .StyledMenuList {
     display: none;
   }

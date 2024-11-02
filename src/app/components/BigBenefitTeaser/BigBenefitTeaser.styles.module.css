@@ -10,10 +10,6 @@
     border: 1px solid var(--color-container-outline);
     background-color: var(--color-container-color);
     border-radius: var(--border-radius-xl);
-    -webkit-border-radius: var(--border-radius-xl);
-    -moz-border-radius: var(--border-radius-xl);
-    -ms-border-radius: var(--border-radius-xl);
-    -o-border-radius: var(--border-radius-xl);
   }
 
   
