@@ -143,8 +143,8 @@ export const CTASection = () => {
   return (
     <CTATeaser
       headlineText="Take Control of Your Finances Today"
-      paragraphText="Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry. Lorem Ipsum Has
-Been The Industry's Standard Dummy Text Ever Since The ISOOS,
+      paragraphText="Start Your Journey to Financial Freedom Today!
+Join thousands who are taking control of their finances.
 "
     />
   )
