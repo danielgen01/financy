@@ -19,6 +19,9 @@
 
 .StyledBigCardsWrapperSection {
   padding-top: var(--spacing-2xl);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
 }
 
 .StyledInfoCard {
@@ -54,6 +57,8 @@
     grid-column: 1 / -1; /* Nimmt die gesamte Breite der Grid-Container ein */
     grid-row: 2; /* Zweite Reihe */
   }
+
+  
 }
 
 
@@ -62,4 +67,10 @@
     grid-template-columns: 1fr 1fr 1fr;
 
   }
+
+  .StyledBigCardsWrapperSection {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  
 }

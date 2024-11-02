@@ -1,4 +1,4 @@
-import { Alert, AlertTitle, Grid } from "@mui/material"
+import { Alert, AlertTitle } from "@mui/material"
 import React from "react"
 
 import Card from "@/app/components/Card/Card"
@@ -41,24 +41,18 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         {/* <FilterMenu /> */}
       </div>
       <section className={styles.StyledBigCardsWrapperSection}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <BigCardContainer
-              headlineItems={headlineItemsMockCard}
-              buttonActionName="Add Income"
-              cardTitle="Income"
-              listItems={props.incomeData}
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <BigCardContainer
-              headlineItems={headlineItemsMockCard}
-              buttonActionName="Add Expense"
-              cardTitle="Expenses"
-              listItems={props.expenseData}
-            />
-          </Grid>
-        </Grid>
+        <BigCardContainer
+          headlineItems={headlineItemsMockCard}
+          buttonActionName="Add Income"
+          cardTitle="Income"
+          listItems={props.incomeData}
+        />
+        <BigCardContainer
+          headlineItems={headlineItemsMockCard}
+          buttonActionName="Add Expense"
+          cardTitle="Expenses"
+          listItems={props.expenseData}
+        />
       </section>
       <section className={styles.StyledCashflowOverviewSection}>
         <CashflowOverview
@@ -78,26 +72,20 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         etc..
       </Alert>
       <section className={styles.StyledBigCardsWrapperSection}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <BigCardContainer
-              headlineItems={headlineItemsMockBigCardAssets}
-              buttonActionName="Add Asset"
-              cardTitle="Assets"
-              listItems={props.assetData}
-              isFourColumns={false} // We will check later on if we really need 4 columns TODO
-            />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <BigCardContainer
-              headlineItems={headlineItemsMockBigCardLiabilities}
-              buttonActionName="Add Liability"
-              cardTitle="Liabilities"
-              listItems={props.liabilitiesData}
-              isFourColumns={false} // We will check later on if we really need 4 columns TODO
-            />
-          </Grid>
-        </Grid>
+        <BigCardContainer
+          headlineItems={headlineItemsMockBigCardAssets}
+          buttonActionName="Add Asset"
+          cardTitle="Assets"
+          listItems={props.assetData}
+          isFourColumns={false} // We will check later on if we really need 4 columns TODO
+        />
+        <BigCardContainer
+          headlineItems={headlineItemsMockBigCardLiabilities}
+          buttonActionName="Add Liability"
+          cardTitle="Liabilities"
+          listItems={props.liabilitiesData}
+          isFourColumns={false} // We will check later on if we really need 4 columns TODO
+        />
       </section>
     </>
   )
