@@ -23,8 +23,6 @@
 }
 
 .StyledAccountProfileImage {
-width:var(--spacing-3xl);
-height:var(--spacing-3xl);
 cursor: pointer;
 
 }
