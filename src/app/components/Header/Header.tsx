@@ -96,7 +96,7 @@ const Header: React.FC = () => {
           <MuiSkeleton variant="circular" width={50} height={50} />
         )}
         {!loading ? (
-          <button className="header-action-icon">
+          <button className="header-action-icon" type="button">
             <FontAwesomeIcon
               icon={faGear}
               width={40}
@@ -109,7 +109,7 @@ const Header: React.FC = () => {
           <MuiSkeleton variant="circular" width={50} height={50} />
         )}
         {!loading ? (
-          <button className="header-action-icon">
+          <button className="header-action-icon" type="button">
             <FontAwesomeIcon
               icon={faBell}
               width={40}
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
         isOpen={openUserDialog}
         setOpenDialog={setOpenUserDialog}
       />
-      <HamburgerMenu />
+      {/* <HamburgerMenu /> */}
     </div>
   )
 }
