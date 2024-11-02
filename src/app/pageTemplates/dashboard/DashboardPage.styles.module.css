@@ -1,5 +1,8 @@
 .StyledCardWrapper {
   padding-top: var(--spacing-xl);
+  display: grid;
+  gap: var(--spacing-lg);
+
 
 }
 
@@ -27,3 +30,36 @@
   padding-top: var(--spacing-6xl) ;
 }
 
+
+@media (min-width: 600px) and (max-width: 1279px) {
+  .StyledCardWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Zwei Spalten, beide nehmen gleich viel Platz ein */
+    grid-template-rows: auto auto; /* Zwei Reihen, jeweils in ihrer natürlichen Höhe */
+  }
+
+  /* Die ersten beiden Elemente in der ersten Reihe */
+  .StyledCardWrapper > *:nth-child(1) {
+    grid-column: 1; /* Erste Spalte */
+    grid-row: 1; /* Erste Reihe */
+  }
+
+  .StyledCardWrapper > *:nth-child(2) {
+    grid-column: 2; /* Zweite Spalte */
+    grid-row: 1; /* Erste Reihe */
+  }
+
+  /* Das dritte Element in der vollen Breite in der zweiten Reihe */
+  .StyledCardWrapper > *:nth-child(3) {
+    grid-column: 1 / -1; /* Nimmt die gesamte Breite der Grid-Container ein */
+    grid-row: 2; /* Zweite Reihe */
+  }
+}
+
+
+@media (min-width: 1280px) {
+  .StyledCardWrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+
+  }
+}

@@ -22,30 +22,19 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
     <>
       <section>
-        <Grid container className={styles.StyledCardWrapper} spacing={4}>
-          <Grid item xs={12} sm={6} lg={4}>
-            <Card
-              title="Balance"
-              amount={94242}
-              performance={20}
-              isBalanceCard
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} lg={4}>
-            <Card
-              title="Incomes"
-              amount={calculateTotalIncome(props.incomeData)}
-              performance={20}
-            />
-          </Grid>
-          <Grid item xs={12} sm={12} lg={4}>
-            <Card
-              title="Expenses"
-              amount={calculateTotalExpense(props.expenseData)}
-              performance={10}
-            />
-          </Grid>
-        </Grid>
+        <div className={styles.StyledCardWrapper}>
+          <Card title="Balance" amount={94242} performance={20} isBalanceCard />
+          <Card
+            title="Incomes"
+            amount={calculateTotalIncome(props.incomeData)}
+            performance={20}
+          />
+          <Card
+            title="Expenses"
+            amount={calculateTotalExpense(props.expenseData)}
+            performance={10}
+          />
+        </div>
       </section>
       <div className={styles.StyledHeadlineAndFilterWrapper}>
         <h1 className={styles.StyledHeadline}>Income Statement</h1>
