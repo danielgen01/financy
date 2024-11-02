@@ -120,16 +120,12 @@ export const BenefitSection = () => {
           image={{
             src: CyberSecurityImage,
             alt: "cyber-security",
-            width: 200,
-            height: 200,
           }}
         />
         <BigBenefitTeaser
           image={{
             src: TrackingImage,
             alt: "tracking.png",
-            width: 200,
-            height: 200,
           }}
           headlineText="Easy cashflow tracking"
           paragraphText="Track your income and expenses with ease"

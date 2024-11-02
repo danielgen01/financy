@@ -80,13 +80,7 @@ const Header: React.FC = () => {
           fontWeight: "bold",
         }}
       >
-        <Image
-          src={logoSrc}
-          alt="Logo_Financy"
-          width={150}
-          height={40}
-          placeholder="blur"
-        />
+        <Image src={logoSrc} alt="Logo_Financy" placeholder="blur" />
       </Link>
       <ul className={styles.StyledMenuList}>
         <MenuItem href="/overview" label="Overview" isActive />
