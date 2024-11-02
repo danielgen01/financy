@@ -78,7 +78,7 @@ export const PreviewSection: React.FC = () => {
         <Image
           src={imageSrc}
           alt="Preview_of_financy"
-          layout="responsive"
+          style={{ maxWidth: "100%", height: "auto" }}
           placeholder="blur"
         />
       </div>
