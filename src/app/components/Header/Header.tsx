@@ -21,7 +21,6 @@ import { useAuth } from "@/app/utils/useAuth"
 
 import LogoDark from "../../../../public/Logo-dark.png"
 import LogoLight from "../../../../public/Logo-light.png"
-import HamburgerMenu from "../HamburgerMenu/HamburgerMenu"
 import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton"
 import styles from "./Header.styles.module.css"
