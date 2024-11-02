@@ -49,6 +49,7 @@
   }
 
   /* Das erste und zweite Element nebeneinander */
+
   .StyledBenefitTeaserWrapper > *:nth-child(1),
   .StyledBenefitTeaserWrapper > *:nth-child(2) {
     flex-basis: calc(40% - var(--spacing-xl) / 2); /* 50% minus der halbe Abstand */
@@ -56,6 +57,7 @@
   }
 
   /* Das dritte Element soll eine ganze Zeile einnehmen */
+
   .StyledBenefitTeaserWrapper > *:nth-child(3) {
     flex-basis: 50%;
     margin:auto;

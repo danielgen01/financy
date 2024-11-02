@@ -42,6 +42,7 @@
   }
 
   /* Die ersten beiden Elemente in der ersten Reihe */
+
   .StyledCardWrapper > *:nth-child(1) {
     grid-column: 1; /* Erste Spalte */
     grid-row: 1; /* Erste Reihe */
@@ -53,6 +54,7 @@
   }
 
   /* Das dritte Element in der vollen Breite in der zweiten Reihe */
+
   .StyledCardWrapper > *:nth-child(3) {
     grid-column: 1 / -1; /* Nimmt die gesamte Breite der Grid-Container ein */
     grid-row: 2; /* Zweite Reihe */
