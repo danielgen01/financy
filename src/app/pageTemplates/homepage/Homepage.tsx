@@ -3,12 +3,7 @@
 import React from "react"
 
 import styles from "./Homepage.styles.module.css"
-import {
-  BenefitSection,
-  CTASection,
-  HeroSection,
-  PreviewSection,
-} from "./SubComponents"
+import { BenefitSection, HeroSection, PreviewSection } from "./SubComponents"
 
 const Homepage = () => {
   return (
@@ -16,7 +11,6 @@ const Homepage = () => {
       <HeroSection />
       <PreviewSection />
       <BenefitSection />
-      <CTASection />
     </div>
   )
 }
