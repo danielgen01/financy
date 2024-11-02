@@ -135,24 +135,17 @@ export const BenefitSection = () => {
           paragraphText="Track your income and expenses with ease"
         />
       </div>
-      <CTATeaser
-        headlineText="Take Control of Your Finances Today"
-        paragraphText="Start Your Journey to Financial Freedom Today!
-Join thousands who are taking control of their finances.
-"
-      />
     </section>
   )
 }
 
-export const TestimonialSection = () => {
-  function printAss() {
-    console.log("ass")
-  }
-
+export const CTASection = () => {
   return (
-    <div>
-      <h1>hi!</h1>
-    </div>
+    <CTATeaser
+      headlineText="Take Control of Your Finances Today"
+      paragraphText="Start Your Journey to Financial Freedom Today!
+Join thousands who are taking control of their finances.
+"
+    />
   )
 }
