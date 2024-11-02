@@ -1,9 +1,3 @@
 {
-  "extends": ["stylelint-config-standard"],
-  "rules": {
-    "selector-class-pattern": "^[A-Z][a-zA-Z0-9]+$",
-    "keyframes-name-pattern": "^[A-Z][a-zA-Z0-9]+$",
-    "shorthand-property-no-redundant-values": true,
-    "declaration-block-no-redundant-longhand-properties": true
-  }
+  "extends": "stylelint-config-recommended"
 }
