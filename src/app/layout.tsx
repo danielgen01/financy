@@ -1,4 +1,6 @@
 import "./global.css"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@fortawesome/fontawesome-svg-core/styles.css"
 
 import { ThemeProvider } from "@mui/material"
 import { Inter } from "next/font/google"
@@ -7,10 +9,6 @@ import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { lightTheme } from "@/styles/theme"
 
 import Header from "./components/Header/Header"
-import {
-  OvalShapeFigureLeft,
-  OvalShapeFigureRight,
-} from "./components/OvalShapeFigure/OvalShapeFigure"
 
 const inter = Inter({ subsets: ["latin"] })
 
