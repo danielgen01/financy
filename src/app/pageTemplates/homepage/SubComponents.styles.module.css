@@ -82,35 +82,11 @@
 }
 
 .StyledBenefitTeaserWrapper { 
-  display: flex;
-  flex-direction: column;
+   display: grid;
+  grid-template-columns: 1fr;
   gap: var(--spacing-xl);
   width: 100%;
 }
-
-@media (width >= 600px) {
-  .StyledBenefitTeaserWrapper { 
-    flex-flow: row wrap;
-    gap: var(--spacing-xl);
-  }
-
-  /* Das erste und zweite Element nebeneinander */
-
-  .StyledBenefitTeaserWrapper > *:nth-child(1),
-  .StyledBenefitTeaserWrapper > *:nth-child(2) {
-    flex-basis: calc(40% - var(--spacing-xl) / 2); /* 50% minus der halbe Abstand */
-
-  }
-
-  /* Das dritte Element soll eine ganze Zeile einnehmen */
-
-  .StyledBenefitTeaserWrapper > *:nth-child(3) {
-    flex-basis: 50%;
-    margin:auto;
-  }
-}
-
-
 
 
 
@@ -135,20 +111,21 @@
   .StyledQuoteTeaserWrapper {
     grid-template-columns: repeat(2,1fr);
   }
+  .StyledBenefitTeaserWrapper{
+    grid-template-columns: repeat(2,1fr);
+ 
+  }
 }
 
 @media (width >= 1280px) {
-  .StyledBenefitTeaserWrapper { 
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    gap: var(--spacing-5xl);
-  }
+ 
 
-  .StyledBenefitTeaserWrapper > * {
-    flex-basis: 30% !important;
-  }
 
   .StyledQuoteTeaserWrapper {
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .StyledBenefitTeaserWrapper {
     grid-template-columns: repeat(3,1fr);
   }
  
