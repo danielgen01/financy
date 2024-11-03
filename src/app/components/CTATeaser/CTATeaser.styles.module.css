@@ -34,6 +34,7 @@
     text-transform: uppercase;
     color: #000;
     border: none;
+    font-size: var(--font-size-xs);
     background-color: var(--color-white);
     padding: var(--spacing-md) var(--spacing-3xl);
     border-radius: var(--border-radius-xl);
@@ -44,6 +45,7 @@
     gap: var(--spacing-sm);
     flex-grow: 0;
     align-self: center;
+    text-decoration: none;
 
 }
 

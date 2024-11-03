@@ -1,7 +1,7 @@
 "use client"
 
 import { ArrowForward } from "@mui/icons-material"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 
 import styles from "./CTATeaser.styles.module.css"
 
@@ -14,8 +14,6 @@ export const CTATeaser: React.FC<CTATeaserProps> = ({
   headlineText,
   paragraphText,
 }) => {
-  const router = useRouter()
-
   return (
     <div className={styles.StyledCTAWrapper}>
       <span className={styles.StyledCTATeaserHeadlineText}>{headlineText}</span>
@@ -23,13 +21,9 @@ export const CTATeaser: React.FC<CTATeaserProps> = ({
         <div className={styles.StyledParagraphWrapper}>
           <p className={styles.StyledParagraph}>{paragraphText}</p>
         </div>
-        <button
-          type="button"
-          className={styles.StyledCTAButton}
-          onClick={() => router.push("./signup")}
-        >
+        <Link href="/signup" className={styles.StyledCTAButton}>
           Join Now Today Free ! <ArrowForward />
-        </button>
+        </Link>
       </div>
     </div>
   )

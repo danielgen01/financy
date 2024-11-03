@@ -1,13 +1,12 @@
 "use client"
 
 import Image from "next/image"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 
 import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
-import { CustomButton } from "@/app/components/Button/Button"
 import { CTATeaser } from "@/app/components/CTATeaser/CTATeaser"
 import { H1 } from "@/app/components/Typography/H1/H1"
 import { H2 } from "@/app/components/Typography/H2/H2"
@@ -45,8 +44,6 @@ const ArrowSvg = () => {
 }
 
 export const HeroSection: React.FC = () => {
-  const router = useRouter()
-
   return (
     <section className={styles.StyledHeroSection}>
       <H1>
@@ -58,13 +55,9 @@ export const HeroSection: React.FC = () => {
         Our powerful platform helps you take control of your income, expenses{" "}
         assets, and liabilities, all in one place
       </Paragraph>
-      <CustomButton
-        onClick={() => {
-          router.push("/signup")
-        }}
-      >
+      <Link href="/signup" className={styles.StyledLink}>
         Sign up now <ArrowSvg />
-      </CustomButton>
+      </Link>
     </section>
   )
 }
