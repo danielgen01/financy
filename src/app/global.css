@@ -207,3 +207,7 @@ main, footer {
   color: var(--color-primary-main);
 }
 
+.ResponsiveImage  {
+  max-width: 100%;
+  height: auto;
+}
