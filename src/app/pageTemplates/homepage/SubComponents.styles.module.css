@@ -97,6 +97,14 @@
   width: 100%;
 }
 
+@media (width >= 600px) {
+  
+  .StyledBenefitTeaserWrapper{
+    grid-template-columns: repeat(2,1fr);
+ 
+  }
+}
+
   
 @media (width >= 960px) {
   .StyledPreviewSection {
@@ -111,10 +119,8 @@
   .StyledQuoteTeaserWrapper {
     grid-template-columns: repeat(2,1fr);
   }
-  .StyledBenefitTeaserWrapper{
-    grid-template-columns: repeat(2,1fr);
+
  
-  }
 }
 
 @media (width >= 1280px) {
