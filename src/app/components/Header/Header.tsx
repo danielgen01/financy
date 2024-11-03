@@ -82,7 +82,7 @@ const Header: React.FC = () => {
         <Image src={logoSrc} alt="Logo_Financy" />
       </Link>
       <ul className={styles.StyledMenuList}>
-        <MenuItem href="/overview" label="Overview" isActive />
+        <MenuItem href="/dashboard" label="Dashboard" />
         <MenuItem href="/" label="Transactions" />
         <MenuItem href="/" label="Analytics" />
         <MenuItem href="/" label="Accounts" />
