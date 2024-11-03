@@ -48,20 +48,22 @@ const ArrowSvg = () => {
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className={styles.StyledHeroSection}>
-      <H1>
-        Manage your{" "}
-        <span className={styles.StyledHighlightedSpan}>Finances </span>
-        with ease
-      </H1>
-      <Paragraph>
-        Our powerful platform helps you take control of your income, expenses{" "}
-        assets, and liabilities, all in one place
-      </Paragraph>
-      <Link href="/signup" className={styles.StyledLink}>
-        Sign up now <ArrowSvg />
-      </Link>
-    </section>
+    <LayoutSection>
+      <div className={styles.StyledHeroSection}>
+        <H1>
+          Manage your{" "}
+          <span className={styles.StyledHighlightedSpan}>Finances </span>
+          with ease
+        </H1>
+        <Paragraph>
+          Our powerful platform helps you take control of your income, expenses{" "}
+          assets, and liabilities, all in one place
+        </Paragraph>
+        <Link href="/signup" className={styles.StyledLink}>
+          Sign up now <ArrowSvg />
+        </Link>
+      </div>
+    </LayoutSection>
   )
 }
 
