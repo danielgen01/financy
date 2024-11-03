@@ -1,6 +1,7 @@
 "use client"
 
-import { faBell, faGear } from "@fortawesome/free-solid-svg-icons"
+import { faBell } from "@fortawesome/free-regular-svg-icons"
+import { faGear } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   Avatar,
@@ -111,6 +112,7 @@ const Header: React.FC = () => {
           <button className="header-action-icon" type="button">
             <FontAwesomeIcon
               icon={faBell}
+              fontVariant={"classic"}
               width={40}
               height={40}
               cursor="pointer"
