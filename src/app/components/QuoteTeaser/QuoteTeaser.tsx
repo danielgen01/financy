@@ -18,7 +18,7 @@ export const QuoteTeaser: React.FC<QuoteTeaserProps> = ({
   return (
     <div className={styles.StyledQuoteTeaser}>
       <Rating name="read-only" value={starCount} readOnly />
-      <Paragraph>{testimonialText}</Paragraph>
+      <p className={styles.StyledParagraph}>{testimonialText}</p>
       <div className={styles.StyledRoofer}>
         <div className={styles.StyledAvatarAndTextWrapper}>
           <Avatar />
