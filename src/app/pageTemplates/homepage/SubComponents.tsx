@@ -1,5 +1,7 @@
 "use client"
 
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
 import Link from "next/link"
 import { useTheme } from "next-themes"
@@ -27,25 +29,6 @@ import LightReport from "../../../../public/report_light.png"
 import TrackingImage from "../../../../public/tracking.png"
 import styles from "./SubComponents.styles.module.css"
 
-const ArrowSvg = () => {
-  return (
-    <svg
-      width="30px"
-      height="30px"
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="#000000"
-      className="bi bi-arrow-right-short"
-      stroke="white"
-    >
-      <path
-        fillRule="evenodd"
-        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
-      />
-    </svg>
-  )
-}
-
 export const HeroSection: React.FC = () => {
   return (
     <LayoutSection>
@@ -60,7 +43,8 @@ export const HeroSection: React.FC = () => {
           assets, and liabilities, all in one place
         </Paragraph>
         <Link href="/signup" className={styles.StyledLink}>
-          Sign up now <ArrowSvg />
+          Get started
+          <FontAwesomeIcon icon={faArrowRight} />
         </Link>
       </div>
     </LayoutSection>
