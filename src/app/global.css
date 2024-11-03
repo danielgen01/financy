@@ -108,6 +108,8 @@
      --color-typography-default:#121027;
     --color-preview-section-background:#E5E9F0;
     --color-testimonial-section-background:#E5E9F0;
+    --color-quote-teaser-icon:#778499;
+    --color-quote-teaser-background: #F2F6FD;
 
     /* shared colors */
     --color-icon: #778499;
@@ -147,6 +149,9 @@
   --color-typography-default:#F2F6FD;
   --color-preview-section-background:#292644;
   --color-testimonial-section-background:#1E1D3A;
+  --color-quote-teaser-icon:#FFFFFF;
+  --color-quote-teaser-background: #282747;
+
 
 
 

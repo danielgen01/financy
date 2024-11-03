@@ -64,7 +64,6 @@
   align-items: center;
   gap: var(--spacing-lg);
   background-color: var(--color-testimonial-section-background);
-  height: 50vh;
 }
 
 .StyledTestimonialContentWrapper {
@@ -74,6 +73,12 @@
   align-items: center;
   gap: var(--spacing-lg);
   padding: var(--spacing-xl);
+}
+
+.StyledQuoteTeaserWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
 }
 
 .StyledBenefitTeaserWrapper { 

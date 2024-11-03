@@ -25,6 +25,7 @@ import DarkReport from "../../../../public/report_dark.png"
 import LightReport from "../../../../public/report_light.png"
 import TrackingImage from "../../../../public/tracking.png"
 import styles from "./SubComponents.styles.module.css"
+import { QuoteTeaser } from "@/app/components/QuoteTeaser/QuoteTeaser"
 
 const ArrowSvg = () => {
   return (
@@ -169,6 +170,20 @@ export const TestimonalSection = () => {
         <Paragraph>
           Get an impressive overview , what our clients say about us
         </Paragraph>
+        <div className={styles.StyledQuoteTeaserWrapper}>
+          <QuoteTeaser
+            starCount={5}
+            testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
+          />
+          <QuoteTeaser
+            starCount={5}
+            testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
+          />
+          <QuoteTeaser
+            starCount={5}
+            testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
+          />
+        </div>
       </div>
     </section>
   )
