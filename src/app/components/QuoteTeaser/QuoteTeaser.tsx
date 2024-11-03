@@ -21,10 +21,10 @@ export const QuoteTeaser: React.FC<QuoteTeaserProps> = ({
       <p className={styles.StyledParagraph}>{testimonialText}</p>
       <div className={styles.StyledRoofer}>
         <div className={styles.StyledAvatarAndTextWrapper}>
-          <Avatar />
+          <Avatar src="./profile.png" />
           <div className={styles.StyledNameAndRole}>
-            <h4>Ricky</h4>
-            <Paragraph>Pornstar</Paragraph>
+            <h4>Daniel</h4>
+            <Paragraph>Software Developer</Paragraph>
           </div>
         </div>
         <FontAwesomeIcon
