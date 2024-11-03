@@ -11,6 +11,7 @@ import { CTATeaser } from "@/app/components/CTATeaser/CTATeaser"
 import { LayoutSection } from "@/app/components/LayoutSection/LayoutSection"
 import { H1 } from "@/app/components/Typography/H1/H1"
 import { H2 } from "@/app/components/Typography/H2/H2"
+import { H3 } from "@/app/components/Typography/H3/H3"
 import Paragraph from "@/app/components/Typography/Paragraph/Paragraph"
 
 import AnalyticsDark from "../../../../public/analytics_dark.png"
@@ -24,7 +25,6 @@ import DarkReport from "../../../../public/report_dark.png"
 import LightReport from "../../../../public/report_light.png"
 import TrackingImage from "../../../../public/tracking.png"
 import styles from "./SubComponents.styles.module.css"
-import { H3 } from "@/app/components/Typography/H3/H3"
 
 const ArrowSvg = () => {
   return (
@@ -164,8 +164,11 @@ Join thousands who are taking control of their finances.
 export const TestimonalSection = () => {
   return (
     <section className={styles.StyledTestimonialSection}>
-      <div>
+      <div className={styles.StyledTestimonialContentWrapper}>
         <H3>Testimonials from our clients</H3>
+        <Paragraph>
+          Get an impressive overview , what our clients say about us
+        </Paragraph>
       </div>
     </section>
   )
