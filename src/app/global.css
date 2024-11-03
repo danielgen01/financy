@@ -107,6 +107,7 @@
      --color-card-title:#516788;
      --color-typography-default:#121027;
     --color-preview-section-background:#E5E9F0;
+    --color-testimonial-section-background:#E5E9F0;
 
     /* shared colors */
     --color-icon: #778499;
@@ -145,6 +146,8 @@
   --color-gradient-to: rgb(88 84 192 / 70%);
   --color-typography-default:#F2F6FD;
   --color-preview-section-background:#292644;
+  --color-testimonial-section-background:#1E1D3A;
+
 
 
 
@@ -159,38 +162,6 @@ body {
   overflow-x:hidden;
 
 }
-
-
-/* main, footer {
-  padding-left:var(--spacing-xl);
-  padding-right:var(--spacing-xl);
-}
-
-@media screen and (width >= 960px) {
-  main, footer {
-    padding-left:var(--spacing-6xl);
-    padding-right:var(--spacing-6xl);
-
-  }
-  
-}
-
-@media screen and (width >= 1280px) {
-  main, footer {
-    padding-left:80px;
-    padding-right:80px;
-
-  }
-  
-}
-
-@media screen and (width >= 1920px) {
-  main, footer {
-    padding-left:200px;
-    padding-right:200px;
-
-  }
-} */
 
 .header-action-icon {
   background-color: var(--color-icon-background);

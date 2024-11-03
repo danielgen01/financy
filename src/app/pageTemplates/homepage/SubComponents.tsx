@@ -24,6 +24,7 @@ import DarkReport from "../../../../public/report_dark.png"
 import LightReport from "../../../../public/report_light.png"
 import TrackingImage from "../../../../public/tracking.png"
 import styles from "./SubComponents.styles.module.css"
+import { H3 } from "@/app/components/Typography/H3/H3"
 
 const ArrowSvg = () => {
   return (
@@ -157,5 +158,15 @@ Join thousands who are taking control of their finances.
 "
       />
     </LayoutSection>
+  )
+}
+
+export const TestimonalSection = () => {
+  return (
+    <section className={styles.StyledTestimonialSection}>
+      <div>
+        <H3>Testimonials from our clients</H3>
+      </div>
+    </section>
   )
 }
