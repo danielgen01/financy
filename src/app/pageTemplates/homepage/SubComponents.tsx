@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
@@ -70,7 +71,13 @@ export const HeroSection: React.FC = () => {
 
 export const PreviewSection: React.FC = () => {
   const { theme } = useTheme()
-  const imageSrc = theme === "dark" ? PreviewDark : PreviewLight
+  const [loadedTheme, setLoadedTheme] = useState<string | undefined>("system")
+
+  useEffect(() => {
+    setLoadedTheme(theme)
+  }, [theme])
+
+  const imageSrc = loadedTheme === "dark" ? PreviewDark : PreviewLight
 
   return (
     <section className={styles.StyledPreviewSection}>
@@ -88,9 +95,16 @@ export const PreviewSection: React.FC = () => {
 
 export const BenefitSection = () => {
   const { theme } = useTheme()
-  const imageSrcReport = theme === "dark" ? DarkReport : LightReport
-  const imageSrcAnalytics = theme === "dark" ? AnalyticsDark : AnalyticsLigth
-  const imageSrcInsights = theme === "dark" ? InsightsDark : InsightsLight
+  const [loadedTheme, setLoadedTheme] = useState<string | undefined>("system")
+
+  useEffect(() => {
+    setLoadedTheme(theme)
+  }, [theme])
+
+  const imageSrcReport = loadedTheme === "dark" ? DarkReport : LightReport
+  const imageSrcAnalytics =
+    loadedTheme === "dark" ? AnalyticsDark : AnalyticsLigth
+  const imageSrcInsights = loadedTheme === "dark" ? InsightsDark : InsightsLight
 
   return (
     <section className={styles.StyledBenefitsSection}>
