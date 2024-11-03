@@ -2,6 +2,8 @@ import Image from "next/image"
 import { useTheme } from "next-themes"
 import React from "react"
 
+import IconWrapperLight from "../../../../public/Icon wrapper.png"
+import IconWrapperDark from "../../../../public/Icon wrapper-dark.png"
 import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import styles from "./CashflowOverview.module.css"
 import { roundToFixed } from "./SubComponents"
@@ -18,16 +20,15 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
   expenseTotal,
 }) => {
   const { theme } = useTheme()
+  const imageSrc = theme === "dark" ? IconWrapperDark : IconWrapperLight
 
   return (
     <div className={styles.StyledCashflowOverviewWrapper}>
       <div className={styles.StyledCashflowContentWrapper}>
         <div className={styles.StyledImagePlusTextWrapper}>
           <Image
-            src={`${theme === "dark" ? "/Icon wrapper-dark.png" : "/Icon wrapper.png"}`}
+            src={imageSrc}
             alt="Cashflow Overview"
-            width={75}
-            height={75}
             className={styles.StyledCashflowImage}
           />
           <div className={styles.StyledPaydayTextWrapper}>
@@ -61,7 +62,6 @@ const CashflowOverview: React.FC<CashflowOverviewProps> = ({
               `€ ${roundToFixed(netCashflowAmount)}`
             )}
           </span>
-          {/* <span className="">of which passive* = €0</span> */}
         </div>
       </div>
     </div>
