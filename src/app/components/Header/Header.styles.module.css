@@ -56,6 +56,12 @@ cursor: pointer;
 
 }
 
+.StyledAccountButtonWrapper {
+  background:none;
+  border: none;
+
+}
+
 /* Medias */
 
 @media screen and (width >= 600px) {

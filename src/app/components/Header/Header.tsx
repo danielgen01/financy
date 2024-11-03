@@ -120,7 +120,9 @@ const Header: React.FC = () => {
         ) : (
           <MuiSkeleton variant="circular" width={50} height={50} />
         )}
-        <div
+        <button
+          className={styles.StyledAccountButtonWrapper}
+          type="button"
           onClick={() => {
             setOpenUserDialog(true)
           }}
@@ -134,7 +136,7 @@ const Header: React.FC = () => {
           ) : (
             <MuiSkeleton variant="circular" width={50} height={50} />
           )}
-        </div>
+        </button>
         {!user && !loading && (
           <>
             <Link className={styles.StyledLink} href="./signup">
