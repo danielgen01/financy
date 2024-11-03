@@ -76,8 +76,8 @@
 }
 
 .StyledQuoteTeaserWrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--spacing-2xl);
 }
 
@@ -113,19 +113,6 @@
 
 
 
-@media (width >= 1280px) {
-  .StyledBenefitTeaserWrapper { 
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    gap: var(--spacing-5xl);
-  }
-
-  .StyledBenefitTeaserWrapper > * {
-    flex-basis: 30% !important;
-  }
- 
-  
-}
 
  .StyledBigTeaserWrapper {
   display: grid;
@@ -141,7 +128,29 @@
   }
   
   .StyledBigTeaserWrapper {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2,1fr);
 
   }
+
+  .StyledQuoteTeaserWrapper {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (width >= 1280px) {
+  .StyledBenefitTeaserWrapper { 
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: var(--spacing-5xl);
+  }
+
+  .StyledBenefitTeaserWrapper > * {
+    flex-basis: 30% !important;
+  }
+
+  .StyledQuoteTeaserWrapper {
+    grid-template-columns: repeat(3,1fr);
+  }
+ 
+  
 }

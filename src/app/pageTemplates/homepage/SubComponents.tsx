@@ -9,6 +9,7 @@ import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
 import { CTATeaser } from "@/app/components/CTATeaser/CTATeaser"
 import { LayoutSection } from "@/app/components/LayoutSection/LayoutSection"
+import { QuoteTeaser } from "@/app/components/QuoteTeaser/QuoteTeaser"
 import { H1 } from "@/app/components/Typography/H1/H1"
 import { H2 } from "@/app/components/Typography/H2/H2"
 import { H3 } from "@/app/components/Typography/H3/H3"
@@ -25,7 +26,6 @@ import DarkReport from "../../../../public/report_dark.png"
 import LightReport from "../../../../public/report_light.png"
 import TrackingImage from "../../../../public/tracking.png"
 import styles from "./SubComponents.styles.module.css"
-import { QuoteTeaser } from "@/app/components/QuoteTeaser/QuoteTeaser"
 
 const ArrowSvg = () => {
   return (
@@ -170,20 +170,22 @@ export const TestimonalSection = () => {
         <Paragraph>
           Get an impressive overview , what our clients say about us
         </Paragraph>
-        <div className={styles.StyledQuoteTeaserWrapper}>
-          <QuoteTeaser
-            starCount={5}
-            testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
-          />
-          <QuoteTeaser
-            starCount={5}
-            testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
-          />
-          <QuoteTeaser
-            starCount={5}
-            testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
-          />
-        </div>
+        <LayoutSection>
+          <div className={styles.StyledQuoteTeaserWrapper}>
+            <QuoteTeaser
+              starCount={5}
+              testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
+            />
+            <QuoteTeaser
+              starCount={5}
+              testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
+            />
+            <QuoteTeaser
+              starCount={5}
+              testimonialText=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam repellendus in numquam reiciendis illum veniam exercitationem doloremqueodit repellat aut magnam sapiente placeat soluta, praesentium alias! Earum ipsum natus distinctio!"
+            />
+          </div>
+        </LayoutSection>
       </div>
     </section>
   )
