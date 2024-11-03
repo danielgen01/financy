@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
 import { CTATeaser } from "@/app/components/CTATeaser/CTATeaser"
+import { LayoutSection } from "@/app/components/LayoutSection/LayoutSection"
 import { H1 } from "@/app/components/Typography/H1/H1"
 import { H2 } from "@/app/components/Typography/H2/H2"
 import Paragraph from "@/app/components/Typography/Paragraph/Paragraph"
@@ -73,16 +74,18 @@ export const PreviewSection: React.FC = () => {
   const imageSrc = loadedTheme === "dark" ? PreviewDark : PreviewLight
 
   return (
-    <section className={styles.StyledPreviewSection}>
-      <div className={styles.StyledImagePreviewWrapper}>
-        <Image
-          src={imageSrc}
-          alt="Preview_of_financy"
-          className="ResponsiveImage"
-          placeholder="blur"
-        />
+    <LayoutSection>
+      <div className={styles.StyledPreviewSection}>
+        <div className={styles.StyledImagePreviewWrapper}>
+          <Image
+            src={imageSrc}
+            alt="Preview_of_financy"
+            className="ResponsiveImage"
+            placeholder="blur"
+          />
+        </div>
       </div>
-    </section>
+    </LayoutSection>
   )
 }
 
@@ -100,55 +103,59 @@ export const BenefitSection = () => {
   const imageSrcInsights = loadedTheme === "dark" ? InsightsDark : InsightsLight
 
   return (
-    <section className={styles.StyledBenefitsSection}>
-      <H2>Why choose financy ? </H2>
-      <Paragraph>
-        Financy gives you a perfect overview of your monthly incomes and
-        expenses to help you get in control of your cashflow{" "}
-      </Paragraph>
-      <div className={styles.StyledBenefitTeaserWrapper}>
-        <BenefitTeaser
-          src={imageSrcReport}
-          text="Comprehensive Financial Overview"
-        />
-        <BenefitTeaser
-          src={imageSrcInsights}
-          text="Monthly Cashflow Insights"
-        />
-        <BenefitTeaser
-          src={imageSrcAnalytics}
-          text="Automatic Analytics & Reporting"
-        />
+    <LayoutSection>
+      <div className={styles.StyledBenefitsSection}>
+        <H2>Why choose financy ? </H2>
+        <Paragraph>
+          Financy gives you a perfect overview of your monthly incomes and
+          expenses to help you get in control of your cashflow{" "}
+        </Paragraph>
+        <div className={styles.StyledBenefitTeaserWrapper}>
+          <BenefitTeaser
+            src={imageSrcReport}
+            text="Comprehensive Financial Overview"
+          />
+          <BenefitTeaser
+            src={imageSrcInsights}
+            text="Monthly Cashflow Insights"
+          />
+          <BenefitTeaser
+            src={imageSrcAnalytics}
+            text="Automatic Analytics & Reporting"
+          />
+        </div>
+        <div className={styles.StyledBigTeaserWrapper}>
+          <BigBenefitTeaser
+            headlineText="Safe & Secure"
+            paragraphText="Emphasize data security and privacy protection"
+            image={{
+              src: CyberSecurityImage,
+              alt: "cyber-security",
+            }}
+          />
+          <BigBenefitTeaser
+            image={{
+              src: TrackingImage,
+              alt: "tracking.png",
+            }}
+            headlineText="Easy cashflow tracking"
+            paragraphText="Track your income and expenses with ease"
+          />
+        </div>
       </div>
-      <div className={styles.StyledBigTeaserWrapper}>
-        <BigBenefitTeaser
-          headlineText="Safe & Secure"
-          paragraphText="Emphasize data security and privacy protection"
-          image={{
-            src: CyberSecurityImage,
-            alt: "cyber-security",
-          }}
-        />
-        <BigBenefitTeaser
-          image={{
-            src: TrackingImage,
-            alt: "tracking.png",
-          }}
-          headlineText="Easy cashflow tracking"
-          paragraphText="Track your income and expenses with ease"
-        />
-      </div>
-    </section>
+    </LayoutSection>
   )
 }
 
 export const CTASection = () => {
   return (
-    <CTATeaser
-      headlineText="Take Control of Your Finances Today"
-      paragraphText="Start Your Journey to Financial Freedom Today!
+    <LayoutSection>
+      <CTATeaser
+        headlineText="Take Control of Your Finances Today"
+        paragraphText="Start Your Journey to Financial Freedom Today!
 Join thousands who are taking control of their finances.
 "
-    />
+      />
+    </LayoutSection>
   )
 }

@@ -161,7 +161,7 @@ body {
 }
 
 
-main, footer {
+/* main, footer {
   padding-left:var(--spacing-xl);
   padding-right:var(--spacing-xl);
 }
@@ -190,7 +190,7 @@ main, footer {
     padding-right:200px;
 
   }
-}
+} */
 
 .header-action-icon {
   background-color: var(--color-icon-background);

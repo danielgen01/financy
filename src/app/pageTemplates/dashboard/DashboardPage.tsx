@@ -3,6 +3,7 @@ import React from "react"
 
 import Card from "@/app/components/Card/Card"
 import CashflowOverview from "@/app/components/CashflowOverview/CashflowOverview"
+import { LayoutSection } from "@/app/components/LayoutSection/LayoutSection"
 import { BigCardContainer } from "@/app/containers/BigCardContainer"
 import {
   headlineItemsMockBigCardAssets,
@@ -21,7 +22,7 @@ import {
 const DashboardPage = ({ ...props }: DashboardPageProps) => {
   return (
     <>
-      <section>
+      <LayoutSection>
         <div className={styles.StyledCardWrapper}>
           <Card title="Balance" amount={94242} performance={20} isBalanceCard />
           <Card
@@ -35,58 +36,67 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
             performance={10}
           />
         </div>
-      </section>
+      </LayoutSection>
       <div className={styles.StyledHeadlineAndFilterWrapper}>
-        <h1 className={styles.StyledHeadline}>Income Statement</h1>
         {/* <FilterMenu /> */}
       </div>
-      <section className={styles.StyledBigCardsWrapperSection}>
-        <BigCardContainer
-          headlineItems={headlineItemsMockCard}
-          buttonActionName="Add Income"
-          cardTitle="Income"
-          listItems={props.incomeData}
-        />
-        <BigCardContainer
-          headlineItems={headlineItemsMockCard}
-          buttonActionName="Add Expense"
-          cardTitle="Expenses"
-          listItems={props.expenseData}
-        />
-      </section>
-      <section className={styles.StyledCashflowOverviewSection}>
-        <CashflowOverview
-          netCashflowAmount={calculateTotal({
-            incomeData: props.incomeData,
-            expenseData: props.expenseData,
-          })}
-          incomeTotal={calculateTotalIncome(props.incomeData)}
-          expenseTotal={calculateTotalExpense(props.expenseData)}
-        />
-      </section>
-      <Alert severity="info" className={styles.StyledInfoCard}>
-        <AlertTitle>Info</AlertTitle>
-        Passive means in this case income, which you don&apos;t work actively
-        for. As an example this could be a rented-out property, a YouTube video
-        which brings you passive money after recording it, a published book,
-        etc..
-      </Alert>
-      <section className={styles.StyledBigCardsWrapperSection}>
-        <BigCardContainer
-          headlineItems={headlineItemsMockBigCardAssets}
-          buttonActionName="Add Asset"
-          cardTitle="Assets"
-          listItems={props.assetData}
-          isFourColumns={false} // We will check later on if we really need 4 columns TODO
-        />
-        <BigCardContainer
-          headlineItems={headlineItemsMockBigCardLiabilities}
-          buttonActionName="Add Liability"
-          cardTitle="Liabilities"
-          listItems={props.liabilitiesData}
-          isFourColumns={false} // We will check later on if we really need 4 columns TODO
-        />
-      </section>
+      <LayoutSection>
+        <h1 className={styles.StyledHeadline}>Income Statement</h1>
+        <div className={styles.StyledBigCardsWrapperSection}>
+          <BigCardContainer
+            headlineItems={headlineItemsMockCard}
+            buttonActionName="Add Income"
+            cardTitle="Income"
+            listItems={props.incomeData}
+          />
+          <BigCardContainer
+            headlineItems={headlineItemsMockCard}
+            buttonActionName="Add Expense"
+            cardTitle="Expenses"
+            listItems={props.expenseData}
+          />
+        </div>
+      </LayoutSection>
+
+      <LayoutSection>
+        <div className={styles.StyledCashflowOverviewSection}>
+          <CashflowOverview
+            netCashflowAmount={calculateTotal({
+              incomeData: props.incomeData,
+              expenseData: props.expenseData,
+            })}
+            incomeTotal={calculateTotalIncome(props.incomeData)}
+            expenseTotal={calculateTotalExpense(props.expenseData)}
+          />
+        </div>
+
+        <Alert severity="info" className={styles.StyledInfoCard}>
+          <AlertTitle>Info</AlertTitle>
+          Passive means in this case income, which you don&apos;t work actively
+          for. As an example this could be a rented-out property, a YouTube
+          video which brings you passive money after recording it, a published
+          book, etc..
+        </Alert>
+      </LayoutSection>
+
+      <LayoutSection>
+        <div className={styles.StyledBigCardsWrapperSection}>
+          <BigCardContainer
+            headlineItems={headlineItemsMockBigCardAssets}
+            buttonActionName="Add Asset"
+            cardTitle="Assets"
+            listItems={props.assetData}
+            isFourColumns={false} // We will check later on if we really need 4 columns TODO
+          />
+          <BigCardContainer
+            headlineItems={headlineItemsMockBigCardLiabilities}
+            buttonActionName="Add Liability"
+            cardTitle="Liabilities"
+            listItems={props.liabilitiesData}
+            isFourColumns={false} // We will check later on if we really need 4 columns TODO
+          />
+        </div>
+      </LayoutSection>
     </>
   )
 }
