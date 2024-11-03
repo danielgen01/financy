@@ -42,7 +42,6 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
-    white-space: nowrap;
     flex-grow: 0;
     align-self: center;
 
@@ -58,6 +57,14 @@
     font-size: var(--font-size-xs);
 
 }
+
+@media (width >= 375px) {
+  
+  .StyledCTAButton {
+    white-space: nowrap;
+
+  }
+  }
 
 @media (width >= 960px) {
     .StyledParagraphAndCtaButtonWrapper {
