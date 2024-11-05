@@ -110,6 +110,7 @@
     --color-testimonial-section-background:#E5E9F0;
     --color-quote-teaser-icon:#778499;
     --color-quote-teaser-background: #F2F6FD;
+    --color-pricing-teaser-text:#000000;
 
     /* shared colors */
     --color-icon: #778499;
@@ -151,6 +152,8 @@
   --color-testimonial-section-background:#1E1D3A;
   --color-quote-teaser-icon:#FFFFFF;
   --color-quote-teaser-background: #282747;
+  --color-pricing-teaser-text:#F2F6FD;
+
 
 
 
