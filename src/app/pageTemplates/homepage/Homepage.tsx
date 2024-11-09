@@ -6,6 +6,7 @@ import {
   CTASection,
   HeroSection,
   PreviewSection,
+  PricingTeasersSection,
   TestimonalSection,
 } from "./SubComponents"
 
@@ -17,6 +18,7 @@ const Homepage = () => {
       <BenefitSection />
       <CTASection />
       <TestimonalSection />
+      <PricingTeasersSection />
     </div>
   )
 }

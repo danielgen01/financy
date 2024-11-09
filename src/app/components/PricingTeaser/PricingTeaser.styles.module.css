@@ -52,7 +52,6 @@
 }
 
 .StyledAdvantageListWrapper {
-    padding: 0 var(--spacing-lg);
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -69,21 +68,61 @@
 
 .StyledListItem {
     color: var(--color-text-primary);
+    font-size: var(--font-size-md);
 }
 
 .StyledBookNowButton {
-    background-color: var(--color-custom-purple);
     margin-top: var(--spacing-md);
     color: var(--color-white);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: var(--border-radius-md);
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
     border: none;
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-semibold);
     cursor: pointer;
-    transition: background-color 0.3s;
     text-decoration: none;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
+    -webkit-border-radius: var(--border-radius-lg);
+    -moz-border-radius: var(--border-radius-lg);
+    -ms-border-radius: var(--border-radius-lg);
+    -o-border-radius: var(--border-radius-lg);
+    transition: 200ms ease-in-out;
+    -webkit-transition: 200ms ease-in-out;
+    -moz-transition: 200ms ease-in-out;
+    -ms-transition: 200ms ease-in-out;
+    -o-transition: 200ms ease-in-out;
+    background: var(--color-button-gradient);
+
+}
+
+.StyledBookNowButton:hover {
+    opacity: 0.7;
+}
+
+.StyledFontAwesomeIcon {
+    background-color: #8CC63F;
+    color:var(--color-white);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius-full);
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    -ms-border-radius: var(--border-radius-full);
+    -o-border-radius: var(--border-radius-full);
+}
+
+.StyledFlagTopLeft {
+    position: relative;
+    top: -10px;       /* Hebt die Flagge etwas nach oben */
+    left: -10px;      /* Verschiebt die Flagge leicht nach links */
+    color: white;
+    padding: 5px 20px;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-custom-purple);
+
 }

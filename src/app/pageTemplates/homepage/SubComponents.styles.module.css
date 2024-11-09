@@ -6,7 +6,7 @@
   }
 
   .StyledLink {
-    background-color: var(--color-primary-main);
+    background: var(--color-button-gradient);
     font-size: var(--font-size-sm);
     color: var(--color-white);
     font-weight: var(--font-weight-medium);
@@ -96,6 +96,13 @@
   grid-template-columns: 1fr;
   gap: var(--spacing-2xl);
   width: 100%;
+}
+
+.StyledPricingTeasersWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap:var(--spacing-2xl);
 }
 
 @media (width >= 600px) {

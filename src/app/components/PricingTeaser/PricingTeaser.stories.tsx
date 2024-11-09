@@ -26,4 +26,6 @@ const Template: StoryFn<any> = (args) => {
 export const Initial = Template.bind({})
 Initial.args = {
   advantageItems: ["item1", "item2", "item3", "item4", "item5", "item6"],
+  interval: "/month",
+  price: "Free",
 }
