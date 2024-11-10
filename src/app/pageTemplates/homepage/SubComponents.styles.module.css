@@ -93,11 +93,7 @@
   width: 100%;
 }
 
-.StyledPricingTeasersWrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
-}
+
 
 @media (width >= 600px) {
   
@@ -133,9 +129,6 @@
     grid-template-columns: repeat(2,1fr);
   }
 
-  .StyledPricingTeasersWrapper {
-    grid-template-columns: repeat(2,1fr);
-  }
 
  
 }
@@ -147,10 +140,7 @@
     grid-template-columns: repeat(3,1fr);
   }
 
-  .StyledPricingTeasersWrapper {
-    grid-template-columns: repeat(3,1fr);
 
-  }
  
   
 }

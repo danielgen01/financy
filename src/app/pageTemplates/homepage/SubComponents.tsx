@@ -11,7 +11,6 @@ import { BenefitTeaser } from "@/app/components/BenefitTeaser/BenefitTeaser"
 import { BigBenefitTeaser } from "@/app/components/BigBenefitTeaser/BigBenefitTeaser"
 import { CTATeaser } from "@/app/components/CTATeaser/CTATeaser"
 import { LayoutSection } from "@/app/components/LayoutSection/LayoutSection"
-import { PricingTeaser } from "@/app/components/PricingTeaser/PricingTeaser"
 import { QuoteTeaser } from "@/app/components/QuoteTeaser/QuoteTeaser"
 import { H1 } from "@/app/components/Typography/H1/H1"
 import { H2 } from "@/app/components/Typography/H2/H2"
@@ -176,53 +175,6 @@ export const TestimonalSection = () => {
             />
           </div>
         </LayoutSection>
-      </div>
-    </LayoutSection>
-  )
-}
-
-export const PricingTeasersSection = () => {
-  return (
-    <LayoutSection>
-      <H3>Pricing plan for everyone</H3>
-      <Paragraph>find the corret abbo for you</Paragraph>
-      <div className={styles.StyledPricingTeasersWrapper}>
-        <PricingTeaser
-          advantageItems={[
-            "item1",
-            "item2",
-            "item3",
-            "item4",
-            "item5",
-            "item6",
-          ]}
-          price="Free"
-          interval="/month"
-        />
-        <PricingTeaser
-          advantageItems={[
-            "item1",
-            "item2",
-            "item3",
-            "item4",
-            "item5",
-            "item6",
-          ]}
-          price="Free"
-          interval="/month"
-        />
-        <PricingTeaser
-          advantageItems={[
-            "item1",
-            "item2",
-            "item3",
-            "item4",
-            "item5",
-            "item6",
-          ]}
-          price="Free"
-          interval="/month"
-        />
       </div>
     </LayoutSection>
   )
