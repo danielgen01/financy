@@ -151,7 +151,10 @@ Join thousands who are taking control of their finances.
 
 export const TestimonalSection = () => {
   return (
-    <section className={styles.StyledTestimonialSection}>
+    <LayoutSection
+      isFullWidth
+      className={styles.StyledTestimonialLayoutSectionWrapper}
+    >
       <div className={styles.StyledTestimonialContentWrapper}>
         <H3>Testimonials from our clients</H3>
         <Paragraph>
@@ -174,7 +177,7 @@ export const TestimonalSection = () => {
           </div>
         </LayoutSection>
       </div>
-    </section>
+    </LayoutSection>
   )
 }
 

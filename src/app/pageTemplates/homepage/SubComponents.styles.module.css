@@ -58,12 +58,7 @@
   padding-top: var(--spacing-3xl)
 }
 
-.StyledTestimonialSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: var(--spacing-lg);
+.StyledTestimonialLayoutSectionWrapper {
   background-color: var(--color-testimonial-section-background);
 }
 

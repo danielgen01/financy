@@ -36,3 +36,11 @@
   
     }
   }
+
+
+/* this variant will take the full app width without padding */
+  .StyledLayoutSectionFullWidth {
+    padding-left:0;
+    padding-right:0;
+
+  }
