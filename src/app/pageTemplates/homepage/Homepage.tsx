@@ -1,9 +1,9 @@
 import React from "react"
 
+import { BenefitSection } from "./BenefitSection/BenefitSection"
 import styles from "./Homepage.styles.module.css"
 import { PricingSection } from "./PricingSection/PricingSection"
 import {
-  BenefitSection,
   CTASection,
   HeroSection,
   PreviewSection,

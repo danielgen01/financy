@@ -49,14 +49,6 @@
     margin: 0 auto;
 }
 
-.StyledBenefitsSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-lg);
-  padding-top: var(--spacing-3xl)
-}
 
 .StyledTestimonialLayoutSectionWrapper {
   background-color: var(--color-testimonial-section-background);
@@ -77,52 +69,19 @@
   gap: var(--spacing-2xl);
 }
 
-.StyledBenefitTeaserWrapper { 
-   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-xl);
-  width: 100%;
-}
 
 
 
- .StyledBigTeaserWrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
-  width: 100%;
-}
 
 
 
-@media (width >= 600px) {
-  
-  .StyledBenefitTeaserWrapper{
-    grid-template-columns: repeat(2,1fr);
- 
-  }
 
- .StyledBenefitTeaserWrapper > :nth-child(3) {
-  grid-column: span 2;
-}
 
-}
 
   
 @media (width >= 960px) {
   .StyledPreviewSection {
     max-width: 50%;
-  }
-
-  .StyledBenefitTeaserWrapper {
-    grid-template-columns: repeat(3,1fr);
-  }
-  
-  .StyledBigTeaserWrapper {
-    grid-template-columns: repeat(2,1fr);
-  }
-  .StyledBenefitTeaserWrapper > :nth-child(3) {
-    grid-column: span 1;
   }
 
   .StyledQuoteTeaserWrapper {
