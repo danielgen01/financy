@@ -1,20 +1,16 @@
 import React from "react"
 
 import { BenefitSection } from "./BenefitSection/BenefitSection"
+import { CTASection } from "./CTASection/CTASection"
+import { HeroSection } from "./HeroSection/HeroSection"
 import styles from "./Homepage.styles.module.css"
 import { PricingSection } from "./PricingSection/PricingSection"
-import {
-  CTASection,
-  HeroSection,
-  PreviewSection,
-  TestimonalSection,
-} from "./SubComponents"
+import { TestimonalSection } from "./TestimonialSection/TestimonialSection"
 
 const Homepage = () => {
   return (
     <div className={styles.StyledHomePageContentWrapper}>
       <HeroSection />
-      <PreviewSection />
       <BenefitSection />
       <CTASection />
       <TestimonalSection />
