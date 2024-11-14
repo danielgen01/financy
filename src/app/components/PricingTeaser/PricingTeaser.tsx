@@ -13,12 +13,33 @@ interface PricingTeaserProps {
   price: string | number
   interval: string
 }
+interface VariantProps {
+  variant?: string | "free" | "basic" | "premium"
+}
 
-function Flag() {
+export const Flag: React.FC<{ label: string; variant: VariantProps }> = ({
+  label,
+  variant,
+}) => {
+  const getVariantColorFlag = () => {
+    if (variant === "free") {
+      return `${styles.freeVariant}`
+    }
+    if (variant === "basic") {
+      return styles.basicVariant
+    }
+    if (variant === "premium") {
+      return styles.premiumVariant
+    }
+  }
+
+  const flagClassNames = `${styles.StyledFlagTopLeft} ${getVariantColorFlag()}`
+  const flagVectorClassName = `${styles.StyledFlagVector} ${getVariantColorFlag()}`
+
   return (
     <div className={styles.StyledFlagWrapper}>
-      <div className={styles.StyledFlagTopLeft}>Free Trial</div>
-      <div className={styles.StyledFlagVector} />
+      <div className={flagClassNames}>{label}</div>
+      <div className={flagVectorClassName} />
     </div>
   )
 }
@@ -27,12 +48,14 @@ export const PricingTeaser: React.FC<PricingTeaserProps> = ({
   advantageItems,
   price,
   interval,
+  variant,
+  label,
 }) => {
   return (
     <div className={styles.StyledPricingTeaser}>
       <div className={styles.StyledPricingTeaserContent}>
         <div className={styles.StyledTeaserHeader}>
-          <Flag />
+          <Flag variant={variant} label={label} />
           <div className={styles.StyledPriceAndIntervalWrapper}>
             <span className={styles.StyledPriceText}>{price}</span>
             <span className={styles.StyledIntervallText}>{interval}</span>

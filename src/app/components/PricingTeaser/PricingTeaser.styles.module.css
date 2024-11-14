@@ -131,26 +131,42 @@
     padding: 10px 10px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(267.27deg, #FF00F2 -401.08%, #00FFD9 408.44%);
-
 
 }
 
 .StyledFlagVector {
     position: relative;
-    top:65%;
+    top:-5%;
     left:2%;
     transform: skew(0deg, 45deg);
-    border-bottom: 20px solid transparent;
-    border-right: 20px solid #00FFD9;
+    height: 10px;
+    width: 20px;
     z-index: -1;
     background-color: #3F7AC6;
     -webkit-transform: skew();
     -moz-transform: skew();
     -ms-transform: skew();
     -o-transform: skew();
+    
 }
+
+
 
 .StyledParagraph {
     text-align: left;
+  }
+
+  .freeVariant {
+    background: linear-gradient(267.27deg, #FF00F2 -401.08%, #00FFD9 408.44%);
+  }
+
+  .basicVariant {
+    background: linear-gradient(90deg, #825CF5 0%, #A578FA 100%);
+
+
+  }
+
+  .premiumVariant {
+    background: var(--color-custom-purple)
+
   }

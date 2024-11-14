@@ -13,6 +13,8 @@ export const PricingSection = () => {
         <Paragraph>find the corret abbo for you</Paragraph>
         <div className={styles.StyledPricingTeasersWrapper}>
           <PricingTeaser
+            variant="free"
+            label="Free"
             advantageItems={[
               "item1",
               "item2",
@@ -29,6 +31,8 @@ export const PricingSection = () => {
             interval="/month"
           />
           <PricingTeaser
+            variant="basic"
+            label="Basic"
             advantageItems={[
               "item1",
               "item2",
@@ -45,6 +49,8 @@ export const PricingSection = () => {
             interval="/month"
           />
           <PricingTeaser
+            variant="premium"
+            label="Premium"
             advantageItems={[
               "item1",
               "item2",
