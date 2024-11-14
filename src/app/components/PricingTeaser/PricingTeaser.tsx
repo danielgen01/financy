@@ -14,6 +14,15 @@ interface PricingTeaserProps {
   interval: string
 }
 
+function Flag() {
+  return (
+    <div className={styles.StyledFlagWrapper}>
+      <div className={styles.StyledFlagTopLeft}>Free Trial</div>
+      <div className={styles.StyledFlagVector} />
+    </div>
+  )
+}
+
 export const PricingTeaser: React.FC<PricingTeaserProps> = ({
   advantageItems,
   price,
@@ -23,7 +32,7 @@ export const PricingTeaser: React.FC<PricingTeaserProps> = ({
     <div className={styles.StyledPricingTeaser}>
       <div className={styles.StyledPricingTeaserContent}>
         <div className={styles.StyledTeaserHeader}>
-          <div className={styles.StyledFlagTopLeft}>Free Trial</div>
+          <Flag />
           <div className={styles.StyledPriceAndIntervalWrapper}>
             <span className={styles.StyledPriceText}>{price}</span>
             <span className={styles.StyledIntervallText}>{interval}</span>

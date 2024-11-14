@@ -20,6 +20,10 @@ export const PricingSection = () => {
               "item4",
               "item5",
               "item6",
+              "item7",
+              "item8",
+              "item9",
+              "item10",
             ]}
             price="Free"
             interval="/month"
@@ -32,6 +36,10 @@ export const PricingSection = () => {
               "item4",
               "item5",
               "item6",
+              "item7",
+              "item8",
+              "item9",
+              "item10",
             ]}
             price="€25"
             interval="/month"
@@ -44,6 +52,10 @@ export const PricingSection = () => {
               "item4",
               "item5",
               "item6",
+              "item7",
+              "item8",
+              "item9",
+              "item10",
             ]}
             price="€50"
             interval="/month"

@@ -4,6 +4,7 @@
     border-radius:var(--border-radius-lg) ;
     border: 1px solid var(--color-container-outline);
 
+
 }
 
 .StyledPricingTeaserContent {
@@ -113,18 +114,41 @@
     -o-border-radius: var(--border-radius-full);
 }
 
+.StyledFlagWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: -10%;      
+
+}
+
 .StyledFlagTopLeft {
     position: relative;
-    top: -10px;       /* Hebt die Flagge etwas nach oben */
-    left: -10px;      /* Verschiebt die Flagge leicht nach links */
+    align-self: flex-start;
     color: white;
-    padding: 5px 20px;
+    font-size: 26px;
     font-weight: bold;
-    font-size: 14px;
+    padding: 10px 10px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    background-color: var(--color-custom-purple);
+    background: linear-gradient(267.27deg, #FF00F2 -401.08%, #00FFD9 408.44%);
 
+
+}
+
+.StyledFlagVector {
+    position: relative;
+    top:65%;
+    left:2%;
+    transform: skew(0deg, 45deg);
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #00FFD9;
+    z-index: -1;
+    background-color: #3F7AC6;
+    -webkit-transform: skew();
+    -moz-transform: skew();
+    -ms-transform: skew();
+    -o-transform: skew();
 }
 
 .StyledParagraph {
