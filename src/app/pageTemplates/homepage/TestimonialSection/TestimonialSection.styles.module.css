@@ -1,5 +1,6 @@
 .StyledTestimonialLayoutSectionWrapper {
     background-color: var(--color-testimonial-section-background);
+    padding: var(--spacing-2xl) 0;
   }
 
   .StyledTestimonialContentWrapper {
