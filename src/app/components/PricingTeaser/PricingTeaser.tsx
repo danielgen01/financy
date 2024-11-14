@@ -30,7 +30,7 @@ export const PricingTeaser: React.FC<PricingTeaserProps> = ({
           </div>
         </div>
         <div className={styles.StyledParagraphWrapper}>
-          <Paragraph>
+          <Paragraph className={styles.StyledParagraph}>
             {" "}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
           </Paragraph>
