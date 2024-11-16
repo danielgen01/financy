@@ -114,15 +114,11 @@
     -o-border-radius: var(--border-radius-full);
 }
 
-.StyledFlagWrapper {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    left: -10%;      
-
-}
 
 .StyledFlagTopLeft {
+    height: 50px;
+    align-self: flex-start;
+    left: -10%;      
     position: relative;
     align-self: flex-start;
     color: white;
@@ -134,21 +130,22 @@
 
 }
 
-.StyledFlagVector {
-    position: relative;
-    top:-5%;
-    left:2%;
+.StyledFlagTopLeft::before {
+    content:"";
+    position: absolute;
     transform: skew(0deg, 45deg);
-    height: 10px;
+    bottom:-13%;
+    left:3%;
+    height: 20px;
     width: 20px;
     z-index: -1;
-    background-color: #3F7AC6;
     -webkit-transform: skew();
     -moz-transform: skew();
     -ms-transform: skew();
     -o-transform: skew();
-    
 }
+
+
 
 
 
@@ -156,8 +153,12 @@
     text-align: left;
   }
 
+
+/* adjust Flag color based on variant */
+
   .freeVariant {
     background: linear-gradient(267.27deg, #FF00F2 -401.08%, #00FFD9 408.44%);
+
   }
 
   .basicVariant {
@@ -170,3 +171,16 @@
     background: var(--color-custom-purple)
 
   }
+
+/* flag pseude element will also be adjusted based on variant */
+  .freeVariant::before {
+    background: linear-gradient(267.27deg, #FF00F2 -401.08%, #00FFD9 408.44%);
+}
+
+.basicVariant::before {
+    background: linear-gradient(90deg, #825CF5 0%, #A578FA 100%);
+}
+
+.premiumVariant::before {
+    background: var(--color-custom-purple);
+}

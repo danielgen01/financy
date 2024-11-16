@@ -34,14 +34,8 @@ export const Flag: React.FC<{ label: string; variant: VariantProps }> = ({
   }
 
   const flagClassNames = `${styles.StyledFlagTopLeft} ${getVariantColorFlag()}`
-  const flagVectorClassName = `${styles.StyledFlagVector} ${getVariantColorFlag()}`
 
-  return (
-    <div className={styles.StyledFlagWrapper}>
-      <div className={flagClassNames}>{label}</div>
-      <div className={flagVectorClassName} />
-    </div>
-  )
+  return <div className={flagClassNames}>{label}</div>
 }
 
 export const PricingTeaser: React.FC<PricingTeaserProps> = ({
