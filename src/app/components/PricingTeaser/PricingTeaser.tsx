@@ -77,6 +77,7 @@ export const PricingTeaser: React.FC<PricingTeaserProps> = ({
             href="/signup"
             className={styles.StyledBookNowButton}
             type="button"
+            target="_blank"
           >
             Book now
             <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
