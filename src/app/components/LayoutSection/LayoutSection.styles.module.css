@@ -1,6 +1,5 @@
 .StyledLayoutSection { 
-    padding-left:var(--spacing-md);
-    padding-right:var(--spacing-md);
+  padding: var(--spacing-2xl) var(--spacing-md);
 }
 
 @media screen and (width >= 600px) {

@@ -1,3 +1,8 @@
+.StyledPricingSectionLayoutWrapper {
+  background-color:var(--color-pricing-section-background);
+ 
+}
+
 .StyledPricingTeasersWrapper {
     display: grid;
     grid-template-columns: 1fr;
