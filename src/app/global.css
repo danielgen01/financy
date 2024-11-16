@@ -112,6 +112,7 @@
     --color-quote-teaser-background: #F2F6FD;
     --color-pricing-teaser-text:#000000;
     --color-pricing-section-background:#F9FCFF;
+    --color-total-text-background: #E5E9F0;
 
     /* shared colors */
     --color-icon: #778499;
@@ -156,6 +157,8 @@
   --color-quote-teaser-background: #282747;
   --color-pricing-teaser-text:#F2F6FD;
   --color-pricing-section-background:#121027;
+  --color-total-text-background: #312F58;
+
   
 
 
