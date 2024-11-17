@@ -5,7 +5,6 @@ import { OvalShapeFigure } from "@/app/components/OvalShapeFigure/OvalShapeFigur
 import { BenefitSection } from "./BenefitSection/BenefitSection"
 import { CTASection } from "./CTASection/CTASection"
 import { HeroSection } from "./HeroSection/HeroSection"
-import styles from "./Homepage.styles.module.css"
 import { PricingSection } from "./PricingSection/PricingSection"
 import { TestimonalSection } from "./TestimonialSection/TestimonialSection"
 
@@ -14,13 +13,11 @@ const Homepage = () => {
     <>
       <OvalShapeFigure className="StyledOvalFadeShapeLeft" />
       <OvalShapeFigure className="StyledOvalFadeShapeRight" />
-      <div className={styles.StyledHomePageContentWrapper}>
-        <HeroSection />
-        <BenefitSection />
-        <CTASection />
-        <TestimonalSection />
-        <PricingSection />
-      </div>
+      <HeroSection />
+      <BenefitSection />
+      <CTASection />
+      <TestimonalSection />
+      <PricingSection />
     </>
   )
 }
