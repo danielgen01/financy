@@ -1,8 +1,8 @@
 .StyledOvalFadeShapeLeft {
     position: absolute;
-    width: 1253.04px;
+    /* width: 1253.04px; */
+    width: 50vw;
     height: 449.09px;
-    left: -677px;
     top: 200px;
     background: #5854C0;
     mix-blend-mode: screen;
@@ -13,10 +13,11 @@
   
    .StyledOvalFadeShapeRight {
     position: absolute;
-    width: 1253.04px;
+    /* width: 1253.04px; */
+    width: 50vw;
     height: 449.09px;
-    left: 973px;
     top: 200px;
+    right: 0;
     background: #5854C0;
     mix-blend-mode: screen;
     opacity: 0.2;
