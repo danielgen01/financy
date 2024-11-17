@@ -3,7 +3,7 @@
     padding: var(--spacing-lg);
     border-radius:var(--border-radius-lg) ;
     border: 1px solid var(--color-container-outline);
-
+z-index: 100;
 
 
 }
@@ -125,27 +125,28 @@
     border-top-right-radius: var(--border-radius-md);
     border-bottom-right-radius: var(--border-radius-md);
     position: relative;
-    left: -2.5rem;
-    z-index: 1;
+    left: -2rem;
+    z-index: 0;
+    
 
    
 }
 
-/* .StyledFlagTopLeft::before {
+.StyledFlagTopLeft::before {
     content: '';
-    position: relative;
+    position: absolute;
     background-color: #8CC63F;
     left: 0;
     right: 0;
     bottom: 0;
-    top: 190%;
+    top: 100%;
     clip-path: polygon(100% 0, 100% 100%, 0 0);
-    z-index: -10;
+    z-index: -1;
     width: 20px;
     height: 20px;
 }
 
- */
+
 
 
 
