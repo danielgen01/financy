@@ -9,10 +9,7 @@ import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { lightTheme } from "@/styles/theme"
 
 import Header from "./components/Header/Header"
-import {
-  OvalShapeFigureLeft,
-  OvalShapeFigureRight,
-} from "./components/OvalShapeFigure/OvalShapeFigure"
+import { OvalShapeFigure } from "./components/OvalShapeFigure/OvalShapeFigure"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -38,11 +35,10 @@ export default function RootLayout({
               <Header />
             </header>
             <main>
-              <OvalShapeFigureLeft />
-              <OvalShapeFigureRight />
+              <OvalShapeFigure className="StyledOvalFadeShapeLeft" />
+              <OvalShapeFigure className="StyledOvalFadeShapeRight" />
               {children}
             </main>
-
             <footer>Footer</footer>
           </ThemeProvider>
         </NextThemesProvider>

@@ -159,14 +159,6 @@
   --color-pricing-section-background:#121027;
   --color-total-text-background: #312F58;
 
-  
-
-
-
-
-
-
-
 }
 
 body {
@@ -174,7 +166,6 @@ body {
   font-size: var(--font-size-md);
   color: var(--color-text-primary);
   background-color: var(--color-background-default);
-  overflow-x:hidden;
 
 }
 
@@ -196,4 +187,60 @@ body {
 .ResponsiveImage  {
   max-width: 100%;
   height: auto;
+}
+
+.StyledOvalFadeShapeLeft {
+  position: absolute;
+  width: 35vw;
+  height: 449.09px;
+  top: 200px;
+  background: #5854C0;
+  mix-blend-mode: hard-light;
+  opacity: 0.3; 
+  filter: blur(75px);
+  z-index: -100;
+}
+
+ .StyledOvalFadeShapeRight {
+  position: absolute;
+  width: 35vw;
+  height: 449.09px;
+  top: 200px;
+  right: 0;
+  background: #5854C0;
+  mix-blend-mode: hard-light;
+  opacity: 0.3;
+  filter: blur(75px);
+  z-index: -100;
+}
+
+
+
+/* dark */
+
+
+[data-theme="dark"] .StyledOvalFadeShapeLeft {
+  position: absolute;
+  width: 35vw;
+  height: 449.09px;
+  top: 200px;
+  background: #5854C0;
+  mix-blend-mode: screen;
+  opacity: 0.2; 
+  filter: blur(75px);
+  z-index: -100;
+}
+
+
+[data-theme='dark'] .StyledOvalFadeShapeRight {
+  position: absolute;
+  width: 35vw;
+  height: 449.09px;
+  top: 200px;
+  right: 0;
+  background: #5854C0;
+  mix-blend-mode: screen;
+  opacity: 0.2;
+  filter: blur(75px);
+  z-index: -100;
 }
