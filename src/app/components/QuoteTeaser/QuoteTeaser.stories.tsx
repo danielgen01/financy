@@ -12,7 +12,7 @@ const Template: StoryFn<QuoteTeaserProps> = (args) => {
   return (
     <div
       style={{
-        backgroundColor: "#f2f6fd",
+        backgroundColor: "gray",
         height: "100vh",
         width: "50vw",
         padding: "1rem",

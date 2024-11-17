@@ -8,14 +8,14 @@ import Link from "next/link"
 import Paragraph from "../Typography/Paragraph/Paragraph"
 import styles from "./PricingTeaser.styles.module.css"
 
-interface PricingTeaserProps {
+export interface PricingTeaserProps {
   advantageItems: string[]
   price: string | number
   interval: string
   variant?: string | "free" | "basic" | "premium"
   label?: string
 }
-interface VariantProps {
+export interface VariantProps {
   variant?: string | "free" | "basic" | "premium"
   label: string
 }

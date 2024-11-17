@@ -5,7 +5,7 @@ import React from "react"
 
 import styles from "./BenefitTeaser.styles.module.css"
 
-interface BenefitTeaserProps {
+export interface BenefitTeaserProps {
   src: string | StaticImport
   text: string
 }

@@ -18,10 +18,10 @@ const Template: StoryFn = (args) => {
       }}
     >
       <CashflowOverview
-        incomeTotal={0}
-        expenseTotal={0}
+        incomeTotal={1000}
+        expenseTotal={200}
         {...args}
-        netCashflowAmount={0}
+        netCashflowAmount={2500}
       />
     </div>
   )
