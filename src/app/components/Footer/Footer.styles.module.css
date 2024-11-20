@@ -1,0 +1,12 @@
+.StyledFooter { 
+    background-color: #1E1D3A;
+    min-height: 20vh;
+}
+
+.StyledFooterContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+
+    padding: 5% 10%;
+}
