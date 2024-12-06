@@ -7,6 +7,82 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-2xl);
+    padding: 10% 10%;
+}
 
-    padding: 5% 10%;
+.StyledFooterHeadline {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: white;
+}
+
+.StyledInputBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--color-custom-purple);
+    border-radius: var(--border-radius-full);
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    -ms-border-radius: var(--border-radius-full);
+    -o-border-radius: var(--border-radius-full);
+    background-color: #282747;
+
+}
+
+.StyledInputField {
+    padding: var(--spacing-md);
+    color:#708794 ;
+    outline: none !important ;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    
+
+
+}
+
+.StyledInputButton {
+    outline: none !important ;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-custom-purple);
+    padding: var(--spacing-md);
+    border-top-right-radius: var(--border-radius-full);
+    border-bottom-right-radius: var(--border-radius-full);
+    cursor: pointer;
+   
+}
+
+.StyledInputButton:hover {
+    opacity: 0.7;
+    transition:250ms ease-in-out;
+    -webkit-transition:250ms ease-in-out;
+    -moz-transition:250ms ease-in-out;
+    -ms-transition:250ms ease-in-out;
+    -o-transition:250ms ease-in-out;
+}
+
+
+
+.StyledLine {
+    opacity: 30%;
+}
+
+
+.StyledFooterHead {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+
+}
+
+@media screen and (min-width: 960px) {
+    .StyledFooterHead {
+        flex-direction: row;
+    }
+    
 }
