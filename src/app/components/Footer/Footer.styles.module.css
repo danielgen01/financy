@@ -53,6 +53,7 @@
     border-top-right-radius: var(--border-radius-full);
     border-bottom-right-radius: var(--border-radius-full);
     cursor: pointer;
+    height: 100%;
    
 }
 
