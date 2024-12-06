@@ -36,7 +36,7 @@
     border: none;
     background-color: transparent;
     width: 100%;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
     
 
 
@@ -72,6 +72,12 @@
     opacity: 30%;
 }
 
+.StyledActionAndNewsletterWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+
+}
 
 .StyledFooterHead {
     display: flex;
@@ -144,6 +150,11 @@
 
 .StyledFooterBody {
     flex-direction: row;
+}
+
+.StyledActionAndNewsletterWrapper {
+    flex-direction: row;
+    align-items: center;
 }
     
 }

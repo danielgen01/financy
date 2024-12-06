@@ -17,10 +17,12 @@ export const Footer = () => {
       <div className={styles.StyledFooterContent}>
         <div className={styles.StyledFooterHead}>
           <Image src={LogoDark} alt="Logo" />
-          <span className={styles.StyledFooterHeadline}>
-            Subscribe to Newsletter
-          </span>
-          <EmailNewsletterInput />
+          <div className={styles.StyledActionAndNewsletterWrapper}>
+            <span className={styles.StyledFooterHeadline}>
+              Subscribe to Newsletter
+            </span>
+            <EmailNewsletterInput />
+          </div>
         </div>
         <hr className={styles.StyledLine} />
         <div className={styles.StyledFooterBody}>
