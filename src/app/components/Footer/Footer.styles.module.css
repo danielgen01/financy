@@ -67,7 +67,7 @@
     -o-transition:250ms ease-in-out;
 }
 
-.StyledIcon { 
+.StyledIconPaperPlane { 
    color: var(--color-light-white);
     border:none ! important;
 

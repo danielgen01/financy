@@ -76,7 +76,7 @@ const EmailNewsletterInput = () => {
         <FontAwesomeIcon
           icon={faPaperPlane}
           size="2x"
-          className={styles.StyledIcon}
+          className={styles.StyledIconPaperPlane}
         />
       </button>
     </div>
