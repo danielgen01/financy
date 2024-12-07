@@ -64,7 +64,7 @@ const EmailNewsletterInput = () => {
     <div className={styles.StyledInputBox}>
       <input
         className={styles.StyledInputField}
-        placeholder="Enter your E-Mail Adress"
+        placeholder="Enter your email"
         minLength={5}
         type="email"
       />
