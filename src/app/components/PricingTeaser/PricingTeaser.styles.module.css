@@ -86,7 +86,7 @@ z-index: 100;
     text-transform: uppercase;
     display: flex;
     justify-content: center;
-    -webkit-border-radius: var(--border-radius-lg);
+    -webkit-border-radius: var(--border-radius-full);
     -moz-border-radius: var(--border-radius-lg);
     -ms-border-radius: var(--border-radius-lg);
     -o-border-radius: var(--border-radius-lg);
