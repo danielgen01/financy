@@ -16,7 +16,7 @@ export const Footer = () => {
     <div className={styles.StyledFooter}>
       <div className={styles.StyledFooterContent}>
         <div className={styles.StyledFooterHead}>
-          <Image src={LogoDark} alt="Logo" />
+          <Image src={LogoDark} alt="Logo" className={styles.StyledImage} />
           <div className={styles.StyledActionAndNewsletterWrapper}>
             <span className={styles.StyledFooterHeadline}>
               Subscribe to Newsletter
