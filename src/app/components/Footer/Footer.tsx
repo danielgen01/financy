@@ -36,7 +36,7 @@ export const Footer = () => {
               electronic typesetting, remaining essentially unchanged.
             </Paragraph>
             <div className={styles.StyledSocialMediaWrapper}>
-              <span>Follow Us:</span>
+              <span className={styles.StyledFollowUsText}>Follow Us:</span>
               <div className={styles.StyledIconWrapper}>
                 <Link href="/" className={styles.StyledLink}>
                   <FacebookOutlined className={styles.StyledIcon} />
@@ -73,7 +73,11 @@ const EmailNewsletterInput = () => {
         className={styles.StyledInputButton}
         onClick={() => alert("Submitted")}
       >
-        <FontAwesomeIcon icon={faPaperPlane} size="2x" />
+        <FontAwesomeIcon
+          icon={faPaperPlane}
+          size="2x"
+          className={styles.StyledIcon}
+        />
       </button>
     </div>
   )

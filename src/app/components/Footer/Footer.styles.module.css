@@ -37,7 +37,7 @@
     border: none;
     background-color: transparent;
     width: 100%;
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
     
 
 
@@ -65,6 +65,12 @@
     -moz-transition:250ms ease-in-out;
     -ms-transition:250ms ease-in-out;
     -o-transition:250ms ease-in-out;
+}
+
+.StyledIcon { 
+   color: var(--color-light-white);
+    border:none ! important;
+
 }
 
 
@@ -101,6 +107,7 @@
 .StyledParagraph {
     text-align: left !important;
     font-size: var(--font-size-sm) !important;
+    color:var(--color-white) !important;
 }
 
 
@@ -111,6 +118,10 @@
     width: 100%;
     gap: var(--spacing-sm);
     
+}
+
+.StyledFollowUsText { 
+    color:var(--color-white);
 }
 
 .StyledIconWrapper {
@@ -142,6 +153,10 @@
 .StyledLink { 
     text-decoration: none;
     color:white;
+}
+
+.StyledFooterBottomText {
+    color:var(--color-white);
 }
 
 
