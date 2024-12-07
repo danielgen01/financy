@@ -27,6 +27,7 @@
     -ms-border-radius: var(--border-radius-full);
     -o-border-radius: var(--border-radius-full);
     background-color: #282747;
+    height: var(--const-height-newsletter-input-box);
 
 }
 

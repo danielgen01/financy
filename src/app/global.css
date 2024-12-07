@@ -133,7 +133,9 @@
 
 
 
+/* Magic number as constants  */
 
+--const-height-newsletter-input-box: 50px;
    
 }
 
