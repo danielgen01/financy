@@ -2,7 +2,12 @@
 
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { FacebookOutlined, Instagram, LinkedIn } from "@mui/icons-material"
+import {
+  ChevronRight,
+  FacebookOutlined,
+  Instagram,
+  LinkedIn,
+} from "@mui/icons-material"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
@@ -50,6 +55,12 @@ export const Footer = () => {
               </div>
             </div>
           </div>
+          <div className={styles.StyledSupportContentWrapper}>
+            <span className={styles.StyledFooterHeadline}>Support</span>
+            <FooterLink label="Help" href="/" />
+            <FooterLink label="Contact us" href="/" />
+            <FooterLink label="Return, Refund & Exchange policy" href="/" />
+          </div>
         </div>
         <span className={styles.StyledFooterBottomText}>
           © 2024 All rights reserved
@@ -58,8 +69,9 @@ export const Footer = () => {
     </div>
   )
 }
+// Über uns, Kontakt, Impressum, Datenschutz und AGB.
 
-const EmailNewsletterInput = () => {
+export const EmailNewsletterInput = () => {
   return (
     <div className={styles.StyledInputBox}>
       <input
@@ -80,5 +92,19 @@ const EmailNewsletterInput = () => {
         />
       </button>
     </div>
+  )
+}
+
+interface FooterLinkProps {
+  label: string
+  href: string
+}
+
+export const FooterLink: React.FC<FooterLinkProps> = ({ label, href }) => {
+  return (
+    <Link href={href} className={styles.StyledFooterChevronLink}>
+      <ChevronRight />
+      <span>{label}</span>
+    </Link>
   )
 }

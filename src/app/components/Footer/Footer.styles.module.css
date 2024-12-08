@@ -148,6 +148,17 @@
     -ms-border-radius: var(--border-radius-full);
     -o-border-radius: var(--border-radius-full);
     padding: var(--spacing-xs);
+    transition: 250ms ease-in-out;
+    -webkit-transition: 250ms;
+    -moz-transition: 250ms;
+    -ms-transition: 250ms;
+    -o-transition: 250ms;
+}
+
+.StyledIcon:hover {
+        color: var(--color-primary-main);
+        border-color: var(--color-primary-main);
+       
 }
 
 .StyledLink { 
@@ -159,6 +170,29 @@
     color:var(--color-white);
 }
 
+.StyledSupportContentWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.StyledFooterChevronLink {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-white);
+    text-decoration: none;
+    width: 100%;
+    transition: 250ms ease-in-out;
+    -webkit-transition: 250ms ease-in-out;
+    -moz-transition: 250ms ease-in-out;
+    -ms-transition: 250ms ease-in-out;
+    -o-transition: 250ms ease-in-out;
+}
+
+.StyledFooterChevronLink:hover {
+    color: var(--color-primary-main);
+}
 
 @media screen and (min-width: 960px) {
     .StyledFooterHead {
