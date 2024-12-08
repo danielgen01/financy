@@ -29,11 +29,6 @@
   color: var(--color-text-primary);
 }
 
-.StyledCashflowOverviewSection {
-  padding-top: var(--spacing-6xl) ;
-}
-
-
 @media (width >= 600px) and (width <= 1279px) {
   .StyledCardWrapper {
     display: grid;
