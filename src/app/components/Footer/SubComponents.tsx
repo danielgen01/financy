@@ -1,8 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import styles from "./Footer.styles.module.css"
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons"
-import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { ChevronRight } from "@mui/icons-material"
+import Link from "next/link"
+
+import styles from "./Footer.styles.module.css"
 
 export const EmailNewsletterInput: React.FC = () => {
   return (
@@ -13,11 +14,7 @@ export const EmailNewsletterInput: React.FC = () => {
         minLength={5}
         type="email"
       />
-      <button
-        type="button"
-        className={styles.StyledInputButton}
-        onClick={() => alert("Submitted")}
-      >
+      <button type="button" className={styles.StyledInputButton}>
         <FontAwesomeIcon
           icon={faPaperPlane}
           size="2x"
