@@ -1,27 +1,27 @@
 .StyledLayoutSection { 
-  padding: var(--spacing-2xl) var(--spacing-md);
+  padding:var(--layout-padding-mobile);
 }
 
 @media screen and (width >= 600px) {
     .StyledLayoutSection {
-      padding-left:var(--spacing-xl);
-      padding-right:var(--spacing-xl);
+      padding-left:var(--layout-padding-tablet);
+      padding-right:var(--layout-padding-tablet);
   
     } 
   }
 
   @media screen and (width >= 960px) {
     .StyledLayoutSection {
-      padding-left:var(--spacing-6xl);
-      padding-right:var(--spacing-6xl);
+      padding-left:var(--layout-padding-large-tablet);
+      padding-right:var(--layout-padding-large-tablet);
   
     } 
   }
 
   @media screen and (width >= 1280px) {
     .StyledLayoutSection {
-      padding-left:80px;
-      padding-right:80px;
+      padding-left:var(--layout-padding-desktop);
+      padding-right:var(--layout-padding-desktop);
   
     }
     
@@ -30,8 +30,8 @@
   
   @media screen and (width >= 1920px) {
     .StyledLayoutSection {
-      padding-left:200px;
-      padding-right:200px;
+      padding-left:var(--layout-padding-large-desktop);
+      padding-right:var(--layout-padding-large-desktop);
   
     }
   }

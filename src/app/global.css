@@ -136,6 +136,18 @@
 /* Magic number as constants  */
 
 --const-height-newsletter-input-box: 50px;
+
+
+/* layout padding  */
+
+--layout-padding-mobile: var(--spacing-2xl) var(--spacing-md);
+--layout-padding-tablet: var(--spacing-xl);
+--layout-padding-large-tablet: var(--spacing-6xl);
+--layout-padding-desktop: 80px;
+--layout-padding-large-desktop: 200px;
+
+
+
    
 }
 
