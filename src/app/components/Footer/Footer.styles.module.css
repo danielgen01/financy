@@ -197,7 +197,7 @@
     line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-md);
 }
 
 .StyledFooterChevronLink:hover {
