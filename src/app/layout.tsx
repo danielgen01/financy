@@ -9,8 +9,8 @@ import { ThemeProvider as NextThemesProvider } from "next-themes"
 
 import { lightTheme } from "@/styles/theme"
 
-import Header from "./components/Header/Header"
 import { Footer } from "./components/Footer/Footer"
+import Header from "./components/Header/Header"
 
 const inter = Inter({ subsets: ["latin"] })
 
