@@ -1,13 +1,4 @@
-"use client"
-
-import { faPaperPlane } from "@fortawesome/free-regular-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  ChevronRight,
-  FacebookOutlined,
-  Instagram,
-  LinkedIn,
-} from "@mui/icons-material"
+import { FacebookOutlined, Instagram, LinkedIn } from "@mui/icons-material"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
@@ -15,6 +6,7 @@ import React from "react"
 import LogoDark from "../../../../public/Logo-dark.png"
 import Paragraph from "../Typography/Paragraph/Paragraph"
 import styles from "./Footer.styles.module.css"
+import { EmailNewsletterInput, FooterLink } from "./SubComponents"
 
 export const Footer = () => {
   return (
@@ -70,41 +62,3 @@ export const Footer = () => {
   )
 }
 // Über uns, Kontakt, Impressum, Datenschutz und AGB.
-
-export const EmailNewsletterInput = () => {
-  return (
-    <div className={styles.StyledInputBox}>
-      <input
-        className={styles.StyledInputField}
-        placeholder="Enter your email"
-        minLength={5}
-        type="email"
-      />
-      <button
-        type="button"
-        className={styles.StyledInputButton}
-        onClick={() => alert("Submitted")}
-      >
-        <FontAwesomeIcon
-          icon={faPaperPlane}
-          size="2x"
-          className={styles.StyledIconPaperPlane}
-        />
-      </button>
-    </div>
-  )
-}
-
-interface FooterLinkProps {
-  label: string
-  href: string
-}
-
-export const FooterLink: React.FC<FooterLinkProps> = ({ label, href }) => {
-  return (
-    <Link href={href} className={styles.StyledFooterChevronLink}>
-      <ChevronRight />
-      <span>{label}</span>
-    </Link>
-  )
-}
