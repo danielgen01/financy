@@ -37,7 +37,7 @@ export const FooterLink: React.FC<FooterLinkProps> = ({ label, href }) => {
   return (
     <Link href={href} className={styles.StyledFooterChevronLink}>
       <ChevronRight />
-      <span>{label}</span>
+      <span className={styles.StyledSpanChevronLink}>{label}</span>
     </Link>
   )
 }

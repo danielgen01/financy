@@ -138,6 +138,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    flex-shrink: 2;
 }
 
 .StyledIcon {
@@ -188,6 +189,15 @@
     -moz-transition: 250ms ease-in-out;
     -ms-transition: 250ms ease-in-out;
     -o-transition: 250ms ease-in-out;
+}
+
+.StyledSpanChevronLink { 
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: var(--font-size-xs);
 }
 
 .StyledFooterChevronLink:hover {
