@@ -1,6 +1,5 @@
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { ChevronRight } from "@mui/icons-material"
 import Link from "next/link"
 
 import styles from "./Footer.styles.module.css"
@@ -28,12 +27,17 @@ export const EmailNewsletterInput: React.FC = () => {
 interface FooterLinkProps {
   label: string
   href: string
+  icon?: any
 }
 
-export const FooterLink: React.FC<FooterLinkProps> = ({ label, href }) => {
+export const FooterLink: React.FC<FooterLinkProps> = ({
+  label,
+  href,
+  icon,
+}) => {
   return (
     <Link href={href} className={styles.StyledFooterChevronLink}>
-      <ChevronRight />
+      {icon}
       <span className={styles.StyledSpanChevronLink}>{label}</span>
     </Link>
   )

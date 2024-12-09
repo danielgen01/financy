@@ -1,6 +1,16 @@
 "use client"
 
-import { FacebookOutlined, Instagram, LinkedIn } from "@mui/icons-material"
+import {
+  ChevronRight,
+  FacebookOutlined,
+  Instagram,
+  LinkedIn,
+  LocationOn,
+  Phone,
+  Security,
+  Work,
+} from "@mui/icons-material"
+import Groups3Icon from "@mui/icons-material/Groups3"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
@@ -51,9 +61,29 @@ export const Footer = () => {
           </div>
           <div className={styles.StyledSupportContentWrapper}>
             <span className={styles.StyledFooterHeadline}>Support</span>
-            <FooterLink label="Help" href="/" />
-            <FooterLink label="Contact us" href="/" />
-            <FooterLink label="Return, Refund & Exchange policy" href="/" />
+            <FooterLink icon={<ChevronRight />} label="Help" href="/" />
+            <FooterLink icon={<ChevronRight />} label="Contact us" href="/" />
+            <FooterLink
+              icon={<ChevronRight />}
+              label="Return, Refund & Exchange policy"
+              href="/"
+            />
+          </div>
+          <div className={styles.StyledGetToKnowUsContent}>
+            <span className={styles.StyledFooterHeadline}>Get to know us</span>
+            <FooterLink icon={<Groups3Icon />} label="Our team" href="/" />
+            <FooterLink
+              icon={<LocationOn />}
+              label="Munich, Germany"
+              href="/"
+            />
+            <FooterLink icon={<Phone />} label="Call us" href="/" />
+            <FooterLink icon={<Work />} label="Jobs" href="/" />
+            <FooterLink
+              icon={<Security />}
+              label="Privacy & terms of conditions"
+              href="/"
+            />
           </div>
         </div>
         <span className={styles.StyledFooterBottomText}>
@@ -63,4 +93,3 @@ export const Footer = () => {
     </div>
   )
 }
-// Über uns, Kontakt, Impressum, Datenschutz und AGB.

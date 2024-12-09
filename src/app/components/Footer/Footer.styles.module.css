@@ -204,6 +204,15 @@
     color: var(--color-primary-main);
 }
 
+
+.StyledGetToKnowUsContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+}
+
+
 @media screen and (min-width: 960px) {
     .StyledFooterHead {
         flex-direction: row;
