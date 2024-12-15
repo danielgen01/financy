@@ -14,7 +14,7 @@ import Header from "./components/Header/Header"
 
 const inter = Inter({ subsets: ["latin"] })
 
-const metaData: Metadata = {
+export const metaData: Metadata = {
   applicationName: "financy",
   title: "Financy - Build your wealth and track your incomes and expenses",
 }

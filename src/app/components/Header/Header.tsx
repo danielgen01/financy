@@ -112,7 +112,7 @@ const Header: React.FC = () => {
           <button className="header-action-icon" type="button">
             <FontAwesomeIcon
               icon={faBell}
-              fontVariant={"classic"}
+              fontVariant="classic"
               width={40}
               height={40}
               cursor="pointer"

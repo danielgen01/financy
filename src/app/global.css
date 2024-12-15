@@ -184,6 +184,12 @@ body {
 
 }
 
+header { 
+  position: sticky;
+  top: 0;
+  z-index: 2000000;
+}
+
 .header-action-icon {
   background-color: var(--color-icon-background);
   padding: var(--spacing-sm);

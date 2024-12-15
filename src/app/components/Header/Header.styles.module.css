@@ -6,6 +6,7 @@
   height: var(--spacing-6xl);
   padding-left:var(--spacing-md);
   padding-right:var(--spacing-md);
+  border-bottom: 1px solid var(--color-container-outline);
 }
 
 .StyledMenuList {
