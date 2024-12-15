@@ -12,6 +12,7 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material"
+import type { StaticImageData } from "next/image"
 import Image from "next/image"
 import Link from "next/link"
 import { useTheme } from "next-themes"
@@ -26,6 +27,34 @@ import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton"
 import styles from "./Header.styles.module.css"
 import MenuItem from "./MenuItem"
+
+const Logo: React.FC<{ logoSrc: StaticImageData }> = ({ logoSrc }) => {
+  return (
+    <Link
+      href="/"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: ".5rem",
+        fontWeight: "bold",
+      }}
+    >
+      <Image src={logoSrc} alt="Logo_Financy" />
+    </Link>
+  )
+}
+
+const NavigiationItems = () => {
+  return (
+    <ul className={styles.StyledMenuList}>
+      <MenuItem href="/dashboard" label="Dashboard" />
+      <MenuItem href="/" label="Transactions" />
+      <MenuItem href="/" label="Analytics" />
+      <MenuItem href="/" label="Accounts" />
+      <MenuItem href="/" label="Wallet" />
+    </ul>
+  )
+}
 
 const Header: React.FC = () => {
   const { user, loading } = useAuth()
@@ -71,24 +100,8 @@ const Header: React.FC = () => {
 
   return (
     <div className={styles.StyledHeaderWrapper}>
-      <Link
-        href="/"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: ".5rem",
-          fontWeight: "bold",
-        }}
-      >
-        <Image src={logoSrc} alt="Logo_Financy" />
-      </Link>
-      <ul className={styles.StyledMenuList}>
-        <MenuItem href="/dashboard" label="Dashboard" />
-        <MenuItem href="/" label="Transactions" />
-        <MenuItem href="/" label="Analytics" />
-        <MenuItem href="/" label="Accounts" />
-        <MenuItem href="/" label="Wallet" />
-      </ul>
+      <Logo logoSrc={logoSrc} />
+      <NavigiationItems />
       <div className={styles.StyledAccountActionsWrapper}>
         {!loading ? (
           <ThemeToggler />
