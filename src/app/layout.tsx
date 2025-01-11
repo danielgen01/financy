@@ -10,21 +10,13 @@ import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { lightTheme } from "@/styles/theme"
 
 import { Footer } from "./components/Footer/Footer"
-import Header from "./components/Header/Header"
+import { Header } from "./components/Header/Header"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metaData: Metadata = {
   applicationName: "financy",
   title: "Financy - Build your wealth and track your incomes and expenses",
-}
-
-// this function should somehow determine if the user is new on the home page
-const checkForInitialHomePage = () => {
-  if (typeof window !== "undefined" && window.location.pathname === "/") {
-    return true
-  }
-  return false
 }
 
 export default function RootLayout({
@@ -38,6 +30,7 @@ export default function RootLayout({
         <NextThemesProvider>
           <ThemeProvider theme={lightTheme}>
             <header>
+              {" "}
               <Header />
             </header>
             <main>{children}</main>

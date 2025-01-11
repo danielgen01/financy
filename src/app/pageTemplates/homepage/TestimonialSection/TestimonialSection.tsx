@@ -11,6 +11,7 @@ export const TestimonalSection = () => {
   return (
     <LayoutSection
       isFullWidth
+      id="testimonials"
       className={styles.StyledTestimonialLayoutSectionWrapper}
     >
       <div className={styles.StyledTestimonialContentWrapper}>

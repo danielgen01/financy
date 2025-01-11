@@ -17,7 +17,7 @@ import styles from "./HeroSection.styles.module.css"
 
 export const HeroSection: React.FC = () => {
   return (
-    <LayoutSection>
+    <LayoutSection id="hero">
       <div className={styles.StyledHeroSection}>
         <H1>
           Manage your{" "}
@@ -49,7 +49,7 @@ export const PreviewSection: React.FC = () => {
   const imageSrc = loadedTheme === "dark" ? PreviewDark : PreviewLight
 
   return (
-    <LayoutSection>
+    <LayoutSection id="#hero">
       <div className={styles.StyledPreviewSection}>
         <div className={styles.StyledImagePreviewWrapper}>
           <Image

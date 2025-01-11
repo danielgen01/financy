@@ -7,7 +7,10 @@ import styles from "./PricingSection.styles.module.css"
 
 export const PricingSection = () => {
   return (
-    <LayoutSection className={styles.StyledPricingSectionLayoutWrapper}>
+    <LayoutSection
+      className={styles.StyledPricingSectionLayoutWrapper}
+      id="pricing"
+    >
       <div className={styles.StyledContentWrapper}>
         <H3>Pricing plan for everyone</H3>
         <Paragraph>find the corret abbo for you</Paragraph>

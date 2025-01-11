@@ -33,7 +33,7 @@ export const BenefitSection = () => {
   const imageSrcInsights = loadedTheme === "dark" ? InsightsDark : InsightsLight
 
   return (
-    <LayoutSection>
+    <LayoutSection id="features">
       <div className={styles.StyledContentWrapper}>
         <H2>Why choose financy ? </H2>
         <Paragraph>

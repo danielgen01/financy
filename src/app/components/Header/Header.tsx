@@ -12,9 +12,8 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material"
-import type { StaticImageData } from "next/image"
-import Image from "next/image"
 import Link from "next/link"
+import { redirect, usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 import React, { useEffect, useState } from "react"
 
@@ -23,28 +22,14 @@ import { useAuth } from "@/app/utils/useAuth"
 
 import LogoDark from "../../../../public/Logo-dark.png"
 import LogoLight from "../../../../public/Logo-light.png"
+import { Headerlanding } from "../HeaderLanding/HeaderLanding"
+import { Logo } from "../Logo/Logo"
 import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton"
 import styles from "./Header.styles.module.css"
 import MenuItem from "./MenuItem"
 
-const Logo: React.FC<{ logoSrc: StaticImageData }> = ({ logoSrc }) => {
-  return (
-    <Link
-      href="/"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: ".5rem",
-        fontWeight: "bold",
-      }}
-    >
-      <Image src={logoSrc} alt="Logo_Financy" />
-    </Link>
-  )
-}
-
-const NavigiationItems = () => {
+export const NavigiationItems: React.FC = () => {
   return (
     <ul className={styles.StyledMenuList}>
       <MenuItem href="/dashboard" label="Dashboard" />
@@ -56,7 +41,7 @@ const NavigiationItems = () => {
   )
 }
 
-const Header: React.FC = () => {
+const DefaultHeader: React.FC = () => {
   const { user, loading } = useAuth()
   const [openUserDialog, setOpenUserDialog] = useState(false)
   const { theme } = useTheme()
@@ -172,4 +157,23 @@ const Header: React.FC = () => {
   )
 }
 
-export default Header
+export const Header = () => {
+  const { user, loading } = useAuth()
+  const pathname = usePathname()
+
+  const isLanding = ["/"].includes(pathname)
+
+  if (loading) {
+    return <MuiSkeleton variant="rectangular" height={80} />
+  }
+
+  if (isLanding && user) {
+    redirect("/dashboard")
+  }
+
+  if (!user) {
+    return <Headerlanding />
+  }
+
+  return <DefaultHeader />
+}

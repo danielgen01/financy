@@ -6,8 +6,13 @@ export const LayoutSection: React.FC<{
   className?: string
   children: React.ReactNode
   isFullWidth?: boolean
-}> = ({ children, isFullWidth, className }) => {
+  id?: string
+}> = ({ children, isFullWidth, className, id }) => {
   const sectionClassName = `${isFullWidth ? styles.StyledLayoutSectionFullWidth : styles.StyledLayoutSection} ${className || ""}`
 
-  return <section className={sectionClassName}>{children}</section>
+  return (
+    <section className={sectionClassName} id={id}>
+      {children}
+    </section>
+  )
 }
