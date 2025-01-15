@@ -2,12 +2,9 @@ import "./global.css"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "@fortawesome/fontawesome-svg-core/styles.css"
 
-import { ThemeProvider } from "@mui/material"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
-
-import { lightTheme } from "@/styles/theme"
 
 import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
@@ -28,16 +25,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextThemesProvider>
-          <ThemeProvider theme={lightTheme}>
-            <header>
-              {" "}
-              <Header />
-            </header>
-            <main>{children}</main>
-            <footer>
-              <Footer />
-            </footer>
-          </ThemeProvider>
+          <header>
+            {" "}
+            <Header />
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer />
+          </footer>
         </NextThemesProvider>
       </body>
     </html>

@@ -13,7 +13,6 @@ import {
   ListItemText,
 } from "@mui/material"
 import Link from "next/link"
-import { redirect, usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 import React, { useEffect, useState } from "react"
 
@@ -22,7 +21,6 @@ import { useAuth } from "@/app/utils/useAuth"
 
 import LogoDark from "../../../../public/Logo-dark.png"
 import LogoLight from "../../../../public/Logo-light.png"
-import { Headerlanding } from "../HeaderLanding/HeaderLanding"
 import { Logo } from "../Logo/Logo"
 import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton"
@@ -158,22 +156,5 @@ const DefaultHeader: React.FC = () => {
 }
 
 export const Header = () => {
-  const { user, loading } = useAuth()
-  const pathname = usePathname()
-
-  const isLanding = ["/"].includes(pathname)
-
-  if (loading) {
-    return <MuiSkeleton variant="rectangular" height={80} />
-  }
-
-  if (isLanding && user) {
-    redirect("/dashboard")
-  }
-
-  if (!user) {
-    return <Headerlanding />
-  }
-
   return <DefaultHeader />
 }
