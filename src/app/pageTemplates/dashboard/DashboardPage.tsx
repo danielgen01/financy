@@ -41,7 +41,7 @@ const DashboardPage = ({ ...props }: DashboardPageProps) => {
         {/* <FilterMenu /> */}
       </div>
       <LayoutSection>
-        <h1 className={styles.StyledHeadline}>Income Statement</h1>
+        <h1 className={styles.StyledHeadline}>Financial Statement</h1>
         <div className={styles.StyledBigCardsWrapperSection}>
           <BigCardContainer
             headlineItems={headlineItemsMockCard}
