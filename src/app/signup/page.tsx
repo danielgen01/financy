@@ -4,6 +4,7 @@
 import { useState } from "react"
 
 import { signUp } from "../utils/auth"
+import { signInWithGooglePopup } from "../utils/firebaseConfig"
 
 export default function AuthPage() {
   const [email, setEmail] = useState("")
@@ -17,6 +18,10 @@ export default function AuthPage() {
     } else {
       console.log("User signed up:", user)
     }
+  }
+
+  const signUpWithGoogle = async () => {
+    await signInWithGooglePopup()
   }
 
   return (
@@ -40,6 +45,7 @@ export default function AuthPage() {
         <button onClick={handleSignUp} className="">
           Sign Up
         </button>
+        <button onClick={signUpWithGoogle}>Sign up with google yoooo</button>
       </div>
       {error && <p>{error}</p>}
     </section>
