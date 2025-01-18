@@ -1,0 +1,94 @@
+.StyledSignInAndSignUpForm {
+    margin: 0 auto;
+    gap: var(--border-radius-md);
+    background: var(--color-container-color);
+    /* box-shadow: 0px 4px 50px 10px rgba(49, 25, 96, 1); */
+    border-radius: var(--border-radius-md)  ;
+    -webkit-border-radius: var(--border-radius-md)  ;
+    -moz-border-radius: var(--border-radius-md)  ;
+    -ms-border-radius: var(--border-radius-md)  ;
+    -o-border-radius: var(--border-radius-md)  ;
+    min-height: 500px;
+    border-top: 10px solid var(--color-custom-purple);
+    padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-3xl);
+
+}
+
+.StyledSignInAndSignUpFormContent {
+    background-color: var(--color-light-white);
+    padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-3xl);
+    border-radius: var(--border-radius-md);
+    margin:0 auto;
+    -webkit-border-radius: var(--border-radius-md);
+    -moz-border-radius: var(--border-radius-md);
+    -ms-border-radius: var(--border-radius-md);
+    -o-border-radius: var(--border-radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    
+}
+
+.StyledSignInText {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.StyledButtonWrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap:8px;
+    background-color: white;
+    border-radius: var(--border-radius-full);
+    padding: var(--spacing-md) var(--spacing-md);
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    -ms-border-radius: var(--border-radius-full);
+    -o-border-radius: var(--border-radius-full);
+    color: #424242;
+    display: flex;
+    justify-content: center;
+}
+
+.StyledButtonWrapper:hover {
+    background-color: var(--color-primary-main);
+    color:var(--color-light-white);
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+}
+
+.StyledForm { 
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+}
+
+.StyledLoginButton {
+    background-color: var(--color-primary-main);
+    color: var(--color-light-white);
+    border: none;
+    border-radius: var(--border-radius-full);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    -ms-border-radius: var(--border-radius-full);
+    -o-border-radius: var(--border-radius-full);
+}
+
+.StyledLoginButton:hover{
+    opacity: 0.8;
+    transition: all 500ms;
+}
