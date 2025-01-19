@@ -10,20 +10,43 @@ import {
   InputAdornment,
 } from "@mui/material"
 import Image from "next/image"
-import React, { useState } from "react"
+import React, { use, useState } from "react"
 
 import { signIn, signUp } from "@/app/utils/auth"
 import { signInWithGooglePopup } from "@/app/utils/firebaseConfig"
 
 import Paragraph from "../Typography/Paragraph/Paragraph"
 import styles from "./SignInAndSignUpForm.styles.module.css"
+import { useRouter } from "next/navigation"
+import Error from "next/error"
 
-export const SignInAndSignUpForm = ({}) => {
-  const [loginRegisterEmail, setLoginRegisterEmail] = useState("")
-  const [loginRegisterPassword, setLoginRegisterPassword] = useState("")
-  const [error, setError] = useState(false)
+export const SignInAndSignUpForm = () => {
+  const [loginRegisterEmail, setLoginRegisterEmail] = useState<string>()
+  const [confirmEmail, setConfirmEmail] = useState<string>()
+  const [loginRegisterPassword, setLoginRegisterPassword] = useState<string>()
+  const [confirmPassword, setConfirmPassword] = useState<string>()
+  const [error, setError] = useState<string>()
   const [isSignUpForm, setIsSignUpForm] = useState(false)
-  // const router = useRouter()
+  const router = useRouter()
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (isSignUpForm) {
+      // Validierung für Sign Up
+      if (loginRegisterEmail !== confirmEmail) {
+        setError("Emails do not match")
+        return
+      }
+      if (loginRegisterPassword !== confirmPassword) {
+        setError("Passwords do not match")
+        return
+      }
+      await handleSignUp()
+    } else {
+      await handleSignIn()
+    }
+  }
 
   const handleSignUp = async () => {
     const { user, error } = await signUp(
@@ -34,7 +57,7 @@ export const SignInAndSignUpForm = ({}) => {
       setError(true)
     } else {
       console.log("User signed up:", user)
-      // router.push("/dashboard")
+      router.push("/dashboard")
     }
   }
 
@@ -47,26 +70,32 @@ export const SignInAndSignUpForm = ({}) => {
       setError(true)
     } else {
       console.log("User signed in:", user)
+      router.push("/dashboard")
     }
   }
 
   return (
     <div className={styles.StyledSignInAndSignUpForm}>
       <div className={styles.StyledSignInAndSignUpFormContent}>
-        <p className={styles.StyledSignInText}>Sign In to your account</p>
+        <p className={styles.StyledSignInText}>
+          {isSignUpForm ? "Create an account" : "Sign In to your account"}
+        </p>
         <SignUpWithGoogleButton />
-        <form className={styles.StyledForm}>
+        <form onSubmit={handleSubmit} className={styles.StyledForm}>
           <CustomInput
             label="E-Mail"
             placeholder="Enter your E-Mail"
             required
-            // onChange={(e) => setEmail(e.target.value)}
+            value={loginRegisterEmail}
+            onChange={(value) => setLoginRegisterEmail(value)}
           />
           {isSignUpForm && (
             <CustomInput
               label="Confirm E-Mail"
               placeholder="Confirm your E-Mail"
               required
+              value={confirmEmail}
+              onChange={(value) => setConfirmEmail(value)}
             />
           )}
           <CustomInput
@@ -74,23 +103,23 @@ export const SignInAndSignUpForm = ({}) => {
             label="Password"
             placeholder="Enter your password"
             required
+            value={loginRegisterPassword}
+            onChange={(value) => setLoginRegisterPassword(value)}
           />
           {isSignUpForm && (
             <CustomInput
               isPassword
-              label="Confirm  password"
-              placeholder="Confirm your passwort"
+              label="Confirm password"
+              placeholder="Confirm your password"
               required
+              value={confirmPassword}
+              onChange={(value) => setConfirmPassword(value)}
             />
           )}
-          <button
-            className={styles.StyledLoginButton}
-            type="submit"
-            onClick={isSignUpForm ? handleSignUp : handleSignIn}
-          >
+          <button className={styles.StyledLoginButton} type="submit">
             {isSignUpForm ? "Register" : "Login"}
           </button>
-          {error && <p>{error}</p>}
+          {error && <p className={styles.errorMessage}>{error}</p>}
         </form>
         <div className={styles.StyledSignUpQuestionAndButtonWrapper}>
           <Paragraph>
@@ -112,15 +141,16 @@ export const SignInAndSignUpForm = ({}) => {
 
 const SignUpWithGoogleButton = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
   const signUpWithGoogle = async () => {
     setIsLoading(true)
     try {
       const result = await signInWithGooglePopup()
       console.log("Google sign in successful:", result)
-      // Hier Navigation oder weitere Logik
+      router.push("/dashboard")
     } catch (error) {
       console.error("Google sign in failed:", error)
-      // Hier Error Handling
+      throw new Error("Google sign in failed")
     } finally {
       setIsLoading(false)
     }
@@ -142,15 +172,8 @@ const SignUpWithGoogleButton = () => {
   )
 }
 
-type CustomInputProps = {
-  isPassword?: boolean
-  placeholder?: string
-  label?: string
-  value?: string
-  onChange?: (value: string) => void
-} & Pick<FormControlProps, "required">
-
-export const CustomInput: React.FC<CustomInputProps> = ({
+// CustomInput Komponente anpassen:
+export const CustomInput: React.FC<any> = ({
   label,
   placeholder,
   isPassword,
@@ -160,10 +183,9 @@ export const CustomInput: React.FC<CustomInputProps> = ({
   ...textFieldProps
 }) => {
   const [showPassword, setShowPassword] = useState(false)
-  const [inputValue, setInputvalue] = useState("")
 
-  const handleClickShowPassword = () => {
-    setShowPassword(!showPassword)
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e.target.value)
   }
 
   return (
@@ -172,7 +194,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
       <TextField
         {...textFieldProps}
         value={value}
-        onChange={(e) => setInputvalue(e.target.value)}
+        onChange={handleChange}
         variant="filled"
         type={isPassword ? (showPassword ? "text" : "password") : "text"}
         placeholder={placeholder}
@@ -182,7 +204,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
               <InputAdornment position="end">
                 <IconButton
                   aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
+                  onClick={() => setShowPassword(!showPassword)}
                   edge="end"
                 >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
