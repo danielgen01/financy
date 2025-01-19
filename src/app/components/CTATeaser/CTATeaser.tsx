@@ -21,7 +21,7 @@ export const CTATeaser: React.FC<CTATeaserProps> = ({
         <div className={styles.StyledParagraphWrapper}>
           <p className={styles.StyledParagraph}>{paragraphText}</p>
         </div>
-        <Link href="/signup" className={styles.StyledCTAButton}>
+        <Link href="/auth" className={styles.StyledCTAButton}>
           Join Now Today Free ! <ArrowForward />
         </Link>
       </div>

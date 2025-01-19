@@ -28,7 +28,7 @@ export const HeroSection: React.FC = () => {
           Our powerful platform helps you take control of your income, expenses{" "}
           assets, and liabilities, all in one place
         </Paragraph>
-        <Link href="/signup" className={styles.StyledLink}>
+        <Link href="/auth" className={styles.StyledLink}>
           Get started
           <FontAwesomeIcon icon={faArrowRight} />
         </Link>
