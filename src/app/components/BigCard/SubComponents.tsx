@@ -9,9 +9,9 @@ const CircularSkeletonActionIcon: React.FC = () => {
 
 export const BigCardSkeleton: React.FC = () => {
   return (
-    <Box display="flex" justifyContent="space-between" alignItems="center">
-      <MuiSkeleton width="30%" height={75} />
-      <MuiSkeleton width="30%" height={75} />
+    <Box display="flex" justifyContent="space-between" alignItems="center" marginTop={2}>
+      <MuiSkeleton width="30%" height={50}  variant="text"/>
+      <MuiSkeleton width="30%" height={50}  variant="text"/>
       <div className={styles.StyledSkeletonActionIconsWrapper}>
         <CircularSkeletonActionIcon />
         <CircularSkeletonActionIcon />
