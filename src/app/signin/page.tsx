@@ -1,9 +1,13 @@
-"use client"
+import React from "react"
 
-// pages/auth.js
-
+import { LayoutSection } from "../components/LayoutSection/LayoutSection"
 import { SignInAndSignUpForm } from "../components/SignInAndSignUpForm/SignInAndSignUpForm"
+import styles from "./page.styles.module.css"
 
 export default function AuthPage() {
-  return <SignInAndSignUpForm />
+  return (
+    <LayoutSection className={styles.StyledAuthPage}>
+      <SignInAndSignUpForm />
+    </LayoutSection>
+  )
 }

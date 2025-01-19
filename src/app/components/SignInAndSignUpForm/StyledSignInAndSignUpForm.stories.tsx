@@ -12,10 +12,12 @@ const Template: StoryFn<any> = (args) => {
     <div
       style={{
         height: "100vh",
-        width: "500px",
-        margin: "1rem",
         padding: "1rem",
         backgroundColor: "grey",
+        margin: "0 auto",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <SignInAndSignUpForm {...args} />

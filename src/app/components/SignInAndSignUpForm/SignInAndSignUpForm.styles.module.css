@@ -1,21 +1,20 @@
 .StyledSignInAndSignUpForm {
-    margin: 0 auto;
     gap: var(--border-radius-md);
     background: var(--color-container-color);
-    /* box-shadow: 0px 4px 50px 10px rgba(49, 25, 96, 1); */
+    box-shadow: 0px 4px 50px 10px rgba(49, 25, 96, 0.1);
     border-radius: var(--border-radius-md)  ;
     -webkit-border-radius: var(--border-radius-md)  ;
     -moz-border-radius: var(--border-radius-md)  ;
     -ms-border-radius: var(--border-radius-md)  ;
     -o-border-radius: var(--border-radius-md)  ;
-    min-height: 500px;
     border-top: 10px solid var(--color-custom-purple);
     padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-3xl);
+    width: 500px;
 
 }
 
 .StyledSignInAndSignUpFormContent {
-    background-color: var(--color-light-white);
+    background-color: var(--color-quote-teaser-background);
     padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-3xl);
     border-radius: var(--border-radius-md);
     margin:0 auto;
@@ -37,12 +36,13 @@
     text-align: center;
 }
 
-.StyledButtonWrapper {
+.StyledGoogleButtonWrapper {
     display: flex;
-    width: 100%;
     align-items: center;
     gap:8px;
-    background-color: white;
+    width: 100%;
+    align-self: center;
+    background-color: var(--color-container-color);
     border-radius: var(--border-radius-full);
     padding: var(--spacing-md) var(--spacing-md);
     cursor: pointer;
@@ -52,12 +52,12 @@
     -moz-border-radius: var(--border-radius-full);
     -ms-border-radius: var(--border-radius-full);
     -o-border-radius: var(--border-radius-full);
-    color: #424242;
+    color: var(--color-text-primary);
     display: flex;
     justify-content: center;
 }
 
-.StyledButtonWrapper:hover {
+.StyledGoogleButtonWrapper:hover {
     background-color: var(--color-primary-main);
     color:var(--color-light-white);
     transition: all 500ms;
@@ -79,6 +79,7 @@
     border: none;
     border-radius: var(--border-radius-full);
     padding: var(--spacing-md) var(--spacing-2xl);
+    align-self: center;
     cursor: pointer;
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-bold);
@@ -91,4 +92,28 @@
 .StyledLoginButton:hover{
     opacity: 0.8;
     transition: all 500ms;
+}
+
+
+.StyledSignUpQuestionAndButtonWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+
+}
+.StyledSignUpButton {
+    background-color: var(--color-secondary-main);
+    color: var(--color-primary-main);
+    border: none;
+    border-radius: var(--border-radius-full);
+    padding: var(--spacing-md) var(--spacing-2xl);
+    font-size: var(--font-size-sm);
+    align-self: center;
+    cursor: pointer;
+    font-weight: var(--font-weight-bold);
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    -ms-border-radius: var(--border-radius-full);
+    -o-border-radius: var(--border-radius-full);
 }
