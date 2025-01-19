@@ -8,6 +8,8 @@ import { ThemeProvider as NextThemesProvider } from "next-themes"
 
 import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
+import { ThemeProvider } from "@mui/material"
+import { lightTheme } from "./theme"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -25,14 +27,16 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <NextThemesProvider>
-          <header>
-            {" "}
-            <Header />
-          </header>
-          <main>{children}</main>
-          <footer>
-            <Footer />
-          </footer>
+          <ThemeProvider theme={lightTheme}>
+            <header>
+              {" "}
+              <Header />
+            </header>
+            <main>{children}</main>
+            <footer>
+              <Footer />
+            </footer>
+          </ThemeProvider>
         </NextThemesProvider>
       </body>
     </html>
