@@ -6,7 +6,6 @@ import {
   FormControlProps,
   FormLabel,
   TextField,
-  TextFieldProps,
   IconButton,
   InputAdornment,
 } from "@mui/material"
@@ -20,13 +19,17 @@ import Paragraph from "../Typography/Paragraph/Paragraph"
 import styles from "./SignInAndSignUpForm.styles.module.css"
 
 export const SignInAndSignUpForm = ({}) => {
-  const [email, setEmail] = useState("")
+  const [loginRegisterEmail, setLoginRegisterEmail] = useState("")
+  const [loginRegisterPassword, setLoginRegisterPassword] = useState("")
   const [error, setError] = useState(false)
   const [isSignUpForm, setIsSignUpForm] = useState(false)
   // const router = useRouter()
 
   const handleSignUp = async () => {
-    const { user, error } = await signUp(email, password)
+    const { user, error } = await signUp(
+      loginRegisterEmail,
+      loginRegisterPassword,
+    )
     if (error) {
       setError(true)
     } else {
@@ -36,7 +39,10 @@ export const SignInAndSignUpForm = ({}) => {
   }
 
   const handleSignIn = async () => {
-    const { user, error } = await signIn(email, password)
+    const { user, error } = await signIn(
+      loginRegisterEmail,
+      loginRegisterPassword,
+    )
     if (error) {
       setError(true)
     } else {
@@ -154,14 +160,10 @@ export const CustomInput: React.FC<CustomInputProps> = ({
   ...textFieldProps
 }) => {
   const [showPassword, setShowPassword] = useState(false)
-  const [password, setPassword] = useState("")
+  const [inputValue, setInputvalue] = useState("")
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value)
   }
 
   return (
@@ -170,7 +172,7 @@ export const CustomInput: React.FC<CustomInputProps> = ({
       <TextField
         {...textFieldProps}
         value={value}
-        onChange={handleChange}
+        onChange={(e) => setInputvalue(e.target.value)}
         variant="filled"
         type={isPassword ? (showPassword ? "text" : "password") : "text"}
         placeholder={placeholder}
