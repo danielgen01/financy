@@ -7,6 +7,8 @@ export default {
   component: SignInAndSignUpForm,
 } as Meta
 
+const router = () => {}
+
 const Template: StoryFn<any> = (args) => {
   return (
     <div
@@ -20,7 +22,7 @@ const Template: StoryFn<any> = (args) => {
         alignItems: "center",
       }}
     >
-      <SignInAndSignUpForm {...args} />
+      <SignInAndSignUpForm router={router} {...args} />
     </div>
   )
 }

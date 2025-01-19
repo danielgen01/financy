@@ -20,14 +20,13 @@ import styles from "./SignInAndSignUpForm.styles.module.css"
 import { useRouter } from "next/navigation"
 import Error from "next/error"
 
-export const SignInAndSignUpForm = () => {
+export const SignInAndSignUpForm = ({ router }) => {
   const [loginRegisterEmail, setLoginRegisterEmail] = useState<string>()
   const [confirmEmail, setConfirmEmail] = useState<string>()
   const [loginRegisterPassword, setLoginRegisterPassword] = useState<string>()
   const [confirmPassword, setConfirmPassword] = useState<string>()
   const [error, setError] = useState<string>()
   const [isSignUpForm, setIsSignUpForm] = useState(false)
-  const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -80,7 +79,7 @@ export const SignInAndSignUpForm = () => {
         <p className={styles.StyledSignInText}>
           {isSignUpForm ? "Create an account" : "Sign In to your account"}
         </p>
-        <SignUpWithGoogleButton />
+        <SignUpWithGoogleButton router={router} />
         <form onSubmit={handleSubmit} className={styles.StyledForm}>
           <CustomInput
             label="E-Mail"
@@ -139,9 +138,8 @@ export const SignInAndSignUpForm = () => {
   )
 }
 
-const SignUpWithGoogleButton = () => {
+const SignUpWithGoogleButton = ({ router }) => {
   const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
   const signUpWithGoogle = async () => {
     setIsLoading(true)
     try {
