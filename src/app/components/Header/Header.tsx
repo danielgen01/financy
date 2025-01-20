@@ -12,6 +12,7 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material"
+import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import React, { useEffect, useState } from "react"
 
@@ -54,12 +55,14 @@ const DefaultHeader: React.FC = () => {
     isOpen,
     setOpenDialog,
   }) => {
+    const router = useRouter()
     return (
       <Dialog
         open={isOpen}
         onClose={() => {
           setOpenDialog(false)
         }}
+        className={styles.StyledUserActionModal}
       >
         <DialogTitle>User Actions</DialogTitle>
         <List sx={{ pt: 0 }}>
@@ -69,7 +72,7 @@ const DefaultHeader: React.FC = () => {
               onClick={() => {
                 logOut()
                 setOpenDialog(false)
-                window.location.reload()
+                router.push("/")
               }}
             >
               <ListItemText primary="Logout" />

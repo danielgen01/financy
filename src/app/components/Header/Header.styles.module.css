@@ -31,23 +31,13 @@ cursor: pointer;
 
 
 .StyledLogoutButton {
-  background-color: var(--color-secondary-main);
+  background-color: var(--color-background-default);
   color: var(--color-text-primary);
   padding: var(--spacing-sm);
   display: none;
   border-radius: var(--spacing-sm);
 }
 
-
-.StyledLogoutButton:hover {
-  background-color: var(--color-secondary-main);
-  opacity: 0.8;
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-
-
-}
 
 .StyledLink {
   background-color:var(--color-text-green);
