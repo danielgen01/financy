@@ -1,27 +1,24 @@
 "use client"
 
-import { Visibility, VisibilityOff } from "@mui/icons-material"
-import {
-  FormControl,
-  FormLabel,
-  IconButton,
-  InputAdornment,
-  TextField,
-} from "@mui/material"
-import Error from "next/error"
-import Image from "next/image"
+import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
 import React, { useState } from "react"
 
 import { signIn, signUp } from "@/app/utils/auth"
-import { signInWithGooglePopup } from "@/app/utils/firebaseConfig"
 
 import Paragraph from "../Typography/Paragraph/Paragraph"
 import styles from "./SignInAndSignUpForm.styles.module.css"
+import { CustomInput, SignUpWithGoogleButton } from "./SubComponents"
 
-export const SignInAndSignUpForm = ({ router }) => {
-  const [loginRegisterEmail, setLoginRegisterEmail] = useState<string>()
+interface SignInAndSignUpFormProps {
+  router?: AppRouterInstance | null
+}
+
+export const SignInAndSignUpForm: React.FC<SignInAndSignUpFormProps> = ({
+  router,
+}) => {
+  const [loginRegisterEmail, setLoginRegisterEmail] = useState<string>("")
   const [confirmEmail, setConfirmEmail] = useState<string>()
-  const [loginRegisterPassword, setLoginRegisterPassword] = useState<string>()
+  const [loginRegisterPassword, setLoginRegisterPassword] = useState<string>("")
   const [confirmPassword, setConfirmPassword] = useState<string>()
   const [error, setError] = useState<string>()
   const [isSignUpForm, setIsSignUpForm] = useState(false)
@@ -30,7 +27,6 @@ export const SignInAndSignUpForm = ({ router }) => {
     e.preventDefault()
 
     if (isSignUpForm) {
-      // Validierung für Sign Up
       if (loginRegisterEmail !== confirmEmail) {
         setError("Emails do not match")
         return
@@ -46,28 +42,20 @@ export const SignInAndSignUpForm = ({ router }) => {
   }
 
   const handleSignUp = async () => {
-    const { user, error } = await signUp(
-      loginRegisterEmail,
-      loginRegisterPassword,
-    )
+    const { error } = await signUp(loginRegisterEmail, loginRegisterPassword)
     if (error) {
-      setError(true)
+      setError("Error during sign up")
     } else {
-      console.log("User signed up:", user)
-      router.push("/dashboard")
+      router?.push("/dashboard")
     }
   }
 
   const handleSignIn = async () => {
-    const { user, error } = await signIn(
-      loginRegisterEmail,
-      loginRegisterPassword,
-    )
+    const { error } = await signIn(loginRegisterEmail, loginRegisterPassword)
     if (error) {
-      setError(true)
+      setError("Invalid credentials")
     } else {
-      console.log("User signed in:", user)
-      router.push("/dashboard")
+      router?.push("/dashboard")
     }
   }
 
@@ -84,7 +72,7 @@ export const SignInAndSignUpForm = ({ router }) => {
             placeholder="Enter your E-Mail"
             required
             value={loginRegisterEmail}
-            onChange={(value) => setLoginRegisterEmail(value)}
+            onChange={(value: string) => setLoginRegisterEmail(value)}
           />
           {isSignUpForm && (
             <CustomInput
@@ -92,7 +80,7 @@ export const SignInAndSignUpForm = ({ router }) => {
               placeholder="Confirm your E-Mail"
               required
               value={confirmEmail}
-              onChange={(value) => setConfirmEmail(value)}
+              onChange={(value: string) => setConfirmEmail(value)}
             />
           )}
           <CustomInput
@@ -101,7 +89,7 @@ export const SignInAndSignUpForm = ({ router }) => {
             placeholder="Enter your password"
             required
             value={loginRegisterPassword}
-            onChange={(value) => setLoginRegisterPassword(value)}
+            onChange={(value: string) => setLoginRegisterPassword(value)}
           />
           {isSignUpForm && (
             <CustomInput
@@ -110,7 +98,7 @@ export const SignInAndSignUpForm = ({ router }) => {
               placeholder="Confirm your password"
               required
               value={confirmPassword}
-              onChange={(value) => setConfirmPassword(value)}
+              onChange={(value: string) => setConfirmPassword(value)}
             />
           )}
           <button className={styles.StyledLoginButton} type="submit">
@@ -133,87 +121,5 @@ export const SignInAndSignUpForm = ({ router }) => {
         </div>
       </div>
     </div>
-  )
-}
-
-const SignUpWithGoogleButton = ({ router }) => {
-  const [isLoading, setIsLoading] = useState(false)
-  const signUpWithGoogle = async () => {
-    setIsLoading(true)
-    try {
-      const result = await signInWithGooglePopup()
-      console.log("Google sign in successful:", result)
-      router.push("/dashboard")
-    } catch (error) {
-      console.error("Google sign in failed:", error)
-      throw new Error("Google sign in failed")
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  return (
-    <button
-      className={styles.StyledGoogleButtonWrapper}
-      onClick={signUpWithGoogle}
-      type="button"
-    >
-      {!isLoading && (
-        <div>
-          <Image src="/google.png" width={30} height={30} alt="google-icon" />
-        </div>
-      )}
-      {isLoading ? "Signing in..." : "Sign in with Google"}
-    </button>
-  )
-}
-
-// CustomInput Komponente anpassen:
-export const CustomInput: React.FC<any> = ({
-  label,
-  placeholder,
-  isPassword,
-  required,
-  value,
-  onChange,
-  ...textFieldProps
-}) => {
-  const [showPassword, setShowPassword] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(e.target.value)
-  }
-
-  return (
-    <FormControl className={styles.formControl}>
-      <FormLabel required={required} className={styles.label}>
-        {label}
-      </FormLabel>
-      <TextField
-        {...textFieldProps}
-        value={value}
-        onChange={handleChange}
-        variant="filled"
-        type={isPassword && !showPassword ? "password" : "text"}
-        placeholder={placeholder}
-        className={styles.input}
-        InputProps={{
-          ...(isPassword && {
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconButton
-                  className={styles.iconButton}
-                  aria-label="toggle password visibility"
-                  onClick={() => setShowPassword(!showPassword)}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            ),
-          }),
-        }}
-      />
-    </FormControl>
   )
 }
