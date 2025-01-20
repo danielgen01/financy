@@ -32,7 +32,7 @@ cursor: pointer;
 
 .StyledLogoutButton {
   background-color: var(--color-secondary-main);
-  color: var(--color-container-color);
+  color: var(--color-text-primary);
   padding: var(--spacing-sm);
   display: none;
   border-radius: var(--spacing-sm);

@@ -41,7 +41,7 @@ background-color: var(--color-container-color);
 
 .StyledAddButton:hover { 
   opacity: 0.7;
-       transition: 300ms;
+  transition: 300ms;
 }
 
 

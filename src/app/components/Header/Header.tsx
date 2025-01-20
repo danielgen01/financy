@@ -12,7 +12,6 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material"
-import Link from "next/link"
 import { useTheme } from "next-themes"
 import React, { useEffect, useState } from "react"
 
@@ -73,7 +72,7 @@ const DefaultHeader: React.FC = () => {
                 window.location.reload()
               }}
             >
-              <ListItemText primary="Logout bra" />
+              <ListItemText primary="Logout" />
             </ListItemButton>
           </ListItem>
         </List>
@@ -135,22 +134,11 @@ const DefaultHeader: React.FC = () => {
             <MuiSkeleton variant="circular" width={50} height={50} />
           )}
         </button>
-        {!user && !loading && (
-          <>
-            <Link className={styles.StyledLink} href="./signup">
-              Registrieren
-            </Link>
-            <Link className={styles.StyledLink} href="./signin">
-              Anmelden
-            </Link>
-          </>
-        )}
       </div>
       <UserActionModal
         isOpen={openUserDialog}
         setOpenDialog={setOpenUserDialog}
       />
-      {/* <HamburgerMenu /> */}
     </div>
   )
 }
