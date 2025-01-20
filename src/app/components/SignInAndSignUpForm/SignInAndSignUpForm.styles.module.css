@@ -117,3 +117,45 @@
     -ms-border-radius: var(--border-radius-full);
     -o-border-radius: var(--border-radius-full);
 }
+
+.formControl {
+    width: 100%;
+  }
+  
+  .input {
+    background-color: var(--color-container-color);
+    border-radius: 4px;
+  }
+  
+  .input :global(.MuiFilledInput-input) {
+    color: var(--color-text-primary);
+  }
+  
+  .input :global(.MuiFilledInput-root) {
+    background-color: transparent;
+    border-radius: 4px;
+  }
+  
+  .input :global(.MuiFilledInput-root:hover) {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  
+  .input :global(.MuiFilledInput-root:before) {
+    border-bottom: none;
+  }
+  
+  .input :global(.MuiFilledInput-root:after) {
+    border-bottom: 2px solid var(--color-primary-main);
+  }
+  
+  .label {
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xxs);
+  }
+  
+  .iconButton {
+    color:  var(--color-text-primary);
+  }
+  
+ 

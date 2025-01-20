@@ -3,22 +3,20 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material"
 import {
   FormControl,
-  FormControlProps,
   FormLabel,
-  TextField,
   IconButton,
   InputAdornment,
+  TextField,
 } from "@mui/material"
+import Error from "next/error"
 import Image from "next/image"
-import React, { use, useState } from "react"
+import React, { useState } from "react"
 
 import { signIn, signUp } from "@/app/utils/auth"
 import { signInWithGooglePopup } from "@/app/utils/firebaseConfig"
 
 import Paragraph from "../Typography/Paragraph/Paragraph"
 import styles from "./SignInAndSignUpForm.styles.module.css"
-import { useRouter } from "next/navigation"
-import Error from "next/error"
 
 export const SignInAndSignUpForm = ({ router }) => {
   const [loginRegisterEmail, setLoginRegisterEmail] = useState<string>()
@@ -187,20 +185,24 @@ export const CustomInput: React.FC<any> = ({
   }
 
   return (
-    <FormControl sx={{ width: "100%" }}>
-      <FormLabel required={required}>{label}</FormLabel>
+    <FormControl className={styles.formControl}>
+      <FormLabel required={required} className={styles.label}>
+        {label}
+      </FormLabel>
       <TextField
         {...textFieldProps}
         value={value}
         onChange={handleChange}
         variant="filled"
-        type={isPassword ? (showPassword ? "text" : "password") : "text"}
+        type={isPassword && !showPassword ? "password" : "text"}
         placeholder={placeholder}
+        className={styles.input}
         InputProps={{
           ...(isPassword && {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
+                  className={styles.iconButton}
                   aria-label="toggle password visibility"
                   onClick={() => setShowPassword(!showPassword)}
                   edge="end"
@@ -210,6 +212,14 @@ export const CustomInput: React.FC<any> = ({
               </InputAdornment>
             ),
           }),
+        }}
+        sx={{
+          "& .MuiFilledInput-input": {
+            padding: "12px 16px",
+          },
+          "& .MuiInputAdornment-root": {
+            marginRight: "8px",
+          },
         }}
       />
     </FormControl>
