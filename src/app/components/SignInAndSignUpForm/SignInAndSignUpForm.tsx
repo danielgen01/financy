@@ -213,14 +213,6 @@ export const CustomInput: React.FC<any> = ({
             ),
           }),
         }}
-        sx={{
-          "& .MuiFilledInput-input": {
-            padding: "12px 16px",
-          },
-          "& .MuiInputAdornment-root": {
-            marginRight: "8px",
-          },
-        }}
       />
     </FormControl>
   )

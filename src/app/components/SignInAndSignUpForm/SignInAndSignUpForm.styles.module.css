@@ -147,6 +147,15 @@
   .input :global(.MuiFilledInput-root:after) {
     border-bottom: 2px solid var(--color-primary-main);
   }
+
+.input :global(.MuiFilledInput-input) {
+    padding: 12px 16px;
+    color: var(--color-text-primary);
+  }
+  
+  .input :global(.MuiInputAdornment-root) {
+    margin-right: 8px;
+  }
   
   .label {
     color: var(--color-text-primary);
