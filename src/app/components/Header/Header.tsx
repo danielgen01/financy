@@ -128,7 +128,7 @@ const DefaultHeader: React.FC = () => {
           className={styles.StyledAccountButtonWrapper}
           type="button"
           onClick={() => {
-            setOpenUserDialog(true)
+            setOpenUserDialog(!openUserDialog)
           }}
         >
           {!loading ? (
@@ -146,10 +146,10 @@ const DefaultHeader: React.FC = () => {
           )}
         </button>
       </div>
-      {openUserDialog && (
+      {openUserDialog && user && (
         <UserActionModal
           isOpen={openUserDialog}
-          setOpenDialog={setOpenUserDialog}
+          setOpenDialog={() => setOpenUserDialog(!openUserDialog)}
         />
       )}
     </div>
