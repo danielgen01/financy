@@ -85,6 +85,15 @@ const DefaultHeader: React.FC = () => {
     )
   }
 
+  const firstName = user?.displayName?.split(" ")[0] || ""
+  const lastName = user?.displayName?.split(" ")[1] || ""
+
+  // Funktion um Initialen zu generieren
+  const getInitials = () => {
+    if (!firstName && !lastName) return "?"
+    return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase()
+  }
+
   const router = useRouter()
 
   return (
@@ -134,10 +143,16 @@ const DefaultHeader: React.FC = () => {
           {!loading ? (
             user ? (
               <Avatar
+                sx={{
+                  bgcolor: "primary.main",
+                  padding: ".125rem",
+                  fontSize: "0.75rem",
+                }}
                 src={user.photoURL || ""}
-                alt="Profile Image"
-                className={styles.StyledAccountProfileImage}
-              />
+                alt={`${firstName} ${lastName}`}
+              >
+                {getInitials()}
+              </Avatar>
             ) : (
               <Avatar onClick={() => router.push("/auth")} />
             )
