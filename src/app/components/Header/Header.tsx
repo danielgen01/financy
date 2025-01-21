@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+
 "use client"
 
 import { faBell } from "@fortawesome/free-regular-svg-icons"
@@ -83,6 +85,8 @@ const DefaultHeader: React.FC = () => {
     )
   }
 
+  const router = useRouter()
+
   return (
     <div className={styles.StyledHeaderWrapper}>
       <Logo logoSrc={logoSrc} />
@@ -127,21 +131,27 @@ const DefaultHeader: React.FC = () => {
             setOpenUserDialog(true)
           }}
         >
-          {!loading && user ? (
-            <Avatar
-              src="/Profile.png"
-              alt="Profile Image"
-              className={styles.StyledAccountProfileImage}
-            />
+          {!loading ? (
+            user ? (
+              <Avatar
+                src={user.photoURL || ""}
+                alt="Profile Image"
+                className={styles.StyledAccountProfileImage}
+              />
+            ) : (
+              <Avatar onClick={() => router.push("/auth")} />
+            )
           ) : (
             <MuiSkeleton variant="circular" width={50} height={50} />
           )}
         </button>
       </div>
-      <UserActionModal
-        isOpen={openUserDialog}
-        setOpenDialog={setOpenUserDialog}
-      />
+      {openUserDialog && (
+        <UserActionModal
+          isOpen={openUserDialog}
+          setOpenDialog={setOpenUserDialog}
+        />
+      )}
     </div>
   )
 }
