@@ -74,7 +74,7 @@ export const PricingTeaser: React.FC<PricingTeaserProps> = ({
             ))}
           </ul>
           <Link
-            href="/signup"
+            href="/auth"
             className={styles.StyledBookNowButton}
             type="button"
             target="_blank"
