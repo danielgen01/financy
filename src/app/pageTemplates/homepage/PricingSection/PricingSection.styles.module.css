@@ -1,0 +1,33 @@
+.StyledPricingSectionLayoutWrapper {
+  background-color:var(--color-pricing-section-background);
+ 
+}
+
+.StyledPricingTeasersWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  @media (width >= 960px) {
+    .StyledPricingTeasersWrapper {
+      grid-template-columns: repeat(2,1fr);
+    }
+  
+  }
+
+  @media (width >= 1280px) {
+  
+    .StyledPricingTeasersWrapper {
+      grid-template-columns: repeat(3,1fr);
+  
+    }
+    
+  }
+
+  .StyledContentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+

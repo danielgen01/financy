@@ -1,6 +1,8 @@
 .CardWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-sm);
 
 }
 
@@ -8,16 +10,14 @@
   border-radius: var(--border-radius-md);
   background-color: var(--color-container-color);
   border: 1px solid var(--color-container-outline);
-  padding: var(--spacing-md);
-  min-height: 100px; /* no theme value */
+  padding:var(--spacing-md);
 }
 
 .StyledAmountAndPerformanceWrapper {
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   height:50px;
 }
 

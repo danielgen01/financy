@@ -26,6 +26,6 @@ const Template: StoryFn<CardProps> = (args) => {
 export const Initial = Template.bind({})
 Initial.args = {
   title: "Balance",
-  amount: 0,
+  amount: 100,
   performance: 20,
 }

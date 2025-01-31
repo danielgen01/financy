@@ -1,0 +1,45 @@
+.StyledLayoutSection { 
+  padding:var(--layout-padding-mobile);
+}
+
+@media screen and (width >= 600px) {
+    .StyledLayoutSection {
+      padding-left:var(--layout-padding-tablet);
+      padding-right:var(--layout-padding-tablet);
+  
+    } 
+  }
+
+  @media screen and (width >= 960px) {
+    .StyledLayoutSection {
+      padding-left:var(--layout-padding-large-tablet);
+      padding-right:var(--layout-padding-large-tablet);
+  
+    } 
+  }
+
+  @media screen and (width >= 1280px) {
+    .StyledLayoutSection {
+      padding-left:var(--layout-padding-desktop);
+      padding-right:var(--layout-padding-desktop);
+  
+    }
+    
+  }
+  
+  
+  @media screen and (width >= 1920px) {
+    .StyledLayoutSection {
+      padding-left:var(--layout-padding-large-desktop);
+      padding-right:var(--layout-padding-large-desktop);
+  
+    }
+  }
+
+
+/* this variant will take the full app width without padding */
+  .StyledLayoutSectionFullWidth {
+    padding-left:0;
+    padding-right:0;
+
+  }

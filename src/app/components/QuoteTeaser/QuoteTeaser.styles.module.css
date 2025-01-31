@@ -1,0 +1,48 @@
+.StyledQuoteTeaser {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: var(--color-quote-teaser-background);
+    padding: var(--spacing-lg);
+    border-radius:var(--border-radius-lg) ;
+    gap: var(--spacing-lg);
+    border: 1px solid var(--color-container-outline);
+
+}
+
+.StyledRoofer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.StyledAvatarAndTextWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-lg);
+    height: 100%;
+}
+
+.StyledNameAndRole {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    gap: var(--spacing-xs);
+
+}
+
+.StyledParagraph {
+font-weight:var(--font-weight-regular);
+color: var( --color-navigation-item);
+font-size: var(--font-size-xs);
+line-height: 150%;
+text-align: left;
+}
+
+.StyledQuoteIcon {
+    color: var(--color-quote-teaser-icon);
+}

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getAuth } from "firebase/auth"
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 import { getDatabase } from "firebase/database"
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,3 +22,17 @@ export const firebaseConfig = {
 export const firebaseApp = initializeApp(firebaseConfig)
 export const auth = getAuth(firebaseApp)
 export const db = getDatabase(firebaseApp)
+
+// Initialize Firebase Auth provider
+const provider = new GoogleAuthProvider()
+
+provider.setCustomParameters({
+  prompt: "select_account",
+  scope: "email", // Nur E-Mail, kein Profilbild
+})
+
+// whenever a user interacts with the provider, we force them to select an account
+provider.setCustomParameters({
+  prompt: "select_account ",
+})
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider)

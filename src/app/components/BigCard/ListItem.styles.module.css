@@ -26,7 +26,6 @@
 }
 
 .StyledNameWrapper {
-  display: flex;
   justify-content: flex-start;
   font-size: var(--font-size-xs);
   width: 100%;
@@ -35,6 +34,7 @@
     display: block;
     text-overflow: ellipsis;
 }
+
 .StyledPriceWrapper {
   display: flex;
   justify-content: flex-end;

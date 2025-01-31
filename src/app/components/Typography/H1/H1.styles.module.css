@@ -1,7 +1,7 @@
 .StyledH1 {
 color: var( --color-typography-default);
 font-weight:var(--font-weight-extrabold);
-font-size: var(--font-size-2xl);
+font-size: var(--font-size-4xl);
 line-height: 114%;
 text-align: center;
 }

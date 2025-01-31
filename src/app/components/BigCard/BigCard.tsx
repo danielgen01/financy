@@ -25,7 +25,7 @@ export const BigCard: React.FC<BigCardProps> = ({
 
   const sortedCardItems = Object.values(cardItems).sort(
     (a, b) =>
-      (b as ListItemProps).cashflowAmount - (a as ListItemProps).cashflowAmount
+      (b as ListItemProps).cashflowAmount - (a as ListItemProps).cashflowAmount,
   ) as ListItemProps[]
 
   // this functions makes the sure the skeleton is not showed even if the items array is empty
@@ -51,6 +51,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         <button
           className={determineAddButtonStyling(styles, buttonActionName)}
           onClick={() => setOpenDialog(!openDialog)}
+          type="button"
         >
           {buttonActionName}
           <AddCircleOutline />

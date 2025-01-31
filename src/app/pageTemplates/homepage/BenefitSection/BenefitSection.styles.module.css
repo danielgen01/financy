@@ -1,0 +1,64 @@
+.StyledContentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-2xl);
+  }
+  
+  
+
+.StyledBenefitTeaserWrapper { 
+    display: grid;
+   grid-template-columns: 1fr;
+   gap: var(--spacing-xl);
+   width: 100%;
+ }
+
+ .StyledBigTeaserWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    width: 100%;
+ }
+
+ @media (width >= 600px) {
+  
+    .StyledBenefitTeaserWrapper{
+      grid-template-columns: repeat(2,1fr) ;
+   
+    }
+  
+   .StyledBenefitTeaserWrapper > :nth-child(3) {
+    grid-column: span 2;
+  }
+  
+  }
+
+  @media (width >= 960px) {
+  
+    .StyledBenefitTeaserWrapper {
+      grid-template-columns: repeat(3,1fr);
+    }
+    
+    .StyledBigTeaserWrapper {
+      grid-template-columns: repeat(2,1fr) !important;
+    }
+    .StyledBenefitTeaserWrapper > :nth-child(3) {
+      grid-column: span 1;
+    }
+  
+    .StyledQuoteTeaserWrapper {
+      grid-template-columns: repeat(2,1fr);
+    }
+  
+  
+   
+  }
+
+  .StyledBigTeaserWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    width: 100%;
+  }
+  

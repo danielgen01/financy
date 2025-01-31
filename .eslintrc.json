@@ -1,5 +1,5 @@
 {
-  // Base configuration for JavaScript files
+// Base configuration for JavaScript files
   "extends": [
     "airbnb-base", // Airbnb's base JS style guide
     "next/core-web-vitals", // Next.js core web vitals plugin to avoid build warnings

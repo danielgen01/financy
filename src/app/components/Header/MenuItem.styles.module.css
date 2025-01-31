@@ -2,13 +2,6 @@
 .StyledListItem {
   list-style-type: none;
   height: 100%;
-
-}
-
-.StyledListItem:hover > .StyledLabelText {
-  color: var(--color-primary-main);
-  background-color: var(--color-icon-background);
-  cursor: pointer;
 }
 
 .StyledLabelText {
@@ -20,6 +13,14 @@
   text-decoration: none;
   font-size: var(--font-size-xs);
 }
+
+.StyledListItem:hover > .StyledLabelText {
+  color: var(--color-primary-main);
+  background-color: var(--color-icon-background);
+  cursor: pointer;
+}
+
+
 
 .StyledLabelTextActive {
   color: var(--color-primary-main);

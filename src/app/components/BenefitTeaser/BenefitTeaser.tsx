@@ -5,7 +5,7 @@ import React from "react"
 
 import styles from "./BenefitTeaser.styles.module.css"
 
-interface BenefitTeaserProps {
+export interface BenefitTeaserProps {
   src: string | StaticImport
   text: string
 }
@@ -14,13 +14,7 @@ export const BenefitTeaser: React.FC<BenefitTeaserProps> = ({ src, text }) => {
   return (
     <div className={styles.StyledBenefitTeaserWrapper}>
       {src ? (
-        <Image
-          className={styles.StyledIcon}
-          width={50}
-          height={50}
-          src={src}
-          alt="Benefits_teaser"
-        />
+        <Image className={styles.StyledIcon} src={src} alt="Benefits_teaser" />
       ) : (
         <Skeleton width={50} height={50} />
       )}

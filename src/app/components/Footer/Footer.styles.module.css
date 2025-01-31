@@ -1,0 +1,238 @@
+.StyledFooter { 
+    background-color: #1E1D3A;
+}
+
+.StyledFooterContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+    padding: 5% 10%;
+}
+
+.StyledFooterHeadline {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: white;
+    white-space: nowrap;
+}
+
+.StyledInputBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid var(--color-custom-purple);
+    border-radius: var(--border-radius-full);
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    -ms-border-radius: var(--border-radius-full);
+    -o-border-radius: var(--border-radius-full);
+    background-color: #282747;
+    height: var(--const-height-newsletter-input-box);
+
+}
+
+.StyledInputField {
+    padding: var(--spacing-md);
+    color:#708794 ;
+    outline: none !important ;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: var(--font-size-sm);
+    
+
+
+}
+
+.StyledInputButton {
+    outline: none !important ;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-button-gradient);
+    padding: var(--spacing-md);
+    border-top-right-radius: var(--border-radius-full);
+    border-bottom-right-radius: var(--border-radius-full);
+    cursor: pointer;
+    height: 100%;
+   
+}
+
+.StyledInputButton:hover {
+    opacity: 0.7;
+    transition:250ms ease-in-out;
+    -webkit-transition:250ms ease-in-out;
+    -moz-transition:250ms ease-in-out;
+    -ms-transition:250ms ease-in-out;
+    -o-transition:250ms ease-in-out;
+}
+
+.StyledIconPaperPlane { 
+   color: var(--color-light-white);
+
+}
+
+
+
+.StyledLine {
+    opacity: 30%;
+}
+
+.StyledActionAndNewsletterWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+
+}
+
+.StyledFooterHead {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+
+}
+
+
+
+.StyledFooterBody {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+    justify-content: space-between;
+
+}
+
+.StyledParagraph {
+    text-align: left !important;
+    font-size: var(--font-size-sm) !important;
+    color:var(--color-white) !important;
+}
+
+
+.StyledSocialMediaWrapper { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--spacing-sm);
+    
+}
+
+.StyledFollowUsText { 
+    color:var(--color-white);
+}
+
+.StyledIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow:1;
+    gap: var(--spacing-sm);
+
+  
+}
+
+.StyledParagraphAndSocialMediaIconsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    flex:2;
+}
+
+.StyledIcon {
+    border: 1px solid var(--color-white);
+    border-radius: var(--border-radius-full);
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    -ms-border-radius: var(--border-radius-full);
+    -o-border-radius: var(--border-radius-full);
+    padding: var(--spacing-xs);
+    transition: 250ms ease-in-out;
+    -webkit-transition: 250ms;
+    -moz-transition: 250ms;
+    -ms-transition: 250ms;
+    -o-transition: 250ms;
+}
+
+.StyledIcon:hover {
+        color: var(--color-primary-main);
+        border-color: var(--color-primary-main);
+       
+}
+
+.StyledLink { 
+    text-decoration: none;
+    color:white;
+}
+
+.StyledFooterBottomText {
+    color:var(--color-white);
+}
+
+.StyledSupportContentWrapper{
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    gap: var(--spacing-md);
+}
+
+.StyledFooterChevronLink {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-white);
+    text-decoration: none;
+    width: 100%;
+    transition: 250ms ease-in-out;
+    -webkit-transition: 250ms ease-in-out;
+    -moz-transition: 250ms ease-in-out;
+    -ms-transition: 250ms ease-in-out;
+    -o-transition: 250ms ease-in-out;
+}
+
+.StyledSpanChevronLink { 
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: var(--font-size-md);
+}
+
+.StyledFooterChevronLink:hover {
+    color: var(--color-primary-main);
+}
+
+
+.StyledGetToKnowUsContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    flex: 1;
+
+}
+
+
+@media screen and (min-width: 960px) {
+    .StyledFooterHead {
+        flex-direction: row;
+    }
+
+
+.StyledFooterBody {
+    flex-direction: row;
+}
+
+.StyledActionAndNewsletterWrapper {
+    flex-direction: row;
+    align-items: center;
+}
+
+.StyledImage { 
+    align-self: center;
+}
+    
+}
+

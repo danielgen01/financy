@@ -1,6 +1,9 @@
+/* eslint-disable no-nested-ternary */
+
 "use client"
 
-import { faBell, faGear } from "@fortawesome/free-solid-svg-icons"
+import { faBell } from "@fortawesome/free-regular-svg-icons"
+import { faGear } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   Avatar,
@@ -11,8 +14,7 @@ import {
   ListItemButton,
   ListItemText,
 } from "@mui/material"
-import Image from "next/image"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useTheme } from "next-themes"
 import React, { useEffect, useState } from "react"
 
@@ -21,13 +23,25 @@ import { useAuth } from "@/app/utils/useAuth"
 
 import LogoDark from "../../../../public/Logo-dark.png"
 import LogoLight from "../../../../public/Logo-light.png"
-import HamburgerMenu from "../HamburgerMenu/HamburgerMenu"
+import { Logo } from "../Logo/Logo"
 import { MuiSkeleton } from "../MuiSkeleton/MuiSkeleton"
 import { ThemeToggler } from "../ToggleThemeButton/ToggleThemeButton"
 import styles from "./Header.styles.module.css"
 import MenuItem from "./MenuItem"
 
-const Header: React.FC = () => {
+export const NavigiationItems: React.FC = () => {
+  return (
+    <ul className={styles.StyledMenuList}>
+      <MenuItem href="/dashboard" label="Dashboard" />
+      <MenuItem href="/" label="Transactions" />
+      <MenuItem href="/" label="Analytics" />
+      <MenuItem href="/" label="Accounts" />
+      <MenuItem href="/" label="Wallet" />
+    </ul>
+  )
+}
+
+const DefaultHeader: React.FC = () => {
   const { user, loading } = useAuth()
   const [openUserDialog, setOpenUserDialog] = useState(false)
   const { theme } = useTheme()
@@ -43,12 +57,14 @@ const Header: React.FC = () => {
     isOpen,
     setOpenDialog,
   }) => {
+    const router = useRouter()
     return (
       <Dialog
         open={isOpen}
         onClose={() => {
           setOpenDialog(false)
         }}
+        className={styles.StyledUserActionModal}
       >
         <DialogTitle>User Actions</DialogTitle>
         <List sx={{ pt: 0 }}>
@@ -58,10 +74,10 @@ const Header: React.FC = () => {
               onClick={() => {
                 logOut()
                 setOpenDialog(false)
-                window.location.reload()
+                router.push("/")
               }}
             >
-              <ListItemText primary="Logout bra" />
+              <ListItemText primary="Logout" />
             </ListItemButton>
           </ListItem>
         </List>
@@ -69,32 +85,21 @@ const Header: React.FC = () => {
     )
   }
 
+  const firstName = user?.displayName?.split(" ")[0] || ""
+  const lastName = user?.displayName?.split(" ")[1] || ""
+
+  // Funktion um Initialen zu generieren
+  const getInitials = () => {
+    if (!firstName && !lastName) return "?"
+    return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase()
+  }
+
+  const router = useRouter()
+
   return (
     <div className={styles.StyledHeaderWrapper}>
-      <Link
-        href="/"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: ".5rem",
-          fontWeight: "bold",
-        }}
-      >
-        <Image
-          src={logoSrc}
-          alt="Logo_Financy"
-          width={150}
-          height={40}
-          placeholder="blur"
-        />
-      </Link>
-      <ul className={styles.StyledMenuList}>
-        <MenuItem href="/overview" label="Overview" isActive />
-        <MenuItem href="/" label="Transactions" />
-        <MenuItem href="/" label="Analytics" />
-        <MenuItem href="/" label="Accounts" />
-        <MenuItem href="/" label="Wallet" />
-      </ul>
+      <Logo logoSrc={logoSrc} />
+      <NavigiationItems />
       <div className={styles.StyledAccountActionsWrapper}>
         {!loading ? (
           <ThemeToggler />
@@ -102,7 +107,7 @@ const Header: React.FC = () => {
           <MuiSkeleton variant="circular" width={50} height={50} />
         )}
         {!loading ? (
-          <button className="header-action-icon">
+          <button className="header-action-icon" type="button">
             <FontAwesomeIcon
               icon={faGear}
               width={40}
@@ -115,9 +120,10 @@ const Header: React.FC = () => {
           <MuiSkeleton variant="circular" width={50} height={50} />
         )}
         {!loading ? (
-          <button className="header-action-icon">
+          <button className="header-action-icon" type="button">
             <FontAwesomeIcon
               icon={faBell}
+              fontVariant="classic"
               width={40}
               height={40}
               cursor="pointer"
@@ -127,39 +133,44 @@ const Header: React.FC = () => {
         ) : (
           <MuiSkeleton variant="circular" width={50} height={50} />
         )}
-        <div
+        <button
+          className={styles.StyledAccountButtonWrapper}
+          type="button"
           onClick={() => {
-            setOpenUserDialog(true)
+            setOpenUserDialog(!openUserDialog)
           }}
         >
-          {!loading && user ? (
-            <Avatar
-              src="/Profile.png"
-              alt="Profile Image"
-              className={styles.StyledAccountProfileImage}
-            />
+          {!loading ? (
+            user ? (
+              <Avatar
+                sx={{
+                  bgcolor: "primary.main",
+                  padding: ".125rem",
+                  fontSize: "0.75rem",
+                }}
+                src={user.photoURL || ""}
+                alt={`${firstName} ${lastName}`}
+              >
+                {getInitials()}
+              </Avatar>
+            ) : (
+              <Avatar onClick={() => router.push("/auth")} />
+            )
           ) : (
             <MuiSkeleton variant="circular" width={50} height={50} />
           )}
-        </div>
-        {!user && !loading && (
-          <>
-            <Link className={styles.StyledLink} href="./signup">
-              Registrieren
-            </Link>
-            <Link className={styles.StyledLink} href="./signin">
-              Anmelden
-            </Link>
-          </>
-        )}
+        </button>
       </div>
-      <UserActionModal
-        isOpen={openUserDialog}
-        setOpenDialog={setOpenUserDialog}
-      />
-      <HamburgerMenu />
+      {openUserDialog && user && (
+        <UserActionModal
+          isOpen={openUserDialog}
+          setOpenDialog={() => setOpenUserDialog(!openUserDialog)}
+        />
+      )}
     </div>
   )
 }
 
-export default Header
+export const Header = () => {
+  return <DefaultHeader />
+}

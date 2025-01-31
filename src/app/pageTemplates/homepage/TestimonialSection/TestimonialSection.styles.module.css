@@ -1,0 +1,44 @@
+.StyledTestimonialLayoutSectionWrapper {
+    background-color: var(--color-testimonial-section-background);
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .StyledTestimonialContentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl) 0;
+  }
+
+
+  .StyledQuoteTeaserWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+  
+
+  
+@media (width >= 960px) {
+   
+    .StyledQuoteTeaserWrapper {
+      grid-template-columns: repeat(2,1fr);
+    }
+  
+  
+   
+  }
+  
+  @media (width >= 1280px) {
+   
+  
+    .StyledQuoteTeaserWrapper {
+      grid-template-columns: repeat(3,1fr);
+    }
+  
+  
+   
+    
+  }

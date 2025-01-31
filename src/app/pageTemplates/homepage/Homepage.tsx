@@ -1,23 +1,24 @@
-"use client"
-
 import React from "react"
 
-import styles from "./Homepage.styles.module.css"
-import {
-  BenefitSection,
-  CTASection,
-  HeroSection,
-  PreviewSection,
-} from "./SubComponents"
+import { OvalShapeFigure } from "@/app/components/OvalShapeFigure/OvalShapeFigure"
+
+import { BenefitSection } from "./BenefitSection/BenefitSection"
+import { CTASection } from "./CTASection/CTASection"
+import { HeroSection } from "./HeroSection/HeroSection"
+import { PricingSection } from "./PricingSection/PricingSection"
+import { TestimonalSection } from "./TestimonialSection/TestimonialSection"
 
 const Homepage = () => {
   return (
-    <div className={styles.StyledHomePageContentWrapper}>
+    <>
+      <OvalShapeFigure className="StyledOvalFadeShapeLeft" />
+      <OvalShapeFigure className="StyledOvalFadeShapeRight" />
       <HeroSection />
-      <PreviewSection />
       <BenefitSection />
       <CTASection />
-    </div>
+      <TestimonalSection />
+      <PricingSection />
+    </>
   )
 }
 

@@ -6,6 +6,7 @@
   height: var(--spacing-6xl);
   padding-left:var(--spacing-md);
   padding-right:var(--spacing-md);
+  border-bottom: 1px solid var(--color-container-outline);
 }
 
 .StyledMenuList {
@@ -23,8 +24,6 @@
 }
 
 .StyledAccountProfileImage {
-width:var(--spacing-3xl);
-height:var(--spacing-3xl);
 cursor: pointer;
 
 }
@@ -32,23 +31,13 @@ cursor: pointer;
 
 
 .StyledLogoutButton {
-  background-color: var(--color-secondary-main);
-  color: var(--color-container-color);
+  background-color: var(--color-background-default);
+  color: var(--color-text-primary);
   padding: var(--spacing-sm);
   display: none;
   border-radius: var(--spacing-sm);
 }
 
-
-.StyledLogoutButton:hover {
-  background-color: var(--color-secondary-main);
-  opacity: 0.8;
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-
-
-}
 
 .StyledLink {
   background-color:var(--color-text-green);
@@ -58,10 +47,15 @@ cursor: pointer;
 
 }
 
+.StyledAccountButtonWrapper {
+  background:none;
+  border: none;
+
+}
+
 /* Medias */
 
-@media screen and (min-width: 600px) {
- 
+@media screen and (width >= 600px) {
   .StyledHeaderWrapper {
     padding-left:var(--spacing-xl);
     padding-right:var(--spacing-xl);
@@ -71,7 +65,7 @@ cursor: pointer;
 }
 
 
-@media screen and (min-width: 960px) {
+@media screen and (width >= 960px) {
   .StyledLogoutButton {
   display: block;
 
@@ -91,9 +85,7 @@ cursor: pointer;
 
 
 
-@media screen and (min-width: 1280px) {
- 
-
+@media screen and (width >= 1280px) {
   .StyledHeaderWrapper {
     padding-left:80px;
     padding-right:80px;
@@ -103,8 +95,7 @@ cursor: pointer;
 }
 
 
-@media screen and (min-width: 1920px) {
- 
+@media screen and (width >= 1920px) {
   .StyledHeaderWrapper {
     padding-left:200px;
     padding-right:200px;
@@ -112,8 +103,7 @@ cursor: pointer;
   }
 }
 
-@media screen and (max-width: 960px) {
- 
+@media screen and (width <= 960px) {
   .StyledMenuList {
     display: none;
   }

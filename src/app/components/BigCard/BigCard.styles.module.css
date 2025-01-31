@@ -8,12 +8,6 @@
   gap: var(--spacing-lg);
 }
 
-@media screen and (min-width: 960px) {
-  .StyledBigCardWrapper {
-    height: 100%;
-  }
-  
-}
 
 .StyledBigCardHeadWrapper {
   display: flex;
@@ -43,8 +37,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: var(--spacing-md) 0px;
-  background-color: var(--color-icon-background);
+  padding: var(--spacing-md) 0;
+  background-color: var(--color-total-text-background);
   border-radius: var(--border-radius-sm);
   margin-top: auto;
 }
@@ -60,8 +54,7 @@
   font-weight: var(--font-weight-semibold);
   padding:var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-xs);
-  justify-items: center;
-  align-items: center;
+  place-items: center center;
   display: flex;
   gap:var(--spacing-xs);
   border-radius: var(--spacing-xs);
@@ -75,8 +68,7 @@
   font-weight: var(--font-weight-semibold);
   padding:var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-xs);
-  justify-items: center;
-  align-items: center;
+  place-items: center center;
   display: flex;
   gap:var(--spacing-xs);
   border-radius: var(--spacing-xs);

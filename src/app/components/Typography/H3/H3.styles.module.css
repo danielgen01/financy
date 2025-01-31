@@ -1,0 +1,8 @@
+.StyledH3 {
+    color: var( --color-typography-default);
+    font-weight:var(--font-weight-extrabold);
+    font-size: var(--font-size-2xl);
+    text-align: center;
+    line-height: 114%;
+    
+    }
