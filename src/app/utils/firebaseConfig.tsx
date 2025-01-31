@@ -26,6 +26,11 @@ export const db = getDatabase(firebaseApp)
 // Initialize Firebase Auth provider
 const provider = new GoogleAuthProvider()
 
+provider.setCustomParameters({
+  prompt: "select_account",
+  scope: "email", // Nur E-Mail, kein Profilbild
+})
+
 // whenever a user interacts with the provider, we force them to select an account
 provider.setCustomParameters({
   prompt: "select_account ",
