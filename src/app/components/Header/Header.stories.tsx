@@ -1,10 +1,10 @@
 import type { Meta, StoryFn } from "@storybook/react"
 
-import DefaultHeader from "./Header"
+import { Header } from "./Header"
 
 export default {
   title: "Components/Header",
-  component: DefaultHeader,
+  component: Header,
 } as Meta
 
 const Template: StoryFn = (args) => {
@@ -12,7 +12,7 @@ const Template: StoryFn = (args) => {
     <div
       style={{ backgroundColor: "#F2F6FD", padding: "1rem", height: "100vh" }}
     >
-      <DefaultHeader {...args} />
+      <Header {...args} />
     </div>
   )
 }

@@ -34,7 +34,7 @@ export const Headerlanding = () => {
 
         <div className={styles.StyledThemeToggleAndCTAButtonWrapper}>
           <ThemeToggler />
-          <button>get started</button>
+          <button type="button">get started</button>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ export default {
 const Template: StoryFn = (args) => {
   return (
     <div>
-      <Dialog open {...args} />
+      <Dialog dialogTitle="" buttonActionName="" open {...args} />
     </div>
   )
 }

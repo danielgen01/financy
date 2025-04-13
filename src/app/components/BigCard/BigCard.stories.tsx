@@ -23,7 +23,7 @@ const Template: StoryFn<BigCardProps> = (args) => {
     >
       <BigCard
         {...args}
-        cardItems={listItemsMock.listItems}
+        cardItems={listItemsMock.listItems as any}
         headlineItems={headlineItemsMockCard}
       />
     </div>

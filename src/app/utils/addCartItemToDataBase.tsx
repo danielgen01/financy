@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { getDatabase, push, ref } from "firebase/database"
 
 import { auth, firebaseApp } from "@/app/utils/firebaseConfig"
@@ -14,7 +15,6 @@ export const addCardItemToDataBase = async (
 ) => {
   const user = auth.currentUser
   if (!user) {
-    console.error("User is not authenticated")
     return
   }
 

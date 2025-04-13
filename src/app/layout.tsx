@@ -2,13 +2,13 @@ import "./global.css"
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "@fortawesome/fontawesome-svg-core/styles.css"
 
+import { ThemeProvider } from "@mui/material"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 
 import { Footer } from "./components/Footer/Footer"
 import { Header } from "./components/Header/Header"
-import { ThemeProvider } from "@mui/material"
 import { lightTheme } from "./theme"
 
 const inter = Inter({ subsets: ["latin"] })

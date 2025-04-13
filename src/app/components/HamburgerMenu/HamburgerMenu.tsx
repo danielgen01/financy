@@ -31,7 +31,14 @@ const HamburgerMenu = () => {
         </div>
         <div
           className={`${styles.menu} ${isOpen ? styles.menuOpen : ""}`}
+          role="button"
+          tabIndex={0}
           onClick={() => handleClickAway()}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              handleClickAway()
+            }
+          }}
         >
           <div>
             <div>

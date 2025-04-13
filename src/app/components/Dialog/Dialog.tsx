@@ -18,12 +18,11 @@ export const Dialog: React.FC<CustomDialogProps> = ({
   editCardItem,
   dialogTitle,
   dialogContent,
-  buttonActionName,
 }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {},
   } = useForm<DialogFormData>()
 
   const [openDialog, setOpenDialog] = React.useState<boolean>(open)

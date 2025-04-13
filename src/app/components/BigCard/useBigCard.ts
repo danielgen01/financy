@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import type { ListItemProps } from "./ListItem.types"
 
 export const determineTotal = (items: ListItemProps[]) => {

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { AddCircleOutline } from "@mui/icons-material"
 import { nanoid } from "nanoid"
 import React, { useEffect, useState } from "react"
@@ -42,6 +43,7 @@ export const BigCard: React.FC<BigCardProps> = ({
       setCardItemsLoading(false)
     }
     checkForEmptyItems()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cardItems])
 
   return (
@@ -69,7 +71,7 @@ export const BigCard: React.FC<BigCardProps> = ({
         </div>
 
         {cardItemsLoading ? (
-          Array.from({ length: 7 }).map((index: any) => (
+          Array.from({ length: 7 }).map(() => (
             <BigCardSkeleton key={nanoid()} />
           ))
         ) : (
